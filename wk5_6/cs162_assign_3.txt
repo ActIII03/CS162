@@ -1,0 +1,36 @@
+Name: Armant Touche
+Class: CS 162
+Instructor: Jeffery Lund
+
+Main Algorithm Super-Hero Info-
+Create a struct to store in information called SuperHero: 1) Name (e.g., Iron Man) -- store the names in a char array of 20 elements  2) True Identity (e.g., Tony Stark) -- store the true identities in a char array of 20 elements 3) Super Powers (e.g., High-Intellegience) -- store the powers in a char array of 20 elements 4) Relationship (e.g., Pepper Potts) -- store the names of the individuals into a a char array of 20 elements 5) Origin Story ~100 characters -- store the origin sotry into a char array of 101 elements 6) Short descriptions ~140 characters -- store the description into a char array of 141 elements. Greet user with message detailing what the program is and how it works using the "Greetings" module. Create 10-15 array of structs. Prompt user with the "Menu" module and Read in integer value from the "Menu Choice" module and here, depending on the value, depends on module that will be used. Values: 1) 1 actiavtes "Create/Enter" module 2) 2 activates "Display Hero Repo" 3) 3 activates "Quit" module. This outputs no values. Create a int value called max_superhero and puts the value into Case (1) and is incremented every time Case (1) is tripped. Program contines while "Quit" module returns true and max_superhero is not reached, which is 10-15, and else, program quits.
+
+Algorithm Greetings-
+Tell the user that this program is used for storing information on Superheros. Information that the programs keeps track of is: 1) Name (e.g., Iron Man) 2) True Identity (e.g., Tony Stark) 3) Super Powers (e.g., High-Intellegience) 4) Relationship (e.g., Pepper Potts) 5) Origin Story ~100 characters 6) Short descriptions ~140 characters. 
+
+Algorithm Read-in-
+Read a file in to get some previously created Superhero bio. and store them into the struct template above. Check file for previously created information to see if there is any stored data. Set flag once end of file is reached and delimiter so the can not be corrupted. Once file-check is done, then read in previously created data and display(maybe) information being copied into structs.
+
+Algorithm Menu-
+Display to user choices of: 1) Create/Enter new superhero Info 2) Display present Superheros 3) Quit Program. Create a char variable called response to store user's choice. Output this response to "Menu choice" Module
+
+Algorithm Menu Choice-
+Read in response from "Menu" module. Switch case would be the procedural tasker in place and the action to occur will be: 1) '1' for "Create/Enter a New Superhero" module 2) '2' for "Display Previously Made Hero Bios" modules 3) '3' for "Quit" module. Once a case is made make a value ranging from 1-3, which the range stands for the amount of choices, and output integer value to main().
+
+Algorithm Create/Enter-
+Prompts user with the "Enter-Prompt" module which list what the user will be inputting. Take input from 1-6 and store the data into SuperHero Struct and after storing data intto Superhero struct, write data to a file called super_hero_repo each time this module is used. End procedure and goes toto "Menu" module. 
+
+Algorithm Enter-Prompt
+Display to user "Please be ready to enter the following: 1) Name 2) True Identity 3) Super Power 4) Current Relationship 5) Origin Story (100 characters) 6) Short Description (140 Characters)." Then proceed to display in order: 1) "Enter Super Hero name: " 2) "Enter True Identity: " 3) "Enter Super Power: " 4) "Enter Current Relationship: " 5) "Enter Origin Story: " 6) "Enter Short Description: ."
+
+Algorithm Display
+Prompts user with "Hero Repo" module message. This module just displays Super-Hero Names
+
+Algorithm Hero Repo-
+Echoes data from already created super_hero_data file to user. Displays list of Super Hero's Names. Create an array to store a desired name to Display called desired_name and checks input for any puncations and asks user if the name entered is the desired name of hero they want displayed.. Output desired name to procedure module called "Display One Hero." Ask user if they want to re-display repo list and if not then returns to "Menu" module.
+
+Algorithm Display One Hero-
+IReads in input from "Hero Repo" module and compares desired_name variable with others and if there is a match then Display that match to user and returns to "Hero Repo" module. Else if name does not match any of the losted names from "Hero Repo" then stop procedure and redirect to "Hero Repo" module.
+
+Algorithm Quit-
+Creates a boolean variable called continue_repo. Prompts user for a Yes or No answer as to if they wish to continue Super-Hero Info Program. If yes then continue_repo is true else is false. Outputs continue_repo value to main().
