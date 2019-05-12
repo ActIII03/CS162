@@ -21,28 +21,30 @@ struct hero_type
 
 //void greet();
 void read_txt_file(hero_type new_hero[], int & counter);
-int menu_response(int & choice);
+//void greet();
+int menu_response(int response);
 void create_enter(hero_type new_hero[], int & counter);
 void create_message();
 void write_to_file( hero_type new_hero[], int counter);
 void pick_hero_display(hero_type new_hero[]);
 void display_picked_hero(hero_type new_hero[]);
 void display_heroes(hero_type new_hero[]);
-bool ask_again(bool & again);
+bool ask_again();
 bool quit(bool & response);
 
 int main()
 {
     hero_type new_hero[MAX];
-    int choice = 0, counter = 0;
-    bool decision = true; 
+    int response = 0, counter = 0;
+    bool decision = false;
+    
     read_txt_file(new_hero, counter);
     //greet();
     // do   <----- Add Do-While once done with Menu
-    menu_response(choice);
+    menu_response(response);
     do
     {
-        switch (choice)
+        switch (response)
         {
             case 1:
                 create_enter(new_hero, counter);
@@ -53,14 +55,12 @@ int main()
                 break;
             case 3:
                 quit(decision);
-                break;
             default:
                 cout << "wrong choice!";
         }
-        choice = 0;
-        menu_response(choice);
+        menu_response(response);
     }
-    while(counter < MAX && decision == true);
+    while(counter < MAX && !(quit(decision)));
 
     return 0;
 }
@@ -107,7 +107,7 @@ void read_txt_file(hero_type new_hero[], int & counter)
 
        in_file.get(new_hero[index].name, SIZE, delimiter);       
        in_file.ignore();
-        for(;in_file && !in_file.eof(); ++index)
+        for(;!in_file.eof(); ++index)
         {
            in_file.get(new_hero[index].identity, SIZE, delimiter);       
            in_file.ignore();
@@ -128,16 +128,16 @@ void read_txt_file(hero_type new_hero[], int & counter)
     }
 }
 
-int menu_response(int & choice)
+int menu_response(int response)
 {
     cout << "Please enter a number for the choices listed below:\n"
          << "(1) Create/Enter New Super hero\n"
          << "(2) Display Heroes\n"
          << "(3) Quit Program\n"
          << "Enter choice(1-3): ";
-    cin >> choice;
+    cin >> response;
     cin.ignore(100,'\n');
-    return choice;
+    return response;
 } 
 
 void create_enter(hero_type new_hero[], int & counter)
@@ -210,7 +210,7 @@ void display_heroes(hero_type new_hero[])
         else
             cout << "(" << struct_index+1 << "): " << new_hero[struct_index].name << endl;
     }
-    cout << "From the list above, please pick a hero to display information about them.\n"
+    cout << "From the list above, please pick a hero to display infromation about them.\n"
          << "Choice(1-10): ";
 }
 
@@ -229,45 +229,42 @@ void display_picked_hero(hero_type new_hero[])
     cout << "Opinion: " << new_hero[struct_index].opinion << endl;
 }
 
-bool ask_again(bool & again)
+bool ask_again(bool again)
 {
-    char input = 'Y';
     again = true;
     cout << "Would you like to search another profile?\n"
-         << "Choice(Y/N): ";
+         << "Choice: ";
+    cin >> again;
     cin.ignore();
-    if(toupper(input) == 'Y')
+    if(again == true)
     {
         again = false;
     }
-    else if(toupper(input) == 'N')
+    else
         again = true;
-    else 
-        again = true;
+    cout << "Boolean value:" << boolalpha << again << endl;
     return again;
 }
 
 void pick_hero_display(hero_type new_hero[])
 {
-    bool answer = true;   
-    do 
+    for(bool keep_going = true; keep_going == false;)
     {
         display_heroes(new_hero);
         display_picked_hero(new_hero);
-        ask_again(answer);
+        ask_again(keep_going);
     }
-    while(answer == true);
 }
 
 bool quit(bool & response)
 {
-    char decision = 'Y';
+    response = 'Y';
     cout << "Would you like to re-visit the previous modules?\n"
          << "Response(Y/N): ";
-    cin >> decision;
-    if(toupper(decision) == 'Y')
+    cin >> response;
+    if(response == true)
         response = true;
-    else if(toupper(decision) == 'N')
+    else
         response = false;
     return response;
 }
