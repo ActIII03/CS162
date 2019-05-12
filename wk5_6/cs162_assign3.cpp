@@ -3,8 +3,8 @@
 #include <iostream>
 
 const int SIZE = 20;
-const int BIO = 100;
-const int DESC = 140;
+const int BIO = 180;
+const int DESC = 200;
 const int MAX = 10;
 
 using namespace std;
@@ -26,33 +26,36 @@ int menu_response(int & response);
 void create_enter(hero_type new_hero[], int & counter);
 void create_message();
 void write_to_file( hero_type new_hero[], int counter);
-int pick_hero_display(hero_type new_hero[], int & user_pick);
+void pick_hero_display(hero_type new_hero[]);
+void display_picked_hero(hero_type new_hero[]);
 void display_heroes(hero_type new_hero[]);
+bool quit();
 
 int main()
 {
     hero_type new_hero[MAX];
-    int response, counter = 0, user_pick = 0;
+    int response, counter = 0;
     
     read_txt_file(new_hero, counter);
     //greet();
     // do   <----- Add Do-While once done with Menu
     menu_response(response);
-    switch (response)
+    do
     {
-        case 1:
-            create_enter(new_hero, counter);
-            write_to_file(new_hero, counter);
-            break;
-        case 2:
-            pick_hero_display(new_hero, user_pick);
-            break;
-        case 3:
-            //quit();
-            break;
-        default:
-            cout << "wrong choice!";
+        switch (response)
+        {
+            case 1:
+                create_enter(new_hero, counter);
+                write_to_file(new_hero, counter);
+                break;
+            case 2:
+                pick_hero_display(new_hero);
+                break;
+            default:
+                cout << "wrong choice!";
+        }
     }
+    while(counter < MAX && !(quit()));
 
     return 0;
 }
@@ -91,7 +94,7 @@ int main()
 void read_txt_file(hero_type new_hero[], int & counter)
 {
     ifstream in_file;
-    in_file.open("super_heroes.txt");
+    in_file.open("super_hero.txt");
     char delimiter = ':';
     if(in_file)
     {
@@ -109,12 +112,12 @@ void read_txt_file(hero_type new_hero[], int & counter)
            in_file.ignore();
            in_file.get(new_hero[index].opinion, DESC, delimiter);       
            in_file.ignore(100, '\n');
-           ++counter;
            while(in_file && !in_file.eof())    
            {
                 in_file.get(new_hero[index+1].name, SIZE, delimiter);       
                 in_file.ignore();
            }
+           ++counter;
         }
        in_file.close();
        in_file.clear();
@@ -173,8 +176,7 @@ void write_to_file( hero_type new_hero[], int counter)
     bool loop = true;
     counter = counter - 1;
     char delimiter = ':', separator = '\n';
-    out_file.open("super_heroes.txt", ios::app);
-    out_file << "**********************************New Hero Entry*******************************\n";
+    out_file.open("super_hero.txt", ios::app);
 
     if(out_file)
     {
@@ -199,30 +201,45 @@ void display_heroes(hero_type new_hero[])
     bool stop_display = false;
     for(int struct_index = 0; struct_index <= MAX && stop_display == false; ++struct_index)
     {
-        if(isspace(new_hero[struct_index].name[0]))
+        if(new_hero[struct_index].name[0] == '\0')
             stop_display = true;
         else
             cout << "(" << struct_index+1 << "): " << new_hero[struct_index].name << endl;
     }
     cout << "From the list above, please pick a hero to display infromation about them.\n"
          << "Choice(1-10): ";
+    cout << "Struct[1]: " << new_hero[1].name << endl;
 }
 
 
-void display_picked_hero(hero_type new_hero[], int user_pick)
+void display_picked_hero(hero_type new_hero[])
 {
-    for(int struct_index = user_pick - 1; stop_display == false;)
-    {
-        cout << "Name: " << new_hero[struct_index].name << endl;
-        cout << "Identity: " << new_hero[struct_index].identity << endl;
-        cout << "Name: " << new_hero[struct_index].name << endl;
-    }
-    cout << "From the list above, please pick a hero to display infromation about them.\n"
-         << "Choice(1-10): ";
+    int user_pick = 0, struct_index = 0;
+    cin >> user_pick;
+    struct_index = user_pick - 1; 
+    cout << "Name: " << new_hero[struct_index].name << endl;
+    cout << "Identity: " << new_hero[struct_index].identity << endl;
+    cout << "Power: " << new_hero[struct_index].power << endl;
+    cout << "Lover: " << new_hero[struct_index].lover << endl;
+    cout << "Origin: " << new_hero[struct_index].origin << endl;
+    cout << "Opinion: " << new_hero[struct_index].opinion << endl;
 }
 
-int pick_hero_display(hero_type new_hero[], int & user_pick)
+void pick_hero_display(hero_type new_hero[])
 {
     display_heroes(new_hero);
-    return 0; 
+    display_picked_hero(new_hero);
+}
+
+bool quit()
+{
+    bool decision = false;
+    char response = 'Y';
+    cout << "Would you like to re-visit the previous modules?\n"
+         << "Response(Y/N): ";
+    cin >> response;
+    if(toupper(response) == 'N')
+        decision = true;
+    else
+        return false;
 }

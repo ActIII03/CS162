@@ -1,7 +1,5 @@
-1
-Catgirl
-Laura
-Cat
-Guy
-BIOOOOOOOOOOOOOOOOOOOOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-My opinion goes here
+Please enter a number for the choices listed below:
+(1) Create/Enter New Super hero
+(2) Display Heroes
+(3) Quit Program
+Enter choice(1-3): 
