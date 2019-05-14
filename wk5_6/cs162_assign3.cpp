@@ -217,17 +217,18 @@ void display_heroes(hero_type new_hero[])
 
 void search_picked_hero(hero_type new_hero[])
 {
-    int struct_index = 0;
+    int struct_index = -1;
+    bool flag = false;
     char user_pick[SIZE];
     cin.get(user_pick, SIZE, '\n');
     cin.ignore();
-    cout << user_pick << endl;
     do
     {
-        if(!(strcmp(new_hero[struct_index].name, user_pick)))
-           ++struct_index; 
+        ++struct_index; 
+        if(strcmp(new_hero[struct_index].name, user_pick) == 0)
+           flag = true;
     }
-    while(strcmp(new_hero[struct_index].name, user_pick));
+    while(flag == false);
 
     cout << "Name: " << new_hero[struct_index].name << endl;
     cout << "Identity: " << new_hero[struct_index].identity << endl;
@@ -235,7 +236,6 @@ void search_picked_hero(hero_type new_hero[])
     cout << "Lover: " << new_hero[struct_index].lover << endl;
     cout << "Origin: " << new_hero[struct_index].origin << endl;
     cout << "Opinion: " << new_hero[struct_index].opinion << endl;
-    struct_index = 0;
 }
 
 bool ask_again(bool & again)
