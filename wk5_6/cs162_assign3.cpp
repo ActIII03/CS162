@@ -102,7 +102,7 @@ void greet()
          << "                   .'.       '.  Y    _.'             \\,         :\n"
          << "                    .          '-----'                 !          .\n"
          << "                   .           /  \\                   .          .\n"
-         << "Welcome to the Super-hero Repo! \nThis program is used for store information in regards to super-heroes!"
+         << "Welcome to the Super-hero Repo! \nThis program is used for storing information in regards to super-heroes!"
          << "\nThere are some pre-made bio's but you can search them or create some yourself." << endl;
 }
 
