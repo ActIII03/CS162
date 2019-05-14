@@ -1,7 +1,12 @@
+//Name: Armant Touche
+//Class: CS 162
+//Instructor: Jeffery Lund
+//Program: Purpose of theis programs is for user to read already created profiles and this case, read super hero information.
 #include <fstream>
 #include <cctype>
 #include <iostream>
 
+//These are my global variables
 const int SIZE = 20;
 const int BIO = 180;
 const int DESC = 200;
@@ -9,6 +14,7 @@ const int MAX = 10;
 
 using namespace std;
 
+//This data struct is the template for heroes
 struct hero_type
 {
     char name[SIZE];
@@ -19,29 +25,33 @@ struct hero_type
     char opinion[DESC];
 };
 
-void greet();
-void read_txt_file(hero_type new_hero[], int & counter);
-int menu_response(int & choice);
-void create_enter(hero_type new_hero[], int & counter);
-void create_message();
-void write_to_file( hero_type new_hero[], int counter);
-void pick_hero_display(hero_type new_hero[]);
-void search_picked_hero(hero_type new_hero[]);
-void display_heroes(hero_type new_hero[]);
-bool ask_again(bool & again);
-bool quit(bool & response);
+void greet();//Greets user
+void read_txt_file(hero_type new_hero[], int & counter);//Reads in data from text file
+int menu_response(int & choice);//This is my menu option module
+void create_enter(hero_type new_hero[], int & counter);//Let's user create hero profile
+void create_message();//Message stating what I want the user to input
+void write_to_file( hero_type new_hero[], int counter);//Writes to the same file we read in data from
+void pick_hero_display(hero_type new_hero[]);//Main module that loops until users decide no
+void search_picked_hero(hero_type new_hero[]);//Compares strings to already created heroes
+void display_heroes(hero_type new_hero[]);//Displays matching hero
+bool ask_again(bool & again);//Asks user if they are done searching
+bool quit(bool & response);//Quits programs
 
+//Main driver
 int main()
 {
-    hero_type new_hero[MAX];
+    hero_type new_hero[MAX]; //Max number of heroes to be created and store
+
     int choice = 0, counter = 0;
     bool decision = true; 
+
     read_txt_file(new_hero, counter);
     greet();
     menu_response(choice);
+
     do
     {
-        switch (choice)
+        switch (choice) //Picks module from an integer value
         {
             case 1:
                 create_enter(new_hero, counter);
@@ -60,12 +70,12 @@ int main()
         if(decision == true)
             menu_response(choice);
     }
-    while(counter < MAX && decision == true);
+    while(counter < MAX && decision == true); //Quits if MAX number of characters is met or user quits
 
     return 0;
 }
 
-void greet()  //Add newline after each line?
+void greet()
 {
     cout << "                                   T\\ T\\\n"
          << "                                   |\\| \\\n"
@@ -92,16 +102,18 @@ void greet()  //Add newline after each line?
          << "                   .'.       '.  Y    _.'             \\,         :\n"
          << "                    .          '-----'                 !          .\n"
          << "                   .           /  \\                   .          .\n"
-         << "Welcom to the Super-hero Repo! \nThis program is used for store information in regards to super-heroes!"
-         << "\nThere are some pre-made." << endl;
+         << "Welcome to the Super-hero Repo! \nThis program is used for store information in regards to super-heroes!"
+         << "\nThere are some pre-made bio's but you can search them or create some yourself." << endl;
 }
 
 void read_txt_file(hero_type new_hero[], int & counter)
 {
     ifstream in_file;
-    in_file.open("super_hero.txt");
+    in_file.open("super_hero.txt"); //File to read in from
     char delimiter = ':';
     int index = 0;
+
+    //Successful?
     if(in_file)
     {
 
@@ -120,7 +132,7 @@ void read_txt_file(hero_type new_hero[], int & counter)
            in_file.get(new_hero[index].opinion, DESC, '\n');       
            in_file.ignore();
            ++counter;
-           in_file.get(new_hero[index+1].name, SIZE, delimiter);       
+           in_file.get(new_hero[index+1].name, SIZE, delimiter);       //Priming the Pump
            in_file.ignore();
         }
        in_file.close();
@@ -168,7 +180,7 @@ void create_enter(hero_type new_hero[], int & counter)
 
 void create_message()
 {
-    cout << "Okay, So you want to create a new entry for hero!\n"
+    cout << "Okay, so you want to create a new entry for hero!\n"
          << "Items this program keeps track of is:\n"
          << "(1) Name\n(2)Identity\n(3)Super-Powers\n(4)Lover\n(5)Origin\n(6)Your Description\n";
 }
@@ -180,8 +192,9 @@ void write_to_file( hero_type new_hero[], int counter)
     bool loop = true;
     counter = counter - 1;
     char delimiter = ':', separator = '\n';
-    out_file.open("super_hero.txt", ios::app);
+    out_file.open("super_hero.txt", ios::app); //Append text file
 
+    //Successful?
     if(out_file)
     {
         while(loop)
@@ -203,6 +216,7 @@ void write_to_file( hero_type new_hero[], int counter)
 void display_heroes(hero_type new_hero[])
 {
     bool stop_display = false;
+
     for(int struct_index = 0; struct_index <= MAX && stop_display == false; ++struct_index)
     {
         if(new_hero[struct_index].name[0] == '\0')
@@ -220,8 +234,10 @@ void search_picked_hero(hero_type new_hero[])
     int struct_index = -1;
     bool flag = false;
     char user_pick[SIZE];
+
     cin.get(user_pick, SIZE, '\n');
     cin.ignore();
+
     do
     {
         ++struct_index; 
@@ -229,7 +245,8 @@ void search_picked_hero(hero_type new_hero[])
            flag = true;
     }
     while(flag == false);
-
+    
+    //Display matched super hero here
     cout << "Name: " << new_hero[struct_index].name << endl;
     cout << "Identity: " << new_hero[struct_index].identity << endl;
     cout << "Power: " << new_hero[struct_index].power << endl;
@@ -242,25 +259,29 @@ bool ask_again(bool & again)
 {
     char input = 'Y';
     again = true;
+
     cout << "Would you like to search another profile?\n"
          << "Choice(Y/N): ";
     cin >> input;
     cin.ignore();
+
     if(toupper(input) == 'Y')
     {
         again = true; 
     }
     else if(toupper(input) == 'N')
         again = false;
+
     else 
         again = false;
-    cout << "input: " << input << endl;
+
     return again;
 }
 
 void pick_hero_display(hero_type new_hero[])
 {
     bool answer = true;   
+
     do 
     {
         display_heroes(new_hero);
@@ -273,10 +294,13 @@ void pick_hero_display(hero_type new_hero[])
 bool quit(bool & response)
 {
     char decision = 'Y';
+
+    ///Ask user do they want to re-run program again
     cout << "Would you like to re-visit the previous modules?\n"
          << "Response(Y/N): ";
     cin >> decision;
     cin.ignore();
+
     if(toupper(decision) == 'Y')
         response = true;
     else if(toupper(decision) == 'N')
