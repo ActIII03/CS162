@@ -19,14 +19,14 @@ struct hero_type
     char opinion[DESC];
 };
 
-//void greet();
+void greet();
 void read_txt_file(hero_type new_hero[], int & counter);
 int menu_response(int & choice);
 void create_enter(hero_type new_hero[], int & counter);
 void create_message();
 void write_to_file( hero_type new_hero[], int counter);
 void pick_hero_display(hero_type new_hero[]);
-void display_picked_hero(hero_type new_hero[]);
+void search_picked_hero(hero_type new_hero[]);
 void display_heroes(hero_type new_hero[]);
 bool ask_again(bool & again);
 bool quit(bool & response);
@@ -37,8 +37,7 @@ int main()
     int choice = 0, counter = 0;
     bool decision = true; 
     read_txt_file(new_hero, counter);
-    //greet();
-    // do   <----- Add Do-While once done with Menu
+    greet();
     menu_response(choice);
     do
     {
@@ -58,43 +57,44 @@ int main()
                 cout << "wrong choice!";
         }
         choice = 0;
-        menu_response(choice);
+        if(decision == true)
+            menu_response(choice);
     }
     while(counter < MAX && decision == true);
 
     return 0;
 }
 
-/*void greet()  //Add newline after each line?
+void greet()  //Add newline after each line?
 {
-    cout << "                                   T\\ T\\                             "
-         << "                                   |\\| \\                             "
-         << "                                   |  |  :                             "
-         << "                              _____I__I  |                             "
-         << "                            .'            '.                           "
-         << "                          .'                '                          "
-         << "                          |   ..             '                         "
-         << "                          |  /__.            |                         "
-         << "                          :.' -'             |                         "
-         << "                         /__.                |                         "
-         << "                        /__, \\               |                        "
-         << "                           |_\\        _|    |                         "
-         << "                           :  '\\     .'|     |                        "
-         << "                           |___|_,,,/  |     |    _..--.               "
-         << "                        ,--_-   |     /'      \\../ /  /\\\\           "
-         << "                       ,'|_ I---|    7    ,,,_/ / ,  / _\\\\           "
-         << "                     ,-- 7 \\|  / ___..,,/   /  ,  ,_/   '-----.       "
-         << "                    /   ,   \\  |/  ,____,,,__,,__/            '\\     "
-         << "                   ,   ,     \\__,,/                             |     "
-         << "                   | '.       _..---.._                         !.     "
-         << "                   ! |      .' A_C__T. '.                        |     "
-         << "                   .:'      | (-_ _--')  :          L            !     "
-         << "                   .'.       '.  Y    _.'             \\,         :    "
-         << "                    .          '-----'                 !          .    "
-         << "                   .           /  \\                   .          .    "
+    cout << "                                   T\\ T\\\n"
+         << "                                   |\\| \\\n"
+         << "                                   |  |  :\n"
+         << "                              _____I__I  |\n"
+         << "                            .'            '.\n"
+         << "                          .'                '\n"
+         << "                          |   ..             '\n"
+         << "                          |  /__.            |\n"
+         << "                          :.' -'             |\n"
+         << "                         /__.                |\n"
+         << "                        /__, \\              |\n"
+         << "                           |_\\        _|    |\n"
+         << "                           :  '\\     .'|    |\n"
+         << "                           |___|_,,,/  |     |    _..--.\n"
+         << "                        ,--_-   |     /'      \\../ /  /\\\\\n"
+         << "                       ,'|_ I---|    7    ,,,_/ / ,  / _\\\\\n"
+         << "                     ,-- 7 \\|  / ___..,,/   /  ,  ,_/   '-----.\n"
+         << "                    /   ,   \\  |/  ,____,,,__,,__/            '\\\n"
+         << "                   ,   ,     \\__,,/                             |\n"
+         << "                   | '.       _..---.._                          !.\n"
+         << "                   ! |      .' A_C__T. '.                        |\n"
+         << "                   .:'      | (-_ _--')  :          L            !\n"
+         << "                   .'.       '.  Y    _.'             \\,         :\n"
+         << "                    .          '-----'                 !          .\n"
+         << "                   .           /  \\                   .          .\n"
          << "Welcom to the Super-hero Repo! \nThis program is used for store information in regards to super-heroes!"
          << "\nThere are some pre-made." << endl;
-}*/
+}
 
 void read_txt_file(hero_type new_hero[], int & counter)
 {
@@ -119,9 +119,9 @@ void read_txt_file(hero_type new_hero[], int & counter)
            in_file.ignore();
            in_file.get(new_hero[index].opinion, DESC, '\n');       
            in_file.ignore();
+           ++counter;
            in_file.get(new_hero[index+1].name, SIZE, delimiter);       
            in_file.ignore();
-           ++counter;
         }
        in_file.close();
        in_file.clear();
@@ -211,22 +211,31 @@ void display_heroes(hero_type new_hero[])
             cout << "(" << struct_index+1 << "): " << new_hero[struct_index].name << endl;
     }
     cout << "From the list above, please pick a hero to display information about them.\n"
-         << "Choice(1-10): ";
+         << "Choice(Name): ";
 }
 
 
-void display_picked_hero(hero_type new_hero[])
+void search_picked_hero(hero_type new_hero[])
 {
-    int user_pick = 0, struct_index = 0;
-    cin >> user_pick;
+    int struct_index = 0;
+    char user_pick[SIZE];
+    cin.get(user_pick, SIZE, '\n');
     cin.ignore();
-    struct_index = user_pick - 1; 
+    cout << user_pick << endl;
+    do
+    {
+        if(!(strcmp(new_hero[struct_index].name, user_pick)))
+           ++struct_index; 
+    }
+    while(strcmp(new_hero[struct_index].name, user_pick));
+
     cout << "Name: " << new_hero[struct_index].name << endl;
     cout << "Identity: " << new_hero[struct_index].identity << endl;
     cout << "Power: " << new_hero[struct_index].power << endl;
     cout << "Lover: " << new_hero[struct_index].lover << endl;
     cout << "Origin: " << new_hero[struct_index].origin << endl;
     cout << "Opinion: " << new_hero[struct_index].opinion << endl;
+    struct_index = 0;
 }
 
 bool ask_again(bool & again)
@@ -235,15 +244,17 @@ bool ask_again(bool & again)
     again = true;
     cout << "Would you like to search another profile?\n"
          << "Choice(Y/N): ";
+    cin >> input;
     cin.ignore();
     if(toupper(input) == 'Y')
     {
-        again = false;
+        again = true; 
     }
     else if(toupper(input) == 'N')
-        again = true;
+        again = false;
     else 
-        again = true;
+        again = false;
+    cout << "input: " << input << endl;
     return again;
 }
 
@@ -253,7 +264,7 @@ void pick_hero_display(hero_type new_hero[])
     do 
     {
         display_heroes(new_hero);
-        display_picked_hero(new_hero);
+        search_picked_hero(new_hero);
         ask_again(answer);
     }
     while(answer == true);
@@ -265,6 +276,7 @@ bool quit(bool & response)
     cout << "Would you like to re-visit the previous modules?\n"
          << "Response(Y/N): ";
     cin >> decision;
+    cin.ignore();
     if(toupper(decision) == 'Y')
         response = true;
     else if(toupper(decision) == 'N')
