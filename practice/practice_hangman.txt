@@ -1,0 +1,14 @@
+#include <iostream>
+
+//The function gets the user guess
+void get_guess(char secret[], char answer[], char guess[])
+    {
+        CONST int ALPHABET_SIZE = 26; 
+        char c;
+        bool found = true;
+        cin >> c;
+        for( int i ; i < ALPHABET_SIZE ; ++i)
+        {
+
+        
+
