@@ -1,0 +1,11 @@
+Name: Armant Touche
+Class: CS 162
+Program: PDX Outdoor Activity Repo
+
+Main Alg. 
+Create an object called outdoor_type  called new_activity with the following inside it: Public: (1)list constructor (2) Read module (3) Display Name module (4) Search module (5) Private: (1) node pointer member variable called head for activity struct (2) Entry counter member variable called act_counter starting at zero (3) Int variable call size which allocate array the array size. Then I will create struct as template with be called pdx_activity_type which will contain: (1) Char variable called name (2) Char variable called location (3) Char variable called act_typ (4) Int variable called time_length (5) Node pointer variable called next. Then I will greet the user with Greeting module and fterwards, I invoke the How Many Entry module to obtain number of entries the user will want to create and return the int value to new_activity.size member which will create the array size
+
+Alg. Greeting
+Display to user, "Hello, welcome to PDX Outdoor Activity Repo where you lookup: (1)Name (2)Location (3)Type of Activity (4)Total time.  Example-- (1)Name: Rose Garden (2)Location: Forest Park (3)Type: Waking (4)Total time: 15 minutes."
+
+Alg.  
