@@ -3,9 +3,13 @@ Class: CS 162
 Program: PDX Outdoor Activity Repo
 
 Main Alg. 
-Create an object called outdoor_type  called new_activity with the following inside it: Public: (1)list constructor (2) Read module (3) Display Name module (4) Search module (5) Private: (1) node pointer member variable called head for activity struct (2) Entry counter member variable called act_counter starting at zero (3) Int variable call size which allocate array the array size. Then I will create struct as template with be called pdx_activity_type which will contain: (1) Char variable called name (2) Char variable called location (3) Char variable called act_typ (4) Int variable called time_length (5) Node pointer variable called next. Then I will greet the user with Greeting module and fterwards, I invoke the How Many Entry module to obtain number of entries the user will want to create and return the int value to new_activity.size member which will create the array size
+Create an class called outdoor_type with the following inside it: Public: (1)list constructor (2) Read module (3) Display Name module (4) Search module (5) Are You Sure Private: (1) node pointer member variable called head for activity struct (2) Entry counter member variable called act_counter starting at zero (3) Int variable call size which allocate array the array size. Then I will create struct as template with be called pdx_activity_type which will contain: (1) Char variable called name (2) Char variable called location (3) Char variable called act_typ (4) Int variable called time_length (5) Node pointer variable called next. Create an object call new_activity within main then I will greet the user with Greeting module and fterwards, I will invoke the "How Many Entry" module to obtain number of entries the user will want to create and return the int value to new_activity.size member which will create the array size. Create a struct variable called activity and size it with new_activity int value returned from "How Many Entry." I will invoke "Read" module sending the activity struct by reference. 
 
 Alg. Greeting
-Display to user, "Hello, welcome to PDX Outdoor Activity Repo where you lookup: (1)Name (2)Location (3)Type of Activity (4)Total time.  Example-- (1)Name: Rose Garden (2)Location: Forest Park (3)Type: Waking (4)Total time: 15 minutes."
+Display to user, "Hello, welcome to PDX Outdoor Activity Repo where you lookup: (1) Name (2) Location (3) Type of Activity (4) Total time.  Example-- (1) Name: Rose Garden (2) Location: Forest Park (3) Type: Waking (4) Total time: 15 minutes."
 
-Alg.  
+Alg. Read
+Display to user with a list of what they will need to enter. "Cool, you want to create an entry you will be entering: (1) Name (2) Location (3) Type of Activity (4) Total Time." I will read it from the user each piece of data, returning the char data back to main"s activity and also increment the act_counter by one. Then I will invoke the "Display" and invoke "Are You Sure" module to verify if the information is correct. Doing this while the user's decision is if false otherwise exit this module
+
+Alg. Are You Sure
+Insinuate the bool variable called decision to false. Ask the creator if they are satisfied with their entry. Return the decision value.
