@@ -2,14 +2,28 @@ Name: Armant Touche
 Class: CS 162
 Program: PDX Outdoor Activity Repo
 
-Main Alg. 
-Create an class called outdoor_type with the following inside it: Public: (1)list constructor (2) Read module (3) Display Name module (4) Search module (5) Are You Sure Private: (1) node pointer member variable called head for activity struct (2) Entry counter member variable called act_counter starting at zero (3) Int variable call size which allocate array the array size. Then I will create struct as template with be called pdx_activity_type which will contain: (1) Char variable called name (2) Char variable called location (3) Char variable called act_typ (4) Int variable called time_length (5) Node pointer variable called next. Create an object call new_activity within main then I will greet the user with Greeting module and fterwards, I will invoke the "How Many Entry" module to obtain number of entries the user will want to create and return the int value to new_activity.size member which will create the array size. Create a struct variable called activity and size it with new_activity int value returned from "How Many Entry." I will invoke "Read" module sending the activity struct by reference. 
+Class outdoor_type 
+Create an class called outdoor_type with the following inside it: Public: (1)list constructor (2) Read module (3) Display Name module (4) Search module (5) destructor module called list_destructor (6) Greeting module Private: (1) node pointer member variable called head for activity struct (2) Entry counter member variable called act_counter starting at zero (3) Int variable call size which allocate array the array size. 
+
+Struct pdx_activity
+Create struct as template with be called pdx_activity_type which will contain: (1) Char variable called name (2) Char variable called location (3) Char variable called act_typ (4) Int variable called time_length (5) Node pointer variable called next. 
+
+Main Alg.
+Create an int variable called num_entries and set it to zero. Create an object call new_activity within main then I will greet the user with Greeting module, passing the num_entries var to it and afterwards Create a struct variable called activity and size it with new_activity int value returned from "Greeting" module. I will invoke "Read" module within the list constructor, passing the the num_entries to it by value. Then I will invoke "Display" module. I will invoke "Search" module. Doing this until counter is exceeded. Invoke "destructor" module. Exit program.
+
+Alg. List constructor
+Insinuate node head to null, counter to zero, and size to zero.
 
 Alg. Greeting
-Display to user, "Hello, welcome to PDX Outdoor Activity Repo where you lookup: (1) Name (2) Location (3) Type of Activity (4) Total time.  Example-- (1) Name: Rose Garden (2) Location: Forest Park (3) Type: Waking (4) Total time: 15 minutes."
+Display to user, "Hello, welcome to PDX Outdoor Activity Repo where you lookup: (1) Name (2) Location (3) Type of Activity (4) Total time.  Example-- (1) Name: Rose Garden (2) Location: Forest Park (3) Type: Waking (4) Total time: 15 minutes." Ask user, "How many entries do you plan inputting?" Return 
 
 Alg. Read
-Display to user with a list of what they will need to enter. "Cool, you want to create an entry you will be entering: (1) Name (2) Location (3) Type of Activity (4) Total Time." I will read it from the user each piece of data, returning the char data back to main"s activity and also increment the act_counter by one. Then I will invoke the "Display" and invoke "Are You Sure" module to verify if the information is correct. Doing this while the user's decision is if false otherwise exit this module
+Display to user with a list of what they will need to enter. "Cool, you want to create an entry you will be entering: (1) Name (2) Location (3) Type of Activity (4) Total Time." I will read it from the user each piece of data, returning the char data back to main"s activity and also increment the act_counter by one. Then I will invoke the "Display".
 
-Alg. Are You Sure
-Insinuate the bool variable called decision to false. Ask the creator if they are satisfied with their entry. Return the decision value.
+Alg Display
+Display the type of activities to the user.
+
+Alg. Search
+Create a char array called pick_display. Ask user for input on which activity they want to display in its entirety. Use string compare function to compare the type of activites within activity in main() to check for already entered activities from the Read module doing this until I get true return and quit the for loop if I reach the end of type of activity list. If there isn't a match, display to user "No match!" otherwise display matched type of activity along with the other members.
+
+
