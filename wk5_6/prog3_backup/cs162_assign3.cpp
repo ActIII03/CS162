@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 162
 //Instructor: Jeffery Lund
-//Program: Purpose of this program is for the user to read already created profiles and in this case, read super hero information.
+//Program: Purpose of theis programs is for user to read already created profiles and this case, read super hero information.
 #include <fstream>
 #include <cctype>
 #include <iostream>
