@@ -12,20 +12,37 @@ void greetings()
 
 }*/
 
-outdoor_activity::list()
+outdoor_activity::outdoor_activity()
 {
     head = NULL;
-
+    num_of_activities = 0;
+    return;
 }
 
-/*outdoor_activity::list()
+outdoor_activity::~outdoor_activity()
 {
+    activity_node *temp = head;
+
+    if(head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+
+}
+//Add read-in message
+void outdoor_activity::read_in(activity_type read_act[])
+{
+    activity_type read_act;
     //Example of reading in one member to 
     char buffer[100];
-    156   cout << "Name: ";
-    157   cin.get(buffer, 100, '\n');
-    158   cin.ignore();
-    159   new_dog.name = new char[strlen(buffer) + 1];
+    cout << "Name: " << endl;
+    cin.get(buffer, 100, '\n');
+    cin.ignore();
+    //read_act.name = new char[strlen(buffer) + 1];
+    strcpy(read_act.name, buffer);
+
+    cout << "Name: " << read_act.name << endl;
 }
 /*
 outdoor_activity::destructor()
