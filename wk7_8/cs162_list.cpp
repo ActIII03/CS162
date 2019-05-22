@@ -31,7 +31,7 @@ outdoor_activity::~outdoor_activity()
 
 }
 //Add read-in message
-void outdoor_activity::read_in(activity_type read_act[])
+void outdoor_activity::read_in(activity_type*)
 {
     activity_type read_act;
     //Example of reading in one member to 

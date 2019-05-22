@@ -28,7 +28,7 @@ struct activity_node
 class outdoor_activity
 {
     public:
-        void read_in(activity_type);
+        void read_in(activity_type*);
         //void add_list();
         outdoor_activity();
         ~outdoor_activity();
