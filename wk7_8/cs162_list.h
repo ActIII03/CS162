@@ -20,24 +20,26 @@ struct node
 class activity_type
 {
     public:
-        void read_in();
+        void read_in(activity_type & temp_act);
+        void copy_act(activity_type & to_copy);
         activity_type();
-        ~activity();
+        ~activity(_type);
     private:
         char *name;
         /*char *type;
         char *location;
-        int *leng_time;*/
+        int *leng_time;
+        int counter */
+        
 };
 
 class list 
 {
     public:
-        void insert(activty_type & to_insert);
+        void insert(activty_type & to_add);
         list();
         ~list();
 
     private:
-        int num_of_activities;
         node *head;
 };

@@ -12,10 +12,18 @@ void greetings()
 
 }*/
 
+activity_type::activity_type()
+{
+    char *node;
+    char *type;
+    char *location;
+    int *leng_time;
+    int counter = 0;
+}
+
 list::list()
 {
     head = NULL;
-    num_of_activities = 0;
     return;
 }
 
