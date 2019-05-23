@@ -11,29 +11,33 @@ using namespace std;
 void greetings();
 bool are_you_sure();
 
-struct activity_type
-{
-    char *name;
-/*    char *type;
-    char *location;
-    int *leng_time;*/
-};
-
-struct activity_node
+struct node
 {
     activity_type new_act;
-    activity_node * next;
+    node * next;
 };
 
-class outdoor_activity
+class activity_type
 {
     public:
-        void read_in(activity_type*);
-        //void add_list();
-        outdoor_activity();
-        ~outdoor_activity();
+        void read_in();
+        activity_type();
+        ~activity();
+    private:
+        char *name;
+        /*char *type;
+        char *location;
+        int *leng_time;*/
+};
+
+class list 
+{
+    public:
+        void insert(activty_type & to_insert);
+        list();
+        ~list();
 
     private:
         int num_of_activities;
-        activity_node *head;
+        node *head;
 };

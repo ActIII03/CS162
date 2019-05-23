@@ -12,16 +12,16 @@ void greetings()
 
 }*/
 
-outdoor_activity::outdoor_activity()
+list::list()
 {
     head = NULL;
     num_of_activities = 0;
     return;
 }
 
-outdoor_activity::~outdoor_activity()
+list::~list()
 {
-    activity_node *temp = head;
+    node *temp = head;
 
     if(head == NULL)
     {
@@ -31,21 +31,35 @@ outdoor_activity::~outdoor_activity()
 
 }
 //Add read-in message
-void outdoor_activity::read_in(activity_type*)
+void list::read_in()
 {
-    activity_type read_act;
+    node * current = new node;
+
     //Example of reading in one member to 
     char buffer[100];
+
     cout << "Name: " << endl;
     cin.get(buffer, 100, '\n');
     cin.ignore();
-    //read_act.name = new char[strlen(buffer) + 1];
-    strcpy(read_act.name, buffer);
-
-    cout << "Name: " << read_act.name << endl;
+    current -> new_act.name = new char[strlen(buffer) + 1];
+    strcpy(current -> new_act.name, buffer);
+    
+    insert(current -> new_act);
 }
+
+void list::insert(activity_type & to_insert)
+{
+    node *current, *previous, *temp;
+    if(head == NULL)
+    {
+        head = new node;
+        head ->  ;
+        head -> next = NULL;
+    }
+}
+
 /*
-outdoor_activity::destructor()
+list::~list()
 {
 
 }*/
