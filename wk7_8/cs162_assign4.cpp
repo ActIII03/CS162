@@ -7,7 +7,7 @@ int main()
 
     //greetings();
     //Place Menu foo here
-    temp_act.read_in(temp_act);
+    list_mgmt.read_in();
 
     return 0;
 }

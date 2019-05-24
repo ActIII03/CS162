@@ -14,28 +14,17 @@ bool are_you_sure();
 class activity_type
 {
     public:
-        void read_in(activity_type & temp_act);
         void copy_act(activity_type & to_copy);
+        void temp_hold(char t_name[], char t_type[], char t_location[], int t_length);
         activity_type();
         ~activity_type();
     private:
         char *name;
-        /*char *type;
+        char *type;
         char *location;
-        int *leng_time;
-        int counter */
+        int length;
+        //int counter;
         
-};
-
-class list 
-{
-    public:
-        void insert(activty_type & to_add);
-        list();
-        ~list();
-
-    private:
-        node *head;
 };
 
 struct node
@@ -43,3 +32,16 @@ struct node
     activity_type new_act;
     node * next;
 };
+
+class list 
+{
+    public:
+        void read_in();
+        void insert(node * current);
+        list();
+        ~list();
+
+    private:
+        node *head;
+};
+

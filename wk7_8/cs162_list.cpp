@@ -17,17 +17,18 @@ activity_type::activity_type()
     name = NULL;
     type = NULL;
     location = NULL;
-    leng_time = NULL;
-    counter = NULL;
+    length = 0;
+    //counter = NULL;
 }
 
 activity_type::~activity_type()
 {
+}
+
 
 list::list()
 {
     head = NULL;
-    return;
 }
 
 list::~list()
@@ -37,44 +38,67 @@ list::~list()
     if(head == NULL)
     {
         cout << "List is empty" << endl;
-        return;
     }
 
 }
 //Add read-in message
-void activity_type::read_in(activity_type & temp_act)
+void list::read_in() //Empty
 {
     //Node to hold data
     node * current = new node;
-    list list_mgmt;
 
     //Example of reading in one member to 
-    char buffer[100];
+    char name[100];
+    char type[100];
+    char location[100];
+    int length;
 
     cout << "Name: " << endl;
-    cin.get(buffer, 100, '\n');
+    cin.get(name, 100, '\n');
     cin.ignore();
-    current -> new_act.name = new char[strlen(buffer) + 1];
-    strcpy(current -> new_act.name, buffer);
-   
+    cout << "Type: " << endl;
+    cin.get(type, 100, '\n');
+    cin.ignore();
+    cout << "Location: " << endl;
+    cin.get(location, 100, '\n');
+    cin.ignore();
+    cout << "Length: " << endl;
+    cin >> length;
+    cin.ignore();
+
+    //Create temp hold
+    current -> new_act.temp_hold(name, type, location, length);
+
     //Pass by ref temp struct to make nodes
-    list_mgmt.insert(temp_act);
+    insert(current);
 }
 
-void activity_type::copy_act(activity_type & to_copy)
+void activity_type::temp_hold(char t_name[], char t_type[], char t_location[], int t_length)
 {
-    cout << "Name: " << to_copy.name << endl;
+    name = new char[strlen(t_name) + 1];  
+    strcpy(name, t_name);
+    cout << "Name: " << name << endl;
+
+    location = new char[strlen(t_location) + 1];  
+    strcpy(location, t_location);
+    cout << "Location: " << location << endl;
+
+    type = new char[strlen(t_type) + 1];  
+    strcpy(type, t_type);
+    cout << "Type: " << type << endl;
+
+    length = t_length;
+    cout << "Length: " << length << endl;
+
 }
 
-void list::insert(activity_type & to_add)
+void list::insert(node * current)
 {
-    node *current, *previous, *temp;
-    activity_type copy_act;
+    node *temp;
 
     if(head == NULL)
     {
-        head = new node;
-        head -> copy_act(to_add);
+        head = current;
         head -> next = NULL;
     }
 }
