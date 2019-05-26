@@ -67,38 +67,54 @@ void list::read_in() //Empty
     cin.ignore();
 
     //Create temp hold
-    current -> new_act.temp_hold(name, type, location, length);
+    current -> new_act.copy_act(name, type, location, length);
 
     //Pass by ref temp struct to make nodes
     insert(current);
 }
 
-void activity_type::temp_hold(char t_name[], char t_type[], char t_location[], int t_length)
+void activity_type::copy_act(char t_name[], char t_type[], char t_location[], int t_length)
 {
     name = new char[strlen(t_name) + 1];  
     strcpy(name, t_name);
-    cout << "Name: " << name << endl;
 
     location = new char[strlen(t_location) + 1];  
     strcpy(location, t_location);
-    cout << "Location: " << location << endl;
 
     type = new char[strlen(t_type) + 1];  
     strcpy(type, t_type);
-    cout << "Type: " << type << endl;
 
     length = t_length;
-    cout << "Length: " << length << endl;
-
 }
 
 void list::insert(node * current)
 {
     node *temp;
-
+    
+    //Is there no nodes?
     if(head == NULL)
     {
         head = current;
         head -> next = NULL;
     }
+
+    //Is there only one node
+    if(!head -> next)
+    {
+        temp = current; //Insert data here
+        temp -> next = head;
+        head = temp;
+    }
+
+    //Is there multiple nodes?
+    else
+    {
+        current = head;
+        while(current -> next != NULL)
+        {
+            temp = current;
+
+
+
+
 }

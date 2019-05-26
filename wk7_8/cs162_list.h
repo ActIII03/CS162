@@ -14,8 +14,7 @@ bool are_you_sure();
 class activity_type
 {
     public:
-        void copy_act(activity_type & to_copy);
-        void temp_hold(char t_name[], char t_type[], char t_location[], int t_length);
+        void copy_act(char t_name[], char t_type[], char t_location[], int t_length);
         activity_type();
         ~activity_type();
     private:
