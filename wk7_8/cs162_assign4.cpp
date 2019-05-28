@@ -4,10 +4,12 @@ int main()
 {
     activity_type temp_act;
     list list_mgmt;
-    int count = 0;
+    int decision = 0;
+    bool quit = false;
     greetings();
     
     //Place Menu foo here
+    menu(decision);
     do
     {
         switch(decision)
@@ -19,11 +21,16 @@ int main()
                 list_mgmt.display();
                 break;
             case 3:
-                list_mgmt.search();
+                //list_mgmt.search();
                 break;
+            case 4:
+                quit = true;
+                break;
+            default:
+                menu(decision);
         }
     }
-    while(are_you_sure());
+    while(!quit);
 
     return 0;
 }

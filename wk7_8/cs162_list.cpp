@@ -3,14 +3,30 @@
 void greetings()
 {
     cout << "Welcome to PDX Activities Repo, where you can keep track of all the fun activities here Oregon."
-         << "\nThe thing this program keeps track of is: \n(1) Name of Activity \n(2) Location \n(3) Type of Activity"
-         << "\n(4) Length of activity. " << endl;
+         << "\nThe items this program keeps track of are: \n- Name of Activity \n- Location \n- Type of Activity"
+         << "\n- Length of activity.\n\n\n";
 }
 
-/*bool are_you_sure()
+int menu(int & decision)
 {
+    cout << "Which option would you like to pick?:\n"
+         << "(1)New Entry\n(2)Display\n(3)Search\n(4)Quit\nChoice(1-4): ";
+    cin >> decision;
+    return decision;
+}
 
-}*/
+bool are_you_sure()
+{
+    char choice = 'Y';
+    cout << "Would you like to continue?:(Y/N)";
+    cin >> choice;
+    choice = toupper(choice);
+
+    if(choice == 'Y')
+        return true;
+    else
+        return false; 
+}
 
 activity_type::activity_type()
 {
@@ -18,7 +34,7 @@ activity_type::activity_type()
     type = NULL;
     location = NULL;
     length = 0;
-    //counter = NULL;
+    counter = 0;   
 }
 
 activity_type::~activity_type()
@@ -65,7 +81,7 @@ void list::read_in() //Empty
     cin >> length;
     cin.ignore();
 
-    //Create temp hold
+    //Copy hold
     current -> new_act.copy_act(name, type, location, length);
 
     //Pass by ref temp struct to make nodes
@@ -76,7 +92,6 @@ void activity_type::copy_act(char t_name[], char t_type[], char t_location[], in
 {
     name = new char[strlen(t_name) + 1];  
     strcpy(name, t_name);
-
     location = new char[strlen(t_location) + 1];  
     strcpy(location, t_location);
 
@@ -84,6 +99,7 @@ void activity_type::copy_act(char t_name[], char t_type[], char t_location[], in
     strcpy(type, t_type);
 
     length = t_length;
+    ++counter;
 }
 
 //Insert At the the beginning
@@ -98,7 +114,7 @@ void list::insert(node * current)
     }
 
     //Is there only one node
-    if(!head -> next)
+    if(head -> next != NULL)
     {
         node * temp = current; //Insert data here
         temp -> next = head;

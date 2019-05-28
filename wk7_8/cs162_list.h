@@ -9,6 +9,7 @@
 using namespace std;
  
 void greetings();
+int menu(int & decision);
 bool are_you_sure();
 
 class activity_type
@@ -22,7 +23,7 @@ class activity_type
         char *location;
         int length;
     private:
-        //int counter;
+        int counter;
         
 };
 
@@ -38,6 +39,7 @@ class list
         void read_in();
         void insert(node * current);
         void display();
+        //void search();
         list();
         ~list();
 

@@ -1,11 +1,14 @@
+1
 Rose
 Walk
 PDX
 15
+1
 Downtown
 Walk
 PDX
 30
+1
 Mississippi Street
 Drink
 Walk
