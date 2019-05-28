@@ -33,7 +33,6 @@ list::list()
 
 list::~list()
 {
-    node *temp = head;
 
     if(head == NULL)
     {
@@ -87,9 +86,9 @@ void activity_type::copy_act(char t_name[], char t_type[], char t_location[], in
     length = t_length;
 }
 
+//Insert At the the beginning
 void list::insert(node * current)
 {
-    node *temp;
     
     //Is there no nodes?
     if(head == NULL)
@@ -101,7 +100,7 @@ void list::insert(node * current)
     //Is there only one node
     if(!head -> next)
     {
-        temp = current; //Insert data here
+        node * temp = current; //Insert data here
         temp -> next = head;
         head = temp;
     }
@@ -109,12 +108,19 @@ void list::insert(node * current)
     //Is there multiple nodes?
     else
     {
-        current = head;
-        while(current -> next != NULL)
-        {
-            temp = current;
+        node * temp = current;
+        current -> next = head;
+        head = current;
+    }
+}
 
+void list::display()
+{
+    node * current = head;
 
-
-
+    while(current != NULL)
+    {
+        cout << "Name: " << current -> new_act.name << endl;
+        current = current -> next;
+    }
 }

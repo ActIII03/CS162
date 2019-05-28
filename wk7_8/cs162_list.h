@@ -17,11 +17,11 @@ class activity_type
         void copy_act(char t_name[], char t_type[], char t_location[], int t_length);
         activity_type();
         ~activity_type();
-    private:
         char *name;
         char *type;
         char *location;
         int length;
+    private:
         //int counter;
         
 };
@@ -37,10 +37,10 @@ class list
     public:
         void read_in();
         void insert(node * current);
+        void display();
         list();
         ~list();
 
     private:
         node *head;
 };
-
