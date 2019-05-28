@@ -11,6 +11,7 @@ using namespace std;
 void greetings();
 int menu(int & decision);
 bool are_you_sure();
+char get_type(char & type);
 
 class activity_type
 {
@@ -39,7 +40,7 @@ class list
         void read_in();
         void insert(node * current);
         void display();
-        //void search();
+        void search();
         list();
         ~list();
 

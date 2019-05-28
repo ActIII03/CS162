@@ -12,6 +12,7 @@ int menu(int & decision)
     cout << "Which option would you like to pick?:\n"
          << "(1)New Entry\n(2)Display\n(3)Search\n(4)Quit\nChoice(1-4): ";
     cin >> decision;
+    cin.ignore();
     return decision;
 }
 
@@ -28,6 +29,13 @@ bool are_you_sure()
         return false; 
 }
 
+char get_type(char & type)
+{
+    node * current = head;
+
+    while(current != NULL)
+    {
+        cout << 
 activity_type::activity_type()
 {
     name = NULL;
@@ -84,7 +92,7 @@ void list::read_in() //Empty
     //Copy hold
     current -> new_act.copy_act(name, type, location, length);
 
-    //Pass by ref temp struct to make nodes
+    //Pass by value temp struct to make nodes
     insert(current);
 }
 
@@ -111,6 +119,7 @@ void list::insert(node * current)
     {
         head = current;
         head -> next = NULL;
+        return;
     }
 
     //Is there only one node
@@ -119,6 +128,7 @@ void list::insert(node * current)
         node * temp = current; //Insert data here
         temp -> next = head;
         head = temp;
+        return;
     }
 
     //Is there multiple nodes?
@@ -133,10 +143,25 @@ void list::insert(node * current)
 void list::display()
 {
     node * current = head;
+    int number = 1;
 
     while(current != NULL)
     {
-        cout << "Name: " << current -> new_act.name << endl;
+        cout << "(" << number << ")" << " Name: " << current -> new_act.name << "\n ";
+        cout << "Type: " << current -> new_act.type << "\n ";
+        cout << "Location: " << current -> new_act.location << "\n ";
+        if(current->new_act.length < 60)
+            cout << "Length: " << current->new_act.length << " minutes\n";
+        else
+            cout << "Length: " << (current->new_act.length << " hours\n";
+        ++number;
         current = current -> next;
     }
 }
+
+void list::search()
+{
+    node * current = head;
+    char type[100];
+    get_type(type);
+

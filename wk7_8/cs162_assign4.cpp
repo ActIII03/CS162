@@ -21,14 +21,13 @@ int main()
                 list_mgmt.display();
                 break;
             case 3:
-                //list_mgmt.search();
+                list_mgmt.search();
                 break;
             case 4:
                 quit = true;
                 break;
-            default:
-                menu(decision);
         }
+                menu(decision);
     }
     while(!quit);
 
