@@ -29,13 +29,6 @@ bool are_you_sure()
         return false; 
 }
 
-char get_type(char & type)
-{
-    node * current = head;
-
-    while(current != NULL)
-    {
-        cout << 
 activity_type::activity_type()
 {
     name = NULL;
@@ -153,7 +146,7 @@ void list::display()
         if(current->new_act.length < 60)
             cout << "Length: " << current->new_act.length << " minutes\n";
         else
-            cout << "Length: " << (current->new_act.length << " hours\n";
+            cout << "Length: " << current->new_act.length << " hours\n";
         ++number;
         current = current -> next;
     }
@@ -163,5 +156,31 @@ void list::search()
 {
     node * current = head;
     char type[100];
-    get_type(type);
+
+    cout << "Please enter a type of activity you would like to display: ";
+    cin.get(type, 100, '\n');
+    cin.ignore();
+
+    cout << "1st type: " << current-> new_act.type << endl;
+    cout << "My type: " << type << endl;
+    if(head == NULL)
+        cout << "List is empty!" << endl;
+    else
+    {
+        while(current != NULL)
+        {
+            if(!(strcmp(current -> new_act.type, type)))
+            {
+               cout << "Name: " << current -> new_act.name
+                    << "\nType: " << current -> new_act.type
+                    << "\nLocation: " << current -> new_act.location << endl;
+                    if(current -> new_act.length < 60)
+                        cout << "Length: " << current -> new_act.length << " minutes\n";
+                    else
+                        cout << "Length: " << current -> new_act.length << " hours\n";
+            }
+            current = current -> next;
+        }
+    }
+}
 
