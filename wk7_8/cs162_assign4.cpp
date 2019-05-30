@@ -27,6 +27,7 @@ int main()
                 quit = true;
                 break;
         }
+        if(quit == false)
                 menu(decision);
     }
     while(!quit);

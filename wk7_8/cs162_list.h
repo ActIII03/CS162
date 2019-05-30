@@ -40,6 +40,7 @@ class list
         void insert(node * current);
         void display();
         void search();
+        void destroy(node * & head);
         list();
         ~list();
 

@@ -29,6 +29,7 @@ bool are_you_sure()
         return false; 
 }
 
+//Activity type constructor
 activity_type::activity_type()
 {
     name = NULL;
@@ -38,10 +39,39 @@ activity_type::activity_type()
     counter = 0;   
 }
 
+
 activity_type::~activity_type()
 {
+    if(name != NULL)
+    {
+        delete [] name;
+        name = NULL;
+    }
+    if(type != NULL)
+    {
+        delete [] type;
+        type = NULL;
+    }
+    if(location != NULL)
+    {
+        delete [] location;
+        location = NULL;
+    }
 }
 
+void list::destroy(node * & head)
+{
+    if(!head)
+        return;
+    else
+    {
+        node * temp = head -> next;
+        delete head;
+        head = NULL;
+        destroy(temp);
+    }
+        
+}
 
 list::list()
 {
@@ -51,12 +81,12 @@ list::list()
 list::~list()
 {
 
-    if(head == NULL)
+    if(head != NULL)
     {
-        cout << "List is empty" << endl;
+        destroy(head);
     }
-
 }
+
 //Add read-in message
 void list::read_in() //Empty
 {
@@ -78,7 +108,7 @@ void list::read_in() //Empty
     cout << "Location: " << endl;
     cin.get(location, 100, '\n');
     cin.ignore();
-    cout << "Length: " << endl;
+    cout << "Length(Total Minutes): " << endl;
     cin >> length;
     cin.ignore();
 
@@ -133,11 +163,14 @@ void list::insert(node * current)
     }
 }
 
+//Display function
 void list::display()
 {
+    //Create a pointer starting at the head
     node * current = head;
-    int number = 1;
+    int number = 1;  //Just a display variable
 
+    //Traverse to the last node is null
     while(current != NULL)
     {
         cout << "(" << number << ")" << " Name: " << current -> new_act.name << "\n ";
@@ -146,29 +179,32 @@ void list::display()
         if(current->new_act.length < 60)
             cout << "Length: " << current->new_act.length << " minutes\n";
         else
-            cout << "Length: " << current->new_act.length << " hours\n";
+            cout << "Length: " << (current->new_act.length / 60) << " hours\n\n";
         ++number;
-        current = current -> next;
+        current = current -> next;  //Advance pointer to next node
     }
 }
 
+//Search by type function
 void list::search()
 {
     node * current = head;
-    char type[100];
+    char type[100];  //Get user's input for what type they wish to display
 
     cout << "Please enter a type of activity you would like to display: ";
     cin.get(type, 100, '\n');
     cin.ignore();
 
-    cout << "1st type: " << current-> new_act.type << endl;
-    cout << "My type: " << type << endl;
+    //1st case: Is head NULL
     if(head == NULL)
         cout << "List is empty!" << endl;
+
+    //If there is one more nodes this condition will execute
     else
     {
-        while(current != NULL)
+        while(current != NULL)   //Traverse to the last node
         {
+            //String compare 
             if(!(strcmp(current -> new_act.type, type)))
             {
                cout << "Name: " << current -> new_act.name
@@ -179,7 +215,7 @@ void list::search()
                     else
                         cout << "Length: " << current -> new_act.length << " hours\n";
             }
-            current = current -> next;
+            current = current -> next;   //Advance pointer
         }
     }
 }
