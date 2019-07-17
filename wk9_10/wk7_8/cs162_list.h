@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS162
 //Instructor: Jeffery Lund
-//Program: Event tracker
+//Program: PDX Event tracker
 #include <iostream>
 #include <cstring>
 #include <cctype>

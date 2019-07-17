@@ -112,8 +112,12 @@ void event_type::copy_event(char t_name[], char t_month[], int t_day)
 
     day = t_day;
     ++counter;
+    
+    if(counter == 1)
+        cout << "\n\nTotal of " << counter << " activity exist\n\n";
+    else
+        cout << "\n\nTotal of " << counter << " activities exist\n\n";
 
-    cout << "\n\nTotal of " << counter << " activities exist\n\n";
 }
 
 //Insert At the the beginning
@@ -152,10 +156,16 @@ void list::display()
     node * current = head;
     int number = 1;  //Just a display variable
 
-    //Traverse to the last node is null
+    if(!head)
+    {
+        cout << "List is empty!";
+        return;
+    }
+
+    //Traverse to the last node 
     while(current != NULL)
     {
-        cout << "(" << number << ")" << " Name: " << current -> new_event.name << "\n ";
+        cout << "\n(" << number << ")\n" << " Name: " << current -> new_event.name << "\n ";
         cout << "Month & Day: " << current -> new_event.month << " " << current -> new_event.day << endl;
         ++number;
         current = current -> next;  //Advance pointer to next node
@@ -188,7 +198,8 @@ void list::search()
             //String compare  type with user's input
             if(!(strcmp(current -> new_event.month, month)) && current -> new_event.day == day )
             {
-                cout << "Name: " << current -> new_event.name
+                cout << "\nMatch: \n"
+                     << "Name: " << current -> new_event.name
                      << "\nMonth: " << current -> new_event.month 
                      << "\nDay: " << current -> new_event.day << endl;
             }
@@ -197,21 +208,26 @@ void list::search()
     }
 }
 
+//Removal function
 void list::remove()
 {
     char name[100];
 
+    //Empty list
     if(!head)
         return;
+
     else
     {
         display();
-        node * current, previous;
+        node * current; 
+        node * previous;
 
         cout << "Please enter the name of the event you wish to delete: ";
         cin.get(name, 100, '\n');
         cin.ignore();
 
+        //Removal at the beginning
         if(!(strcmp(head -> new_event.name, name)))
         {
             current = head -> next;
@@ -220,18 +236,23 @@ void list::remove()
             return;
         }
 
+        //Removal elsewhere
         else
         {
             current = head -> next;
-            previous = head; 
 
             while(current && strcmp(current -> new_event.name, name) != 0)
             {
-                if(!(strcmp(current -> new_event.name, name))
-                {
-                    delete current;
-                    current = previous -> next;
-                    previous -> next = current;
-                    previous = current
-                }
+                previous = current;
+                current = current -> next;
+            }
+
+            if(!current)
+            {
+                previous -> next = current -> next;
+                delete current;
+                return;
+            }
+        }
+    }
 }

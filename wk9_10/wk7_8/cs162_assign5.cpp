@@ -27,13 +27,14 @@ int main()
             case 3:  //Search module
                 list_mgmt.search();
                 break;
-            case 4:
+            case 4:  //Removal module
                 list_mgmt.remove();
+                break;
             case 5:
                 quit = true;  //Quit flag
                 break;
         }
-        if(quit == false)  //Won't trigger unless user still desires to run progra
+        if(quit == false)  //Won't trigger unless user still desires to run program
                 menu(decision);
     }
     while(!quit);  //Quit condition

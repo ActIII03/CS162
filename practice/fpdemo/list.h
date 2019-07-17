@@ -21,13 +21,25 @@ void destroy(node * &head);     //supplied
 /* *****************YOUR TURN! ******************************** */
 /* PLACE YOUR PROTOTYPE HERE */
 int count_nodes(node * head);
-int count_even(node * head);
+/*int count_even(node * head);
 void display_last_node(node * head);
 void display_middle_node(node * head, int count);
 void is_last_node_odd(node * head, int count);
 void display_last_two(node * head, int count);
-void display_every_other(node * head);
+void display_every_other(node * head);*/
 
+int count_node(node * head){
+
+    if(!head)
+        return 0;
+    else
+        return count_node(head -> next) + 1;
+}
+
+void swap_first_last(node * & head)}
+
+
+/*
 int count_nodes(node * head)
 {
     if(!head)
@@ -126,4 +138,4 @@ void display_every_other(node * head)
         else if(head -> next -> next != NULL)
             display_every_other(head -> next -> next);
     }
-}
+}*/
