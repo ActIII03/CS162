@@ -1,10 +1,7 @@
 #Image GCC
-FROM gcc:4.9
+FROM gcc:latest
 
-COPY . /usr/src/myapp
+RUN apt-get update && apt-get install -y gdb
+RUN /bin/bash uname -a
 
-WORKDIR /usr/src/myapp
 
-RUN gcc -o myapp main.c
-
-CMD ["./myapp"]
