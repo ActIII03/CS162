@@ -12,3 +12,4 @@ struct node{
 };
 
 void hello_world();
+void create_lll(node * & head, node * & tail);
