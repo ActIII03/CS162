@@ -5,12 +5,13 @@ using namespace std;
 
 int main(){
 
+    //Declare and initilize head & tail
     node * head = NULL;
     node * tail = NULL;
 
+    //Function go here
     hello_world();
-    create_lll(head, tail);
-    display(head);
+    build_list(head, list);
 
     return 0;
 }

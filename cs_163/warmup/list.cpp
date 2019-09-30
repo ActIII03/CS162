@@ -11,7 +11,7 @@ void create_lll(node * & head, node * & tail){
     //Variables
     node * temp;
     node * n_node;
-    srand(time(NULL))  // Get different random number
+    srand(time(NULL));  // Get different random number
     int arr_size = (rand() % 15 + 1), index = 0;
 
         
@@ -23,16 +23,22 @@ void create_lll(node * & head, node * & tail){
 
     do{
         ++index;
-        n_node = new n_node;
+        n_node = new node;
         n_node -> data = (rand() % 100 + 1);
         temp -> next = n_node;
-        temp = n_node
+        temp = n_node;
     }
     while( index < arr_size);
 
     temp -> next = NULL;
 }
 
+void display(node * head){
 
+    while(head != NULL){
+        cout << "(" << head -> data << ")";
+        head = head -> next;
+    }
 
-
+    cout << "\n";
+}
