@@ -9,31 +9,63 @@ For global variables, I want to create static array sizes for each data memember
 
 Main Algorithm:
 
-    Create a struct object (I) address: (1) Address Line 1:  var -> address_line_1; data type: character array (2) City; var -> address_city; data type is character array (3) State: var -> address_state; data type is character array (4) Zip Code: var -> address_zip_code; data type is integer. Create a struct object (II) food cart: (1) Name Cart; var -> name_cart; data type is character array   (2) Location; struct_var address; data type is a struct (3) Resturant Style: var -> resturant_style; data type is character array (4) Review: var -> review; data type is character array. After creating objects I will invoke a menu interface that is accepts integer values from the user. The following will be my menu options: Invoke (1) Add Cart along with top favorite food (2) Search Carts (3) Display Carts (4) For an existing cart, delete favorite food (5) For an existing cart, add favorite food (6) Delete Cart (7) Display Cart by type of Food (8) Quit Program. 
+    After creating objects I will invoke a menu interface that is accepts integer values from the user. Create an integer variable called decision and initialize it to zero. I want to keep the program running for the user while decision isn't an integer value of eight, which the quit option in my menu options. The following will be my menu options invocation: Invoke (1) Add Cart along with top favorite food (2) Search Carts (3) Display Carts (4) For an existing cart, delete favorite food (5) For an existing cart, add favorite food (6) Delete Cart (7) Display Cart by type of Food (8) Quit Program. If decision still doesn't equal an integer value of eight then invoke Menu module to run the program again, otherwise, quit program.
 
+
+Structures:
+
+    Create a struct object (I) address: (1) Address Line 1:  var -> address_line_1; data type: character array (2) City; var -> address_city; data type is character array (3) State: var -> address_state; data type is character array (4) Zip Code: var -> address_zip_code; data type is integer. 
+
+    Create a struct object (II) food cart: (1) Name Cart; var -> name_cart; data type is character array   (2) Location; struct_var address; data type is a struct (3) Resturant Style: var -> resturant_style; data type is character array (4) Review: var -> review; data type is character array (5) Top, Favorite Food: var -> fav_food; data type is a character array.
+
+
+
+
+Procedural Functions:
+
+    (1) Greeting:
+
+    (2) Menu:
+        
+        Ask user to pick from the menu options (1-8) and read in from user a integer value into decision variable passed through the menu() paramters byreferenced. Return integer value to main for switch case as decision.
+
+        
 
 FoodCart Class Description:
 
-    Public Functions:
+    Public Members & Functions:
         
-        (1) Add Food Cart w/ Top Favorite:
+        Functions: 
+
+            (1) Add Food Cart w/ Top Favorite:
             
-        (2) Search Carts:
+            Inform user that the following information will be needed in order to input a new food cart: (1) Name of Food Cart (2) Location -- (i) Address line 1 (ii) City (iii) State (iv) Zip Code (3) Resturant Style (4) Review (5) Favorite Top Food. Read in inputs from user into each member of the food struct via the pointer present in the private section of the FoodCart class since this method, Add Cart, is within the same class.
 
-        (3) Display Carts:
+            (2) Search Carts:
 
-        (4) For an exisitng each Cart, Delete Favorite Food:
+            (3) Display Carts:
 
-        (5) For an existing cart, Add Favorite Food:
+            (4) For an exisitng each Cart, Delete Favorite Food:
 
-        (6) Delete Cart:
+            (5) For an existing cart, Add Favorite Food:
 
-        (7) Display Cart by Type of Food:
+            (6) Delete Cart:
 
-        (8) FoodCart constructor:
+            (7) Display Cart by Type of Food:
 
-        (9) FoodCart destructor:
+            (8) FoodCart constructor:
 
-    Private Member: 
+                       Initialize the following variables: (1) Set the head equal to NULL (2) Set tail  equal to NULL
 
-        I want to create the following variables: (1) food cart struct pointer: var -> food_cart * head (2) food cart struct pointer: var -> food_cart * head
+            (9) FoodCart destructor:
+
+        Members:
+
+    Private Members & Functions:
+
+        Functions:
+
+
+        Members:
+
+            I want to create the following variables: (1) food cart struct head pointer: var -> food_cart * head (2) food cart struct tail pointer: var -> food_cart * head
