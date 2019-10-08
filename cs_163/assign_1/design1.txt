@@ -1,22 +1,33 @@
 Name: Armant Touche
 Class: CS 163
 Instructor: Karla Fant
-Program Purpose: This is program used to to manage a list of Portland State University Food carts presently located on campus.
+Writeup Purpose: The Main question are answered first in a General Sense in relation to ADT and how I intend to successfully hide the information. Also, I plan to go into more detail afterward the questions to describe the logic and the program flows. Attached is my test cases for my functions, both procedural and object methods.
+
+Main Description: 
+
+a. What function your ADT will need in the public and private sections
+b How each function will report success/failure back to the calling routine
+c. How my functions will shield the client program from the details of the data structure
+d. What data structure will I be using and how each of the special cases will be tested?
+
+Test Cases: *Checked attached PDF for each function's test case*
 
 Global Variables: 
 
-For global variables, I want to create static array sizes for each data memember belonging to two struct I will, which are: (1) address (2) food cart. Following are the integers variables I want create: (1) char_1 = 5 (2) char_2 = 10 (3) char_3 = 15.
+For global variables, I want to create array sizes for each data memember that will act a temporary buffer before compying them into my food cart node belonging to two struct I will, which are: (1) address (2) food cart. Following are the integer variable: (1) char buffer with static size of 200.
 
 Main Algorithm:
 
-    After creating objects I will invoke a menu interface that is accepts integer values from the user. Create an integer variable called decision and initialize it to zero. I want to keep the program running for the user while decision isn't an integer value of eight, which the quit option in my menu options. The following will be my menu options invocation: Invoke (1) Add Cart along with top favorite food (2) Search Carts (3) Display Carts (4) For an existing cart, delete favorite food (5) For an existing cart, add favorite food (6) Delete Cart (7) Display Cart by type of Food (8) Quit Program. If decision still doesn't equal an integer value of eight then invoke Menu module to run the program again, otherwise, quit program.
+    After creating objects I will invoke a menu interface that is accepts integer values from the user. Create an integer variable called decision and initialize it to zero. I want to keep the program running for the user while decision isn't an integer value of eight, which the quit option in my menu options. The following will be my menu options invocation: Invoke (1) Add Cart along with top favorite food (2) Display Carts (3) For an existing cart, delete favorite food (4) For an existing cart, add favorite food (5) Delete Cart (6) Display Cart by type of Food (7) Quit Program. If decision still doesn't equal an integer value of eight then invoke Menu module to run the program again, otherwise, quit program.
 
 
 Structures:
 
-    Create a struct object (I) address: (1) Address Line 1:  var -> address_line_1; data type: character array (2) City; var -> address_city; data type is character array (3) State: var -> address_state; data type is character array (4) Zip Code: var -> address_zip_code; data type is integer. 
+    Create a struct object (I) cart_address: (1) Address Line 1:  var -> address_line_1; data type is character w/ a pointer (2) City; var -> address_city; data type is character w/ a pointer (3) State: var -> address_state; data type is character w/ a pointer (4) Zip Code: var -> address_zip_code; data type is character w/ a pointer. 
 
-    Create a struct object (II) food cart: (1) Name Cart; var -> name_cart; data type is character array   (2) Location; struct_var address; data type is a struct (3) Resturant Style: var -> resturant_style; data type is character array (4) Review: var -> review; data type is character array (5) Top, Favorite Food: var -> fav_food; data type is a character array.
+    Create a struct object (II) food_cart: (1) Name of Cart; var -> name_cart; data type is character w/ a pointer   (2) Location; struct_var cart_address; data type is character w/ a pointer (3) Resturant Style: var -> resturant_style; data type is character w/ a pointer (4) Review: var -> review; data type is character w/ a pointer (5) Top, Favorite Food: var -> fav_food; data type is character w/ a pointer.
+
+    Create a struct object (III) node: (1) Food cart struct variable; var -> food_cart new_cart; data type is struct (2) node w/ dereference operator, pointing to node; var -> node * next; data type is self referencing.
 
 
 
@@ -25,10 +36,19 @@ Procedural Functions:
 
     (1) Greeting:
 
+        Greet user with a message informing them about this program.
+
     (2) Menu:
         
-        Ask user to pick from the menu options (1-8) and read in from user a integer value into decision variable passed through the menu() paramters byreferenced. Return integer value to main for switch case as decision.
+        Ask user to pick from the menu options (1-8) and read in from user a integer value into decision variable passed through the menu() paramters byreferenced. Return an integer value to main for the switch case in main as decision. 
 
+    (3) Get Character entry (Parameter: Pointer that will be passed by reference -- char buffer):
+
+        This method will be called to get character input from user. I have to make sure to clear buffer after each input to clear up buffer, which prevent input failures. Return one if unsuccessful, otherwise, return zero for success
+
+        
+
+            
         
 
 FoodCart Class Description:
@@ -37,35 +57,46 @@ FoodCart Class Description:
         
         Functions: 
 
-            (1) Add Food Cart w/ Top Favorite:
+            (1) Add Food Cart w/ Top Favorite  (Parameters are: ):
             
-            Inform user that the following information will be needed in order to input a new food cart: (1) Name of Food Cart (2) Location -- (i) Address line 1 (ii) City (iii) State (iv) Zip Code (3) Resturant Style (4) Review (5) Favorite Top Food. Read in inputs from user into each member of the food struct via the pointer present in the private section of the FoodCart class since this method, Add Cart, is within the same class.
+            Inform user that the following information will be needed in order to input a new food cart:  Read in inputs from user into each member of the food struct via the pointer present in the private section of the FoodCart class. since this method, Add Cart, is within the same class as the. First base case that would prevent this method from being reused and not worry about the head, is if this list was empty and the head pointer is set to NULL. If head is equal to NULL, before I go to into my statements I will declare the following: (i) food_cart * n_node and set it equal to head (ii) food_cart * temp and set it equal to head. When I enter my first statement case, I will declare pointer to the n_node pointer and create a new food_cart object via the new operator. Set head equal to n_node to start a Linear Linked List (LLL). So, the previous was the first case for adding to our LLL, otherwise, we will first get character by invoking one of the procedural modules to fill buffer with each input filling the data member. Return one if unsuccessful, otherwise, return zero for success
 
-            (2) Search Carts:
+            (2) Display Carts -- (i) Parameters are NONE (ii) Function type is integer:
 
-            (3) Display Carts:
+                If food cart list is empty then let user know that list is empty. Otherwise, start with head pointer and recursively display each by calling self-calling this current method to each entry via the indirect operator until end of list is reach. Return one if unsuccessful, otherwise, return zero for success 
 
-            (4) For an exisitng each Cart, Delete Favorite Food:
+            (3) For an exisitng each Cart, Delete Favorite Food (Parameters are: NONE):
 
-            (5) For an existing cart, Add Favorite Food:
+                Return one if unsuccessful, otherwise, return zero for success
 
-            (6) Delete Cart:
+            (4) For an existing cart, Add Favorite Food (Parameters are: NONE):
 
-            (7) Display Cart by Type of Food:
+                Return one if unsuccessful, otherwise, return zero for success
 
-            (8) FoodCart constructor:
+            (5) Delete Cart (Parameters are: NONE):
 
-                       Initialize the following variables: (1) Set the head equal to NULL (2) Set tail  equal to NULL
+                Return one if unsuccessful, otherwise, return zero for success
 
-            (9) FoodCart destructor:
+            (6) Display Cart by Type of Food (Parameters are: NONE):
+
+                Return one if unsuccessful, otherwise, return zero for success
+
+            (7) FoodCart constructor (Parameters are: NONE):
+
+                       Initialize the following variables: (1) Set the head pointer equal to NULL (2) Set the tail pointer equal to NULL
+
+            (8) FoodCart destructor (Parameters are: NONE):
 
         Members:
+
+            NONE
 
     Private Members & Functions:
 
         Functions:
 
+            NONE
 
         Members:
 
-            I want to create the following variables: (1) food cart struct head pointer: var -> food_cart * head (2) food cart struct tail pointer: var -> food_cart * head
+            I want to create the following variables: (1) food cart struct head pointer: var -> food_cart * head; data type is *INSERT_HERE* (2) food cart struct tail pointer: var -> food_cart * head; data type is *INSERT_HERE*.
