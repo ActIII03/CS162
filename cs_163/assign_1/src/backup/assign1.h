@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <sstream>
 #include <cstring>
 
 using namespace std;
@@ -15,29 +14,28 @@ const int BUFFER_SIZE = 250;
 struct address
 {
 
-    char * line_1;
-    char * city;
-    char * state;
-    int * zip_code;
+    char * address_line_1;
+    char * address_city;
+    char * address_state;
+    int address_zip_code;
 };
 
 struct food_cart
 {
 
-    char * name;
-    address address;
-    char * type;
+    char * cart_name;
+    address cart_address;
+    char * cart_type;
     char * cart_food_favorite;
 }
 
 struct node{
 
-    food_cart fd_cart;
+    food_cart new_cart;
     node * next;
 }
 
 void get_char(char * & input_buffer);
-//void get_int();
 void greeting();
 void menu(int & decision);
 
@@ -46,18 +44,17 @@ class FoodCartList
 
     public:
 
-        FoodCartList();
-        ~FoodCartList();
+        FoodCart();
+        ~FoodCart();
         int add_cart();
         int add_fav_food();
-        int display_by_type(); 
-        int delete_fav_food(); 
+        int display_by_type();
+        int delete_fav_food();
         int destroy(node * & head);
         int display();
 
     private:
 
-        int count(node * head); 
         node * head;
         node * tail;
 };
