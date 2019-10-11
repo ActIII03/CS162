@@ -46,8 +46,8 @@ class FoodCartList
 
     public:
 
-        FoodCartList();
-        ~FoodCartList();
+        FoodCartList(void);
+        ~FoodCartList(void);
         int add_cart();
         int add_fav_food();
         int display_by_type(); 
