@@ -7,12 +7,12 @@
 
 void menu(int & decision)
 {
-    cout << "\nWhich of the option would like to choose?:\n";
-         << "(1) Add Food Cart w/ Favorite Food\n (2) Display Food Cart(s) by Food Type\n (3) Delete Favorite Food from Exisiting Cart\n";
-         << "(4) Add Favorite Food to an Existing Cart\n (5) Display Food Cart(s)\n  (6) Quit Program\n";
+    cout << "\nWhich of the option would like to choose?:\n"
+         << "(1) Add Food Cart w/ Favorite Food\n (2) Display Food Cart(s) by Food Type\n (3) Delete Favorite Food from Exisiting Cart\n"
+         << "(4) Add Favorite Food to an Existing Cart\n (5) Display Food Cart(s)\n  (6) Quit Program" << endl;
 
     cin >> decision;
-    cin.ignore;
+    cin.ignore();
 }
 
 void greeting()
@@ -20,12 +20,12 @@ void greeting()
     //Stub
 }
 
-void get_char(char * & input_buffer);
+int get_char(char & input_buffer, int & move_entry)
 {
     //istringstream input("Hot Dog Stand\n");
-
-    cin.get(input_buffer, BUFFER_SIZE, "\n");
+    cin.getline(input_buffer, BUFFER_SIZE, "\n");
     cin.ignore(100, "\n");
+    return ++move_entry;
 
 }
 
@@ -45,17 +45,24 @@ FoodCartList::~FoodCartList()
 
 }
 
-int FoodCart::add_cart()
+int FoodCartList::add_cart()
 {
-    //Stub
+    //List of entries
+    char buffer[];
+    int line_entry = 0;
+    if(!head){
+        line_entry get_char(buffer, line_entry);
+        cout << "Line entry: " << line_entry << endl;
+        node * n_cart = new cart_entry;
+    }
     return 0;
 }
 
 
 int FoodCartList::add_fav_food()
 {
-    //Stub
-    return 0;
+        //Stub
+        return 0;
 }
 
 int FoodCartList::count() 
@@ -83,6 +90,7 @@ int FoodCartList::count()
 int FoodCartList::display_by_type()
 {
     //Stub  
+    cout << "Function Call\n";
     return 0;
 }
 
@@ -109,11 +117,13 @@ void FoodCartList::destroy(node * & head)
 int FoodCartList::display()
 {
     if(!head)
+        cout << "NO ENTRIES\n";
         return 1;
     else
     {
        while(!head)
         {
+            //Look up how to redesign this function
             cout << "Name: " << head->fd_cart.name << endl;
             head = head->next;
         }
@@ -121,5 +131,3 @@ int FoodCartList::display()
        return 0;
     }
 }
-}
-

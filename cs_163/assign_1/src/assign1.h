@@ -25,18 +25,18 @@ struct food_cart
 {
 
     char * name;
-    address address;
+    address c_address;
     char * type;
     char * cart_food_favorite;
-}
+};
 
 struct node{
 
     food_cart fd_cart;
     node * next;
-}
+};
 
-void get_char(char * & input_buffer);
+int get_char(char & input_buffer, int & move_to_entry);
 //void get_int();
 void greeting();
 void menu(int & decision);

@@ -12,7 +12,7 @@ int main()
     int decision = 0;
     bool quit = false;
 
-    menu(decision)
+    menu(decision);
     do
     {
         switch(decision)
@@ -20,7 +20,7 @@ int main()
             case 1:
                 cart_list.add_cart();
                 break;
-            /*case 2:
+            case 2:
                 cart_list.display_by_type();
                 break;
             case 3:
@@ -28,7 +28,7 @@ int main()
                 break;
             case 4:
                 cart_list.add_fav_food();
-                break; */
+                break; 
             case 5:
                 cart_list.display();
                 break;
