@@ -34,7 +34,7 @@ struct node{
     node * next;
 };
 
-int get_char(food_cart & new_cart);
+int get_char(food_cart & new_cart, int menu_choice);
 //void get_int();
 void greeting();
 void menu(int & decision);
@@ -46,11 +46,10 @@ class FoodCartList
 
         FoodCartList(void);
         ~FoodCartList(void);
-        int add_cart();
         int add_cart(const food_cart & add_cart);
         int add_fav_food();
-        int display_by_type(); 
-        int delete_fav_food(); 
+        int display_by_type(int menu_choice); 
+        int delete_fav_food(int menu_choice); 
         void destroy(node * & head);
         int display();
 

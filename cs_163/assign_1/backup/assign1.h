@@ -16,9 +16,7 @@ struct address
 {
 
     char * line_1;
-    char * city;
-    char * state;
-    int * zip_code;
+    char * location;
 };
 
 struct food_cart
@@ -27,7 +25,7 @@ struct food_cart
     char * name;
     address c_address;
     char * type;
-    char * cart_food_favorite;
+    char * fav_food;
 };
 
 struct node{
@@ -46,15 +44,10 @@ class FoodCartList
 
     public:
 
-<<<<<<< HEAD
         FoodCartList(void);
         ~FoodCartList(void);
         int add_cart();
-=======
-        FoodCartList();
-        ~FoodCartList();
         int add_cart(const food_cart & add_cart);
->>>>>>> b128fd13723260aa6a54c688553eb1a92aa3cc09
         int add_fav_food();
         int display_by_type(); 
         int delete_fav_food(); 

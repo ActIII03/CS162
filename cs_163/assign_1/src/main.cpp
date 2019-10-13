@@ -18,16 +18,19 @@ int main()
         switch(decision)
         {
             case 1:
-                get_char(cart_info);
+                get_char(cart_info, decision);
                 cart_list.add_cart(cart_info);
                 break;
             case 2:
+                get_char(cart_info, decision);
                 cart_list.display_by_type();
                 break;
             case 3:
+                get_char(cart_info, decision);
                 cart_list.delete_fav_food();
                 break;
             case 4:
+                get_char(cart_info, decision);
                 cart_list.add_fav_food();
                 break; 
             case 5:

@@ -7,12 +7,12 @@
 
 void menu(int & decision)
 {
-    cout << "\nWhich of the option would like to choose?:\n"
-         << "(1) Add Food Cart w/ Favorite Food\n (2) Display Food Cart(s) by Food Type\n (3) Delete Favorite Food from Exisiting Cart\n"
-         << "(4) Add Favorite Food to an Existing Cart\n (5) Display Food Cart(s)\n  (6) Quit Program" << endl;
-
+    cout << "Which of the option would like to choose?:\n"
+         << "(1) Add Food Cart w/ Favorite Food \n(2) Display Food Cart(s) by Food Type \n(3) Delete Favorite Food from Exisiting Cart \n"
+         << "(4) Add Favorite Food to an Existing Cart \n(5) Display Food Cart(s) \n(6) Quit Program \nChoice(1-6):";
     cin >> decision;
     cin.ignore();
+    cin.clear();
 }
 
 void greeting()
@@ -23,22 +23,47 @@ void greeting()
 int get_char(food_cart & new_cart)
 {
     char buffer[BUFFER_SIZE];
+
     //Cart Name
-    cout << "Please enter the cart's name : " << endl;
+    cout << "Please enter the cart's name: ";
     cin.get(buffer, BUFFER_SIZE); 
-    cin.clear();
     cin.ignore();
-    cout << "Buffer: " << buffer << endl;
+    cin.clear();
     new_cart.name = new char[strlen(buffer)+1];
     strcpy(new_cart.name, buffer);
-    //
-    cout << "Please enter the cart's name : " << endl;
+
+    //Address Line 1
+    cout << "Please enter the cart's address(Example -- 1234 NE John Jones DR): ";
     cin.get(buffer, BUFFER_SIZE); 
-    cin.clear();
     cin.ignore();
-    cout << "Buffer: " << buffer << endl;
-    new_cart.name = new char[strlen(buffer)+1];
-    strcpy(new_cart.name, buffer);
+    cin.clear();
+    new_cart.c_address.line_1 = new char[strlen(buffer)+1];
+    strcpy(new_cart.c_address.line_1, buffer);
+
+    //Location
+    cout << "Please enter the cart's Location (Example -- Park Avenuce OR 4th Avenue): ";
+    cin.get(buffer, BUFFER_SIZE); 
+    cin.ignore();
+    cin.clear();
+    new_cart.c_address.location = new char[strlen(buffer)+1];
+    strcpy(new_cart.c_address.location, buffer);
+    
+    //Food Type
+    cout << "Please enter the cart's food type (Example -- Thai): ";
+    cin.get(buffer, BUFFER_SIZE); 
+    cin.ignore();
+    cin.clear();
+    new_cart.type = new char[strlen(buffer)+1];
+    strcpy(new_cart.type, buffer);
+
+    //Favorite Food
+    cout << "Please enter the cart's favorite food (Example -- Chicken Pad Thai): " ;
+    cin.get(buffer, BUFFER_SIZE); 
+    cin.ignore();
+    cin.clear();
+    new_cart.fav_food = new char[strlen(buffer)+1];
+    strcpy(new_cart.fav_food, buffer);
+    cout << "\n";
     return 0;
 
 }
@@ -61,16 +86,14 @@ FoodCartList::~FoodCartList()
 
 int FoodCartList::add_cart(const food_cart & add_cart)
 {
-    //List of entries
-    int line_entry = 0;
-    cout << "Name: " << add_cart.name << endl;
-    /*if(!head){
-        node n_cart = new food_cart;
-        cout << "Line entry: " << line_entry << endl;
-        n_cart.name = new char[strlen(buffer)+1];
-        strcpy(n_cart.name, buffer);
-        cout << "Name: " << n_cart.name << endl;
-    }*/
+
+    if(!head){
+        node * n_cart = new node;
+        head = n_cart;
+        head -> next = NULL;
+        n_cart -> fd_cart.name = new char[strlen(add_cart.name)+1];
+        strcpy(n_cart -> fd_cart.name, add_cart.name);  
+    }
     return 0;
 }
 
