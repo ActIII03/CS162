@@ -8,19 +8,20 @@
 int main()
 {
     FoodCartList cart_list;
-
+    food_cart cart_info;
     int decision = 0;
     bool quit = false;
 
-    menu(decision)
+    menu(decision);
     do
     {
         switch(decision)
         {
             case 1:
-                cart_list.add_cart();
+                get_char(cart_info);
+                cart_list.add_cart(cart_info);
                 break;
-            /*case 2:
+            case 2:
                 cart_list.display_by_type();
                 break;
             case 3:
@@ -28,7 +29,7 @@ int main()
                 break;
             case 4:
                 cart_list.add_fav_food();
-                break; */
+                break; 
             case 5:
                 cart_list.display();
                 break;
