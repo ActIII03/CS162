@@ -8,7 +8,7 @@
 int main()
 {
     FoodCartList cart_list;
-
+    food_cart cart_info;
     int decision = 0;
     bool quit = false;
 
@@ -18,7 +18,8 @@ int main()
         switch(decision)
         {
             case 1:
-                cart_list.add_cart();
+                get_char(cart_info);
+                cart_list.add_cart(cart_info);
                 break;
             case 2:
                 cart_list.display_by_type();

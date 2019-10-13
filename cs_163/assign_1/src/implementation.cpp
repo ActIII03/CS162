@@ -20,12 +20,26 @@ void greeting()
     //Stub
 }
 
-int get_char(char & input_buffer, int & move_entry)
+int get_char(food_cart & new_cart)
 {
-    //istringstream input("Hot Dog Stand\n");
-    cin.getline(input_buffer, BUFFER_SIZE, "\n");
-    cin.ignore(100, "\n");
-    return ++move_entry;
+    char buffer[BUFFER_SIZE];
+    //Cart Name
+    cout << "Please enter the cart's name : " << endl;
+    cin.get(buffer, BUFFER_SIZE); 
+    cin.clear();
+    cin.ignore();
+    cout << "Buffer: " << buffer << endl;
+    new_cart.name = new char[strlen(buffer)+1];
+    strcpy(new_cart.name, buffer);
+    //
+    cout << "Please enter the cart's name : " << endl;
+    cin.get(buffer, BUFFER_SIZE); 
+    cin.clear();
+    cin.ignore();
+    cout << "Buffer: " << buffer << endl;
+    new_cart.name = new char[strlen(buffer)+1];
+    strcpy(new_cart.name, buffer);
+    return 0;
 
 }
 
@@ -45,16 +59,18 @@ FoodCartList::~FoodCartList()
 
 }
 
-int FoodCartList::add_cart()
+int FoodCartList::add_cart(const food_cart & add_cart)
 {
     //List of entries
-    char buffer[];
     int line_entry = 0;
-    if(!head){
-        line_entry get_char(buffer, line_entry);
+    cout << "Name: " << add_cart.name << endl;
+    /*if(!head){
+        node n_cart = new food_cart;
         cout << "Line entry: " << line_entry << endl;
-        node * n_cart = new cart_entry;
-    }
+        n_cart.name = new char[strlen(buffer)+1];
+        strcpy(n_cart.name, buffer);
+        cout << "Name: " << n_cart.name << endl;
+    }*/
     return 0;
 }
 
@@ -65,7 +81,7 @@ int FoodCartList::add_fav_food()
         return 0;
 }
 
-int FoodCartList::count() 
+int FoodCartList::count(node * head) 
 {
     int count = 0;
 
@@ -117,8 +133,10 @@ void FoodCartList::destroy(node * & head)
 int FoodCartList::display()
 {
     if(!head)
+    {
         cout << "NO ENTRIES\n";
         return 1;
+    }
     else
     {
        while(!head)

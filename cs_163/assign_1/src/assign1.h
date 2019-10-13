@@ -36,7 +36,7 @@ struct node{
     node * next;
 };
 
-int get_char(char & input_buffer, int & move_to_entry);
+int get_char(food_cart & new_cart);
 //void get_int();
 void greeting();
 void menu(int & decision);
@@ -48,11 +48,11 @@ class FoodCartList
 
         FoodCartList();
         ~FoodCartList();
-        int add_cart();
+        int add_cart(const food_cart & add_cart);
         int add_fav_food();
         int display_by_type(); 
         int delete_fav_food(); 
-        int destroy(node * & head);
+        void destroy(node * & head);
         int display();
 
     private:
