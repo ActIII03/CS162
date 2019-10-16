@@ -17,55 +17,62 @@ void menu(int & decision)
 
 void greeting()
 {
-    //Stub
+    cout << "Welcome to Food Cart Registery!" << endl;
 }
 
-int get_char(food_cart & new_cart, int menu_choice)
+int get_char(d_food_cart & new_cart, int menu_choice)
 {
-    char buffer[BUFFER_SIZE];
 
     if(menu_choice == 1)
     {
         //Cart Name
         cout << "Please enter the cart's name: ";
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cin.get(new_cart.name, BUFFER_SIZE, '\n'); 
+        cin.ignore(100,'\n');
         cin.clear();
-        new_cart.name = new char[strlen(buffer)+1];
-        strcpy(new_cart.name, buffer);
-
+        
         //Address Line 1
         cout << "Please enter the cart's address(Example -- 1234 NE John Jones DR): ";
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cin.get(new_cart.c_address.line_1, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.c_address.line_1 = new char[strlen(buffer)+1];
-        strcpy(new_cart.c_address.line_1, buffer);
 
         //Location
         cout << "Please enter the cart's Location (Example -- Park Avenuce OR 4th Avenue): ";
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cin.get(new_cart.c_address.location, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.c_address.location = new char[strlen(buffer)+1];
-        strcpy(new_cart.c_address.location, buffer);
         
         //Food Type
         cout << "Please enter the cart's food type (Example -- Thai): ";
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cin.get(new_cart.type, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.type = new char[strlen(buffer)+1];
-        strcpy(new_cart.type, buffer);
+
+        //Review   
+        cout << "Please enter a review of the cart: ";
+        cin.get(new_cart.review, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
+        cin.clear();
 
         //Favorite Food
-        cout << "Please enter the cart's favorite food (Example -- Chicken Pad Thai): " ;
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cout << "Please enter top three favorite food (Example -- Chicken Pad Thai)" ;
+        cout << "1:";
+        cin.get(new_cart.fav_food.f_1, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.fav_food = new char[strlen(buffer)+1];
-        strcpy(new_cart.fav_food, buffer);
+
+        cout << "2:";
+        cin.get(new_cart.fav_food.f_2, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
+        cin.clear();
+        
+        cout << "3:";
+        cin.get(new_cart.fav_food.f_3, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
+        cin.clear();
         cout << "\n";
+
     }
 
 
@@ -73,11 +80,9 @@ int get_char(food_cart & new_cart, int menu_choice)
     {
         //Food Type
         cout << "Please enter a food type you want to see (Example -- Thai): " ;
-        cin.get(buffer, BUFFER_SIZE); 
-        cin.ignore();
+        cin.get(new_cart.type, BUFFER_SIZE, '\n'); 
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.type = new char[strlen(buffer)+1];
-        strcpy(new_cart.type, buffer);
         cout << "\n";
 
     }
@@ -88,18 +93,14 @@ int get_char(food_cart & new_cart, int menu_choice)
 
         //Delete Favorite Food
         cout << "Please enter the Food Cart you want to delete your favorite food from (Example: Stack High Sandwiches): ";
-        cin.get(buffer, BUFFER_SIZE);
-        cin.ignore();
+        cin.get(new_cart.type, BUFFER_SIZE, '\n');
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.name = new char[strlen(buffer)+1];
-        strcpy(new_cart.name, buffer);
         
         cout << "Please enter your favorite food item you want to delete (Example: California Steak Burrito): ";
-        cin.get(buffer, BUFFER_SIZE);
-        cin.ignore();
+        cin.get(new_cart.fav_food.f_1, BUFFER_SIZE, '\n');
+        cin.ignore(100, '\n');
         cin.clear();
-        new_cart.fav_food.f_1 = new char[strlen(buffer)+1];
-        strcpy(new_cart.fav_food.f_1, buffer);
     }
 
 
@@ -107,81 +108,22 @@ int get_char(food_cart & new_cart, int menu_choice)
     {
 
         cout << "Please enter the Food Cart you want to add your favorite food too (Example: Stack High Sandwiches): ";
-        cin.get(buffer, BUFFER_SIZE);
+        cin.get(new_cart.name, BUFFER_SIZE, '\n');
         cin.ignore();
         cin.clear();
-        new_cart.name = new char[strlen(buffer)+1];
-        strcpy(new_cart.name, buffer);
         
-        cout << "Please enter your top three favorite food item you want to add to an existing food cart (Example: California Steak Burrito): ";
-        //F_1
-        cin.get(buffer, BUFFER_SIZE);
+        
+        //Favorite Food
+        cout << "Please enter your top favorite food item you want to add to an existing food cart (Example: California Steak Burrito)(1): ";
+        cin.get(new_cart.fav_food.f_1, BUFFER_SIZE, '\n');
         cin.ignore();
         cin.clear();
-        new_cart.fav_food.f_1 = new char[strlen(buffer)+1];
-        strcpy(new_cart.fav_food.f_1, buffer);
-
-        //F_2
-        cin.get(buffer, BUFFER_SIZE);
-        cin.ignore();
-        cin.clear();
-        new_cart.fav_food.f_2 = new char[strlen(buffer)+1];
-        strcpy(new_cart.fav_food.f_2, buffer);
-
-        /F_3
-        cin.get(buffer, BUFFER_SIZE);
-        cin.ignore();
-        cin.clear();
-        new_cart.fav_food.f_3 = new char[strlen(buffer)+1];
-        strcpy(new_cart.fav_food.f_3, buffer);
     }
-    
     return 0;
 
 }
 
-void dest_info(food_cart & dest_info)
-{
-    //Empty struct
-    bool data_present = false;
-    while(!data_present)
-    {
-        if(dest_info.name)
-        {
-            data_present = true;
-            delete dest_info.name;
-            dest_info.name = NULL;
-        }
-        if(dest_info.c_address.line_1)
-        {
-            data_present = true;
-            delete dest_info.c_address.line_1;
-            dest_info.c_address.line_1 = NULL;
-        }
-        if(dest_info.c_address.location)
-        {
-            data_present = true;
-            delete dest_info.c_address.location;
-            dest_info.c_address.location = NULL;
-        }
-        if(dest_info.type)
-        {
-            data_present = true;
-            delete dest_info.type;
-            dest_info.type = NULL;
-        }
-        if(dest_info.fav_food)
-        {
-            data_present = true;
-            delete dest_info.fav_food.f_1;
-            dest_info.fav_food.f_1 = NULL;
-            delete dest_info.fav_food.f_2;
-            dest_info.fav_food.f_2 = NULL;
-            delete dest_info.fav_food.f_3;
-            dest_info.fav_food.f_3 = NULL;
-        }
-}
-
+//List constructor
 FoodCartList::FoodCartList()
 {
     head = NULL;
@@ -189,6 +131,7 @@ FoodCartList::FoodCartList()
 
 }
 
+//Destructor
 FoodCartList::~FoodCartList()
 {
     if(head)
@@ -198,37 +141,51 @@ FoodCartList::~FoodCartList()
 
 }
 
-int FoodCartList::add_cart(const food_cart & add_cart)
+//Add to LLL
+int FoodCartList::add_cart(const d_food_cart & add_cart)
 {
 
-    if(!head){
+    //Emptt List
+    if(!head)
+    {
 
         node * n_cart = new node;
         head = n_cart;
         head -> next = NULL;
+
+        int test = (strlen(add_cart.name) + 1);
+        cout << "Length: " << test << endl;
         
         //Name
         n_cart -> fd_cart.name = new char[strlen(add_cart.name)+1];
         strcpy(n_cart -> fd_cart.name, add_cart.name);  
         
         //Line 1
-        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.name)+1];
+        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.c_address.line_1)+1];
         strcpy(n_cart -> fd_cart.c_address.line_1, add_cart.c_address.line_1);  
 
         //Location
-        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.location)+1];
+        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.c_address.location)+1];
         strcpy(n_cart -> fd_cart.c_address.location, add_cart.c_address.location);  
+
+        //Review
+        n_cart -> fd_cart.review = new char[strlen(add_cart.review)+1];
+        strcpy(n_cart -> fd_cart.review, add_cart.review);  
+        
         //Food type
         n_cart -> fd_cart.type = new char[strlen(add_cart.type)+1];
         strcpy(n_cart -> fd_cart.type, add_cart.type);  
 
-        //Favorite Food
+        //Top Three Favorite Food 
         n_cart -> fd_cart.fav_food.f_1 = new char[strlen(add_cart.fav_food.f_1)+1];
         strcpy(n_cart -> fd_cart.fav_food.f_1, add_cart.fav_food.f_1);  
 
         n_cart -> fd_cart.fav_food.f_2 = new char[strlen(add_cart.fav_food.f_2)+1];
         strcpy(n_cart -> fd_cart.fav_food.f_2, add_cart.fav_food.f_2);  
-n_cart -> fd_cart.fav_food, add_cart.name);  
+
+        n_cart -> fd_cart.fav_food.f_3 = new char[strlen(add_cart.fav_food.f_3)+1];
+        strcpy(n_cart -> fd_cart.fav_food.f_3, add_cart.fav_food.f_3);  
+
     }
 
     //One Item in list and add to End of LLL
@@ -245,22 +202,30 @@ n_cart -> fd_cart.fav_food, add_cart.name);
         strcpy(n_cart -> fd_cart.name, add_cart.name);  
         
         //Line 1
-        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.name)+1];
+        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.c_address.line_1)+1];
         strcpy(n_cart -> fd_cart.c_address.line_1, add_cart.c_address.line_1);  
 
         //Location
-        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.location)+1];
+        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.c_address.location)+1];
         strcpy(n_cart -> fd_cart.c_address.location, add_cart.c_address.location);  
+
+        //Review
+        n_cart -> fd_cart.review = new char[strlen(add_cart.review)+1];
+        strcpy(n_cart -> fd_cart.review, add_cart.review);  
+
         //Food type
         n_cart -> fd_cart.type = new char[strlen(add_cart.type)+1];
         strcpy(n_cart -> fd_cart.type, add_cart.type);  
 
-        //Favorite Food
+        //Top Three Favorite Food 
         n_cart -> fd_cart.fav_food.f_1 = new char[strlen(add_cart.fav_food.f_1)+1];
         strcpy(n_cart -> fd_cart.fav_food.f_1, add_cart.fav_food.f_1);  
 
         n_cart -> fd_cart.fav_food.f_2 = new char[strlen(add_cart.fav_food.f_2)+1];
         strcpy(n_cart -> fd_cart.fav_food.f_2, add_cart.fav_food.f_2);  
+
+        n_cart -> fd_cart.fav_food.f_3 = new char[strlen(add_cart.fav_food.f_3)+1];
+        strcpy(n_cart -> fd_cart.fav_food.f_3, add_cart.fav_food.f_3);  
     }
 
     //Insert at the end
@@ -278,15 +243,20 @@ n_cart -> fd_cart.fav_food, add_cart.name);
         strcpy(n_cart -> fd_cart.name, add_cart.name);  
         
         //Line 1
-        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.name)+1];
+        n_cart -> fd_cart.c_address.line_1 = new char[strlen(add_cart.c_address.line_1)+1];
         strcpy(n_cart -> fd_cart.c_address.line_1, add_cart.c_address.line_1);  
 
         //Location
-        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.location)+1];
-        strcpy(n_cart -> fd_cart.c_address.location, add_cart.location);  
+        n_cart -> fd_cart.c_address.location = new char[strlen(add_cart.c_address.location)+1];
+        strcpy(n_cart -> fd_cart.c_address.location, add_cart.c_address.location);  
+
         //Food type
         n_cart -> fd_cart.type = new char[strlen(add_cart.name)+1];
         strcpy(n_cart -> fd_cart.name, add_cart.name);  
+
+        //Review
+        n_cart -> fd_cart.review = new char[strlen(add_cart.review)+1];
+        strcpy(n_cart -> fd_cart.review, add_cart.review);  
 
         //Favorite Foods
         n_cart -> fd_cart.fav_food.f_1 = new char[strlen(add_cart.fav_food.f_1)+1];
@@ -304,9 +274,27 @@ n_cart -> fd_cart.fav_food, add_cart.name);
 }
 
 
-int FoodCartList::add_fav_food()
+//Add to beginning
+int FoodCartList::add_fav_food(const d_food_cart & add_cart)
 {
-        //Stub
+    /*if(!head)
+        return 1;
+    else
+    {
+        char buffer[BUFFER_SIZE];
+        cout << "Please enter any type of food-type you wish to display: ";
+        cin.get(buffer, BUFFER_SIZE, '\n');
+        cin.ignore(BUFFER_SIZE, '\n');
+
+        while(head)
+        {
+            if(strcmp(buffer, cart.name))
+            {
+                
+            }
+        }
+    }      */ 
+
         return 0;
 }
 
@@ -332,16 +320,37 @@ int FoodCartList::count(node * head)
 }
 
 
-int FoodCartList::display_by_type(food_cart & display_type)
+int FoodCartList::display_by_type(const d_food_cart & cart)
 {
-    //Stub  
     if(!head)
-        return 0;
-    else {
-        
+        return 1;
+    else
+    {
+        char buffer[BUFFER_SIZE];
+        cout << "Please enter any type of food-type you wish to display carts who cook that way: ";
+        cin.get(buffer, BUFFER_SIZE, '\n');
+        cin.ignore(BUFFER_SIZE, '\n');
+
+        while(head)
+        {
+            if(strcmp(buffer, head->fd_cart.type))
+            {
+                cout << "Name: " << head->fd_cart.name << endl;
+                cout << "Address: " << head->fd_cart.c_address.line_1 << endl;
+                cout << "Location: " << head->fd_cart.c_address.location << endl;
+                cout << "Food Type: " << head->fd_cart.type << endl;
+                cout << "Review: " << head->fd_cart.review << endl;
+                cout << "Favorite Food(1): " << head->fd_cart.fav_food.f_1 << endl;
+                cout << "Favorite Food(2): " << head->fd_cart.fav_food.f_2 << endl;
+                cout << "Favorite Food(3): " << head->fd_cart.fav_food.f_3 << endl;
+            }
+            head = head -> next;
+        }
+    }
+    return 0;
 }
 
-int FoodCartList::delete_fav_food(food_cart & delete_fav)
+int FoodCartList::delete_fav_food(const d_food_cart & delete_fav)
 {
     //Stub
     return 0;
@@ -370,14 +379,17 @@ int FoodCartList::display()
     }
     else
     {
-       while(!head)
+       while(head)
         {
             //Look up how to redesign this function
             cout << "Name: " << head->fd_cart.name << endl;
-            cout << "Address: " << head->fd_cart.name << endl;
-            cout << "Location: " << head->fd_cart.name << endl;
-            cout << "Food Type: " << head->fd_cart.name << endl;
-            cout << "Favorite Food: " << head->fd_cart.name << endl;
+            cout << "Address: " << head->fd_cart.c_address.line_1 << endl;
+            cout << "Location: " << head->fd_cart.c_address.location << endl;
+            cout << "Food Type: " << head->fd_cart.type << endl;
+            cout << "Review: " << head->fd_cart.review << endl;
+            cout << "Favorite Food(1): " << head->fd_cart.fav_food.f_1 << endl;
+            cout << "Favorite Food(2): " << head->fd_cart.fav_food.f_2 << endl;
+            cout << "Favorite Food(3): " << head->fd_cart.fav_food.f_3 << endl;
             head = head->next;
         }
         
