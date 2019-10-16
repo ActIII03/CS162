@@ -9,7 +9,8 @@ void menu(int & decision)
 {
     cout << "Which of the option would like to choose?:\n"
          << "(1) Add Food Cart w/ Favorite Food \n(2) Display Food Cart(s) by Food Type \n(3) Delete Favorite Food from Exisiting Cart \n"
-         << "(4) Add Top Three Favorite Food to an Existing Cart \n(5) Display Food Cart(s) \n(6) Quit Program \nChoice(1-6):";
+         << "(4) Add Top Three Favorite Food to an Existing Cart \n(5) Display Food Cart(s) \n(6) Delete a Food "
+         << "\n(7) Quit Program \n Choice(1-7):";
     cin >> decision;
     cin.ignore();
     cin.clear();
@@ -92,15 +93,11 @@ int get_char(d_food_cart & new_cart, int menu_choice)
     {
 
         //Delete Favorite Food
-        cout << "Please enter the Food Cart you want to delete your favorite food from (Example: Stack High Sandwiches): ";
-        cin.get(new_cart.type, BUFFER_SIZE, '\n');
+        cout << "Please enter the Food Cart you want to add your favorite food (Example: Stack High Sandwiches): ";
+        cin.get(new_cart.name, BUFFER_SIZE, '\n');
         cin.ignore(100, '\n');
         cin.clear();
         
-        cout << "Please enter your favorite food item you want to delete (Example: California Steak Burrito): ";
-        cin.get(new_cart.fav_food.f_1, BUFFER_SIZE, '\n');
-        cin.ignore(100, '\n');
-        cin.clear();
     }
 
 
@@ -112,18 +109,12 @@ int get_char(d_food_cart & new_cart, int menu_choice)
         cin.ignore();
         cin.clear();
         
-        
-        //Favorite Food
-        cout << "Please enter your top favorite food item you want to add to an existing food cart (Example: California Steak Burrito)(1): ";
-        cin.get(new_cart.fav_food.f_1, BUFFER_SIZE, '\n');
-        cin.ignore();
-        cin.clear();
     }
     return 0;
 
 }
 
-//List constructor
+//Constructors
 FoodCartList::FoodCartList()
 {
     head = NULL;
@@ -131,7 +122,27 @@ FoodCartList::FoodCartList()
 
 }
 
-//Destructor
+address::address()
+{
+    line_1 = NULL;
+    location = NULL;
+}
+
+favorite_three::favorite_three()
+{
+    f_1 = NULL;
+    f_2 = NULL;
+    f_3 = NULL;
+}
+
+food_cart::food_cart()
+{
+    name = NULL;
+    review = NULL;
+    type = NULL;
+}
+
+//Destructors
 FoodCartList::~FoodCartList()
 {
     if(head)
@@ -141,11 +152,63 @@ FoodCartList::~FoodCartList()
 
 }
 
+address::~address()
+{
+    if(line_1)
+    {
+        delete line_1;
+        line_1 = NULL;
+    }
+    else if(location)
+    {
+        delete location;
+        location = NULL;
+    }
+}
+
+favorite_three::~favorite_three()
+{
+    if(f_1)
+    {
+        delete f_1;
+        f_1 = NULL;
+    }
+    else if(f_2)
+    {
+        delete f_2;
+        f_2 = NULL;
+    }
+    else if(f_3)
+    {
+        delete f_3;
+        f_3 = NULL;
+    }
+}
+
+food_cart::~food_cart()
+{
+    if(name)
+    {
+        delete name;
+        name = NULL;
+    }
+    else if(review)
+    {
+        delete review;
+        review = NULL;
+    }
+    else if(type)
+    {
+        delete type;
+        type = NULL;
+    }
+}
+
 //Add to LLL
 int FoodCartList::add_cart(const d_food_cart & add_cart)
 {
 
-    //Emptt List
+    //Empty List
     if(!head)
     {
 
@@ -153,8 +216,6 @@ int FoodCartList::add_cart(const d_food_cart & add_cart)
         head = n_cart;
         head -> next = NULL;
 
-        int test = (strlen(add_cart.name) + 1);
-        cout << "Length: " << test << endl;
         
         //Name
         n_cart -> fd_cart.name = new char[strlen(add_cart.name)+1];
@@ -277,23 +338,55 @@ int FoodCartList::add_cart(const d_food_cart & add_cart)
 //Add to beginning
 int FoodCartList::add_fav_food(const d_food_cart & add_cart)
 {
-    /*if(!head)
+    if(!head)
         return 1;
     else
     {
         char buffer[BUFFER_SIZE];
-        cout << "Please enter any type of food-type you wish to display: ";
-        cin.get(buffer, BUFFER_SIZE, '\n');
-        cin.ignore(BUFFER_SIZE, '\n');
+        int success = 1;
+        node * current = head;
 
-        while(head)
+        while(current)
         {
-            if(strcmp(buffer, cart.name))
+            //Check if User's input matches an existing Cart
+            if(!strcmp(current->fd_cart.name, add_cart.name))
             {
-                
+                cout << "Please enter a favorite food you want to enter: ";
+                cin.get(buffer, BUFFER_SIZE, '\n');
+                cin.ignore(BUFFER_SIZE, '\n');
+
+                //Check for NULL
+                if(!current->fd_cart.fav_food.f_1)
+                {
+                    current->fd_cart.fav_food.f_1 = new char[strlen(buffer)+1];
+                    strcpy(current->fd_cart.fav_food.f_1, buffer);
+                    success = 0;
+                }
+                else if(!current->fd_cart.fav_food.f_2)
+                {
+                    current->fd_cart.fav_food.f_2 = new char[strlen(buffer)+1];
+                    strcpy(current->fd_cart.fav_food.f_2, buffer);
+                    success = 0;
+                }
+                else if(!current->fd_cart.fav_food.f_3)
+                {
+                    current->fd_cart.fav_food.f_3 = new char[strlen(buffer)+1];
+                    strcpy(current->fd_cart.fav_food.f_3, buffer);
+                    success = 0;
+                }
+                else
+                {
+                    cout << "Looks like you are trying to overwrite an existing Favorite Food entry.\n"
+                         << "Please Delete an existing entry first then try adding again!\n";
+                }
+
             }
+
+            current = current-> next;
         }
-    }      */ 
+
+        return success;
+    }      
 
         return 0;
 }
@@ -326,25 +419,23 @@ int FoodCartList::display_by_type(const d_food_cart & cart)
         return 1;
     else
     {
-        char buffer[BUFFER_SIZE];
-        cout << "Please enter any type of food-type you wish to display carts who cook that way: ";
-        cin.get(buffer, BUFFER_SIZE, '\n');
-        cin.ignore(BUFFER_SIZE, '\n');
+        cout << "cart.type: " << cart.type << endl;
+        node * current = head;
 
-        while(head)
+        while(current)
         {
-            if(strcmp(buffer, head->fd_cart.type))
+            if(!strcmp(cart.type, current->fd_cart.type))
             {
-                cout << "Name: " << head->fd_cart.name << endl;
-                cout << "Address: " << head->fd_cart.c_address.line_1 << endl;
-                cout << "Location: " << head->fd_cart.c_address.location << endl;
-                cout << "Food Type: " << head->fd_cart.type << endl;
-                cout << "Review: " << head->fd_cart.review << endl;
-                cout << "Favorite Food(1): " << head->fd_cart.fav_food.f_1 << endl;
-                cout << "Favorite Food(2): " << head->fd_cart.fav_food.f_2 << endl;
-                cout << "Favorite Food(3): " << head->fd_cart.fav_food.f_3 << endl;
+                cout << "Name: " << current->fd_cart.name << endl;
+                cout << "Address: " << current->fd_cart.c_address.line_1 << endl;
+                cout << "Location: " << current->fd_cart.c_address.location << endl;
+                cout << "Food Type: " << current->fd_cart.type << endl;
+                cout << "Review: " << current->fd_cart.review << endl;
+                cout << "Favorite Food(1): " << current->fd_cart.fav_food.f_1 << endl;
+                cout << "Favorite Food(2): " << current->fd_cart.fav_food.f_2 << endl;
+                cout << "Favorite Food(3): " << current->fd_cart.fav_food.f_3 << endl;
             }
-            head = head -> next;
+            current = head -> next;
         }
     }
     return 0;
@@ -352,9 +443,79 @@ int FoodCartList::display_by_type(const d_food_cart & cart)
 
 int FoodCartList::delete_fav_food(const d_food_cart & delete_fav)
 {
-    //Stub
-    return 0;
+    char buffer[BUFFER_SIZE];
+    node * current = head;
+    int success = 1;
+    while(current)
+    {
+        if(!strcmp(current->fd_cart.name, delete_fav.name))
+        {
+            cout << "Favorite Food(1): " << current->fd_cart.fav_food.f_1 << endl;
+            cout << "Favorite Food(2): " << current->fd_cart.fav_food.f_2 << endl;
+            cout << "Favorite Food(3): " << current->fd_cart.fav_food.f_3 << endl;
+            cout << "Enter your choice of deletion which matches the aforementioned Favorites: ";
+            cin.get(buffer, BUFFER_SIZE, '\n');
+            cin.ignore(BUFFER_SIZE, '\n');
+
+            if(current->fd_cart.fav_food.f_1)
+            {
+                delete current->fd_cart.fav_food.f_1;
+                current->fd_cart.fav_food.f_1 = NULL;
+                success = 0;   
+            }
+            else if(current->fd_cart.fav_food.f_2)
+            {
+                delete current->fd_cart.fav_food.f_2;
+                current->fd_cart.fav_food.f_2 = NULL;
+                success = 0;   
+            }
+            else if(current->fd_cart.fav_food.f_3)
+            {
+                delete current->fd_cart.fav_food.f_3;
+                current->fd_cart.fav_food.f_3 = NULL;
+                success = 0;   
+            
+            }
+            else
+            {
+                cout << "Your choice does not match anything!\n"
+                     << "Please re-do your menu choice!";
+
+            }
+        }
+    }
+    return success;
 }
+
+int FoodCartList::delete_cart(const d_food_cart & delete_cart)
+{
+    if(!head)
+        return 1;
+    //One item in a list
+    else if(!head->next)
+    {
+        node * current = head;
+        delete current;
+        head = NULL;
+    }
+    else
+    {
+        node * current = head;
+        
+        //First Node matches
+        if(!strcmp(current->fd_cart.name, delete_cart.name))
+        {
+            head = head->next;
+            delete current;
+        }
+        else
+        {
+            node * previous = current;
+            current = current->next;
+            
+            while(current)
+            {
+                
 
 void FoodCartList::destroy(node * & head)
 {

@@ -41,7 +41,6 @@ int main(void)
                 cart_list.delete_fav_food(cart_info);
                 break;
 
-
             //Add Favorite Food
             case 4:
                 get_char(cart_info, decision);
@@ -52,9 +51,14 @@ int main(void)
             case 5:
                 cart_list.display();
                 break;
+
+            case 6:
+                get_char(cart_info, decision);
+                cart_list.delete_cart(cart_info);
+                break; 
             
             //Quit Program
-            case 6:
+            case 7:
                 quit = true;
                 break;
 

@@ -40,12 +40,16 @@ struct d_food_cart
 struct address
 {
 
+    address();
+    ~address();
     char * line_1;
     char * location;
 };
 
 struct favorite_three
 {
+    favorite_three();
+    ~favorite_three();
     char * f_1;
     char * f_2;
     char * f_3;
@@ -54,6 +58,8 @@ struct favorite_three
 struct food_cart
 {
 
+    food_cart();
+    ~food_cart();
     char * name;
     address c_address;
     char * review;
@@ -67,9 +73,7 @@ struct node{
     node * next;
 };
 
-void dest_info(food_cart & dest_info);
 int get_char(d_food_cart & new_cart, int menu_choice);
-//void get_int();
 void greeting();
 void menu(int & decision);
 
@@ -84,6 +88,7 @@ class FoodCartList
         int add_fav_food(const d_food_cart & add_cart);
         int display_by_type(const d_food_cart & add_cart); 
         int delete_fav_food(const d_food_cart & delete_fav); 
+        int delete_cart(const d_food_cart & delete_cart);
         void destroy(node * & head);
         int display();
 
