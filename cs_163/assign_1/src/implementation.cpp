@@ -10,7 +10,7 @@ void menu(int & decision)
     cout << "Which of the option would like to choose?:\n"
          << "(1) Add Food Cart w/ Favorite Food \n(2) Display Food Cart(s) by Food Type \n(3) Delete Favorite Food from Exisiting Cart \n"
          << "(4) Add Top Three Favorite Food to an Existing Cart \n(5) Display Food Cart(s) \n(6) Delete a Food "
-         << "\n(7) Quit Program \n Choice(1-7):";
+         << "\n(7) Quit Program \nChoice(1-7):";
     cin >> decision;
     cin.ignore();
     cin.clear();
@@ -105,6 +105,16 @@ int get_char(d_food_cart & new_cart, int menu_choice)
     {
 
         cout << "Please enter the Food Cart you want to add your favorite food too (Example: Stack High Sandwiches): ";
+        cin.get(new_cart.name, BUFFER_SIZE, '\n');
+        cin.ignore();
+        cin.clear();
+        
+    }
+
+    else if(menu_choice == 6)
+    {
+
+        cout << "Please enter the Food Cart you want to delete: ";
         cin.get(new_cart.name, BUFFER_SIZE, '\n');
         cin.ignore();
         cin.clear();
@@ -489,33 +499,65 @@ int FoodCartList::delete_fav_food(const d_food_cart & delete_fav)
 
 int FoodCartList::delete_cart(const d_food_cart & delete_cart)
 {
+    //Empty List
     if(!head)
-        return 1;
-    //One item in a list
+        return 0;
+
+    //One item list
     else if(!head->next)
     {
+
         node * current = head;
-        delete current;
-        head = NULL;
-    }
-    else
-    {
-        node * current = head;
-        
-        //First Node matches
+
         if(!strcmp(current->fd_cart.name, delete_cart.name))
         {
-            head = head->next;
             delete current;
+            head = NULL;
         }
+    }
+
+    //Many items
+    else
+    {
+
+        node * current = head;
+
+        //First item is a match
+        if(strcmp(current->fd_cart.name, delete_cart.name))
+        {
+            head = head -> next;
+            delete current;
+            current = head;
+        }
+
+        //No match with first node
         else
         {
             node * previous = current;
-            current = current->next;
+            node * temp = current -> next -> next;
+            current = current -> next;
             
             while(current)
             {
-                
+                if(strcmp(current->fd_cart.name, delete_cart.name))
+                {
+                    previous -> next = temp;
+                    delete current;
+                    current = temp;
+                    temp = temp -> next;
+                }
+
+                else
+                {
+                    previous = current;
+                    current = temp;
+                    temp = temp -> next;
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 void FoodCartList::destroy(node * & head)
 {
@@ -540,18 +582,19 @@ int FoodCartList::display()
     }
     else
     {
-       while(head)
+       node * current = head;   
+       while(current)
         {
             //Look up how to redesign this function
-            cout << "Name: " << head->fd_cart.name << endl;
-            cout << "Address: " << head->fd_cart.c_address.line_1 << endl;
-            cout << "Location: " << head->fd_cart.c_address.location << endl;
-            cout << "Food Type: " << head->fd_cart.type << endl;
-            cout << "Review: " << head->fd_cart.review << endl;
-            cout << "Favorite Food(1): " << head->fd_cart.fav_food.f_1 << endl;
-            cout << "Favorite Food(2): " << head->fd_cart.fav_food.f_2 << endl;
-            cout << "Favorite Food(3): " << head->fd_cart.fav_food.f_3 << endl;
-            head = head->next;
+            cout << "Name: " << current->fd_cart.name << endl;
+            cout << "Address: " << current->fd_cart.c_address.line_1 << endl;
+            cout << "Location: " << current->fd_cart.c_address.location << endl;
+            cout << "Food Type: " << current->fd_cart.type << endl;
+            cout << "Review: " << current->fd_cart.review << endl;
+            cout << "Favorite Food(1): " << current->fd_cart.fav_food.f_1 << endl;
+            cout << "Favorite Food(2): " << current->fd_cart.fav_food.f_2 << endl;
+            cout << "Favorite Food(3): " << current->fd_cart.fav_food.f_3 << endl;
+            current = current->next;
         }
         
        return 0;

@@ -1,11 +1,11 @@
 //Name: Armant Touche
 //Class: CS 163 Data Structures
 //Instructor: Karla Fant
-//Program: Food Cart and I the Asbract Data Type will be LLL
+//Program: Food Cart and the Asbract Data Type that will hold the data will be LLL
 
 #include "assign1.h"
 
-//
+//Main driver 
 int main(void)
 {
     //
@@ -15,12 +15,12 @@ int main(void)
     int decision = 0;
     bool quit = false;
 
-    //Menu Interface
     greeting();
     menu(decision);
 
     do
     {
+        //Menu Interface
         switch(decision)
         {
             //Add Cart to beginning of the LLL
@@ -52,6 +52,7 @@ int main(void)
                 cart_list.display();
                 break;
 
+            //Delete a food cart
             case 6:
                 get_char(cart_info, decision);
                 cart_list.delete_cart(cart_info);
