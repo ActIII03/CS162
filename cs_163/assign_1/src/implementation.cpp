@@ -1,10 +1,11 @@
 //Name: Armant Touche
 //Class: CS 163 Data Structures
 //Instructor: Karla Fant
-//Program: Food Cart ADT
+//Description: Below are function implementations used in my program
 
 #include "assign1.h"
 
+//Menu Function
 void menu(int & decision)
 {
     cout << "Which of the option would like to choose?:\n"
@@ -16,11 +17,13 @@ void menu(int & decision)
     cin.clear();
 }
 
+//Greets user
 void greeting()
 {
-    cout << "Welcome to Food Cart Registery!" << endl;
+    cout << "Welcome to Food Cart Registery!\n\n";
 }
 
+//Read in data from user base off of user's menu choice
 int get_char(d_food_cart & new_cart, int menu_choice)
 {
 
@@ -77,7 +80,7 @@ int get_char(d_food_cart & new_cart, int menu_choice)
     }
 
 
-    else if(menu_choice == 2)
+    if(menu_choice == 2)
     {
         //Food Type
         cout << "Please enter a food type you want to see (Example -- Thai): " ;
@@ -89,7 +92,7 @@ int get_char(d_food_cart & new_cart, int menu_choice)
     }
     
 
-    else if(menu_choice == 3)
+    if(menu_choice == 3)
     {
 
         //Delete Favorite Food
@@ -101,7 +104,7 @@ int get_char(d_food_cart & new_cart, int menu_choice)
     }
 
 
-    else if(menu_choice == 4)
+    if(menu_choice == 4)
     {
 
         cout << "Please enter the Food Cart you want to add your favorite food too (Example: Stack High Sandwiches): ";
@@ -132,12 +135,14 @@ FoodCartList::FoodCartList()
 
 }
 
+//Constructor for address
 address::address()
 {
     line_1 = NULL;
     location = NULL;
 }
 
+//Constructor for favorite_three
 favorite_three::favorite_three()
 {
     f_1 = NULL;
@@ -145,6 +150,7 @@ favorite_three::favorite_three()
     f_3 = NULL;
 }
 
+//Constructor for food_cart
 food_cart::food_cart()
 {
     name = NULL;
@@ -152,7 +158,7 @@ food_cart::food_cart()
     type = NULL;
 }
 
-//Destructors
+//Destructor for FoodCartList
 FoodCartList::~FoodCartList()
 {
     if(head)
@@ -162,6 +168,7 @@ FoodCartList::~FoodCartList()
 
 }
 
+//Destructor for address
 address::~address()
 {
     if(line_1)
@@ -169,32 +176,35 @@ address::~address()
         delete line_1;
         line_1 = NULL;
     }
-    else if(location)
+    if(location)
     {
         delete location;
         location = NULL;
     }
 }
 
+//Destructor for favorite_three
 favorite_three::~favorite_three()
 {
+    //Make individual if statement
     if(f_1)
     {
         delete f_1;
         f_1 = NULL;
     }
-    else if(f_2)
+    if(f_2)
     {
         delete f_2;
         f_2 = NULL;
     }
-    else if(f_3)
+    if(f_3)
     {
         delete f_3;
         f_3 = NULL;
     }
 }
 
+//Destructor for food_cart
 food_cart::~food_cart()
 {
     if(name)
@@ -202,12 +212,12 @@ food_cart::~food_cart()
         delete name;
         name = NULL;
     }
-    else if(review)
+    if(review)
     {
         delete review;
         review = NULL;
     }
-    else if(type)
+    if(type)
     {
         delete type;
         type = NULL;
@@ -401,28 +411,7 @@ int FoodCartList::add_fav_food(const d_food_cart & add_cart)
         return 0;
 }
 
-int FoodCartList::count(node * head) 
-{
-    int count = 0;
-
-    if(!head)
-    {
-        cout << "Number of Entries: " << count;
-        return count;
-    }
-    else
-    {
-        while(!head)
-        {
-            ++count;
-            head = head->next;
-        }
-        cout << "Number of Entries: " << count;
-        return count;
-    }
-}
-
-
+//Display Carts by Food Type
 int FoodCartList::display_by_type(const d_food_cart & cart)
 {
     if(!head)
@@ -444,6 +433,7 @@ int FoodCartList::display_by_type(const d_food_cart & cart)
                 cout << "Favorite Food(1): " << current->fd_cart.fav_food.f_1 << endl;
                 cout << "Favorite Food(2): " << current->fd_cart.fav_food.f_2 << endl;
                 cout << "Favorite Food(3): " << current->fd_cart.fav_food.f_3 << endl;
+                cout << "\n\n";
             }
             current = head -> next;
         }
@@ -451,6 +441,7 @@ int FoodCartList::display_by_type(const d_food_cart & cart)
     return 0;
 }
 
+//Delete Favorite Food from an existing Food Cart
 int FoodCartList::delete_fav_food(const d_food_cart & delete_fav)
 {
     char buffer[BUFFER_SIZE];
@@ -497,6 +488,7 @@ int FoodCartList::delete_fav_food(const d_food_cart & delete_fav)
     return success;
 }
 
+//Delete existing Food Cart
 int FoodCartList::delete_cart(const d_food_cart & delete_cart)
 {
     //Empty List
@@ -559,6 +551,7 @@ int FoodCartList::delete_cart(const d_food_cart & delete_cart)
     return 0;
 }
 
+//FoodCartList destructor helper function
 void FoodCartList::destroy(node * & head)
 {
     if(!head)
@@ -573,6 +566,7 @@ void FoodCartList::destroy(node * & head)
     return;
 }
 
+//Display Existing Food Carts
 int FoodCartList::display()
 {
     if(!head)
@@ -594,6 +588,7 @@ int FoodCartList::display()
             cout << "Favorite Food(1): " << current->fd_cart.fav_food.f_1 << endl;
             cout << "Favorite Food(2): " << current->fd_cart.fav_food.f_2 << endl;
             cout << "Favorite Food(3): " << current->fd_cart.fav_food.f_3 << endl;
+            cout << "\n\n";
             current = current->next;
         }
         

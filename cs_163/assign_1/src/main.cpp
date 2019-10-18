@@ -1,8 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163 Data Structures
 //Instructor: Karla Fant
-//Program: Food Cart and the Asbract Data Type that will hold the data will be LLL
-
+//Program: This is my test program where a user can enter Food Cart data into a LLL 
 #include "assign1.h"
 
 //Main driver 
@@ -65,6 +64,7 @@ int main(void)
 
         }
         if(quit == false) //Call Menu Interface again
+            //cart_list.count();
             menu(decision);
     }
     while(!quit);
