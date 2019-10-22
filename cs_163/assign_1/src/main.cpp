@@ -53,6 +53,7 @@ int main(void)
 
             //Delete a food cart
             case 6:
+                cart_list.display();
                 get_char(cart_info, decision);
                 cart_list.delete_cart(cart_info);
                 break; 
