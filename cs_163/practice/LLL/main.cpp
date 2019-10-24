@@ -21,9 +21,9 @@ int count_first(node * head)
 {
     int first_node = head -> data, count = 0;
 
-    count = count_first_rec(head, first_node);
+    count = count_first_rec(head->next, first_node);
 
-    /*
+    /* Iterative
     if(!head) 
         return 0;
     else
