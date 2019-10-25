@@ -1,0 +1,12 @@
+Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Program: Trivial Pursuit
+
+(1) What function you ADT will need in the public and private sections
+
+(2) How each function will report success/failure back to the calling routine
+
+(3) HOw each function will the client program from the detail of the data structure
+
+(4) What data structure you will be using and how each of the special case will be dealt with considering "before" and "after" diagrams for each case
