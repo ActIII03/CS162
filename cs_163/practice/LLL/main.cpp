@@ -9,20 +9,23 @@ int main()
     
     int num_arr[5] = { 20, 40, 60, 80, 100 };
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    int count = 0, last_node;
+    int count = 0, last_node, even_aver = 0;
     //count = count_first(head);
     //cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
     
-    count = count_last(head, last_node);
-    cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
+    //count = count_last(head, last_node);
+    //cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
 
-    count = is_bigger_than_four(head);
-    cout << "Number of data mbr. greater than four: " << count << endl;
+    //count = is_bigger_than_four(head);
+    //cout << "Number of data mbr. greater than four: " << count << endl;
 
-    switch_first_last(head);
-    insert_arr_to_LLL(head, num_arr);
-    remove_last_two(head);
-    copy_LLL_to_arr(head);
+    //switch_first_last(head);
+    //insert_arr_to_LLL(head, num_arr);
+    //remove_last_two(head);
+    //remove_every_two(head);
+    //copy_LLL_to_arr(head);
+    even_aver = average_even(head);
+    cout << "Average of Even data mbr.: " << even_aver << endl;
 
     display(head); //redisplay the list after your function
     destroy(head); 
@@ -352,7 +355,71 @@ int remove_last_two(node * head)
     return 0;
 }
 
-//Recusrion Solutions
+int remove_every_two(node * & head)
+{
+    //Empty List
+    if(!head)
+        return 0;
+    //One item
+    else if(!head->next)
+    {
+        delete head;
+        head = NULL;
+    }
+    //Two items
+    else if(!head->next->next)
+    {
+        node * current = head->next;
+        delete current;
+        head->next = NULL;
+    }
+    //More than two items
+    else
+    {
+        node * current = head->next;
+        node * previous = head;
+        
+        //Stops at second to last node
+        while(current && current->next)
+        {
+            previous->next = current->next;
+            delete current;
+            previous = previous->next;
+            current = previous->next;
+        }
+
+        return 0;
+    }
+}
+
+int average_even(node * head)
+{
+    int even_aver = 0, count = 0;
+
+    //Empty list
+    if(!head)
+        return 0;
+    else
+    {
+        node * current = head;
+
+        while(current)
+        {
+            if(current->data % 2 == 0)
+            {
+                ++count;
+                even_aver += current->data;
+            }
+            current = current->next;
+        }
+
+        even_aver /= count;
+
+        return even_aver;
+    }
+}
+
+//Recursion Solutions
 /*int count_first_rec(node * head, int & first_node)  //Work-on
 {
     if(!head)
