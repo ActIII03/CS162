@@ -9,7 +9,7 @@ int main()
     
     int num_arr[5] = { 20, 40, 60, 80, 100 };
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    int count = 0, last_node, even_aver = 0;
+    int count = 0, last_node, even_aver = 0, sum = 0;
     //count = count_first(head);
     //cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
     
@@ -24,8 +24,10 @@ int main()
     //remove_last_two(head);
     //remove_every_two(head);
     //copy_LLL_to_arr(head);
-    even_aver = average_even(head);
-    cout << "Average of Even data mbr.: " << even_aver << endl;
+    //even_aver = average_even(head);
+    //cout << "Average of Even data mbr.: " << even_aver << endl;
+    sum = sum_data(head, count);
+    cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
 
     display(head); //redisplay the list after your function
     destroy(head); 
@@ -418,6 +420,28 @@ int average_even(node * head)
         return even_aver;
     }
 }
+
+int sum_data(node * head, int & count)
+{
+    int sum = 0;
+    
+    if(!head)
+        return 0;
+    else
+    {
+        node * current = head;
+        while(current)
+        {
+            sum += current->data;
+            ++count;
+            current = current->next;
+        }
+
+    }
+
+    return sum;
+}
+        
 
 //Recursion Solutions
 /*int count_first_rec(node * head, int & first_node)  //Work-on

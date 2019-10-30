@@ -17,5 +17,5 @@ void destroy(node * & rear); //supplied
 
 /* *****************YOUR TURN! ******************************** */
 //Write your function prototype here:
-
+int count_nodes(node * & rear);
 

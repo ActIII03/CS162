@@ -26,6 +26,7 @@ int copy_LLL_to_arr(node * head);
 int remove_last_two(node * head);
 int remove_every_two(node * & head);
 int average_even(node * head);
+int sum_data(node * head, int & count);
 
 //Recursion
 int count_first_rec(node * head, int & first_node);
