@@ -3,26 +3,26 @@
 //Instructor: Karla Fant
 //Description: 
 #include <iostream>
+#include <cstdlib>
 #include "stack.h"
+#include <ifstream>
 
-const int MAX_CARDS = 10;
-const int MAX_BUFFER = 25;
+const int BUFFER = 250;
 
-struct answers
+//Acts as buffer for input and is separate from ADT
+struct answer
 {
-    char answer[MAX_BUFFER];
+    char answer[BUFFER];
 
-}
+};
 
-struct node
+struct question
 {
+   char question[BUFFER];
+};
 
-    node();
-    ~node();
-    node * next;
-    int top_index;
-    stack * stk_card;
-}
+int get_char(answer & player_ans);
+int get_menu_choice(int & choice);
 
 class trivial_pursuit
 {
@@ -30,11 +30,13 @@ class trivial_pursuit
 
         trivial_pursuit();
         ~trivial_pursuit();
-        int get_char(answers & player_ans);
-        int get_menu_choice(int & choice);
+        bool readin_txt_file(); //Read in to delimiter
+     
 
     private:
         
-        node * head;
+        //Update constructor
+        stack  not_answered;
+        stack  wrong;
 };
 

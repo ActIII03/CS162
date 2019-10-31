@@ -4,43 +4,26 @@
 //Description: 
 #include "trivial_pursuit.h"
 
-node::node()
-{
-   top_index = MAX_CARDS;
-
-   next = NULL;
-   stk_card = NULL;
-
-}
-
-node::~node()
-{
-
-    if(next)
-        next = NULL;
-
-    if(stk_card)
-        stk_card = NULL;
-
-}
-
 trivial_pursuit::trivial_pursuit()
 {
-
-    head = NULL;
-
+    not_answered = NULL;
+    correct = NULL;
+    wrong = NULL;
 }
 
-trivial_pursuit::trivial_pursuit()
+trivial_pursuit::~trivial_pursuit()
 {
 
-    if(head)
-
-        head = NULL;
+    if(not_answered)
+        not_answered = NULL;
+    if(correct)
+        correct = NULL;
+    if(wrong)
+        wrong = NULL;
 
 }
 
-int trivial_pursuit::get_char(answers & player_ans)
+int get_char(answer & player_ans)
 {
 
     //Stub
@@ -48,7 +31,7 @@ int trivial_pursuit::get_char(answers & player_ans)
     return 0;
 }
 
-int trivial_pursuit::get_menu_choice(int & choice)
+int get_menu_choice(int & choice)
 {
 
     //Stub
@@ -57,3 +40,28 @@ int trivial_pursuit::get_menu_choice(int & choice)
 
 }
 
+//UPdate to class function
+bool readin_txt_file()
+{
+    //Create ifstrem obj
+    ifstream in_file;
+    in_file.open("questions_answers.txt");
+    char delimiter = ";";
+    
+    if(in_file)
+    {
+
+        in_file.get(question, BUFFER, delimiter);
+        in_file.ignore(100, '\n');
+        in_file.get(answer, BUFFER, delimiter);
+        in_file.ignore(100, '\n');
+        stack.push(question, answer);
+
+        //for(;in_file && !in_file.eof();)
+        //{
+    }
+
+    return true;
+    
+    
+}

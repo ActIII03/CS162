@@ -2,16 +2,17 @@
 //Class: CS 163
 //Instructor: Karla Fant
 //Description: 
+#include <cstdlib>
 
+struct q_node{
 
-struct q_node
-{
     q_node();
     ~q_node();
-    queue q_obj;
+    char * question;
+    char * answer;
     q_node * next;
+};
 
-}
 
 class queue
 {
@@ -20,7 +21,7 @@ class queue
 
         queue();
         ~queue();
-        int enqueue();
+        int enqueue(); 
         int dequeue();
         int isempty();
         int isfull();
@@ -28,12 +29,8 @@ class queue
 
     private:
 
-        char * question_1;
-        char * question_2;
-        char * question_3;
-        char * answer_1;
-        char * answer_2;
-        char * answer_3;
+        q_node * rear;
+
 
 };
 

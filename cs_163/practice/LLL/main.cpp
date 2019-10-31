@@ -10,8 +10,8 @@ int main()
     int num_arr[5] = { 20, 40, 60, 80, 100 };
     //PLEASE PUT YOUR CODE HERE to call the function assigned
     int count = 0, last_node, even_aver = 0, sum = 0;
-    //count = count_first(head);
-    //cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
+    count = count_first(head);
+    cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
     
     //count = count_last(head, last_node);
     //cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
@@ -26,8 +26,8 @@ int main()
     //copy_LLL_to_arr(head);
     //even_aver = average_even(head);
     //cout << "Average of Even data mbr.: " << even_aver << endl;
-    sum = sum_data(head, count);
-    cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
+    //sum = sum_data(head, count);
+    //cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
 
     display(head); //redisplay the list after your function
     destroy(head); 
@@ -56,26 +56,6 @@ int count_first(node * head)
     } */
 
     return count;
-}
-
-//Work
-int count_first_rec(node * head, int & first_node)
-{
-    if(!head)
-        return 0;
-    else
-    {
-        if(head -> data == first_node)
-        {
-            count_first_rec(head -> next, first_node);
-            return 1;
-        }
-        else
-        {
-            count_first_rec(head -> next, first_node);
-            return 0;
-        }
-    }
 }
 
 int count_last(node * head, int & last_node)
@@ -444,7 +424,7 @@ int sum_data(node * head, int & count)
         
 
 //Recursion Solutions
-/*int count_first_rec(node * head, int & first_node)  //Work-on
+int count_first_rec(node * head, int & first_node)  //Work-on
 {
     if(!head)
         return 0;
@@ -452,13 +432,9 @@ int sum_data(node * head, int & count)
     {
         if(head -> data == first_node)
         {
-            count_first_rec(head -> next, first_node);
-            return 1;
+            return 1 + count_first_rec(head -> next, first_node);
         }
         else
-        {
-            count_first_rec(head -> next, first_node);
-            return 0;
-        }
+            return count_first_rec(head -> next, first_node);
     }
-}*/
+}

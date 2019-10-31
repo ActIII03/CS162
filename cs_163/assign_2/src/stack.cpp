@@ -6,22 +6,41 @@
 
 stack::stack()
 {
-    rear = NULL;
-
+    head = NULL;
 }
 
 stack::~stack()
 {
-
-    if(rear)
-        rear = NULL;
+    if(head)
+        head = NULL;
 
 }
 
-int stack::push(node * & deck_cards)
+node::node()
 {
+    top_index = 0;
+    next = NULL;
+    arr_size = 5;
 
-    //Stub
+}
+
+node::~node()
+{
+    if(next)
+        next = NULL;
+}
+
+
+int stack::push()  
+{
+    //Update top_index
+    if(!head)   //Base case: Allocate mem for queue obj
+        
+    //else if(top_index < MAX)  //Increment here
+            //Also enqueue 
+
+    //else if(top_index == 5 *OR MAX*)  //Eval top_index
+    
 
     return 0;
 }

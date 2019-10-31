@@ -19,7 +19,7 @@ int main()
     return 0;
 }
 
-int count_nodes(node * & rear)
+int count_nodes(node * rear)
 {
 
     node * current = rear->next;
@@ -29,8 +29,10 @@ int count_nodes(node * & rear)
         ++count;
 
     while(current != rear)
+    {
         current = current->next;
         ++count;
+    }
 
     return count;
 
