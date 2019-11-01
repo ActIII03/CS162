@@ -17,7 +17,7 @@ void destroy(node * &head); //supplied
 
 /* *****************YOUR TURN! ******************************** */
 //Write your function prototype here:
-int count_first(node * head);
+int count_first(node * head, int & count);
 int count_last(node * head, int & last_node);
 int is_bigger_than_four(node * head);
 int switch_first_last(node * & head);
@@ -30,4 +30,4 @@ int sum_data(node * head, int & count);
 
 //Recursion
 int count_first_rec(node * head, int & first_node);
-int count_last_rec(
+int count_last_rec(node * head, int & last_node, int & count);

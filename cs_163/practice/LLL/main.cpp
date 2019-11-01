@@ -9,12 +9,12 @@ int main()
     
     int num_arr[5] = { 20, 40, 60, 80, 100 };
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    int count = 0, last_node, even_aver = 0, sum = 0;
-    count = count_first(head);
-    cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
+    int count = 0, last_node=0, even_aver = 0, sum = 0;
+    //count = count_first(head);
+    //cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
     
-    //count = count_last(head, last_node);
-    //cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
+    count = count_last(head, last_node);
+    cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
 
     //count = is_bigger_than_four(head);
     //cout << "Number of data mbr. greater than four: " << count << endl;
@@ -38,7 +38,7 @@ int count_first(node * head)
 {
     int first_node = head -> data, count = 0;
 
-    count = count_first_rec(head->next, first_node);
+    count = count_first_rec(head, first_node);
 
     /* Iterative
     if(!head) 
@@ -61,7 +61,8 @@ int count_first(node * head)
 int count_last(node * head, int & last_node)
 {
     int count = 0;
-    
+    count_last_rec(head, last_node, count);
+    /*
     //Empty List
     if(!head)
         return 0;
@@ -100,9 +101,9 @@ int count_last(node * head, int & last_node)
                 current = current -> next;
             }
         }
+    }*/
 
         return count;
-    }
 }
 
 int is_bigger_than_four(node * head)
@@ -436,5 +437,28 @@ int count_first_rec(node * head, int & first_node)  //Work-on
         }
         else
             return count_first_rec(head -> next, first_node);
+    }
+}
+
+int count_last_rec(node * head, int & last_node, int & count)
+{
+    //Base Case:  Empty List
+    if(!head)
+        return 0;
+
+    //Traverse recursively till last node
+    count_last_rec(head->next, last_node, count);
+
+    //Update last_node to save last node's data member 
+    if(!head->next)
+    {
+        last_node = head->data;
+        return 0;
+    }
+
+    if(last_node == head->data)
+    {
+        count += 1; 
+        return count;
     }
 }
