@@ -16,11 +16,11 @@ int main()
     //count = count_last(head, last_node);
     //cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
 
-    count = is_bigger_than_four(head);
-    cout << "Number of data mbr. greater than four: " << count << endl;
+    //count = is_bigger_than_four(head);
+    //cout << "Number of data mbr. greater than four: " << count << endl;
 
-    switch_first_last(head);
-    //insert_arr_to_LLL(head, num_arr);
+    //switch_first_last(head);
+    insert_arr_to_LLL(head, num_arr);
     //remove_last_two(head);
     //remove_every_two(head);
     //copy_LLL_to_arr(head);
@@ -144,10 +144,10 @@ int is_bigger_than_four(node * head)
 
 int switch_first_last(node * & head)
 {
-
-    node * tail = head;
-
-    switch_first_last_rec(head, tail);
+   // int first_node = head -> data;
+    //switch_first_last_rec(head, first_node);
+    //switch_first_last_rec(head, &head->data);
+    
 
     /*
     //Empty List
@@ -195,7 +195,9 @@ int insert_arr_to_LLL(node * & head, const int num_arr[])
 {
 
     int index = 0;
+    insert_arr_to_LLL(head, num_arr, index);
 
+    /*
     //Empty list
     if(!head)
     {
@@ -271,7 +273,9 @@ int insert_arr_to_LLL(node * & head, const int num_arr[])
 
         current->next = NULL;
         return 0;
-    }
+    }*/
+
+    return 0;
 }
 
 int copy_LLL_to_arr(node * head)
@@ -389,7 +393,12 @@ int remove_every_two(node * & head)
 int average_even(node * head)
 {
     int even_aver = 0, count = 0;
+    
+    count = average_even_rec(head, even_aver);
+    
+    even_aver /= count;
 
+    /*
     //Empty list
     if(!head)
         return 0;
@@ -411,6 +420,8 @@ int average_even(node * head)
 
         return even_aver;
     }
+    */
+    return even_aver;
 }
 
 int sum_data(node * head, int & count)
@@ -487,19 +498,60 @@ int is_bigger_than_four_rec(node * head, int & count)
     return count;
 }
 
-int switch_first_last_rec(node * & head, node * & tail, node * & previous);
+int switch_first_last_rec(node * head, int & first_node)
 {
-    tail = tail ->next;
-    if(!tail -> next)
+    
+    if(!head)
+        return 0;
+
+    switch_first_last_rec(head -> next, first_node);
+
+    if(!head->next)
+    {
+        int temp_tail = head -> data;  //Saves last data mbr in LLL to an int value
+        head -> data = first_node;  //Replace tail->data to actual head -> data mbrA
+        first_node = temp_tail;
+        return 0;
+    }
+
+    /*
+    if(!tail->next->next)
+        previous = tail -> next;
+    if(!tail->next)
+
         return 0;
 
     node * temp = head -> next;
 
     switch_first_last_rec(head, tail->next, previous);
 
-    if(!tail -> next) 
-        
+    if(!tail -> next) */
+}
     
+int average_even_rec(node * head, int & even_aver)
+{
+    if(!head)
+        return 0;
 
+    if(head -> data % 2 == 0)
+    {
+        even_aver += head -> data;
+        return average_even_rec(head -> next, even_aver) + 1;
+    }
+    else
+        return average_even_rec(head -> next, even_aver); 
 
+}
 
+int insert_arr_to_LLL(node * & head, const int num_arr[], int & index)
+{
+    if(!head || index == 5)
+        return 0;
+
+    node * temp = new node;
+    temp -> data = num_arr[index];
+    temp -> next = head;
+    head = temp;
+    insert_arr_to_LLL(head, num_arr, ++index);
+    return 0;
+}
