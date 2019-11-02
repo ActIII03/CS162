@@ -19,7 +19,7 @@ int main()
     count = is_bigger_than_four(head);
     cout << "Number of data mbr. greater than four: " << count << endl;
 
-    //switch_first_last(head);
+    switch_first_last(head);
     //insert_arr_to_LLL(head, num_arr);
     //remove_last_two(head);
     //remove_every_two(head);
@@ -110,6 +110,7 @@ int is_bigger_than_four(node * head)
 {
     int count = 0; 
 
+    is_bigger_than_four_rec(head, count);
     /*
     node * current = head;
 
@@ -143,6 +144,12 @@ int is_bigger_than_four(node * head)
 
 int switch_first_last(node * & head)
 {
+
+    node * tail = head;
+
+    switch_first_last_rec(head, tail);
+
+    /*
     //Empty List
     if(!head)
         return 0;
@@ -180,6 +187,7 @@ int switch_first_last(node * & head)
 
         }
     }
+    */
     return 0;
 }
 
@@ -374,9 +382,8 @@ int remove_every_two(node * & head)
             previous = previous->next;
             current = previous->next;
         }
-
-        return 0;
     }
+    return 0;
 }
 
 int average_even(node * head)
@@ -463,11 +470,36 @@ int count_last_rec(node * head, int & last_node, int & count)
     if(last_node == head->data)
     {
         count += 1; 
-        return count;
     }
+    return count;
 }
 
-int is_bigger_than_four_rec(node * head)
+int is_bigger_than_four_rec(node * head, int & count)
 {
+    if(!head)
+        return 0;
+
+    is_bigger_than_four_rec(head -> next, count);
+
+    if(head -> data > 4)
+      count += 1;
     
+    return count;
+}
+
+int switch_first_last_rec(node * & head, node * & tail, node * & previous);
+{
+    tail = tail ->next;
+    if(!tail -> next)
+        return 0;
+
+    node * temp = head -> next;
+
+    switch_first_last_rec(head, tail->next, previous);
+
+    if(!tail -> next) 
+        
+    
+
+
 

@@ -31,5 +31,6 @@ int sum_data(node * head, int & count);
 //Recursion
 int count_first_rec(node * head, int & first_node);
 int count_last_rec(node * head, int & last_node, int & count);
-int is_bigger_than_four_rec(node * head);
+int is_bigger_than_four_rec(node * head, int & count);
+int switch_first_last_rec(node * & head, node * & tail);
 
