@@ -13,11 +13,11 @@ int main()
     //count = count_first(head);
     //cout << "First Node's number: " << head -> data << " appeared this number of times: " << count << endl;
     
-    count = count_last(head, last_node);
-    cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
+    //count = count_last(head, last_node);
+    //cout << "Last Node's number: " << last_node << " appeared this number of times: " << count << endl;
 
-    //count = is_bigger_than_four(head);
-    //cout << "Number of data mbr. greater than four: " << count << endl;
+    count = is_bigger_than_four(head);
+    cout << "Number of data mbr. greater than four: " << count << endl;
 
     //switch_first_last(head);
     //insert_arr_to_LLL(head, num_arr);
@@ -109,6 +109,8 @@ int count_last(node * head, int & last_node)
 int is_bigger_than_four(node * head)
 {
     int count = 0; 
+
+    /*
     node * current = head;
 
     //Empty List
@@ -134,7 +136,9 @@ int is_bigger_than_four(node * head)
         }
 
         return count;
-    }
+    }*/
+
+    return count;
 }
 
 int switch_first_last(node * & head)
@@ -462,3 +466,8 @@ int count_last_rec(node * head, int & last_node, int & count)
         return count;
     }
 }
+
+int is_bigger_than_four_rec(node * head)
+{
+    
+

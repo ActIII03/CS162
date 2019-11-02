@@ -31,11 +31,16 @@ node::~node()
 }
 
 
-int stack::push()  
+int stack::push(question & in_questions, answer & in_answers)  
 {
     //Update top_index
     if(!head)   //Base case: Allocate mem for queue obj
-        
+    {
+        head = new node;
+        head -> next = NULL;
+        head -> card_arr = new card_arr[arr_size];
+        head -> card_arr.enqueue(in_question, in_answer);
+
     //else if(top_index < MAX)  //Increment here
             //Also enqueue 
 

@@ -21,11 +21,12 @@ class queue
 
         queue();
         ~queue();
-        int enqueue(); 
+        int enqueue(question & add_question, answer & add_answer); 
         int dequeue();
         int isempty();
         int isfull();
         int display();
+        int copy_to(question & copy_q, answer & copy_a, 1_node * & n_qa_node); //Add argument for ptr
 
     private:
 

@@ -10,15 +10,19 @@
 const int BUFFER = 250;
 
 //Acts as buffer for input and is separate from ADT
-struct answer
-{
-    char answer[BUFFER];
-
-};
-
 struct question
 {
-   char question[BUFFER];
+   char question_1[BUFFER];
+   char question_2[BUFFER];
+   char question_3[BUFFER];
+};
+
+struct answer
+{
+    char answer_1[BUFFER];
+    char answer_2[BUFFER];
+    char answer_3[BUFFER];
+
 };
 
 int get_char(answer & player_ans);
@@ -36,7 +40,7 @@ class trivial_pursuit
     private:
         
         //Update constructor
-        stack  not_answered;
+        stack  new_q_a;
         stack  wrong;
 };
 

@@ -33,10 +33,29 @@ q_node::~q_node()
         next = NULL;
 }
 
-int queue::enqueue()
+int queue::enqueue(question & add_question, answer & add_answer)
 {
 
-    //Stub
+    if(!rear)
+    {
+        //Create 1 of 3 node
+        rear = new q_node;
+        rear -> next = NULL;
+        temp = rear;
+        copy_to(add_question, add_answer, temp);
+
+        //Create 2 of 3 node
+        rear = new q_node;
+        rear -> next = NULL;
+        temp = rear;
+        copy_to(add_question, add_answer, temp);
+
+
+        //Create 3 of 3 node
+
+        return 0;
+    }
+
 
     return 0;
 }
@@ -70,3 +89,9 @@ int queue::display()
 
     return 0;
 }
+
+int copy_to(question & copy_q, answer & copy_a) //Pass ptr by ref
+{
+   char * q_1 = new char[strlen(copy_q.question_1) + 1];
+   strcpy(q_1
+

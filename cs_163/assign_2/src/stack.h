@@ -12,7 +12,7 @@ struct node {
     node * next;
     int top_index;   //Keep index here to track and manage
     int arr_size;
-    queue * card_arr;  //Pointer to an array  of queue objects
+    queue * card_arr;  //Pointer to an array  of queue objects *Flexible Arrays*
 };
 
 
@@ -22,7 +22,7 @@ class stack
 
         stack();
         ~stack();
-        int push(question & in_question, answer & in_answer);   //UPdate argument with struct q & a to push them
+        int push(questions & in_question, answers & in_answer);   //UPdate argument with struct q & a to push them
         int pop();
         int peek();
 
