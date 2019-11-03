@@ -3,27 +3,10 @@
 //Instructor: Karla Fant
 //Description: 
 #include <iostream>
-#include <cstdlib>
 #include <fstream>
-#include "stack.h"
+#include "stack_and_queue.h"
 
 const int BUFFER = 250;
-
-//Acts as buffer for input and is separate from ADT
-struct question
-{
-   char question_1[BUFFER];
-   char question_2[BUFFER];
-   char question_3[BUFFER];
-};
-
-struct answer
-{
-    char answer_1[BUFFER];
-    char answer_2[BUFFER];
-    char answer_3[BUFFER];
-
-};
 
 int get_char(answer & player_ans);
 int get_menu_choice(int & choice);
@@ -34,7 +17,7 @@ class trivial_pursuit
 
         trivial_pursuit();
         ~trivial_pursuit();
-        bool readin_txt_file(); //Read in to delimiter
+        int get_txt(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);
      
     private:
         
@@ -43,4 +26,3 @@ class trivial_pursuit
         stack player_stack; 
         stack discard_stack;
 };
-

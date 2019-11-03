@@ -2,7 +2,31 @@
 //Class: CS 163
 //Instructor: Karla Fant
 //Description: 
-#include "queue.h"
+#include "stack_and_queue.h"
+
+stack::stack()
+{
+    head = NULL;
+}
+
+stack::~stack()
+{
+    if(head)
+        head = NULL;
+
+}
+
+node::node()
+{
+    next = NULL;
+    card_arr = NULL;
+}
+
+node::~node()
+{
+    if(next)
+        next = NULL;
+}
 
 queue::queue()
 {
@@ -32,7 +56,61 @@ q_node::~q_node()
         next = NULL;
 }
 
-int queue::enqueue(question & add_question, answer & add_answer)
+
+int stack::push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])  
+{
+    //Update top_index
+    if(!head)   //Base case: Allocate mem for queue obj
+    {
+        head = new node;
+        head -> next = NULL;
+        head -> card_arr = new card_arr[arr_size];
+        head -> card_arr[top_index].enqueue(in_question, in_answer);
+        ++top_index;
+    }
+    else if(top_index < MAX)  //Increment here
+    {
+        head -> card_arr[top_index].enqueue(in_question, in_answer);
+        ++top_index;
+    }
+
+    //else if(top_index == 5 *OR MAX*)  //Eval top_index
+    
+
+    return 0;
+}
+
+int stack::pop()
+{
+
+    //Stub
+
+    return 0;
+
+}
+
+int stack::peek()
+{
+
+    //Stub
+
+    return 0;
+
+}
+int stack::is_empty()
+{
+
+    return 0;
+}
+
+int stack:is_full()
+{
+
+    return 0;
+
+}
+
+int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
 {
 
     //Create 1 of 3 node

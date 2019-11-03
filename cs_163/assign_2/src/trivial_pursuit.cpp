@@ -40,52 +40,9 @@ int get_menu_choice(int & choice)
 
 }
 
-bool trivial_pursuit::readin_txt_file()
+int get_txt(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
 {
-    //Create ifstrem obj
-    questions n_questions, answer n_answers;
-    ifstream in_file;
-    in_file.open("questions_answers.txt");
-    char delimiter = ";";
-    
-    //Check for file success
-    if(in_file)
-    {
-        //Read in the first three questions and answers
-        in_file.get(n_question.question_1, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        in_file.get(answer_1, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        in_file.get(n_question.question_2, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        in_file.get(answer_2, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        in_file.get(n_question.question_3, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        in_file.get(answer_3, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
-        
-        //Push to Stack and eventually enqueue
-        new_q_a.push(n_question, n_answer);
+    new_q_a.push(q_1[], q_2[], q_3[], a_1[], a_2[], a_3[]);
 
-        //Push 4 more cards to the stack and enqueue
-        for(;in_file && !in_file.eof();)
-        {
-            in_file.get(n_question.question_1, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            in_file.get(answer_1, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            in_file.get(n_question.question_2, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            in_file.get(answer_2, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            in_file.get(n_question.question_3, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            in_file.get(answer_3, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
-            new_q_a.push(n_question, n_answer);
-        }
-    }
-
-    return true;
+    return 0;
 }
