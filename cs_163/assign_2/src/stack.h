@@ -25,6 +25,8 @@ class stack
         int push(questions & in_question, answers & in_answer);   //UPdate argument with struct q & a to push them
         int pop();
         int peek();
+        int is_empty();
+        int is_full();
 
     private:
 

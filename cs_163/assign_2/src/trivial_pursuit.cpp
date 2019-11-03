@@ -6,20 +6,20 @@
 
 trivial_pursuit::trivial_pursuit()
 {
-    not_answered = NULL;
-    correct = NULL;
-    wrong = NULL;
+    new_q_a = NULL;
+    player_stack = NULL;
+    discard_stack = NULL;
 }
 
 trivial_pursuit::~trivial_pursuit()
 {
 
-    if(not_answered)
-        not_answered = NULL;
-    if(correct)
-        correct = NULL;
-    if(wrong)
-        wrong = NULL;
+    if(new_q_a)
+        new_q_a = NULL;
+    if(player_stack)
+        player_stack = NULL;
+    if(discard_stack)
+        discard_stack = NULL;
 
 }
 
@@ -40,8 +40,7 @@ int get_menu_choice(int & choice)
 
 }
 
-//UPdate to class function
-bool readin_txt_file()
+bool trivial_pursuit::readin_txt_file()
 {
     //Create ifstrem obj
     questions n_questions, answer n_answers;
@@ -49,9 +48,10 @@ bool readin_txt_file()
     in_file.open("questions_answers.txt");
     char delimiter = ";";
     
+    //Check for file success
     if(in_file)
     {
-
+        //Read in the first three questions and answers
         in_file.get(n_question.question_1, BUFFER, delimiter);
         in_file.ignore(100, '\n');
         in_file.get(answer_1, BUFFER, delimiter);
@@ -68,11 +68,24 @@ bool readin_txt_file()
         //Push to Stack and eventually enqueue
         new_q_a.push(n_question, n_answer);
 
-        //for(;in_file && !in_file.eof();)
-        //{
+        //Push 4 more cards to the stack and enqueue
+        for(;in_file && !in_file.eof();)
+        {
+            in_file.get(n_question.question_1, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            in_file.get(answer_1, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            in_file.get(n_question.question_2, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            in_file.get(answer_2, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            in_file.get(n_question.question_3, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            in_file.get(answer_3, BUFFER, delimiter);
+            in_file.ignore(100, '\n');
+            new_q_a.push(n_question, n_answer);
+        }
     }
 
     return true;
-    
-    
 }

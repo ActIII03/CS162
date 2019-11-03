@@ -3,6 +3,7 @@
 //Instructor: Karla Fant
 //Description: 
 #include <cstdlib>
+#include "stack.h"
 
 struct q_node{
 
@@ -26,13 +27,8 @@ class queue
         int isempty();
         int isfull();
         int display();
-        int copy_to(question & copy_q, answer & copy_a, 1_node * & n_qa_node); //Add argument for ptr
 
     private:
 
         q_node * rear;
-
-
 };
-
-

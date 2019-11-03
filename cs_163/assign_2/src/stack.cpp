@@ -39,10 +39,14 @@ int stack::push(question & in_questions, answer & in_answers)
         head = new node;
         head -> next = NULL;
         head -> card_arr = new card_arr[arr_size];
-        head -> card_arr.enqueue(in_question, in_answer);
-
-    //else if(top_index < MAX)  //Increment here
-            //Also enqueue 
+        head -> card_arr[top_index].enqueue(in_question, in_answer);
+        ++top_index;
+    }
+    else if(top_index < MAX)  //Increment here
+    {
+        head -> card_arr[top_index}.enqueue(in_question, in_answer);
+        ++top_index;
+    }
 
     //else if(top_index == 5 *OR MAX*)  //Eval top_index
     
@@ -63,6 +67,18 @@ int stack::peek()
 {
 
     //Stub
+
+    return 0;
+
+}
+int stack::is_empty()
+{
+
+    return 0;
+}
+
+int stack:is_full()
+{
 
     return 0;
 

@@ -4,7 +4,6 @@
 //Description: 
 #include "queue.h"
 
-
 queue::queue()
 {
     rear = NULL;
@@ -36,27 +35,34 @@ q_node::~q_node()
 int queue::enqueue(question & add_question, answer & add_answer)
 {
 
-    if(!rear)
-    {
-        //Create 1 of 3 node
-        rear = new q_node;
-        rear -> next = NULL;
-        temp = rear;
-        copy_to(add_question, add_answer, temp);
+    //Create 1 of 3 node
+    rear = new q_node;
+    rear -> next = NULL;
+    rear -> question = new char[strlen(add_question.question_1)+1];
+    strcpy(rear -> question, add_question.question_1);
+    rear -> answer = new char[strlen(add_answer.answer_1)+1];
+    strcpy(rear -> answer, add_answer.answer_1);
 
-        //Create 2 of 3 node
-        rear = new q_node;
-        rear -> next = NULL;
-        temp = rear;
-        copy_to(add_question, add_answer, temp);
+    //Create 2 of 3 node
+    temp = rear -> next;
+    rear -> next = new q_node;
+    rear = rear -> next;
+    rear -> next = temp;
+    rear -> question = new char[strlen(add_question.question_2)+1];
+    strcpy(rear -> question, add_question.question_2);
+    rear -> answer = new char[strlen(add_answer.answer_2)+1];
+    strcpy(rear -> answer, add_answer.answer_2);
 
-
-        //Create 3 of 3 node
-
-        return 0;
-    }
-
-
+    //Create 3 of 3 node
+    temp = rear -> next;
+    rear -> next = new q_node;
+    rear = rear -> next;
+    rear -> next = temp;
+    rear -> question = new char[strlen(add_question.question_3)+1];
+    strcpy(rear -> question, add_question.question_3);
+    rear -> answer = new char[strlen(add_answer.answer_3)+1];
+    strcpy(rear -> answer, add_answer.answer_3);
+    
     return 0;
 }
 
@@ -89,9 +95,3 @@ int queue::display()
 
     return 0;
 }
-
-int copy_to(question & copy_q, answer & copy_a) //Pass ptr by ref
-{
-   char * q_1 = new char[strlen(copy_q.question_1) + 1];
-   strcpy(q_1
-

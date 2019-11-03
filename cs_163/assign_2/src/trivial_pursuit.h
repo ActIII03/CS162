@@ -4,8 +4,8 @@
 //Description: 
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 #include "stack.h"
-#include <ifstream>
 
 const int BUFFER = 250;
 
@@ -36,11 +36,11 @@ class trivial_pursuit
         ~trivial_pursuit();
         bool readin_txt_file(); //Read in to delimiter
      
-
     private:
         
         //Update constructor
-        stack  new_q_a;
-        stack  wrong;
+        stack new_q_a;
+        stack player_stack; 
+        stack discard_stack;
 };
 
