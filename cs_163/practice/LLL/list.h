@@ -29,9 +29,11 @@ int average_even(node * head);
 int sum_data(node * head, int & count);
 
 //Recursion
+int count_nodes_rec(node * head);
 int count_first_rec(node * head, int & first_node);
 int count_last_rec(node * head, int & last_node, int & count);
 int is_bigger_than_four_rec(node * head, int & count);
 int switch_first_last_rec(node * head, int & first_node); // Work on
 int average_even_rec(node * head, int & even_aver);
 int insert_arr_to_LLL(node * & head, const int num_arr[], int & index);
+int copy_LLL_to_arr_rec(node * head, int num_arr[], int & index);

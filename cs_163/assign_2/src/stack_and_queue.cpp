@@ -7,6 +7,7 @@
 stack::stack()
 {
     head = NULL;
+    top_index = 0;
 }
 
 stack::~stack()
@@ -59,18 +60,21 @@ q_node::~q_node()
 
 int stack::push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])  
 {
+    int arr_size = 5;
+    int MAX = 5;
+
     //Update top_index
     if(!head)   //Base case: Allocate mem for queue obj
     {
         head = new node;
         head -> next = NULL;
-        head -> card_arr = new card_arr[arr_size];
-        head -> card_arr[top_index].enqueue(in_question, in_answer);
+        head -> card_arr = new queue[arr_size];
+        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         ++top_index;
     }
     else if(top_index < MAX)  //Increment here
     {
-        head -> card_arr[top_index].enqueue(in_question, in_answer);
+        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         ++top_index;
     }
 
@@ -103,7 +107,7 @@ int stack::is_empty()
     return 0;
 }
 
-int stack:is_full()
+int stack::is_full()
 {
 
     return 0;
@@ -116,30 +120,30 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
     //Create 1 of 3 node
     rear = new q_node;
     rear -> next = NULL;
-    rear -> question = new char[strlen(add_question.question_1)+1];
-    strcpy(rear -> question, add_question.question_1);
-    rear -> answer = new char[strlen(add_answer.answer_1)+1];
-    strcpy(rear -> answer, add_answer.answer_1);
+    rear -> question = new char[strlen(q_1)+1];
+    strcpy(rear -> question, q_1);
+    rear -> answer = new char[strlen(a_1)+1];
+    strcpy(rear -> answer, a_1);
 
     //Create 2 of 3 node
-    temp = rear -> next;
+    q_node * temp = rear -> next;
     rear -> next = new q_node;
     rear = rear -> next;
     rear -> next = temp;
-    rear -> question = new char[strlen(add_question.question_2)+1];
-    strcpy(rear -> question, add_question.question_2);
-    rear -> answer = new char[strlen(add_answer.answer_2)+1];
-    strcpy(rear -> answer, add_answer.answer_2);
+    rear -> question = new char[strlen(q_2)+1];
+    strcpy(rear -> question, q_2);
+    rear -> answer = new char[strlen(a_2)+1];
+    strcpy(rear -> answer, a_2);
 
     //Create 3 of 3 node
     temp = rear -> next;
     rear -> next = new q_node;
     rear = rear -> next;
     rear -> next = temp;
-    rear -> question = new char[strlen(add_question.question_3)+1];
-    strcpy(rear -> question, add_question.question_3);
-    rear -> answer = new char[strlen(add_answer.answer_3)+1];
-    strcpy(rear -> answer, add_answer.answer_3);
+    rear -> question = new char[strlen(q_3)+1];
+    strcpy(rear -> question, q_3);
+    rear -> answer = new char[strlen(a_3)+1];
+    strcpy(rear -> answer, a_3);
     
     return 0;
 }

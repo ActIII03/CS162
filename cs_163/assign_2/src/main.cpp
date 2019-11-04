@@ -7,10 +7,6 @@
 int main(void)
 {
     trivial_pursuit play_game;
-    readin_txt_file();
-
-    question n_questions; 
-    answer n_answers;
 
     char question_1[BUFFER];
     char question_2[BUFFER];
@@ -22,7 +18,7 @@ int main(void)
 
     ifstream in_file;
     in_file.open("questions_answers.txt");
-    char delimiter = ";";
+    char delimiter = ';';
     
     //Check for file success
     if(in_file)
@@ -42,7 +38,7 @@ int main(void)
         in_file.ignore(100, '\n');
         
         //Update to where t_p obj passes to stack obj
-
+        play_game.get_txt(question_1, answer_1, question_2, answer_2, question_3, answer_3);
 
         //Push 4 more cards to the stack and enqueue
         for(;in_file && !in_file.eof();)
@@ -61,11 +57,10 @@ int main(void)
             in_file.ignore(100, '\n');
             
             //Update to where t_p obj passes to stack obj
-
+            play_game.get_txt(question_1, answer_1, question_2, answer_2, question_3, answer_3);
         }
     }
 
-    play_game.get_txt(question_1, question_2, question_3, answer_1, answer_2, answer_2);
 
     return 0;
 }

@@ -4,11 +4,14 @@
 //Description: 
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 #include "stack_and_queue.h"
+
+using namespace std;
 
 const int BUFFER = 250;
 
-int get_char(answer & player_ans);
+int get_char(char answer[]);
 int get_menu_choice(int & choice);
 
 class trivial_pursuit

@@ -20,10 +20,10 @@ int main()
     //cout << "Number of data mbr. greater than four: " << count << endl;
 
     //switch_first_last(head);
-    insert_arr_to_LLL(head, num_arr);
+    //insert_arr_to_LLL(head, num_arr);
     //remove_last_two(head);
     //remove_every_two(head);
-    //copy_LLL_to_arr(head);
+    copy_LLL_to_arr(head);
     //even_aver = average_even(head);
     //cout << "Average of Even data mbr.: " << even_aver << endl;
     //sum = sum_data(head, count);
@@ -282,7 +282,11 @@ int copy_LLL_to_arr(node * head)
 {
 
     int count = 0, index = 0;
+    count = count_nodes_rec(head);
+    int num_arr[count];
+    copy_LLL_to_arr_rec(head, num_arr, index);
 
+    /*
     //Count number of nodes
     node * current = head;
     while(current)
@@ -300,12 +304,13 @@ int copy_LLL_to_arr(node * head)
         ++index;
         current = current->next;
     }
-    cout << "\n";
+    */
 
-    //Print array
+    cout << "\n";
     for(index = 0; index < count; ++index)
-        cout << "Array Number: " << lll_arr[index] << " Index: " << index << endl;
+        cout << "Array Number: " << num_arr[index] << " Index: " << index << endl;
     
+
     return 0;
 }
 
@@ -554,4 +559,24 @@ int insert_arr_to_LLL(node * & head, const int num_arr[], int & index)
     head = temp;
     insert_arr_to_LLL(head, num_arr, ++index);
     return 0;
+}
+
+int copy_LLL_to_arr_rec(node * head, int num_arr[], int & index)
+{
+     
+    if(!head)
+        return 0;
+
+    copy_LLL_to_arr_rec(head -> next, num_arr, index);
+    num_arr[index] = head -> data;
+    ++index;
+
+    return 0;
+}
+
+int count_nodes_rec(node * head)
+{
+    if(!head)
+        return 0;
+    return 1 + count_nodes_rec(head -> next);
 }

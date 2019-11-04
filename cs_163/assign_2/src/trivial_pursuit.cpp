@@ -6,24 +6,24 @@
 
 trivial_pursuit::trivial_pursuit()
 {
-    new_q_a = NULL;
-    player_stack = NULL;
-    discard_stack = NULL;
+    //new_q_a = NULL;
+    //player_stack = NULL;
+    //discard_stack = NULL;
 }
 
 trivial_pursuit::~trivial_pursuit()
 {
 
-    if(new_q_a)
-        new_q_a = NULL;
-    if(player_stack)
-        player_stack = NULL;
-    if(discard_stack)
-        discard_stack = NULL;
+    //if(new_q_a)
+    //    new_q_a = NULL;
+    //if(player_stack)
+    //    player_stack = NULL;
+    //if(discard_stack)
+    //    discard_stack = NULL;
 
 }
 
-int get_char(answer & player_ans)
+int get_char(char answer[])
 {
 
     //Stub
@@ -40,9 +40,9 @@ int get_menu_choice(int & choice)
 
 }
 
-int get_txt(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
+int trivial_pursuit::get_txt(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
 {
-    new_q_a.push(q_1[], q_2[], q_3[], a_1[], a_2[], a_3[]);
+    new_q_a.push(q_1, q_2, q_3, a_1, a_2, a_3);
 
     return 0;
 }

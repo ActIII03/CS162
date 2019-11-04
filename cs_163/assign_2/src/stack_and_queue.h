@@ -2,11 +2,8 @@
 //Class: CS 163
 //Instructor: Karla Fant
 //Description: 
-#include <iostream>
-#include <fstream>
 #include <cstdlib>
-
-int arr_size = 5;
+#include <cstring>
 
 struct q_node{
 
@@ -16,7 +13,6 @@ struct q_node{
     char * answer;
     q_node * next;
 };
-
 
 class queue
 {
@@ -41,7 +37,6 @@ struct node {
     node();
     ~node();
     node * next;
-    int top_index;   //Keep index here to track and manage
     queue * card_arr;  //Pointer to an array of queue objects *Flexible Arrays*
 };
 
@@ -60,5 +55,6 @@ class stack
     private:
 
         node * head;
+        int top_index;   //Keep index here to track and manage
 
 };
