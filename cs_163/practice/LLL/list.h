@@ -16,7 +16,7 @@ void display(node * head);  //supplied
 void destroy(node * &head); //supplied
 
 /* *****************YOUR TURN! ******************************** */
-//Write your function prototype here:
+//Iterative Solutions
 int count_first(node * head, int & count);
 int count_last(node * head, int & last_node);
 int is_bigger_than_four(node * head);
@@ -28,7 +28,7 @@ int remove_every_two(node * & head);
 int average_even(node * head);
 int sum_data(node * head, int & count);
 
-//Recursion
+//Recursion Solutions
 int count_nodes_rec(node * head);
 int count_first_rec(node * head, int & first_node);
 int count_last_rec(node * head, int & last_node, int & count);
@@ -38,3 +38,5 @@ int average_even_rec(node * head, int & even_aver);
 int insert_arr_to_LLL(node * & head, const int num_arr[], int & index);
 int copy_LLL_to_arr_rec(node * head, int num_arr[], int & index);
 int remove_last_two_rec(node * & head);
+int remove_every_two_rec(node * & head);
+int sum_data_rec(node * head, int & sum);

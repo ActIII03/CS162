@@ -1,2 +1,16 @@
-What sense is most closely linked to memory?;Smell;What does Simon Wiesenthal hunt?;Fugitive Nazis;What animal was paraded through the streets of Paris on Mardi Gras to remind people not to eat meat during Lent?;An ox;What woman was arrested for voting in the 1872 election for U.S. president?;Susan B. Anthony;What U.S. city’s drivers log 142 million miles daily, as far as from Earth to Mars?;Los Angeles;What was the largest city in the U.S. when the first census was taken in 1790?;Phildelphia;What city's drivers owe over $460 million in parking fines?;New York City;What snack food did a University of South Florida engineering professor spend six years studying the crunch of?;Potato chips;What became America’s first organized sport, in 1664?;Horse Racing;What sport causes 18,000 facial injuries each year in U.S. kids aged 5 to 14?;Baseball;What U.S. city was once know as Federal City?;Washington DC;What U.S. city did Indiana Jones take off from on his adventures in Raiders of the Lost Ark?;San Francisco;How many Rocky movies were made by 1990?;5;Which of the 48 contiguous U.S. states has the fewest people?;Wyoming;How many colors are there in a rainbow?;7;
+What sense is most closely linked to memory?;Smell;
+What does Simon Wiesenthal hunt?;Fugitive Nazis;
+What animal was paraded through the streets of Paris on Mardi Gras to remind people not to eat meat during Lent?;An ox;
+What woman was arrested for voting in the 1872 election for U.S. president?;Susan B. Anthony;
+What U.S. city’s drivers log 142 million miles daily, as far as from Earth to Mars?;Los Angeles;
+What was the largest city in the U.S. when the first census was taken in 1790?;Phildelphian;
+What city's drivers owe over $460 million in parking fines?;New York City;
+What snack food did a University of South Florida engineering professor spend six years studying the crunch of?;Potato chips;
+What became America’s first organized sport, in 1664?;Horse Racing;
+What sport causes 18,000 facial injuries each year in U.S. kids aged 5 to 14?;Baseball;
+What U.S. city was once know as Federal City?;Washington DC;
+What U.S. city did Indiana Jones take off from on his adventures in Raiders of the Lost Ark?;San Francisco;
+How many Rocky movies were made by 1990?;5;
+Which of the 48 contiguous U.S. states has the fewest people?;Wyoming;
+How many colors are there in a rainbow?;7;
 

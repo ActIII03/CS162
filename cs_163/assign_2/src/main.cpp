@@ -25,15 +25,15 @@ int main(void)
     {
         //Read in the first three questions and answers
         in_file.get(question_1, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore(100, delimiter);
         in_file.get(answer_1, BUFFER, delimiter);
         in_file.ignore(100, '\n');
         in_file.get(question_2, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore(100, delimiter);
         in_file.get(answer_2, BUFFER, delimiter);
         in_file.ignore(100, '\n');
         in_file.get(question_3, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore(100, ';');
         in_file.get(answer_3, BUFFER, delimiter);
         in_file.ignore(100, '\n');
         
@@ -43,16 +43,16 @@ int main(void)
         //Push 4 more cards to the stack and enqueue
         for(;in_file && !in_file.eof();)
         {
-            in_file.get(question_1, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+                in_file.get(question_1, BUFFER, delimiter);
+            in_file.ignore(100, delimiter);
             in_file.get(answer_1, BUFFER, delimiter);
             in_file.ignore(100, '\n');
             in_file.get(question_2, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+            in_file.ignore(100, delimiter);
             in_file.get(answer_2, BUFFER, delimiter);
             in_file.ignore(100, '\n');
             in_file.get(question_3, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+            in_file.ignore(100, ';');
             in_file.get(answer_3, BUFFER, delimiter);
             in_file.ignore(100, '\n');
             

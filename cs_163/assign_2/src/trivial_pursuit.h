@@ -9,7 +9,7 @@
 
 using namespace std;
 
-const int BUFFER = 250;
+const int BUFFER = 400;
 
 int get_char(char answer[]);
 int get_menu_choice(int & choice);

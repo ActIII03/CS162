@@ -21,13 +21,13 @@ int main()
 
     //switch_first_last(head);
     //insert_arr_to_LLL(head, num_arr);
-    remove_last_two(head);
+    //remove_last_two(head);
     //remove_every_two(head);
     //copy_LLL_to_arr(head);
     //even_aver = average_even(head);
     //cout << "Average of Even data mbr.: " << even_aver << endl;
-    //sum = sum_data(head, count);
-    //cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
+    sum = sum_data(head, count);
+    cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
 
     display(head); //redisplay the list after your function
     destroy(head); 
@@ -435,7 +435,10 @@ int average_even(node * head)
 int sum_data(node * head, int & count)
 {
     int sum = 0;
-    
+    count = count_nodes_rec(head);
+    sum_data_rec(head, sum);
+
+    /*
     if(!head)
         return 0;
     else
@@ -449,6 +452,8 @@ int sum_data(node * head, int & count)
         }
 
     }
+
+    */
 
     return sum;
 }
@@ -599,3 +604,25 @@ int remove_last_two_rec(node * & head)
 
     return 0;
 }
+
+int remove_every_two_rec(node * & head)
+{
+    if(!head)
+        return 0;
+    else if(!head -> next)
+        delete head;
+    remove_every_two_rec(head -> next);
+    delete head;
+    return 0;
+}
+
+int sum_data_rec(node * head, int & sum)
+{
+    if(!head)
+        return 0;
+    sum += head -> data;
+    sum_data_rec(head -> next, sum);
+    return sum;
+
+}
+
