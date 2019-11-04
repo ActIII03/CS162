@@ -40,9 +40,18 @@ int get_menu_choice(int & choice)
 
 }
 
-int trivial_pursuit::get_txt(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
+int trivial_pursuit::get_txt(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[])
 {
-    new_q_a.push(q_1, q_2, q_3, a_1, a_2, a_3);
+    new_q_a.push(q_1, a_1, q_2, a_2, q_3, a_3);
+
+    return 0;
+}
+
+int trivial_pursuit::get_question(int card)
+{
+    //Pop card here
+    new_q_a.pop(card);
+    ++card;
 
     return 0;
 }

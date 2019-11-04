@@ -15,7 +15,8 @@ int main(void)
     char answer_1[BUFFER];
     char answer_2[BUFFER];
     char answer_3[BUFFER];
-
+    
+    int card = 0;
     ifstream in_file;
     in_file.open("questions_answers.txt");
     char delimiter = ';';
@@ -61,6 +62,9 @@ int main(void)
         }
     }
 
+    //pop from the stack 1 card to answer and along dequeue'ing the first question
+    play_game.get_question(card); 
+    
 
     return 0;
 }

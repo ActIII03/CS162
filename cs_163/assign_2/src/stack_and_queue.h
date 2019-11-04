@@ -21,7 +21,7 @@ class queue
 
         queue();
         ~queue();
-        int enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]); 
+        int enqueue(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]); 
         int dequeue();
         int isempty();
         int isfull();
@@ -47,7 +47,7 @@ class stack
         stack();
         ~stack();
         int push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);   //UPdate argument with struct q & a to push them
-        int pop();
+        int pop(int card);
         int peek();
         int is_empty();
         int is_full();

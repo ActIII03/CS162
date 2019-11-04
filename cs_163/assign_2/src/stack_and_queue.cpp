@@ -58,7 +58,7 @@ q_node::~q_node()
 }
 
 
-int stack::push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])  
+int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[])  
 {
     int arr_size = 5;
     int MAX = 5;
@@ -126,7 +126,7 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
     strcpy(rear -> answer, a_1);
 
     //Create 2 of 3 node
-    q_node * temp = rear -> next;
+    q_node * temp = rear;
     rear -> next = new q_node;
     rear = rear -> next;
     rear -> next = temp;
@@ -136,7 +136,7 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
     strcpy(rear -> answer, a_2);
 
     //Create 3 of 3 node
-    temp = rear -> next;
+    temp = rear;
     rear -> next = new q_node;
     rear = rear -> next;
     rear -> next = temp;
