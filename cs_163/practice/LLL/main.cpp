@@ -21,9 +21,9 @@ int main()
 
     //switch_first_last(head);
     //insert_arr_to_LLL(head, num_arr);
-    //remove_last_two(head);
+    remove_last_two(head);
     //remove_every_two(head);
-    copy_LLL_to_arr(head);
+    //copy_LLL_to_arr(head);
     //even_aver = average_even(head);
     //cout << "Average of Even data mbr.: " << even_aver << endl;
     //sum = sum_data(head, count);
@@ -314,9 +314,12 @@ int copy_LLL_to_arr(node * head)
     return 0;
 }
 
-int remove_last_two(node * head) 
+int remove_last_two(node * & head) 
 {
     //Empty list
+
+    remove_last_two_rec(head);
+    /*
     if(!head)
         return 0;
 
@@ -354,7 +357,7 @@ int remove_last_two(node * head)
         delete current;
         previous->next = NULL;
         
-    }
+    }*/
 
     return 0;
 }
@@ -579,4 +582,20 @@ int count_nodes_rec(node * head)
     if(!head)
         return 0;
     return 1 + count_nodes_rec(head -> next);
+}
+
+int remove_last_two_rec(node * & head)
+{
+    
+    if(!head -> next -> next -> next)
+    {
+        delete head -> next -> next;
+        delete head -> next;
+        head -> next = NULL;
+        return 0;
+    }
+
+    remove_last_two_rec(head -> next);
+
+    return 0;
 }

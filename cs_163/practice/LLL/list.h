@@ -23,7 +23,7 @@ int is_bigger_than_four(node * head);
 int switch_first_last(node * & head);
 int insert_arr_to_LLL(node * & head, const int num_arr[]);
 int copy_LLL_to_arr(node * head);
-int remove_last_two(node * head);
+int remove_last_two(node * & head);
 int remove_every_two(node * & head);
 int average_even(node * head);
 int sum_data(node * head, int & count);
@@ -37,3 +37,4 @@ int switch_first_last_rec(node * head, int & first_node); // Work on
 int average_even_rec(node * head, int & even_aver);
 int insert_arr_to_LLL(node * & head, const int num_arr[], int & index);
 int copy_LLL_to_arr_rec(node * head, int num_arr[], int & index);
+int remove_last_two_rec(node * & head);
