@@ -47,11 +47,10 @@ int trivial_pursuit::get_txt(char q_1[], char a_1[], char q_2[], char a_2[], cha
     return 0;
 }
 
-int trivial_pursuit::get_question(int card)
+int trivial_pursuit::get_question()
 {
     //Pop card here
-    new_q_a.pop(card);
-    ++card;
-
+    queue * temp = new_q_a.pop();
+    //temp -> display();  //Delete temp ptr after display
     return 0;
 }

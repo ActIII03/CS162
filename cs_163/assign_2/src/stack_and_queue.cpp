@@ -68,7 +68,7 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
     {
         head = new node;
         head -> next = NULL;
-        head -> card_arr = new queue[arr_size];
+        head -> card_arr = new queue[arr_size];   //Am I allocating memory for queue obj?
         head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         ++top_index;
     }
@@ -78,18 +78,32 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
         ++top_index;
     }
 
-    //else if(top_index == 5 *OR MAX*)  //Eval top_index
-    
+    else if(top_index == 5)  //Eval top_index and create new node *ADD at head*
+    {
+        node * temp = head;
+        head = new node;
+        head -> next = temp;
+        head -> card_arr = new queue[arr_size];
+        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
+        top_index = 1;
+    }
 
     return 0;
 }
 
-int stack::pop()
+queue * stack::pop()
 {
 
-    //Stub
-
-    return 0;
+    
+    if(!head)
+       return NULL;
+    q_node * temp = head; 
+    //Find top_index by accessing most recent obj at index zero
+    //And store it into a temp ptr
+    //NULL out the index in which the tmp ptr points at
+    //Return temp
+    
+    return temp; //return the queue ptr
 
 }
 
@@ -117,40 +131,40 @@ int stack::is_full()
 int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[])
 {
 
+    //Check for !rear (if-state)
+    //Make 1 node and point to itself
     //Create 1 of 3 node
-    rear = new q_node;
-    rear -> next = NULL;
-    rear -> question = new char[strlen(q_1)+1];
-    strcpy(rear -> question, q_1);
-    rear -> answer = new char[strlen(a_1)+1];
-    strcpy(rear -> answer, a_1);
-
-    //Create 2 of 3 node
-    q_node * temp = rear;
-    rear -> next = new q_node;
-    rear = rear -> next;
-    rear -> next = temp;
-    rear -> question = new char[strlen(q_2)+1];
-    strcpy(rear -> question, q_2);
-    rear -> answer = new char[strlen(a_2)+1];
-    strcpy(rear -> answer, a_2);
-
-    //Create 3 of 3 node
-    temp = rear;
-    rear -> next = new q_node;
-    rear = rear -> next;
-    rear -> next = temp;
-    rear -> question = new char[strlen(q_3)+1];
-    strcpy(rear -> question, q_3);
-    rear -> answer = new char[strlen(a_3)+1];
-    strcpy(rear -> answer, a_3);
+    if(!rear)
+    {
+        q_node * rear = new q_node;
+        rear -> next = NULL;
+        rear -> question = new char[strlen(q_1)+1];
+        strcpy(rear -> question, q_1);
+        rear -> answer = new char[strlen(a_1)+1];
+        strcpy(rear -> answer, a_1);
+    }
     
+    //otherwise add to end of CLL
+    else
+    {
+        //Create nodes to add after first node
+        q_node * temp = rear;
+        rear -> next = new q_node;
+        rear = rear -> next;
+        rear -> next = temp;
+        rear -> question = new char[strlen(q_2)+1];
+        strcpy(rear -> question, q_2);
+        rear -> answer = new char[strlen(a_2)+1];
+        strcpy(rear -> answer, a_2);
+
+    }
+
     return 0;
 }
 
 int queue::dequeue()
 {
-    //Stub
+    //Check !rear
 
     return 0;
 }
@@ -173,7 +187,6 @@ int queue::isfull()
 
 int queue::display()
 {
-    //Stub
 
     return 0;
 }

@@ -16,7 +16,6 @@ int main(void)
     char answer_2[BUFFER];
     char answer_3[BUFFER];
     
-    int card = 0;
     ifstream in_file;
     in_file.open("questions_answers.txt");
     char delimiter = ';';
@@ -44,7 +43,7 @@ int main(void)
         //Push 4 more cards to the stack and enqueue
         for(;in_file && !in_file.eof();)
         {
-                in_file.get(question_1, BUFFER, delimiter);
+            in_file.get(question_1, BUFFER, delimiter);
             in_file.ignore(100, delimiter);
             in_file.get(answer_1, BUFFER, delimiter);
             in_file.ignore(100, '\n');
@@ -63,7 +62,7 @@ int main(void)
     }
 
     //pop from the stack 1 card to answer and along dequeue'ing the first question
-    play_game.get_question(card); 
+    play_game.get_question(); 
     
 
     return 0;

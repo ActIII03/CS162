@@ -46,8 +46,8 @@ class stack
 
         stack();
         ~stack();
-        int push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);   //UPdate argument with struct q & a to push them
-        int pop(int card);
+        int push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);   //Update argument with struct q & a to push them
+        queue * pop();  //Pop from the newest card obj add a return value of the obj's ptr
         int peek();
         int is_empty();
         int is_full();

@@ -4,6 +4,7 @@ using namespace std;
 int main()
 {
     node * head = NULL;
+    node * dest = NULL;
     build(head);
     display(head);
     
@@ -26,10 +27,14 @@ int main()
     //copy_LLL_to_arr(head);
     //even_aver = average_even(head);
     //cout << "Average of Even data mbr.: " << even_aver << endl;
-    sum = sum_data(head, count);
-    cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
+    //sum = sum_data(head, count);
+    //cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
+    copy_LLL(dest, head);
 
     display(head); //redisplay the list after your function
+
+    cout << "Copy of LLL: " << endl;
+    display(dest); //Display copy of source LLL
     destroy(head); 
     return 0;
 }
@@ -467,11 +472,8 @@ int count_first_rec(node * head, int & first_node)  //Work-on
     else
     {
         if(head -> data == first_node)
-        {
             return 1 + count_first_rec(head -> next, first_node);
-        }
-        else
-            return count_first_rec(head -> next, first_node);
+        return count_first_rec(head -> next, first_node);
     }
 }
 
@@ -626,3 +628,12 @@ int sum_data_rec(node * head, int & sum)
 
 }
 
+
+void copy_LLL(node * & dest, node * head)
+{
+    if(!head)
+        return;
+    dest = new node;
+    dest -> data = head -> data;
+    copy_LLL(dest->next, head->next);
+}
