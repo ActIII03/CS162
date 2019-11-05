@@ -91,19 +91,20 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
     return 0;
 }
 
-queue * stack::pop()
+
+node * stack::pop()
 {
 
     
     if(!head)
        return NULL;
-    q_node * temp = head; 
+    node * temp = head; 
     //Find top_index by accessing most recent obj at index zero
     //And store it into a temp ptr
     //NULL out the index in which the tmp ptr points at
     //Return temp
     
-    return temp; //return the queue ptr
+    return (temp); //return the queue ptr
 
 }
 
@@ -115,10 +116,14 @@ int stack::peek()
     return 0;
 
 }
-int stack::is_empty()
+bool stack::is_empty()
 {
 
-    return 0;
+    if(!head)
+        return false;
+
+    return true;
+
 }
 
 int stack::is_full()
@@ -136,7 +141,7 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
     //Create 1 of 3 node
     if(!rear)
     {
-        q_node * rear = new q_node;
+        rear = new q_node;
         rear -> next = NULL;
         rear -> question = new char[strlen(q_1)+1];
         strcpy(rear -> question, q_1);
@@ -172,20 +177,22 @@ int queue::dequeue()
 int queue::isempty()
 {
     //Stub
-
+    if(rear)
+        return 1;
     return 0;
 }
 
 int queue::isfull()
 {
     //Stub
-
+    if(rear)
+        return 1;
     return 0;
 }
 
 
 
-int queue::display()
+int queue::display(q_node * head)
 {
 
     return 0;

@@ -25,7 +25,7 @@ class queue
         int dequeue();
         int isempty();
         int isfull();
-        int display();
+        int display(q_node * rear);
 
     private:
 
@@ -47,9 +47,11 @@ class stack
         stack();
         ~stack();
         int push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);   //Update argument with struct q & a to push them
-        queue * pop();  //Pop from the newest card obj add a return value of the obj's ptr
+        //queue * pop();  //Pop from the newest card obj add a return value of the obj's ptr
+        node * pop();
         int peek();
-        int is_empty();
+        int display(node * head);
+        bool is_empty();
         int is_full();
 
     private:
