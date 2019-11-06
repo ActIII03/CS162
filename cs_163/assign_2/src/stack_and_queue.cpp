@@ -7,6 +7,7 @@
 stack::stack()
 {
     head = NULL;
+    //card_arr = NULL;
     top_index = 0;
 }
 
@@ -14,9 +15,9 @@ stack::~stack()
 {
     if(head)
         head = NULL;
-
 }
 
+/*
 node::node()
 {
     next = NULL;
@@ -27,17 +28,21 @@ node::~node()
 {
     if(next)
         next = NULL;
-}
+}*/
 
 queue::queue()
 {
     rear = NULL;
+    next = NULL;
+    card_arr = NULL;
 }
 
 queue::~queue()
 {
     if(rear)
         rear = NULL;
+    if(next)
+        next = NULL;
 }
 
 q_node::q_node()
@@ -66,7 +71,7 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
     //Update top_index
     if(!head)   //Base case: Allocate mem for queue obj
     {
-        head = new node;
+        head = new queue;
         head -> next = NULL;
         head -> card_arr = new queue[arr_size];   //Am I allocating memory for queue obj?
         head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
@@ -80,8 +85,8 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
 
     else if(top_index == 5)  //Eval top_index and create new node *ADD at head*
     {
-        node * temp = head;
-        head = new node;
+        queue * temp = head;
+        head = new queue;
         head -> next = temp;
         head -> card_arr = new queue[arr_size];
         head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
@@ -97,8 +102,6 @@ queue * stack::pop()
     if(!head)
        return NULL;
 
-
-    
     return (head -> card_arr); //return the queue ptr
 }
 
@@ -110,8 +113,8 @@ queue * stack::peek()
         return NULL;
     queue * temp = head;
 
-    temp -> card_arr[
-
+    //temp -> card_arr[
+    return temp;
 
 }
 bool stack::is_empty()
@@ -145,23 +148,25 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
         strcpy(rear -> question, q_1);
         rear -> answer = new char[strlen(a_1)+1];
         strcpy(rear -> answer, a_1);
+    
+        //Create nodes to add after first node
+        q_node * n_node = new q_node;
+        rear -> next = n_node;
+        n_node -> next = rear;
+        n_node -> question = new char[strlen(q_2)+1];
+        strcpy(n_node -> question, q_2);
+        n_node -> answer = new char[strlen(a_2)+1];
+        strcpy(n_node -> answer, a_2);
+
+        n_node = new q_node;
+        n_node -> next = rear -> next;
+        n_node -> next = n_node;
+        n_node -> question = new char[strlen(q_3)+1];
+        strcpy(n_node -> question, q_3);
+        n_node -> answer = new char[strlen(a_3)+1];
+        strcpy(n_node -> answer, a_3);
     }
     
-    //otherwise add to end of CLL
-    else
-    {
-        //Create nodes to add after first node
-        q_node * temp = rear;
-        rear -> next = new q_node;
-        rear = rear -> next;
-        rear -> next = temp;
-        rear -> question = new char[strlen(q_2)+1];
-        strcpy(rear -> question, q_2);
-        rear -> answer = new char[strlen(a_2)+1];
-        strcpy(rear -> answer, a_2);
-
-    }
-
     return 0;
 }
 
