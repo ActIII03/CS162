@@ -2,8 +2,11 @@
 //Class: CS 163
 //Instructor: Karla Fant
 //Description: 
+#include <iostream>
 #include <cstdlib>
 #include <cstring>
+
+using namespace std;
 
 struct q_node{
 
@@ -23,12 +26,16 @@ class queue
         ~queue();
         int enqueue(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]); 
         int dequeue();
+        //int peek(char q_arr[], char a_arr[]);
+        int get_next_question(char * q, char * a); //return 
         int isempty();
         int isfull();
-        int display(q_node * rear);
+        int display_pub(); //Test to display all
+
 
     private:
 
+        int display(q_node * rear); //Test to display all
         q_node * rear;
 };
 
@@ -47,9 +54,8 @@ class stack
         stack();
         ~stack();
         int push(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], char a_3[]);   //Update argument with struct q & a to push them
-        //queue * pop();  //Pop from the newest card obj add a return value of the obj's ptr
-        node * pop();
-        int peek();
+        queue * pop();  //Pop from the newest card obj add a return value of the obj's ptr
+        queue * peek(); // 
         int display(node * head);
         bool is_empty();
         int is_full();

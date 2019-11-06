@@ -91,29 +91,27 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
     return 0;
 }
 
-
-node * stack::pop()
+queue * stack::pop()
 {
-
-    
+    //return card_arr[] -> head
     if(!head)
        return NULL;
-    node * temp = head; 
-    //Find top_index by accessing most recent obj at index zero
-    //And store it into a temp ptr
-    //NULL out the index in which the tmp ptr points at
-    //Return temp
-    
-    return (temp); //return the queue ptr
 
+
+    
+    return (head -> card_arr); //return the queue ptr
 }
 
-int stack::peek()
+queue * stack::peek()
 {
 
-    //Stub
+    //Implement Peek here by looking at 
+    if(!head)
+        return NULL;
+    queue * temp = head;
 
-    return 0;
+    temp -> card_arr[
+
 
 }
 bool stack::is_empty()
@@ -191,9 +189,29 @@ int queue::isfull()
 }
 
 
-
-int queue::display(q_node * head)
+int queue::display_pub()
 {
+    if(!rear)
+        return 0;
+    int value = 0;
+    value = display(rear);
+    
+    return value;
+}
+
+int queue::display(q_node * rear)
+{
+
+    if(!rear)
+        return 0;
+    int number = 1;
+    q_node * temp = rear;
+    do
+    {
+        cout << "Question (" << number++ << "): " << temp->question << endl;
+        temp = temp -> next;
+    }
+    while(temp != rear);
 
     return 0;
 }

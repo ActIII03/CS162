@@ -47,12 +47,16 @@ int trivial_pursuit::get_txt(char q_1[], char a_1[], char q_2[], char a_2[], cha
     return 0;
 }
 
-int trivial_pursuit::get_question()
+
+int trivial_pursuit::get_question() //Update prototype (char * q, char * a)
 {
     //Pop card here
     cout << "Node's True or False if empty: " << boolalpha << new_q_a.is_empty() << endl;
-    node * temp = new_q_a.pop();
-    cout << "Node's address: " << temp << endl;
-    //temp -> card_arr -> display(temp);  //Delete temp ptr after display
+    queue * temp = new_q_a.peek(); //First peek and return 
+    temp -> display_pub();  //After display
+    //pop after display and if right push from here to either discard or player stack
+    
+
+    //delete queue obj after get_next_question
     return 0;
 }
