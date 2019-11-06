@@ -52,7 +52,8 @@ int trivial_pursuit::get_question() //Update prototype (char * q, char * a)
 {
     //Pop card here
     cout << "Node's True or False if empty: " << boolalpha << new_q_a.is_empty() << endl;
-    queue * temp = new_q_a.peek(); //First peek and return 
+    
+    queue * temp = new_q_a.pop(); //First peek and return 
     temp -> display_pub();  //After display
     //pop after display and if right push from here to either discard or player stack
     

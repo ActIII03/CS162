@@ -17,7 +17,6 @@ stack::~stack()
         head = NULL;
 }
 
-/*
 node::node()
 {
     next = NULL;
@@ -28,21 +27,17 @@ node::~node()
 {
     if(next)
         next = NULL;
-}*/
+}
 
 queue::queue()
 {
     rear = NULL;
-    next = NULL;
-    card_arr = NULL;
 }
 
 queue::~queue()
 {
     if(rear)
         rear = NULL;
-    if(next)
-        next = NULL;
 }
 
 q_node::q_node()
@@ -67,11 +62,12 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
 {
     int arr_size = 5;
     int MAX = 5;
+    
 
     //Update top_index
     if(!head)   //Base case: Allocate mem for queue obj
     {
-        head = new queue;
+        head = new node;
         head -> next = NULL;
         head -> card_arr = new queue[arr_size];   //Am I allocating memory for queue obj?
         head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
@@ -83,13 +79,14 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
         ++top_index;
     }
 
-    else if(top_index == 5)  //Eval top_index and create new node *ADD at head*
+    else if(top_index == MAX)  //Eval top_index and create new node *ADD at head*
     {
-        queue * temp = head;
-        head = new queue;
-        head -> next = temp;
-        head -> card_arr = new queue[arr_size];
-        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
+        node * n_node = new node;
+        n_node -> next = head;
+        head = n_node;
+        top_index = 0;
+        n_node -> card_arr = new queue[arr_size];
+        n_node -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         top_index = 1;
     }
 
@@ -101,17 +98,45 @@ queue * stack::pop()
     //return card_arr[] -> head
     if(!head)
        return NULL;
+   
+    queue * n_queue = new queue;
+    --top_index;
+    q_node * rear = head -> card_arr[top_index].get_rear(); //remove rear and return objects and set rear to null
+    //Implemenet a function to copy into n_queue
+    n_queue -> set_rear(rear); //Move from source to destination list
 
-    return (head -> card_arr); //return the queue ptr
+    return n_queue; //return the queue ptr
 }
 
-queue * stack::peek()
+q_node * queue::get_rear()
+{
+
+    if(!rear)
+        return NULL;
+    q_node * temp = rear;
+    rear = NULL;
+
+    return temp;
+
+}
+
+int queue::set_rear(q_node * rear)
+{
+    
+    this -> rear = rear;
+
+    return 0;
+
+}
+
+
+node * stack::peek()
 {
 
     //Implement Peek here by looking at 
     if(!head)
         return NULL;
-    queue * temp = head;
+    node * temp = head;
 
     //temp -> card_arr[
     return temp;
@@ -177,6 +202,7 @@ int queue::dequeue()
     return 0;
 }
 
+/*
 int queue::isempty()
 {
     //Stub
@@ -191,7 +217,7 @@ int queue::isfull()
     if(rear)
         return 1;
     return 0;
-}
+}*/
 
 
 int queue::display_pub()
