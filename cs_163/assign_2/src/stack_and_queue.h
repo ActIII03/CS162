@@ -26,17 +26,15 @@ class queue
         ~queue();
         int enqueue(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]); 
         int dequeue();
-        //int peek(char q_arr[], char a_arr[]);
         int get_next_question(char * q, char * a); //return 
         q_node * get_rear();
-        int set_rear(q_node * rear);
-        //int isempty();
-        //int isfull();
-        int display_pub(); //Test to display all
+        int set_rear(q_node * to_copy);
+        void copy(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]); 
+        int display_pub(int & question, char answer[]); //Test to display all
 
     private:
 
-        int display(q_node * rear); //Test to display all
+        int display(q_node * rear, int & question, char answer[]); //Test to display all
         q_node * rear;
 };
 

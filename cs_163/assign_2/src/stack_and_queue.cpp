@@ -95,7 +95,6 @@ int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char
 
 queue * stack::pop()
 {
-    //return card_arr[] -> head
     if(!head)
        return NULL;
    
@@ -114,21 +113,33 @@ q_node * queue::get_rear()
     if(!rear)
         return NULL;
     q_node * temp = rear;
-    rear = NULL;
+    //rear = NULL;
 
     return temp;
 
 }
 
-int queue::set_rear(q_node * rear)
+int queue::set_rear(q_node * to_copy)
 {
     
-    this -> rear = rear;
+    //Copy rear 
+    this -> rear = to_copy;
 
     return 0;
 
 }
 
+void queue::copy(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]) 
+{
+ 
+       strcpy(q_1,  rear -> question); 
+       strcpy(a_1,  rear -> answer); 
+       strcpy(q_2,  rear -> next -> question); 
+       strcpy(a_2,  rear -> next -> answer); 
+       strcpy(q_3,  rear -> next -> next -> question); 
+       strcpy(a_3,  rear -> next -> next -> answer); 
+
+}
 
 node * stack::peek()
 {
@@ -163,12 +174,9 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
 {
 
     //Check for !rear (if-state)
-    //Make 1 node and point to itself
-    //Create 1 of 3 node
     if(!rear)
     {
         rear = new q_node;
-        rear -> next = NULL;
         rear -> question = new char[strlen(q_1)+1];
         strcpy(rear -> question, q_1);
         rear -> answer = new char[strlen(a_1)+1];
@@ -185,7 +193,7 @@ int queue::enqueue(char q_1[], char q_2[], char q_3[], char a_1[], char a_2[], c
 
         n_node = new q_node;
         n_node -> next = rear -> next;
-        n_node -> next = n_node;
+        rear -> next = n_node;
         n_node -> question = new char[strlen(q_3)+1];
         strcpy(n_node -> question, q_3);
         n_node -> answer = new char[strlen(a_3)+1];
@@ -220,29 +228,36 @@ int queue::isfull()
 }*/
 
 
-int queue::display_pub()
+int queue::display_pub(int & question, char answer[])
 {
     if(!rear)
         return 0;
     int value = 0;
-    value = display(rear);
+    value = display(rear, question, answer);
     
     return value;
 }
 
-int queue::display(q_node * rear)
+int queue::display(q_node * rear, int & question, char answer[])
 {
 
     if(!rear)
         return 0;
-    int number = 1;
     q_node * temp = rear;
-    do
-    {
-        cout << "Question (" << number++ << "): " << temp->question << endl;
-        temp = temp -> next;
-    }
-    while(temp != rear);
 
+    switch(question){
+        case 0:
+            cout << "Question (" << (question + 1) << "): " << temp->question << endl;
+            strcpy(answer, temp->answer);
+            break;
+        case 1:
+            cout << "Question (" << (question + 1) << "): " << temp->next->question << endl;
+            strcpy(answer, temp->next->answer);
+            break;
+        case 2:
+            cout << "Question (" << (question + 1) << "): " << temp->next->next->question << endl;
+            strcpy(answer, temp->next->next->answer);
+            break;
+    }
     return 0;
 }

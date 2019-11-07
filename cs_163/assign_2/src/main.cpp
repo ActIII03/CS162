@@ -19,23 +19,24 @@ int main(void)
     ifstream in_file;
     in_file.open("questions_answers.txt");
     char delimiter = ';';
-    
+   
+    int remain_turn = 10;
     //Check for file success
     if(in_file)
     {
         //Read in the first three questions and answers
         in_file.get(question_1, BUFFER, delimiter);
-        in_file.ignore(100, delimiter);
+        in_file.ignore();
         in_file.get(answer_1, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore();
         in_file.get(question_2, BUFFER, delimiter);
-        in_file.ignore(100, delimiter);
+        in_file.ignore();
         in_file.get(answer_2, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore();
         in_file.get(question_3, BUFFER, delimiter);
-        in_file.ignore(100, ';');
+        in_file.ignore();
         in_file.get(answer_3, BUFFER, delimiter);
-        in_file.ignore(100, '\n');
+        in_file.ignore();
         
         //Update to where t_p obj passes to stack obj
         play_game.get_txt(question_1, answer_1, question_2, answer_2, question_3, answer_3);
@@ -44,25 +45,29 @@ int main(void)
         for(;in_file && !in_file.eof();)
         {
             in_file.get(question_1, BUFFER, delimiter);
-            in_file.ignore(100, delimiter);
+            in_file.ignore();
             in_file.get(answer_1, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+            in_file.ignore();
             in_file.get(question_2, BUFFER, delimiter);
-            in_file.ignore(100, delimiter);
+            in_file.ignore();
             in_file.get(answer_2, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+            in_file.ignore();
             in_file.get(question_3, BUFFER, delimiter);
-            in_file.ignore(100, ';');
+            in_file.ignore();
             in_file.get(answer_3, BUFFER, delimiter);
-            in_file.ignore(100, '\n');
+            in_file.ignore();
             
             //Update to where t_p obj passes to stack obj
             play_game.get_txt(question_1, answer_1, question_2, answer_2, question_3, answer_3);
         }
     }
+    
 
     //pop from the stack 1 card to answer and along dequeue'ing the first question
-    play_game.get_question(); 
+    while(remain_turn > 0)
+    {
+        play_game.get_answer(); 
+    }
     
 
     return 0;
