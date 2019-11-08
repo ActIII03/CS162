@@ -9,7 +9,7 @@
 
 using namespace std;
 
-const int BUFFER = 600;
+const int BUFFER = 300;
 
 
 class trivial_pursuit

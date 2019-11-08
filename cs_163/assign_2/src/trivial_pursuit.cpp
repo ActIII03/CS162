@@ -54,7 +54,7 @@ int trivial_pursuit::get_answer() //Update prototype (char * q, char * a)
     //Copy all char *'s to a temp buffer
     //then pass to push
     //Also delete previous object used
-    while(question < 3 && !correct)
+    while(question < 3)
     {
         temp -> display_pub(question, copied_answer);  
         correct = is_correct(copied_answer); 
@@ -72,7 +72,8 @@ int trivial_pursuit::get_answer() //Update prototype (char * q, char * a)
         temp -> copy(question_1, answer_1, question_2, answer_2, question_3, answer_3); 
         discard_stack.push(question_1, answer_1, question_2, answer_2, question_3, answer_3);      
     }
-
+    
+    delete temp;
     //delete queue obj after get_next_question
     return 0;
 }

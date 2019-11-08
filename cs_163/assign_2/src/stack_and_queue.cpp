@@ -113,7 +113,9 @@ q_node * queue::get_rear()
     if(!rear)
         return NULL;
     q_node * temp = rear;
-    //rear = NULL;
+    
+    // Dequeue here?
+    rear = NULL;
 
     return temp;
 

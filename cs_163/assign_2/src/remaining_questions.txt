@@ -17,5 +17,7 @@ What U.S. state boasts the most car owners?;California;
 How many of every four Americans say that they believe in astrology?;1;
 How many rings are there on a five-zone archery target?;4;
 What player squats an average of 300 times during a doubleheader?;Catcher;
+How many rings are there on a five-zone archery target?;4;How many of every four Americans say that they believe in astrology?;1;
+What player squats an average of 300 times during a doubleheader?;Catcher;
 
 33
