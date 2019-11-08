@@ -34,10 +34,32 @@ queue::queue()
     rear = NULL;
 }
 
+void queue::queue_dest(queue * & rear)
+{
+    if(!rear)
+        return;
+    queue * temp = rear;
+    do{
+            rear = rear -> next;
+            
+            delete temp;
+            temp = rear;
+    }
+    while(rear = rear -> next);
+    
+    
+    delete temp;
+
+    return;
+}
+
 queue::~queue()
 {
     if(rear)
+        queue_dest(rear);
+    else
         rear = NULL;
+        
 }
 
 q_node::q_node()
