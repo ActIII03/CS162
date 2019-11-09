@@ -12,33 +12,20 @@ stack::stack()
 
 stack::~stack()
 {
-    
-    node * temp;
-    while(head)
-    {
-        temp = head;
-        head = head -> next;
-        delete temp;
-    }
+    if(head)
         head = NULL;
 }
 
 node::node()
 {
     next = NULL;
-    card_arr = new queue * [5];
-    for(int index = 0; index < 5; ++index)
-        card_arr[index] = NULL;
+    card_arr = NULL;
 }
 
 
 //Get help on this
 node::~node()
 {
-    for(int index = 0; index < 5; ++index)
-        if(card_arr[index])
-            delete card_arr[index];
-    delete [] card_arr;
 
 }
 
@@ -51,23 +38,28 @@ queue::queue()
 void queue::queue_dest(q_node * & rear)
 {
 
-    if(rear == this -> rear)   //Is this right?
+    if(rear -> next == rear)   //Is this right?
     {
         delete rear;
         rear = NULL;
         return;
     }
 
+    q_node * temp = rear;
     queue_dest(rear -> next);
     //Check each mbr for delete and delete them if present
-    delete rear;
+    delete temp;
+    temp = NULL;
     
 }
 
 queue::~queue()
 {
     if(rear)
-        queue_dest(rear -> next);
+    {
+        queue_dest(rear);
+        rear = NULL;
+    }
     else
         rear = NULL;
         
@@ -80,6 +72,7 @@ q_node::q_node()
     next = NULL;
 }
 
+//GTG
 q_node::~q_node()
 {
     if(answer)
@@ -94,47 +87,47 @@ q_node::~q_node()
     }
 }
 
-//Push to the stack of queue objects
 int stack::push(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[])  
 {
+    int arr_size = 5;
     int MAX = 5;
+    
 
     //Update top_index
     if(!head)   //Base case: Allocate mem for queue obj
     {
         head = new node; //Mem leak here: new operator
-        head -> card_arr[top_index] = new queue;
-        head -> card_arr[top_index] -> enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
+        head -> next = NULL;
+        head -> card_arr = new queue[arr_size];   
+        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         ++top_index;
     }
     else if(top_index < MAX)  //Increment here
     {
-        head -> card_arr[top_index] = new queue;
-        head -> card_arr[top_index] -> enqueue(q_1, q_2, q_3, a_1, a_2, a_3); 
+        head -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3); //mem leake here: 
         ++top_index;
     }
 
     else if(top_index == MAX)  //Eval top_index and create new node *ADD at head*
     {
-        node * n_node = new node;  
+        node * n_node = new node;  //Mem leak here: new operator
         n_node -> next = head;
         head = n_node;
         top_index = 0;
-        head -> card_arr[top_index] = new queue;
-        n_node -> card_arr[top_index] -> enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
+        n_node -> card_arr = new queue[arr_size];
+        n_node -> card_arr[top_index].enqueue(q_1, q_2, q_3, a_1, a_2, a_3);
         top_index = 1;
     }
 
     return 0;
 }
 
-//Returns a pointer that points to the most recently added "card" and decrements the top index. Sets that decrement index's rear pointer to NULL
 queue * stack::pop()
 {
     if(!head)
        return NULL;
    
-    queue * n_queue; 
+    queue * n_queue; //Mem leak?
     --top_index;
     n_queue = head -> card_arr[top_index];
     head -> card_arr[top_index] = NULL;
@@ -143,10 +136,42 @@ queue * stack::pop()
     {
         node * temp = head;
         head = head -> next;
+        delete [] temp -> card_arr;
         delete temp;
     }
 
+    /*q_node * rear = head -> card_arr[top_index].get_rear(); //remove rear and return objects and set rear to null
+    //Implemenet a function to copy into n_queue
+    n_queue -> set_rear(rear); //Move from source to destination list
+    */
+
+
+
     return n_queue; //return the queue ptr
+}
+
+q_node * queue::get_rear()
+{
+
+    if(!rear)
+        return NULL;
+    q_node * temp = rear;
+    
+    // Dequeue here?
+    rear = NULL;
+
+    return temp;
+
+}
+
+int queue::set_rear(q_node * to_copy)
+{
+    
+    //Copy rear 
+    this -> rear = to_copy;
+
+    return 0;
+
 }
 
 void queue::copy(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], char a_3[]) 
@@ -158,6 +183,36 @@ void queue::copy(char q_1[], char a_1[], char q_2[], char a_2[], char q_3[], cha
        strcpy(a_2,  rear -> next -> answer); 
        strcpy(q_3,  rear -> next -> next -> question); 
        strcpy(a_3,  rear -> next -> next -> answer); 
+
+}
+
+node * stack::peek()
+{
+
+    if(!head)
+        return NULL;
+    node * temp = head;
+
+    return temp;
+
+}
+bool stack::is_empty()
+{
+
+    if(!head)
+        return false;
+
+    return true;
+
+}
+
+int stack::is_full()
+{
+
+    if(head)
+        return 1;
+
+    return 0;
 
 }
 

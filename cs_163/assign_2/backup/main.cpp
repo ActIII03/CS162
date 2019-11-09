@@ -1,10 +1,9 @@
 //Name: Armant
 //Class: CS 163
 //Instructor: Karla Fant
-//Description: Trivial Pursuit game starts here  
+//Description: 
 #include "trivial_pursuit.h"
 
-// Trivial Pursuit Driver Function
 int main(void)
 {
     trivial_pursuit play_game;
@@ -22,7 +21,6 @@ int main(void)
     char delimiter = ';';
    
     int remain_turn = 10;
-
     //Check for file success
     if(in_file)
     {
@@ -75,10 +73,10 @@ int main(void)
     
     in_file.close();
 
-    //Start game here
-    while(remain_turn > 0)
+    //pop from the stack 1 card to answer and along dequeue'ing the first question
+    while(remain_turn > 9)
     {
-        play_game.get_answer(); //Play and get player's guess here
+        play_game.get_answer(); 
         --remain_turn;
         cout << "Now Switch players!\n";
     }
