@@ -41,3 +41,4 @@ int remove_last_two_rec(node * & head);
 int remove_every_two_rec(node * & head);
 int sum_data_rec(node * head, int & sum);
 void copy_LLL(node * & dest, node * head);
+int mpdemo_quest(node * & head, int & count);

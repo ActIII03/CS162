@@ -29,7 +29,8 @@ int main()
     //cout << "Average of Even data mbr.: " << even_aver << endl;
     //sum = sum_data(head, count);
     //cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
-    copy_LLL(dest, head);
+    //copy_LLL(dest, head);
+    count += mpdemo_quest(head, count);
 
     display(head); //redisplay the list after your function
 
@@ -637,3 +638,25 @@ void copy_LLL(node * & dest, node * head)
     dest -> data = head -> data;
     copy_LLL(dest->next, head->next);
 }
+
+int mpdemo_quest(node * & head, int & count)
+{
+    if(!head)
+        return 0;
+
+    mpdemo_quest(head -> next, count);
+
+    if(count == 1 && head -> data == 2)
+    {
+        mpdemo_quest(head->next, count);
+        return count;
+    }
+    
+    if(head -> data == 2)
+    (
+        delete head;
+        ++count;
+    }
+    return count;
+}
+
