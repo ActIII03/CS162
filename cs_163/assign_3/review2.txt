@@ -3,3 +3,13 @@ Class: CS 163
 Instructor: Karla Fant
 Assignment: Program 2 Effieciency Write-up
 
+How well did the data structure selected perform for the assigned application?
+
+Would a different data strucuture work better? If so, which one and why?
+
+What was efficient about your design and use of the data strucutre?
+
+What was not effecient?
+
+What would you do differently if you had more time to solve the problem?
+

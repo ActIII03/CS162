@@ -3,5 +3,12 @@ Class: CS 163
 Instructor: Karla Fant
 Assignment: Program 3 Design
 
+What functions will be present in the public and private section?
+
+How will each fucntion report success or failuer basck to the calling routine?
+
+How are each function of the ADT shieled from the client program?
+
+What data structures being used will handling special cases?
 
 
