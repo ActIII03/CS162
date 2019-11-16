@@ -6,12 +6,7 @@
 
 int main(void){
     
-    int size = 0, choice = 0;
-
-    cout << "Please enter a number to be used to size a exprienmental table(Larger than 11): ";
-    cin >> choice;
-    
-    table prime_table(size, choice);
+    table prime_table;
 
     CollegeHousing floor_plan;
 

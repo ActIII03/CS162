@@ -30,12 +30,12 @@ int main()
     //sum = sum_data(head, count);
     //cout << "Sum: " << sum << " Number of items sum'd: " << count << endl;
     //copy_LLL(dest, head);
-    count += mpdemo_quest(head, count);
+    mpdemo_quest(head, count);
 
     display(head); //redisplay the list after your function
 
-    cout << "Copy of LLL: " << endl;
-    display(dest); //Display copy of source LLL
+    //cout << "Copy of LLL: " << endl;
+    //display(dest); //Display copy of source LLL
     destroy(head); 
     return 0;
 }
@@ -639,24 +639,35 @@ void copy_LLL(node * & dest, node * head)
     copy_LLL(dest->next, head->next);
 }
 
+//Get help on!
 int mpdemo_quest(node * & head, int & count)
 {
+    // Empty list
     if(!head)
         return 0;
 
-    mpdemo_quest(head -> next, count);
+    bool flag = false;
 
-    if(count == 1 && head -> data == 2)
+    // Is data equal -> 2?
+    if(head -> data == 2)
     {
-        mpdemo_quest(head->next, count);
-        return count;
+        temp = temp -> next;
+        delete head;
+        head = temp;
+        ++count;
+        return mpdemo_quest(head, count);
     }
     
-    if(head -> data == 2)
-    (
-        delete head;
-        ++count;
-    }
-    return count;
-}
+    if(head -> data == 2 && count == 1)
+        flag = true;
 
+    if(head -> data == 2 || !flag)
+    {
+        temp = temp -> next;
+        delete head;
+        head = temp;
+        ++count;
+        return mpdemo_quest(head, count);
+    }
+    return mpdemo_quest(head -> next, count);
+}
