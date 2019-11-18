@@ -14,7 +14,7 @@ int main(void){
     cin.ignore(100, '\n');
 
     char location[100];
-    int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0, menu_choice = 0;
+    int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0;
 
     //Construct table
     table prime_table(size, choice);
@@ -68,24 +68,8 @@ int main(void){
             in_file.ignore(100, delimiter);
 
         }
-        
-    }
-    return 0;
-    
-    switch(menu_choice)
-    {
-        case 1:
-            //Add floorplan
-            break;
-        case 2:
-            //Display all by location match
-            break;
-        case 3:
-            //Delete by miles less than or equal to user's inputted distance
-            break;
-        case 4:
-            //retrieve by location keyword match
-            break;
-            
 
     }
+    return 0;
+
+}

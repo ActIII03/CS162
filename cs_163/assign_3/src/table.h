@@ -3,13 +3,15 @@
 //Instructor: Karla Fant
 //Description:
 
+#include <cstring>
 #include "college_housing.h"
 
+using namespace std;
 
 struct node{
 
     CollegeHousing col_house;
-    node next;
+    node * next;
 
 };
 
@@ -20,9 +22,10 @@ class table{
 
         table(int size, int choice);
         ~table();
-        int insert(char * key, const CollegeHousing & to_add);
-        int retrieve(char * city_to_find, CollegeHousing & to_add) const;  //This a viable key and how to search by num of miles from PSU?
-        int hash_function(char * city_to_find, CollegeHousing & found);
+        int insert(char * key_value, const CollegeHousing & to_add);
+        int retrieve(char * city_to_find, CollegeHousing & to_add) const; 
+        int retrieve_by_distance(int distance, CollegeHousing & to_delete);
+        int hash_function(char * key);
         int display_all(void);
 
     private:

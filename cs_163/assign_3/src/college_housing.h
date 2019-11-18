@@ -3,13 +3,15 @@
 //Instructor: Karla Fant
 //Description:
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <cstring>
-#include "table.h"
 
 using namespace std;
 
+//What are these pre-processors for?
+#ifndef COLLEGE
+#define COLLEGE
 
 class CollegeHousing{
 
@@ -17,7 +19,7 @@ class CollegeHousing{
 
        CollegeHousing();
        ~CollegeHousing();
-       int add_floorplan(const CollegeHousing & to_add);
+       int add_floorplan(char * new_location, int new_sq_ft, int new_num_bdrm, int new_PSU_dist);
        int retrieve(char * retrieve, CollegeHousing & found);
        int display(void) const;
 
@@ -30,3 +32,4 @@ class CollegeHousing{
         int dist_from_psu;
 
 };
+#endif
