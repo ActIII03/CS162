@@ -23,7 +23,7 @@ class table{
         table(int size, int choice);
         ~table();
         int insert(char * key_value, const CollegeHousing & to_add);
-        int retrieve(char * city_to_find, CollegeHousing & to_add) const; 
+        int retrieve(char * name_to_find, CollegeHousing & to_add); 
         int retrieve_by_distance(int distance, CollegeHousing & to_delete);
         int hash_function(char * key);
         int display_all(void);

@@ -1,1 +1,1 @@
-Portland;205;3;15;Gresham;350;2;17;Hillsboro;320;2;18;Lake Oswego;300;3;20;Happy Valley;400;3;22;Portland;240;2;8;Gresham;475;4;17;Portland;310;2;8;Oregon City;350;3;19;St. John;350;3;16;Hillsboro;325;2;18;S
+The Digs;Portland;205;3;15;Housing;Gresham;350;2;17;The Loft;Hillsboro;320;2;18;The Happening;Lake Oswego;300;3;20;Rosewood Apartment;Happy Valley;400;3;22;The Thorns;Portland;240;2;8;HapyVille;Gresham;475;4;17;Sadville;Portland;310;2;8;Redneckville;Oregon City;350;3;19;Boosieville;St. John;350;3;16;Boringville;Hillsboro;325;2;18;

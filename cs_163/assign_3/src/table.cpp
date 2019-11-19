@@ -7,7 +7,7 @@
 
 table::table(int size, int choice){
 
-    if(choice)
+    if(!choice)
        hash_table_size = choice;
     else
         hash_table_size = size;
@@ -26,11 +26,19 @@ table::~table(){
 }
 
 
+//Why isn't data inserted into the new node?
 int table::insert(char * key_value, const CollegeHousing & to_add){
 
     int index = hash_function(key_value);
 
     node * temp = new node;
+
+    if(temp -> col_house.to_copy(to_add))  //Is this viable?
+    {
+        delete temp;
+        temp = NULL;
+        return 0;
+    }
 
     //Insert via separate chaining
     temp -> next = hash_table[index];
@@ -39,15 +47,46 @@ int table::insert(char * key_value, const CollegeHousing & to_add){
     return 0;
 }
 
-int table::retrieve(char * city_to_find, CollegeHousing & to_add) const
+int table::retrieve(char * name_to_find, CollegeHousing & to_add)
 {
+   
+    int index = hash_function(name_to_find);
+    char possible_name[100];
+
+    node * current = hash_table[index];
+
+    //Search index for more than one link
+    if(!current)
+        return 1;
     
+    while(current)
+    {
+
+        current -> col_house.get_name(possible_name);
+
+        if(!(strcmp(possible_name, name_to_find)))  //col_house.name is private
+            to_add.to_copy(current -> col_house);  
+        else
+            current = current -> next;
+    }
     return 0;
 
 }
 
 int table::retrieve_by_distance(int distance, CollegeHousing & to_delete)
 {
+    /*
+    int hash_index = 0
+    
+    while(hash_index < hash_table_size)
+    {
+
+        node * current = hash_table[index];
+
+        while(current)
+        {
+
+    */
 
     return 0;
 }
