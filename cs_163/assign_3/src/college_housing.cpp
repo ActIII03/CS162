@@ -84,7 +84,7 @@ int CollegeHousing::display(CollegeHousing & found) const{
 int menu_choice()
 {
     int choice = 5;
-    cout << "Which option would like?\n(1) Add Floorplan\n(2) Display Floorplans by City\n(3) Display by miles\n(4) Display by Location Name\n"
+    cout << "Which option would like?\n(1) Add Floorplan\n(2) Display Floorplans by Name\n(3) Display by Miles from PSU\n(4) Display by City\n"
          << "(5) Quit\nChoice(1-5): ";
     cin >> choice;
     cin.ignore(100, '\n');

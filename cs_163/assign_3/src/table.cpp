@@ -64,16 +64,18 @@ int table::retrieve(char * name_to_find, CollegeHousing & to_add)
 
         current -> col_house.get_name(possible_name);
 
-        if(!(strcmp(possible_name, name_to_find)))  //col_house.name is private
+        if( strcmp(possible_name, name_to_find) )  
             to_add.to_copy(current -> col_house);  
+        
         else
             current = current -> next;
     }
+
     return 0;
 
 }
 
-int table::retrieve_by_distance(int distance, CollegeHousing & to_delete)
+int table::delete_by_distance(int distance, CollegeHousing & to_delete)
 {
     /*
     int hash_index = 0
@@ -90,6 +92,33 @@ int table::retrieve_by_distance(int distance, CollegeHousing & to_delete)
 
     return 0;
 }
+
+int table::retrieve_by_city(int location, CollegeHousing & to_display, int & indices, bool & end_of_index)
+{
+
+    char city[100];
+
+    //How to do this?
+    //For each of the indices
+    for(int index = 0; index < hash_table_size; ++index)
+    {
+
+            //Search each Linked List and compare node pointer to location 
+            //While not reachng end
+            for(node * current = hash_table[index]; current; current = current -> next)
+            {
+                current -> col_house.get_name(city);
+
+                //If found, copy over to
+                if(strcmp(possible_name, name_to_find) )  
+                    to_add.to_copy(current -> col_house);  
+            } 
+    }
+
+    return 0;
+}
+
+
 
 int table::hash_function(char * key){
 

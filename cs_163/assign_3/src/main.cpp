@@ -15,6 +15,7 @@ int main(void){
 
     char name[100], location[100];
     int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0;
+    bool flag = true;
 
     //Construct table
     table prime_table(size, choice);
@@ -85,7 +86,7 @@ int main(void){
             case 1:
                 //Add floorplan
                 break;
-            case 2:      //Display all by location match
+            case 2:      //Display a single name match
                 cout << "Which floorplan do you want to lookup?(Name): ";
                 cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
@@ -94,8 +95,18 @@ int main(void){
             case 3:
                 //Delete by miles less than or equal to user's inputted distance
                 break;
-            case 4:
-                //retrieve a single by location match
+            case 4:     //display all location matches
+                cout << "Please enter a city(i.e., Portland): ";
+                cin.get(location, 100, '\n');
+                cin.ignore(100, '\n');
+
+                do
+                {
+                    print_table.retrieve_by_city(location, floorplan);
+                    floor_plan.display(floorplan);
+
+                }while(flag);
+                
                 break;
         }
 

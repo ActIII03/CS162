@@ -24,9 +24,11 @@ class table{
         ~table();
         int insert(char * key_value, const CollegeHousing & to_add);
         int retrieve(char * name_to_find, CollegeHousing & to_add); 
-        int retrieve_by_distance(int distance, CollegeHousing & to_delete);
+        int delete_by_distance(int distance, CollegeHousing & to_delete);
+        int retrieve_by_city(int location, CollegeHousing & to_display);
         int hash_function(char * key);
         int display_all(void);
+        //traversal helper function here
 
     private:
     
