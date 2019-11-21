@@ -84,18 +84,40 @@ int main(void){
         {
             case 1:
                 //Add floorplan
+                cout <<  "Please enter a Name: ";
+                cin.get(name, 100, '\n');
+                cin.ignore(100, '\n');
+                cout << "Please enter a Location(City): ";
+                cin.get(location, 100, '\n');
+                cin.ignore(100, '\n');
+                cout << "Please enter square footage: ";
+                cin >> sq_foot;
+                cin.ignore(100, '\n');
+                cout << "Please enter Number of bedrooms: ";
+                cin >> num_of_bdrm;
+                cin.ignore(100, '\n');
+                cout << "Please enter Distance from PSU: ";
+                cin >> dist_from_PSU;
+                cin.ignore(100, '\n');
+                floor_plan.add_floorplan(name, location, sq_foot, num_of_bdrm, dist_from_PSU);
+                prime_table.insert(name, floor_plan);
                 break;
-            case 2:      //Display a single name match
+
+            case 2:      
+                //Display a single name match
                 cout << "Which floorplan do you want to lookup?(Name): ";
                 cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
                 prime_table.retrieve(name, floor_plan);
                 floor_plan.display_match(floor_plan);
                 break;
+
             case 3:
                 //Delete by miles less than or equal to user's inputted distance
                 break;
-            case 4:     //display all location matches
+
+            case 4:     
+                //Display all location matches
                 cout << "Please enter a city(i.e., Portland): ";
                 cin.get(location, 100, '\n');
                 cin.ignore(100, '\n');

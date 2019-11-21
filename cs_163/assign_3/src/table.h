@@ -31,7 +31,7 @@ class table{
     private:
     
         int traverse_list_for_location(char location[], node * current);
-
+        int traverse_list_for_distance(int distance, node * current);
         int traverse_list_for_name(char name[], node * current, CollegeHousing & found);
         node ** hash_table;
         int hash_table_size;

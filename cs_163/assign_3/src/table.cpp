@@ -64,18 +64,15 @@ int table::retrieve(char name_to_find[], CollegeHousing & to_add)
 
 int table::delete_by_distance(int distance, CollegeHousing & to_delete)
 {
-    /*
-    int hash_index = 0
-    
-    while(hash_index < hash_table_size)
+   
+    node * current;
+
+    for(int index = 0; index < hash_table_size; ++index)
     {
+        current = hash_table[index];
+        traverse_list_for_distance(distance, current);
 
-        node * current = hash_table[index];
-
-        while(current)
-        {
-
-    */
+    }
 
     return 0;
 }
@@ -103,7 +100,7 @@ int table::traverse_list_for_location(char location[], node * current)
         
         if(!(strcmp(current -> col_house.location, location)))
         {
-            cout << "Name: " << current -> col_house.name;
+            cout << "\nName: " << current -> col_house.name;
             cout << "\nLocation: " << current -> col_house.location;
             cout << "\nSquare Footage: " << current -> col_house.sq_footage;
             cout << "\nNumber of Bedroom: " << current -> col_house.num_of_bedrm;
@@ -114,6 +111,25 @@ int table::traverse_list_for_location(char location[], node * current)
     }
 
     return 0;
+}
+
+int table::traverse_list_for_distance(int distance, node * current)
+{
+    while(current)
+    {
+        //One item
+        if(current -> col_house.dist_from_psu == distance)
+        {
+            //Set what to NULL?
+            delete current;
+            
+        //Two items
+        else
+
+    }
+    
+        return 0;
+
 }
 
 int table::traverse_list_for_name(char name[], node * current, CollegeHousing & found)
