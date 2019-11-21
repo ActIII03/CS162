@@ -17,17 +17,12 @@ class CollegeHousing{
 
     public:
 
-       CollegeHousing();
-       ~CollegeHousing();
-       int add_floorplan(char * name, char * new_location, int new_sq_ft, int new_num_bdrm, int new_PSU_dist);
-       int to_copy(CollegeHousing to_copy);
-       int retrieve(char * retrieve, CollegeHousing & found);
-       int display(CollegeHousing & found) const;
-       //Create one getter function for: (1) name
-       int get_name(char possible_match[]);
-
-    private:
-
+        CollegeHousing();
+        ~CollegeHousing();
+        int add_floorplan(char * name, char * new_location, int new_sq_ft, int new_num_bdrm, int new_PSU_dist);
+        int to_copy(CollegeHousing & to_copy);
+        int retrieve(char * retrieve, CollegeHousing & found);
+        int display_match(CollegeHousing & found) const;
         char * name;
         char * location;
         int sq_footage;

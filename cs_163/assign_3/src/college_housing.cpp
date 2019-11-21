@@ -45,7 +45,7 @@ int CollegeHousing::add_floorplan(char * new_name, char * new_location, int new_
 }
 
 
-int CollegeHousing::to_copy(CollegeHousing to_copy)
+int CollegeHousing::to_copy(CollegeHousing & to_copy)
 {
     
     name = new char[strlen(to_copy.name) + 1];
@@ -65,16 +65,9 @@ int CollegeHousing::retrieve(char * retrieve, CollegeHousing & found){
     return 0;
 }
 
+int CollegeHousing::display_match(CollegeHousing & found) const{
 
-int CollegeHousing::get_name(char possible_match[])
-{
-    strcpy(name, possible_match);
-    return 0;
-}
-
-int CollegeHousing::display(CollegeHousing & found) const{
-
-    cout << "Name: " << found.name << "\nLocation: " << found.location
+    cout << "\nName: " << found.name << "\nLocation: " << found.location
          << "\nSquare footage: " << found.sq_footage << "\nNumber of bedrooms: " << found.num_of_bedrm
          << "\nDistance from PSU(miles): " << found.dist_from_psu << endl;
 
@@ -84,7 +77,7 @@ int CollegeHousing::display(CollegeHousing & found) const{
 int menu_choice()
 {
     int choice = 5;
-    cout << "Which option would like?\n(1) Add Floorplan\n(2) Display Floorplans by Name\n(3) Display by Miles from PSU\n(4) Display by City\n"
+    cout << "Which option would like?\n(1) Add Floorplan\n(2) Display Floorplans by Name\n(3) Delete Entries Greater than a specfic distance\n(4) Display by City\n"
          << "(5) Quit\nChoice(1-5): ";
     cin >> choice;
     cin.ignore(100, '\n');

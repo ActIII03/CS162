@@ -15,7 +15,6 @@ int main(void){
 
     char name[100], location[100];
     int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0;
-    bool flag = true;
 
     //Construct table
     table prime_table(size, choice);
@@ -91,6 +90,7 @@ int main(void){
                 cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
                 prime_table.retrieve(name, floor_plan);
+                floor_plan.display_match(floor_plan);
                 break;
             case 3:
                 //Delete by miles less than or equal to user's inputted distance
@@ -99,14 +99,7 @@ int main(void){
                 cout << "Please enter a city(i.e., Portland): ";
                 cin.get(location, 100, '\n');
                 cin.ignore(100, '\n');
-
-                do
-                {
-                    print_table.retrieve_by_city(location, floorplan);
-                    floor_plan.display(floorplan);
-
-                }while(flag);
-                
+                prime_table.display_by_city(location);
                 break;
         }
 

@@ -22,16 +22,17 @@ class table{
 
         table(int size, int choice);
         ~table();
-        int insert(char * key_value, const CollegeHousing & to_add);
-        int retrieve(char * name_to_find, CollegeHousing & to_add); 
+        int insert(char * key_value, CollegeHousing & to_add);
+        int retrieve(char name_to_find[], CollegeHousing & to_add); 
         int delete_by_distance(int distance, CollegeHousing & to_delete);
-        int retrieve_by_city(int location, CollegeHousing & to_display);
+        int display_by_city(char location[]);
         int hash_function(char * key);
-        int display_all(void);
-        //traversal helper function here
 
     private:
     
+        int traverse_list_for_location(char location[], node * current);
+
+        int traverse_list_for_name(char name[], node * current, CollegeHousing & found);
         node ** hash_table;
         int hash_table_size;
 
