@@ -9,7 +9,7 @@ int main()
     /*  PLACE YOUR FUNCTION CALL HERE */
     bool flag = true;
     char response = 'Y';
-    int num_input = 0, height = 0;
+    int num_input = 0, height = 0, count = 0;
 
     //Insert into BST
     /*
@@ -42,11 +42,17 @@ int main()
     height = get_height(root);
     cout << "Height of tree is: " << height << endl;
 
+    /*
     //Insert into BST
     cout << "Please input a non-negative integer: ";
     cin >> num_input;
     cin.ignore(100, '\n');
     insert_a_item(root, num_input);
+    */
+    
+    //Count even nodes
+    count_even(root, count);
+    cout << "Number of even nodes: " << count << endl;
 
     display(root);
 
@@ -208,11 +214,24 @@ int is_max(int left, int right)
         return left;
 }
 
-int insert_a_item(root, add_num)
+int insert_a_item(node * & root, int add_num)
 {
+    /*
     if(!root)
         return 0;
     if(root -> data > add
-
+    */
 
 }
+
+void count_even(node * root, int & count)
+{
+
+    if(!root)
+        return;
+    if(root -> data % 2 == 0)
+        ++count;
+    count_even(root -> right, count);
+    count_even(root -> left, count);
+}
+

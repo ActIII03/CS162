@@ -24,4 +24,4 @@ int get_height(node * root);
 int get_height_rec(node * root);
 int is_max(int left, int right);
 int insert_a_item(node * & root, int add_num);
-
+void count_even(node * root, int & count);
