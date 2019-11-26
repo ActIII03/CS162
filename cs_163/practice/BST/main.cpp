@@ -150,11 +150,11 @@ int removal_ios_rec(node * & root)
 
     if(!root -> left)
     {
-    node * temp = root;
-    root = root -> right;
-    ios = temp -> data;
-    delete temp;
-    return ios;
+        node * temp = root;
+        root = root -> right;
+        ios = temp -> data;
+        delete temp;
+        return ios;
     }
 
     return removal_ios_rec(root -> left);
