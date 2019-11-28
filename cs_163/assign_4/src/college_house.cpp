@@ -2,7 +2,7 @@
 //Class: CS 163
 //Instructor: Karla Fant
 //Description:
-#include "college_housing.h"
+#include "college_house.h"
 
 CollegeHousing::CollegeHousing(){
 
@@ -59,12 +59,6 @@ int CollegeHousing::to_copy(CollegeHousing & to_copy)
     return 0;
 }
 
-int CollegeHousing::retrieve(char * retrieve, CollegeHousing & found){
-
-
-    return 0;
-}
-
 int CollegeHousing::display_match(CollegeHousing & found) const{
 
     cout << "\nName: " << found.name << "\nLocation: " << found.location
@@ -76,12 +70,14 @@ int CollegeHousing::display_match(CollegeHousing & found) const{
 
 int menu_choice()
 {
-    int choice = 5;
-    cout << "Which option would like?\n(1) Add Floorplan\n(2) Display Floorplans by Name\n(3) Delete Entries Greater than a specfic distance\n(4) Display by City\n"
-         << "(5) Quit\nChoice(1-5): ";
-    cin >> choice;
+    int menu_choice = 8;
+    cout << "Here are the choices:\n(1) Add floorplan\n(2) Display by name\n(3) Remove a singular floorplan by name \n(4) Display by location\n(5) Display All in Alphabetical Order"
+         << "\n(6) Get Height of BST\n(7) Is BST efficient\n(8) Quit Program" << endl;
+    cout << "Choice(1-8): ";
+    cin >> menu_choice;
     cin.ignore(100, '\n');
-    return choice;
+
+    return menu_choice;
 }
 
 bool again()

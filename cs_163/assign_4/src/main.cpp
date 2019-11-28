@@ -3,23 +3,12 @@
 //Instructor: Karla Fant
 //Description:
 
+#include "bst.h"
 #include "college_house.h"
-//Name: Armant Touche
-//Class: CS 163
-//Instructor: Karla Fant
-//Description:
-
-#include "table.h"
-#include "college_housing.h"
 
 int main(void){
     
-    int size = 17, choice = 0;
-    cout << "Please enter a size of table you want(Optional): " << endl;
-    cin >> choice;
-    cin.ignore(100, '\n');
     bool quit = false;
-
     char name[100], location[100];
     int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0;
 
@@ -51,7 +40,7 @@ int main(void){
         floor_plan.add_floorplan(name, location, sq_foot, num_of_bdrm, dist_from_PSU);
 
         //Pass to table
-        BST.insert(name, floor_plan);
+        BST.insert(floor_plan);
 
         if(floor_plan.name)
         {
@@ -78,7 +67,7 @@ int main(void){
 
             floor_plan.add_floorplan(name, location, sq_foot, num_of_bdrm, dist_from_PSU);
 
-            BST.insert(name, floor_plan);
+            BST.insert(floor_plan);
 
             if(floor_plan.name)
             {
@@ -119,13 +108,12 @@ int main(void){
                 cin >> dist_from_PSU;
                 cin.ignore(100, '\n');
                 floor_plan.add_floorplan(name, location, sq_foot, num_of_bdrm, dist_from_PSU);
-                prime_table.insert(name, floor_plan);
+                BST.insert(floor_plan);
                 if(floor_plan.name)
                 {
                     delete floor_plan.name;
                     delete floor_plan.location;
                 }
-
                 break;
 
             case 2:      
@@ -133,25 +121,33 @@ int main(void){
                 cout << "Which floorplan do you want to lookup?(Name): ";
                 cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
-                //prime_table.retrieve(name, floor_plan);
+                BST.search(name, floor_plan);
                 floor_plan.display_match(floor_plan);
                 break;
 
             case 3:
-                cout << "Please enter a desired distance from Campus you want to store and anything floorplans greater than your input will be deleted: ";
-                cin >> dist_from_PSU;
+                //Remove by a name
+                cout << "Please enter a name of a floorplan you want to get rid of: ";
+                cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
-                //prime_table.delete_by_distance(dist_from_PSU);
+                BST.remove(name);
                 break;
 
-            case 4:     
+            case 4:
                 //Display all location matches
-                cout << "Please enter a city(i.e., Portland): ";
-                cin.get(location, 100, '\n');
-                cin.ignore(100, '\n');
-                prime_table.display_by_city(location);
                 break;
-            case 5:
+
+            case 5:     
+                //Display in Sorted order
+                BST.display_sorted();
+                break;
+            case 6:
+                //Get height
+                break;
+            case 7:
+                //Is efficient
+                break;
+            case 8:
                 quit = true;
                 break;
         }
