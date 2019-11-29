@@ -34,10 +34,7 @@ int table::insert(CollegeHousing & to_add)
 {
 
     if(!insert(root, to_add))
-    {
-        cout << "Successfully added!" << endl;
         return 0;
-    }
     return -1;
 }
 
@@ -143,10 +140,10 @@ int table::display_sorted(node * root)
         return 0;
 
     //Go down left-subtree  --> A - Z
-    display_sorted(root -> left);
+    display_sorted(root -> right);
 
-    cout << "\nName: " << root -> col_house.name << "\n";
-    return display_sorted(root -> right);
+    cout << "\nName: " << root -> col_house.name << endl;
+    return display_sorted(root -> left);
 }
 
 int table::display_location(char * location)

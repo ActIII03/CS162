@@ -71,9 +71,9 @@ int CollegeHousing::display_match(CollegeHousing & found) const{
 int menu_choice()
 {
     int menu_choice = 8;
-    cout << "Here are the choices:\n(1) Add floorplan\n(2) Display by name\n(3) Remove a singular floorplan by name \n(4) Display by location\n(5) Display All in Alphabetical Order"
+    cout << "\nHere are the choices:\n(1) Add floorplan\n(2) Display by name\n(3) Remove a singular floorplan by name \n(4) Display by location\n(5) Display All in Alphabetical Order"
          << "\n(6) Get Height of BST\n(7) Is BST efficient\n(8) Quit Program" << endl;
-    cout << "Choice(1-8): ";
+    cout << "\nChoice(1-8): ";
     cin >> menu_choice;
     cin.ignore(100, '\n');
 
