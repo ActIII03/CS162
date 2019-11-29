@@ -4,7 +4,9 @@
 //Description:
 
 #include "college_house.h"
+#include <cmath>
 
+//College housing node
 struct node
 {
     CollegeHousing col_house;
@@ -12,6 +14,7 @@ struct node
     node * left;
 };
 
+//BST data structure w/ node 
 class table
 {
     public:
@@ -29,21 +32,32 @@ class table
         int remove(char * name);
 
         //Display all location matches
+        int display_location(char * location);
 
         //Display in sorted order
         int display_sorted();
 
         //Get_height
+        int get_height();
+
+        //Check which subtree's height starting from root to furthest descendent is larger
+        int is_max( int num_one, int num_two);
 
         //Is_efficient (i.e., Balanced)
+        bool is_efficient();
     
     private:
 
         node * root;
 
         //Recursive Functions
+        void remove_all(node * & root);
         int insert(node * & root, CollegeHousing & to_add);
         int search(node * root, char * name, CollegeHousing & found);
         int remove(char * name, node * & root);
         int display_sorted(node * root);
+        int display_location(char * location, node * root);
+        int get_height(node * root);
+        int is_efficient(node * root);
+
 };

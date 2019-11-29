@@ -15,8 +15,21 @@ table::table()
 table::~table()
 {
 
+   remove_all(root);
 }
 
+void table::remove_all(node * & root)
+{
+    if(!root)
+        return;
+    remove_all(root -> left);
+    remove_all(root -> right);
+    delete root;
+    root = NULL;
+    return;
+} 
+
+//Wrapper function for insertion
 int table::insert(CollegeHousing & to_add)
 {
 
@@ -28,9 +41,10 @@ int table::insert(CollegeHousing & to_add)
     return -1;
 }
 
+//Recursive insertion function
 int table::insert(node * & root, CollegeHousing & to_add)
 {
-    //Root has is null so insert here
+    //Root is null so insert here
     if(!root)
     {
         root = new node;
@@ -47,7 +61,7 @@ int table::insert(node * & root, CollegeHousing & to_add)
     }
 
     //If greater than root, go right
-    else if(!(strcmp(root -> col_house.name, to_add.name)))
+    else if(strcmp(root -> col_house.name, to_add.name) > 0)
         insert(root -> right, to_add);
 
     //Otherwise go left
@@ -58,6 +72,7 @@ int table::insert(node * & root, CollegeHousing & to_add)
     
 }
 
+//Wrapper function for search by name
 int table::search(char * name, CollegeHousing & to_find)
 {
     if(!search(root, name, to_find))
@@ -69,6 +84,7 @@ int table::search(char * name, CollegeHousing & to_find)
 
 }
 
+//recursive search by name
 int table::search(node * root, char * name, CollegeHousing & found)
 {
     if(!root)
@@ -132,3 +148,96 @@ int table::display_sorted(node * root)
     cout << "\nName: " << root -> col_house.name << "\n";
     return display_sorted(root -> right);
 }
+
+int table::display_location(char * location)
+{
+    if(!root)
+        return -1;
+
+    display_location(location, root);
+
+    return 0;
+
+}
+
+int table::display_location(char * location, node * root)
+{
+    //Empty list or Traversal reached NULL
+    if(!root)
+        return 0;
+
+
+    //Compare user's location with current root's location member
+    if(!(strcmp(location, root -> col_house.location)))
+    {
+        cout << "Name: " << root -> col_house.name
+             << "\nLocation: " << root -> col_house.location << endl;
+    }
+
+    //A-Z search
+    display_location(location, root -> left);
+    return display_location(location, root -> right);
+}
+
+//Wrapper function get height 
+int table::get_height()
+{
+    if(!root)
+        return -1;
+
+    return get_height(root);
+}
+
+int table::get_height(node * root)
+{
+
+     if(!root)
+         return 0;
+
+     int left = 0, right = 0;
+     left += get_height(root -> left);
+     right += get_height(root->right);
+
+     return 1 + is_max(left, right);
+
+}
+
+int table::is_max(int num_one, int num_two)
+{
+    if( num_one > num_two )
+        return num_one;
+    else if( num_one < num_two )
+        return num_two;
+    else
+        return num_one;
+}
+
+bool table::is_efficient()
+{
+    if(!root)
+        return false;
+
+    if(is_efficient(root) > 0)
+        return true;
+    else
+        return false;
+
+}
+
+int table::is_efficient(node * root)
+{
+    if(!root)
+     return 0;
+
+    int left = 0, right = 0;
+    left += is_efficient(root -> left);
+    right += is_efficient(root->right);
+
+    //If height differ by more than one 
+    if(abs(left - right) > 1)
+        return -1;
+    //Otherwise
+    else
+        return 1 + is_max(left, right);
+}
+

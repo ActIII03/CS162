@@ -8,9 +8,9 @@
 
 int main(void){
     
-    bool quit = false;
+    bool quit = false, efficient = false;
     char name[100], location[100];
-    int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0;
+    int sq_foot = 0, num_of_bdrm = 0, dist_from_PSU = 0, height = 0;
 
     //Construct table
     table BST;
@@ -135,18 +135,32 @@ int main(void){
 
             case 4:
                 //Display all location matches
+                cout << "Please enter the location for which floorplan(s) you want displayed: ";
+                cin.get(location, 100, '\n');
+                cin.ignore(100, '\n');
+                BST.display_location(location);
                 break;
 
             case 5:     
                 //Display in Sorted order
                 BST.display_sorted();
                 break;
+
             case 6:
                 //Get height
+                height = BST.get_height();
+                cout << "Height of the BST is: " << height << endl;
                 break;
+
             case 7:
                 //Is efficient
+                efficient = BST.is_efficient();
+                if(efficient)
+                    cout << "\nTree shape is balanced and efficient!" << endl;
+                else 
+                    cout << "\nTree isn't efficient!" << endl;
                 break;
+
             case 8:
                 quit = true;
                 break;
