@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: This is the ADT interface using BST as my data structure
 
 #include "college_house.h"
 #include <cmath>
@@ -9,6 +9,7 @@
 //College housing node
 struct node
 {
+    node();
     CollegeHousing col_house;
     node * right;
     node * left;
@@ -43,7 +44,7 @@ class table
         //Check which subtree's height starting from root to furthest descendent is larger
         int is_max( int num_one, int num_two);
 
-        //Is_efficient (i.e., Balanced)
+        //Is_efficient (i.e., Balanced and Complete)
         bool is_efficient();
     
     private:

@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: ADT operations
 
 #include "bst.h"
 #include "college_house.h"
@@ -9,12 +9,10 @@
 table::table()
 {
     root = NULL;
-
 }
 
 table::~table()
 {
-
    remove_all(root);
 }
 
@@ -77,6 +75,8 @@ int table::search(char * name, CollegeHousing & to_find)
         cout << "Floorplan found!" << endl;
         return 0;
     }
+    
+    cout << "Not found!" << endl;
     return -1;
 
 }
@@ -168,7 +168,10 @@ int table::display_location(char * location, node * root)
     if(!(strcmp(location, root -> col_house.location)))
     {
         cout << "Name: " << root -> col_house.name
-             << "\nLocation: " << root -> col_house.location << endl;
+             << "\nLocation: " << root -> col_house.location 
+             << "\nSquare Footage " << root -> col_house.sq_footage
+             << "\nNumber of bedrooms: " << root -> col_house.num_of_bedrm
+             << "\nDistance(miles) from PSU: " << root -> col_house.dist_from_psu << endl;
     }
 
     //A-Z search

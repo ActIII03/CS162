@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: This is the client application where this program acts a repo for floorplans
 
 #include "bst.h"
 #include "college_house.h"

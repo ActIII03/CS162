@@ -1,7 +1,8 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: Implementation fo the client interface
+
 #include "college_house.h"
 
 CollegeHousing::CollegeHousing(){
