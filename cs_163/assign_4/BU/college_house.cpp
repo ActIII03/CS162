@@ -73,7 +73,7 @@ int menu_choice()
 {
     int menu_choice = 8;
     cout << "\nHere are the choices:\n(1) Add floorplan\n(2) Display by name\n(3) Remove a singular floorplan by name \n(4) Display by location\n(5) Display All in Alphabetical Order"
-         << "\n(6) Get Height of BST\n(7) Is BST efficient\n(8) Remove all entries by location \n(9) Quit Program" << endl;
+         << "\n(6) Get Height of BST\n(7) Is BST efficient\n(8) Quit Program" << endl;
     cout << "\nChoice(1-8): ";
     cin >> menu_choice;
     cin.ignore(100, '\n');

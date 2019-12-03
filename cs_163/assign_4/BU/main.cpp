@@ -162,14 +162,6 @@ int main(void){
                 break;
 
             case 8:
-                //Remove enitres matching user's provided location
-                cout << "Please enter a location you want entries to be deleted by(e.g., Portland): ";
-                cin.get(location, 100, '\n');
-                cin.ignore(100, '\n');
-                BST.remove_location(location);
-                break;
-
-            case 9:
                 quit = true;
                 break;
         }

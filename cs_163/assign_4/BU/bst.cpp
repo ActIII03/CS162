@@ -73,30 +73,6 @@ int table::insert(node * & root, CollegeHousing & to_add)
     
 }
 
-int table::remove_location(char * location)
-{
-    if(!root)
-        return -1;
-    return remove_location(location, root);
-}
-
-
-int table::remove_location(char * location, node * & root)
-{
-    if(!root)
-        return 0;
-    
-    //Preorder traversal
-    if(!(strcmp(root -> col_house.location, location)))
-        remove_node(root);
-
-    //Traverse left
-    remove_location(location, root -> left);
-    remove_location(location, root -> right);
-    return 0;
-
-}
-
 //Wrapper function for search by name
 int table::search(char * name, CollegeHousing & to_find)
 {

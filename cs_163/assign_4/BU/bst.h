@@ -32,9 +32,6 @@ class table
         //Remove a single place by name
         int remove(char * name);
 
-        //Remove all location matches
-        int remove_location(char * location);
-
         //Display all location matches
         int display_location(char * location);
 
@@ -57,7 +54,6 @@ class table
         //Recursive Functions
         bool search(char  * name, node * & root);
         void remove_all(node * & root);
-        int remove_location(char * location, node * & root);
         int insert(node * & root, CollegeHousing & to_add);
         int search(node * root, char * name, CollegeHousing & found);
         int remove_node(node * & root);

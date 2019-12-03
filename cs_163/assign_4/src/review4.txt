@@ -1,0 +1,14 @@
+﻿Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Description: Program #4 Efficiency Write-up
+
+How well did the data structure selected perform for the assigned application?
+
+Would a different data structure work better? If so, why?
+
+What was efficient about your design and use of the data structure?
+
+What was not efficient?
+
+What would you do differently if you had more time to solve the problem?
