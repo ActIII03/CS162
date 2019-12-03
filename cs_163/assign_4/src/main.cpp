@@ -135,7 +135,7 @@ int main(void){
 
             case 4:
                 //Display all location matches
-                cout << "Please enter the location for which floorplan(s) you want displayed: ";
+                cout << "\nPlease enter the location for which floorplan(s) you want displayed: ";
                 cin.get(location, 100, '\n');
                 cin.ignore(100, '\n');
                 BST.display_location(location);
@@ -149,7 +149,7 @@ int main(void){
             case 6:
                 //Get height
                 height = BST.get_height();
-                cout << "Height of the BST is: " << height << endl;
+                cout << "\nHeight of the BST is: " << height << endl;
                 break;
 
             case 7:
@@ -163,7 +163,7 @@ int main(void){
 
             case 8:
                 //Remove enitres matching user's provided location
-                cout << "Please enter a location you want entries to be deleted by(e.g., Portland): ";
+                cout << "\nPlease enter a location you want entries to be deleted by(e.g., Portland): ";
                 cin.get(location, 100, '\n');
                 cin.ignore(100, '\n');
                 BST.remove_location(location);

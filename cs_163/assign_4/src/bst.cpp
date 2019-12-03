@@ -92,6 +92,7 @@ int table::remove_location(char * location, node * & root)
 
     //Traverse left
     remove_location(location, root -> left);
+    //Traverse Right
     remove_location(location, root -> right);
     return 0;
 
@@ -202,6 +203,7 @@ int table::remove_node(node * & root)
             root -> col_house.num_of_bedrm = current -> col_house.num_of_bedrm;
             root -> right = current -> right;
             delete current;
+            current = NULL;
         }
 
         //Current has a left subtree
@@ -267,7 +269,7 @@ int table::display_location(char * location, node * root)
     //Compare user's location with current root's location member
     if(!(strcmp(location, root -> col_house.location)))
     {
-        cout << "Name: " << root -> col_house.name
+        cout << "\nName: " << root -> col_house.name
              << "\nLocation: " << root -> col_house.location 
              << "\nSquare Footage " << root -> col_house.sq_footage
              << "\nNumber of bedrooms: " << root -> col_house.num_of_bedrm
