@@ -9,7 +9,7 @@
 //College housing node
 struct node
 {
-    node();
+    ~node();
     CollegeHousing col_house;
     node * right;
     node * left;
@@ -30,10 +30,10 @@ class table
         int search(char * name, CollegeHousing & to_find);
 
         //Remove a single place by name
-        int remove(char * name);
+        int remove(char * name);   //Workon
 
-        //Remove all location matches
-        int remove_location(char * location);
+        //Remove all location matches 
+        int remove_location(char * location);  //Workon
 
         //Display all location matches
         int display_location(char * location);

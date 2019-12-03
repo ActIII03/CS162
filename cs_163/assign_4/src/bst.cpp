@@ -16,16 +16,25 @@ table::~table()
    remove_all(root);
 }
 
-node::node()
+node::~node()
 {
-    right = NULL;
-    left = NULL;
-}
+    if(col_house.name)
+    {
+        delete col_house.name;
+        col_house.name = NULL;
+    }
+    if(col_house.location)
+    {
+        delete col_house.location;
+        col_house.location = NULL;
+    }
 
+}
 void table::remove_all(node * & root)
 {
     if(!root)
         return;
+
     remove_all(root -> left);
     remove_all(root -> right);
     delete root;
@@ -101,13 +110,12 @@ int table::remove_location(char * location, node * & root)
 //Wrapper function for search by name
 int table::search(char * name, CollegeHousing & to_find)
 {
-    if(search(root, name, to_find))
+    if(!search(root, name, to_find))
     {
         cout << "Floorplan found!" << endl;
         return 0;
     }
     
-    cout << "Not found!" << endl;
     return -1;
 
 }
@@ -116,7 +124,7 @@ int table::search(char * name, CollegeHousing & to_find)
 int table::search(node * root, char * name, CollegeHousing & found)
 {
     if(!root)
-        return 0;
+        return -1;
 
     //Search alphabetically start from A-Z
     search(root -> left, name, found);
@@ -132,7 +140,7 @@ int table::search(node * root, char * name, CollegeHousing & found)
         return 0;
     }
     search(root -> right, name, found);
-    return 0;
+    return -1;
 }
 
 bool table::search(char * name, node * & root)
