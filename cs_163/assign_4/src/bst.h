@@ -27,10 +27,10 @@ class table
         int insert(CollegeHousing & to_add);  //Notes: Workon alphabetically insertion
 
         //Search by name (i.e., retrieve) and return to user
-        int search(char * name, CollegeHousing & to_find);
+        bool search(char * name, CollegeHousing & to_find);
 
         //Remove a single place by name
-        int remove(char * name);   //Workon
+        int remove(char * name);   
 
         //Remove all location matches 
         int remove_location(char * location);  //Workon
@@ -55,11 +55,11 @@ class table
         node * root;
 
         //Recursive Functions
-        bool search(char  * name, node * & root);
+        bool search_delete(char  * name, node * & root);
         void remove_all(node * & root);
         int remove_location(char * location, node * & root);
         int insert(node * & root, CollegeHousing & to_add);
-        int search(node * root, char * name, CollegeHousing & found);
+        bool search(node * root, char * name, CollegeHousing & found);
         int remove_node(node * & root);
         int display_sorted(node * root);
         int display_location(char * location, node * root);

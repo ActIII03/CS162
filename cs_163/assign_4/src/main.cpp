@@ -121,7 +121,7 @@ int main(void){
                 cout << "Which floorplan do you want to lookup?(Name): ";
                 cin.get(name, 100, '\n');
                 cin.ignore(100, '\n');
-                if(!BST.search(name, floor_plan))
+                if(BST.search(name, floor_plan))
                 {
                     floor_plan.display_match(floor_plan);
                         if(floor_plan.name)

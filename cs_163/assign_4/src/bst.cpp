@@ -94,37 +94,42 @@ int table::remove_location(char * location, node * & root)
 {
     if(!root)
         return 0;
-    
-    //Preorder traversal
-    if(!(strcmp(root -> col_house.location, location)))
-        remove_node(root);
 
     //Traverse left
     remove_location(location, root -> left);
     //Traverse Right
     remove_location(location, root -> right);
+    
+    //Preorder traversal
+    if(!(strcmp(root -> col_house.location, location)))
+    {
+       delete root; 
+       root = NULL;
+    }
+
     return 0;
 
 }
 
 //Wrapper function for search by name
-int table::search(char * name, CollegeHousing & to_find)
+bool table::search(char * name, CollegeHousing & to_find)
 {
-    if(!search(root, name, to_find))
+    bool flag = search(root, name, to_find);
+    if(flag == true)
     {
         cout << "Floorplan found!" << endl;
-        return 0;
+        return true;
     }
     
-    return -1;
+    return false;
 
 }
 
 //recursive search by name
-int table::search(node * root, char * name, CollegeHousing & found)
+bool table::search(node * root, char * name, CollegeHousing & found)
 {
     if(!root)
-        return -1;
+        return false;
 
     //Search alphabetically start from A-Z
     search(root -> left, name, found);
@@ -137,13 +142,13 @@ int table::search(node * root, char * name, CollegeHousing & found)
         found.sq_footage = root -> col_house.sq_footage;
         found.num_of_bedrm = root -> col_house.num_of_bedrm;
         found.dist_from_psu = root -> col_house.dist_from_psu;
-        return 0;
+        return true;
     }
     search(root -> right, name, found);
-    return -1;
+    return false;
 }
 
-bool table::search(char * name, node * & root)
+bool table::search_delete(char * name, node * & root)
 {
     if(!root)
         return false;
@@ -152,9 +157,9 @@ bool table::search(char * name, node * & root)
         return true;
     //Go left or right
     else if(strcmp(root -> col_house.name, name) > 0)
-        search(name, root -> right);
+        search_delete(name, root -> right);
     else
-        search(name, root -> left);
+        search_delete(name, root -> left);
     return false;
 }
 
@@ -162,7 +167,9 @@ bool table::search(char * name, node * & root)
 int table::remove(char * name)
 {
     //Recursively search first and if found, delete
-    if(search(name, root))
+
+    bool flag = search_delete(name, root);
+    if(flag == true)
     {
         remove_node(root);
         return 0;
@@ -226,8 +233,9 @@ int table::remove_node(node * & root)
             root -> col_house.sq_footage = current -> col_house.sq_footage;
             root -> col_house.num_of_bedrm = current -> col_house.num_of_bedrm;
             node * temp = current -> left;
-            current -> left = current -> left -> right;
+            current -> left = temp -> right;
             delete temp;
+            temp = NULL;
         }
     }
     return 0;
