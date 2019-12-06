@@ -11,14 +11,15 @@ int main()
     char response = 'Y';
     int num_input = 0, height = 0, count = 0;
 
-    //Insert into BST
     /*
+    //Insert into BST
     while(flag)
     {
         cout << "Please input a non-negative integer: ";
         cin >> num_input;
         cin.ignore(100, '\n');
         insert(root, num_input);
+        display(root);
         cout << "Want to keep inserting?(Y/N): ";
         cin >> response;
         cin.ignore(100, '\n');
@@ -42,17 +43,15 @@ int main()
     height = get_height(root);
     cout << "Height of tree is: " << height << endl;
 
+    //Count Nodes
+    count = count_node_wr(root); 
+    cout << "Number of nodes: " << count << endl;
+
     /*
-    //Insert into BST
-    cout << "Please input a non-negative integer: ";
-    cin >> num_input;
-    cin.ignore(100, '\n');
-    insert_a_item(root, num_input);
-    */
-    
     //Count even nodes
     count_even(root, count);
     cout << "Number of even nodes: " << count << endl;
+    */
 
     display(root);
 
@@ -70,7 +69,7 @@ int insert(node * & root, int add_num)
         return 0;
     }
 
-    else if(add_num > root -> data)
+    else if(add_num >= root -> data)
         insert(root -> right, add_num);
     else
         insert(root -> left, add_num);
@@ -214,16 +213,6 @@ int is_max(int left, int right)
         return left;
 }
 
-int insert_a_item(node * & root, int add_num)
-{
-    /*
-    if(!root)
-        return 0;
-    if(root -> data > add
-    */
-
-}
-
 void count_even(node * root, int & count)
 {
 
@@ -235,3 +224,20 @@ void count_even(node * root, int & count)
     count_even(root -> left, count);
 }
 
+int count_node_wr(node * root)
+{
+    int counter = 0;
+    count_node(root, counter);
+    return counter;
+}
+
+void count_node(node * root, int & counter)
+{
+    if(!root)
+        return;
+    ++counter;
+    count_node(root -> right, counter);
+    count_node(root -> left, counter);
+    return;
+
+}
