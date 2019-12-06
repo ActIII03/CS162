@@ -27,7 +27,7 @@ int main()
                 cin.get(task, 100, '\n');
                 cin.ignore(100, '\n');
                 new_task.create_tasks(task, description);
-
+                task_lists.insert_vertex(new_task);
                 break;
 
             case 2:

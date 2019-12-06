@@ -27,7 +27,7 @@ class table
         ~table();
         
         //Insert vertex
-        int insert_vertex(TasksToDo & new_tasks);
+        int insert_vertex(TasksToDo & new_task);
 
         //Find location
         int find_location(char * key);

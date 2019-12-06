@@ -26,9 +26,20 @@ table::~table()
 }
 
 
-int table::insert_vertex(TasksToDo & new_tasks)
+int table::insert_vertex(TasksToDo & new_task)
 {
 
+    bool success_insert = false;
+
+    for(int index = 0; !success_insert && index < list_size; ++index)
+    {
+        if(!adjacency_list[index].new_task)
+        {
+            adjacency_list[index].new_task = new TasksToDo;
+            adjacency_list[index].new_task -> copy_entry(new_task);
+            success_insert = true;
+        }
+    }
 
     return 0;
 

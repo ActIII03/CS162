@@ -45,6 +45,11 @@ int TasksToDo::create_tasks(char * new_task, char * new_description)
 int TasksToDo::copy_entry(const TasksToDo & a_new_task)
 {
     
+    task = new char[strlen(a_new_task.task) + 1];
+    strcpy(task, a_new_task.task);
+    description = new char[strlen(a_new_task.description) + 1];
+    strcpy(description, a_new_task.description);
+
     return 0;
 
 }
