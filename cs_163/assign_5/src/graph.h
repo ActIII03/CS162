@@ -14,6 +14,7 @@ struct vertex
 
 struct node
 {
+    node();
     vertex * adjacent;
     node * next;
 };
@@ -33,7 +34,7 @@ class table
         int find_location(char * key);
 
         //Insert path
-        int insert_path(char * vertex, char * to_attach);
+        int insert_path();
 
         //Display adjacent tasks
         int display_adjacent(char * key);
@@ -45,5 +46,6 @@ class table
 
         vertex * adjacency_list;
         int list_size;
+        int num_of_tasks;
 
 };

@@ -14,8 +14,8 @@ int main()
     TasksToDo new_task, a_task;
 
     char task[100], description[500];
-    bool quit = false;
-
+    bool quit = false, no_task = true;
+    
 
     do
     {
@@ -27,7 +27,19 @@ int main()
                 cin.get(task, 100, '\n');
                 cin.ignore(100, '\n');
                 new_task.create_tasks(task, description);
-                task_lists.insert_vertex(new_task);
+
+                if(no_task)
+                {
+                    task_lists.insert_vertex(new_task);
+                    no_task = false;
+                }
+
+                //If more than one, start a direct path from first task to last inputted task
+                else
+                {
+                    task_lists.insert_vertex(new_task);
+                    task_lists.insert_path();
+                }
                 break;
 
             case 2:

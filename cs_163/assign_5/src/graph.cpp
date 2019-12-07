@@ -5,9 +5,15 @@
 
 #include "graph.h"
 
+node::node()
+{
+    next = NULL;
+}
+
 table::table(int size)
 {
 
+    num_of_tasks = -1;
     list_size = size;
     adjacency_list = new vertex[list_size];
     
@@ -38,9 +44,11 @@ int table::insert_vertex(TasksToDo & new_task)
             adjacency_list[index].new_task = new TasksToDo;
             adjacency_list[index].new_task -> copy_entry(new_task);
             success_insert = true;
+
         }
     }
 
+    ++num_of_tasks; 
     return 0;
 
 }
@@ -52,9 +60,16 @@ int table::find_location(char * key)
 
 }
 
-int table::insert_path(char * vertex, char * to_attach)
+int table::insert_path()
 {
 
+    node * edge = new node;
+    
+    //Hook up previous entry
+    edge -> adjacent = &adjacency_list[num_of_tasks - 1]; 
+
+    //Connect to newest entry
+    edge -> next = adjacency_list[num_of_tasks].head;
 
     return 0;
 
