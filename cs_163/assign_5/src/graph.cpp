@@ -69,7 +69,7 @@ int table::insert_path()
     edge -> adjacent = &adjacency_list[num_of_tasks - 1]; 
 
     //Connect to newest entry
-    edge -> next = adjacency_list[num_of_tasks].head;
+    adjacency_list[num_of_tasks].head = edge;
 
     return 0;
 
