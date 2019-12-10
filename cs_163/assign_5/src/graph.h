@@ -34,7 +34,7 @@ class table
         int find_location(char * key);
 
         //Insert path
-        int insert_path();
+        int insert_path(char * task, char * connect_to);
 
         //Display adjacent tasks
         int display_adjacent(char * key);

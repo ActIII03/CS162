@@ -55,21 +55,41 @@ int table::insert_vertex(TasksToDo & new_task)
 
 int table::find_location(char * key)
 {
-
-    return 0;
+    for(int vert_index = 0; vert_index < list_size; ++vert_index)
+    {
+        if(adjacency_list[vert_index].new_task -> compare(key))
+            return vert_index;
+    }
+    return -1;
 
 }
 
-int table::insert_path()
+int table::insert_path(char * task, char * connect_to)
 {
+    
+    int vert_index = find_location(connect_to);
+    int index_to_connect = find_location(task);
+    
+    if(vert_index < 0 || index_to_connect < 0)
+        return -1;
 
     node * edge = new node;
     
     //Hook up previous entry
-    edge -> adjacent = &adjacency_list[num_of_tasks - 1]; 
+    edge -> adjacent = &adjacency_list[index_to_connect]; 
 
     //Connect to newest entry
-    adjacency_list[num_of_tasks].head = edge;
+    if(!adjacency_list[vert_index].head)
+    {
+        adjacency_list[vert_index].head = edge;
+        adjacency_list[vert_index].head -> next = NULL;
+    }
+    else
+    {
+        edge -> next = adjacency_list[vert_index].head;
+        adjacency_list[vert_index].head = edge;
+    }
+
 
     return 0;
 
@@ -88,3 +108,4 @@ int table::display_all()
     return 0;
 
 }
+

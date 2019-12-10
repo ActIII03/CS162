@@ -56,8 +56,10 @@ int TasksToDo::copy_entry(const TasksToDo & a_new_task)
                                                    
 bool TasksToDo::compare(char * is_match)
 {
-
-    return true;
+    if(!(strcmp(task, is_match)))
+        return true;
+    else
+        return false;
 
 }
 
