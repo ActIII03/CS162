@@ -29,8 +29,6 @@ class TasksToDo
         //Compare Tasks
         bool compare(char * is_match);
 
-    private:
-
         char * task;
         char * description;
 

@@ -36,9 +36,6 @@ class table
         //Insert path
         int insert_path(char * task, char * connect_to);
 
-        //Display adjacent tasks
-        int display_adjacent(char * key);
-
         //Display All tasks
         int display_all();
 
@@ -48,4 +45,7 @@ class table
         int list_size;
         int num_of_tasks;
 
+        //Recursive function
+        //Display adjacent paths
+        void display_recursive(node * head);
 };

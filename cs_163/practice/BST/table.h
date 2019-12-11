@@ -26,3 +26,6 @@ int is_max(int left, int right);
 void count_even(node * root, int & count);
 int count_node_wr(node * root);
 void count_node(node * root, int & counter);
+int inc_but_largest(node * & root);
+int inc_but_largest_rec(node * & root, int & count, int largest);
+int find_lrg(node * root);

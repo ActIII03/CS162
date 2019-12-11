@@ -40,18 +40,22 @@ int main()
     //display_sorted(root);
 
     //Get height
-    height = get_height(root);
-    cout << "Height of tree is: " << height << endl;
+    //height = get_height(root);
+    //cout << "Height of tree is: " << height << endl;
 
     //Count Nodes
-    count = count_node_wr(root); 
-    cout << "Number of nodes: " << count << endl;
+    //count = count_node_wr(root); 
+    //cout << "Number of nodes: " << count << endl;
 
     /*
     //Count even nodes
     count_even(root, count);
     cout << "Number of even nodes: " << count << endl;
     */
+
+    //Increment every node but the largest by one
+    count = inc_but_largest(root);
+    cout << "Number of data items incremented by one: " << count << endl;
 
     display(root);
 
@@ -241,3 +245,34 @@ void count_node(node * root, int & counter)
     return;
 
 }
+
+int find_lrg(node * root)
+{
+    if(!root -> right)
+        return root -> data;
+    find_lrg(root -> right);
+}
+int inc_but_largest(node * & root)
+{
+    if(!root)
+        return -1;
+    int largest = find_lrg(root);
+    cout << "Largest data: " << largest << endl;
+    int count = 0;
+    inc_but_largest_rec(root, count, largest);
+    return count;
+}
+
+int inc_but_largest_rec(node * & root, int & count, int largest)
+{
+    if(!root)
+        return 0;
+    inc_but_largest_rec(root -> left, count, largest);
+    inc_but_largest_rec(root -> right, count, largest);
+    if(root -> data != largest)
+    {
+        ++root -> data;
+        ++count;
+    }
+}
+

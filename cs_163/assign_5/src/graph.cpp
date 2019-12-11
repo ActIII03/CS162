@@ -27,8 +27,34 @@ table::table(int size)
 
 table::~table()
 {
+    
+    //Destory adjacency list
+    for(int index = 0; index < list_size; ++index)
+    {
+        if(adjacency_list[index].head)
+        {
+            node * current = adjacency_list[index].head;
+            node * previous;
 
+            while(current)
+            {
+                previous = current;
+                current = current -> next;
+                delete [] previous -> adjacent -> new_task -> task;
+                delete [] previous -> adjacent -> new_task -> description;
+                delete previous;
+            }
+            adjacency_list[index].head = NULL;
+        }
+    }
 
+    //Destory vertices
+    for(int index = 0; index < list_size; ++index)
+    {
+        delete [] adjacency_list[index].new_task -> task;
+        delete [] adjacency_list[index].new_task -> description;
+    }
+    delete [] adjacency_list;
 }
 
 
@@ -95,17 +121,39 @@ int table::insert_path(char * task, char * connect_to)
 
 }
 
-int table::display_adjacent(char * key)
-{
-
-    return 0;
-
-}
-
 int table::display_all()
 {
+    
+    for(int index = 0; index < list_size; ++index)
+    {
+        /*
+        if(adjacency_list[index].new_task)
+        {
+            cout << "Task: " << adjacency_list[index].new_task -> task
+                 << "\nDescription: " << adjacency_list[index].new_task -> description << endl;
+
+            if(adjacency_list[index].head)
+                display_recursive(adjacency_list[index].head);
+        */
+
+        if(adjacency_list[index].head)
+        {
+            cout << "Task: " << adjacency_list[index].new_task -> task
+                 << "\nDescription: " << adjacency_list[index].new_task -> description << endl;
+            display_recursive(adjacency_list[index].head);
+        }
+    } 
 
     return 0;
 
 }
 
+void table::display_recursive(node * head)
+{
+    if(!head) 
+        return;
+
+    cout << "Task: " << head ->  adjacent -> new_task-> task
+         << "\nDescription: " << head -> adjacent -> new_task -> description << endl;
+    display_recursive(head -> next);
+}

@@ -40,25 +40,21 @@ int main()
                 //If more than one, start a direct path from first task to last inputted task
                 else
                 {
-                    cout << "Which of the previous tasks can this current one be related to?: ";
+                    cout << "Which of the previous tasks can this current one be related to? If none, input (*Task* or No): ";
                     cin.get(connect_to, 100, '\n');
                     cin.ignore(100, '\n');
                     task_lists.insert_vertex(new_task);
-                    task_lists.insert_path(task, connect_to);
+                    if(!(strcmp("No" , connect_to)))
+                        task_lists.insert_path(task, connect_to);
                 }
                 break;
 
             case 2:
                 //Display adjacent task
-        
+                task_lists.display_all(); 
                 break;
 
             case 3:
-                //Display all tasks
-
-                break;
-
-            case 4:
                 //quit
                 quit = true;
                 break;

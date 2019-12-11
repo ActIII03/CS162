@@ -18,13 +18,13 @@ TasksToDo::~TasksToDo()
 {
     if(task)
     {
-        delete task;
+        delete [] task;
         task = NULL;
     }
 
     if(description)
     {
-        delete description;
+        delete [] description;
         description = NULL;
     }
 
@@ -66,8 +66,8 @@ bool TasksToDo::compare(char * is_match)
 int menu()
 {
     int choice = 0;
-    cout << "Options: \n(1) Add task \n(2) Display Related Tasks\n(3) Display All task\n(4) Quit"
-         << "\nChoices(1-4): ";
+    cout << "Options: \n(1) Add task \n(2) Display All task\n(3) Quit"
+         << "\nChoices(1-3): ";
     cin >> choice;
     cin.ignore(100, '\n');
 
