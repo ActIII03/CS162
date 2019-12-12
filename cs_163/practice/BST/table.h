@@ -31,5 +31,11 @@ int inc_but_largest_rec(node * & root, int & count, int largest);
 int find_lrg(node * root);
 int display_second_lrg(node * root);
 int display_ios(node * root);
-int find_next(node * root, int & ios);
+void find_next(node * root, int & ios);
 void find_leftmost(node * root, int & ios);
+int delete_bst(node * & root);
+int copy_even(node * source, node * & dest);
+int swap_five(node * & root);
+int copy_to_arr(node * root);
+int copy_to_arr(node * root, int b_arr[], int & index);
+

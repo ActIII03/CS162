@@ -3,6 +3,7 @@
 int main()
 {
     node * root = NULL;
+    node * dest = NULL;
     build(root);
     display(root);
 
@@ -58,12 +59,23 @@ int main()
     //cout << "Number of data items incremented by one: " << count << endl;
 
     //Display second largest
-    display_second_lrg(root);
+    //display_second_lrg(root);
 
     //Display IOS
-    display_ios(root);
+    //display_ios(root);
 
-    display(root);
+    //Delete BST
+    //delete_bst(root);
+
+    //Copy even only
+    //copy_even(root, dest);
+
+    //Insert five where even numbers are 
+    swap_five(root);
+
+    //Copy to array
+    copy_to_arr(root);
+    //display(root);
 
     return 0;
 }
@@ -296,38 +308,117 @@ int display_second_lrg(node * root)
     display_ios(root -> right);
 }
 
+//Get help on
 int display_ios(node * root)
 {
+    int ios = 0;
+
     if(!root)
         return -1;
-    int ios = 0;
-    find_next(root -> right, ios);
+
+    if(!root -> right -> left)
+        ios = root -> right -> data;
+    else
+        find_leftmost(root -> right, ios);
     cout << "IOS: " << ios << endl;
+
     return 0;
 }
 
-int find_next(node * root, int & ios)
+void find_next(node * root, int & ios)
 {
-    if(!root)
-    
-    if(root -> right == NULL)
-    {
-        find_leftmost(root, ios);
-        return 0;
-    }
 
-    if(root -> left != NULL)
-        find_next(root -> left, ios);
-    else
-    {
-        ios = root -> data;
-        return 0;
-    }
+    if(!root)
+        return;
+
+    find_next(root -> right, ios);
+    if( (root -> left) && (root -> data < root -> right -> data) )
+        find_leftmost(root -> left, ios);
+
 }
 
 void find_leftmost(node * root, int & ios)
 {
+    //Travel to IOS
     if(!root -> left)
+    {
         ios = root -> data;
+        return;
+    }
+
     find_leftmost(root -> left, ios);
 }
+
+int delete_bst(node * & root)
+{
+    if(!root)
+        return 0;
+
+    delete_bst(root -> left);
+    delete_bst(root -> right);
+    delete root;
+    root = NULL;
+    return 0;
+}
+
+//Get help
+int copy_even(node * source, node * & dest)
+{
+    if(!source)
+        return 0;
+    
+    if(source -> data % 2 == 0)
+    {
+       dest = new node;
+       dest -> data = source -> data;
+       dest -> right = NULL;
+       dest -> left = NULL;
+    }
+
+    copy_even(source -> right, dest);
+    copy_even(source -> left, dest);
+    
+    return 0;
+}
+
+int swap_five(node * & root)
+{
+    if(!root)
+        return 0;
+
+    if(root -> data % 2 == 0)
+        root -> data = 99;
+
+    swap_five(root -> left);
+    swap_five(root -> right);
+}
+
+int copy_to_arr(node * root)
+{
+
+    int count = 0, index = 0;
+    count_node(root, count);
+
+    int b_arr[count];
+
+    copy_to_arr(root, b_arr, index);
+    count = 0;
+
+    for(;count < index; ++count)
+        cout << "\n(" << (count + 1) << ") " << b_arr[count] << endl;
+
+    return 0;
+}
+
+int copy_to_arr(node * root, int b_arr[], int & index)
+{
+    if(!root)
+        return 0;
+
+    b_arr[index] = root -> data;
+    ++index;
+
+    copy_to_arr(root -> left, b_arr, index);
+    copy_to_arr(root -> right, b_arr, index);
+}
+
