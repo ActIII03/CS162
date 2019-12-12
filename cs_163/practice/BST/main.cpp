@@ -54,8 +54,14 @@ int main()
     */
 
     //Increment every node but the largest by one
-    count = inc_but_largest(root);
-    cout << "Number of data items incremented by one: " << count << endl;
+    //count = inc_but_largest(root);
+    //cout << "Number of data items incremented by one: " << count << endl;
+
+    //Display second largest
+    display_second_lrg(root);
+
+    //Display IOS
+    display_ios(root);
 
     display(root);
 
@@ -276,3 +282,52 @@ int inc_but_largest_rec(node * & root, int & count, int largest)
     }
 }
 
+int display_second_lrg(node * root)
+{
+    if(!root -> right)
+    {
+        node * current = root;
+        while(current -> left)
+            current = current -> left;
+        cout << "Second largest: " << current -> data;
+        return 0;
+    }
+
+    display_ios(root -> right);
+}
+
+int display_ios(node * root)
+{
+    if(!root)
+        return -1;
+    int ios = 0;
+    find_next(root -> right, ios);
+    cout << "IOS: " << ios << endl;
+    return 0;
+}
+
+int find_next(node * root, int & ios)
+{
+    if(!root)
+    
+    if(root -> right == NULL)
+    {
+        find_leftmost(root, ios);
+        return 0;
+    }
+
+    if(root -> left != NULL)
+        find_next(root -> left, ios);
+    else
+    {
+        ios = root -> data;
+        return 0;
+    }
+}
+
+void find_leftmost(node * root, int & ios)
+{
+    if(!root -> left)
+        ios = root -> data;
+    find_leftmost(root -> left, ios);
+}

@@ -29,3 +29,7 @@ void count_node(node * root, int & counter);
 int inc_but_largest(node * & root);
 int inc_but_largest_rec(node * & root, int & count, int largest);
 int find_lrg(node * root);
+int display_second_lrg(node * root);
+int display_ios(node * root);
+int find_next(node * root, int & ios);
+void find_leftmost(node * root, int & ios);
