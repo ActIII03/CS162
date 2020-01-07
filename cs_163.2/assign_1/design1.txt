@@ -1,0 +1,12 @@
+Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Description: Program #1 Design Write-up
+
+(1) What functions are needed for ADT and which functions are in the public and private sections?
+
+(2) How will each function report success/failure back to the calling rout
+
+(3) How each function will shield the client program from the details of the data structure?
+
+(3) What data strucutres will be used and how each of the special cases will be considered?

@@ -62,7 +62,7 @@ int main()
     //display_second_lrg(root);
 
     //Display IOS
-    //display_ios(root);
+    display_ios(root);
 
     //Delete BST
     //delete_bst(root);
@@ -71,10 +71,11 @@ int main()
     //copy_even(root, dest);
 
     //Insert five where even numbers are 
-    swap_five(root);
+    //swap_five(root);
 
     //Copy to array
-    copy_to_arr(root);
+    //copy_to_arr(root);
+
     //display(root);
 
     return 0;
@@ -316,8 +317,8 @@ int display_ios(node * root)
     if(!root)
         return -1;
 
-    if(!root -> right -> left)
-        ios = root -> right -> data;
+    if(!root -> right)
+        ios = root -> left -> data;
     else
         find_leftmost(root -> right, ios);
     cout << "IOS: " << ios << endl;
@@ -325,20 +326,11 @@ int display_ios(node * root)
     return 0;
 }
 
-void find_next(node * root, int & ios)
+void find_leftmost(node * root, int & ios)
 {
-
     if(!root)
         return;
 
-    find_next(root -> right, ios);
-    if( (root -> left) && (root -> data < root -> right -> data) )
-        find_leftmost(root -> left, ios);
-
-}
-
-void find_leftmost(node * root, int & ios)
-{
     //Travel to IOS
     if(!root -> left)
     {
@@ -347,6 +339,19 @@ void find_leftmost(node * root, int & ios)
     }
 
     find_leftmost(root -> left, ios);
+}
+
+void find_next(node * root, int & ios)
+{
+
+    if(!root)
+        return;
+
+    if( (root -> left) && (root -> data < root -> right -> data) )
+        find_leftmost(root -> left, ios);
+
+    find_next(root -> right, ios);
+
 }
 
 int delete_bst(node * & root)
