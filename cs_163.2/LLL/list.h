@@ -27,11 +27,11 @@ int count_last(node * head);
 //int remove_every_two(node * & head);
 //int average_even(node * head);
 //int sum_data(node * head, int & count);
-int sum_data(node * head);
 
 //Recursion Solutions
 int count_first_rec(node * head, int & first_node);
 void count_last_rec(node * head, int & last_node, int & count);
+int remove_largest(node * head, int & lrg_int); 
 //int count_first_rec(node * head, int & first_node);
 //int is_bigger_than_four_rec(node * head, int & count);
 //int switch_first_last_rec(node * head, int & first_node); // Work on

@@ -18,9 +18,13 @@ int main()
     //int count = count_last(head);
     //cout << "Number of times last node appeared in our LLL: " << count << endl;
 
-    int sum = sum_data(head);
-    cout << "Sum of data: " << sum << endl;
-
+    //int sum = sum_data(head);
+    //cout << "Sum of data: " << sum << endl;
+    
+    int lrg_int = 0;
+    int count = remove_largest(head, lrg_int);
+    cout << "Largest integer that was removed: " << lrg_int << "\nNumber of deletion(s): " << count << endl;
+    
     destroy(head); 
     return 0;
 }
