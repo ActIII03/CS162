@@ -4,35 +4,31 @@
 //Description:
 
 
-struct accessory_node
-{
-    char * name;
-    char * category;
-    char * status;
-    accessory_node * next;
-};
 
-struct room_node
-{
-    char * room;
-    accessory_node * head;
-    room_node * next;
-};
-
-class smartHome()
+class SmartHome()
 {
 
     public:
+    
+        SmartHouse();
+        ~SmartHouse();
 
+        //Get character input from user for creating a room
+        //int create_room(char * room);
+
+        //Get character input for accessory creation
+        //int create_access(char * name, char * category, char * status);
+        
+        //Retrieve room for: (1) Delete a room (2) Remove a room  
+        //int retrieve_room(char * room);
+
+        //Retrieve accessory for: (1) Delete a accessory from a room 
+        //int retrieve_accessory(char * access);
+        
 
     private:
 
+        char * room;
 };
 
-class LLL()
-{
-    public:
-
-    private:
-
-};
+int menu();
