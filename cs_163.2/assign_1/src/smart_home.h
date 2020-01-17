@@ -3,32 +3,35 @@
 //Instructor: Karla Fant
 //Description:
 
+#include <iostream>
+#include <cctype>
+#include <cstring>
+
+using namespace std;
 
 
-class SmartHome()
+class SmartHome
 {
 
     public:
     
-        SmartHouse();
-        ~SmartHouse();
+        SmartHome();
+        ~SmartHome();
 
         //Get character input from user for creating a room
-        //int create_room(char * room);
+        int create_room(char * new_room);
 
         //Get character input for accessory creation
-        //int create_access(char * name, char * category, char * status);
+        int create_access(char * name, char * category, char * status);
         
         //Retrieve room for: (1) Delete a room (2) Remove a room  
-        //int retrieve_room(char * room);
+        int retrieve_room(char * room);
 
         //Retrieve accessory for: (1) Delete a accessory from a room 
-        //int retrieve_accessory(char * access);
-        
-
-    private:
+        int retrieve_accessory(char * room, char * access);
 
         char * room;
 };
 
+void greetings();
 int menu();
