@@ -14,7 +14,7 @@ SmartHome::~SmartHome()
 {
     if(room)
     {
-        //delete room;
+        delete room;
     }
 }
 
@@ -26,6 +26,16 @@ int SmartHome::create_room(char * new_room)
     return 0;
 }
 
+int SmartHome::copy_entry(SmartHome new_room)
+{
+    if(new_room.room)
+    {
+        room = new char[strlen(new_room.room) + 1];
+        strcpy(room, new_room.room);
+        return 0;
+    }
+    return 1;
+}
 
 int SmartHome::retrieve_accessory(char * room, char * access)
 {

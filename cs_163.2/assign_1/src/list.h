@@ -66,6 +66,10 @@ class list
         //Recursively display all accessories
         //int display_all_accessories();
 
+
+        //Recursively traverse room
+        int traverse_room_list(room_node * head);
+
         room_node * head;
         room_node * tail;
 };

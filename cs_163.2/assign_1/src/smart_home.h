@@ -20,6 +20,9 @@ class SmartHome
 
         //Get character input from user for creating a room
         int create_room(char * new_room);
+    
+        //Copy into 
+        int copy_entry(SmartHome new_room);
 
         //Get character input for accessory creation
         int create_access(char * name, char * category, char * status);

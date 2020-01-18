@@ -75,8 +75,19 @@ int list::display_all_accessories()
 
 int list::traverse_room_list()
 {
+    
+    int result = traverse_room_list(head);
+    return result;
+}
 
-    return 0;
+int list::traverse_room_list(room_node * head)
+{
+    if(!head)
+        return 0;
+    cout << "\nRoom: " << head -> new_room.room << endl;
+    //traverse acccessory_list(*variables*);
+    return traverse_room_list(head -> next);
+    
 }
 
 int list::insert_room(room_node * & head, room_node * & tail, const SmartHome new_room)
@@ -85,8 +96,7 @@ int list::insert_room(room_node * & head, room_node * & tail, const SmartHome ne
     if(!head)
     {
         head = new room_node;
-        head -> new_room.room = new char[strlen(new_room.room) + 1];
-        strcpy(head -> new_room.room, new_room.room);
+        head -> new_room.copy_entry(new_room);
         head -> next = NULL;
         head -> access_head = NULL; 
         tail = head;
@@ -101,8 +111,7 @@ int list::insert_room(room_node * & head, room_node * & tail, const SmartHome ne
         room_node * new_node = new room_node;
         new_node -> next = head;
         head = new_node;
-        new_node -> new_room.room = new char[strlen(new_room.room) + 1];
-        strcpy(new_node -> new_room.room, new_room.room);
+        new_node -> new_room.copy_entry(new_room);
         new_node -> access_head = NULL;
         return 0;
     }

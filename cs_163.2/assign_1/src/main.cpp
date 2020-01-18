@@ -42,11 +42,13 @@ int main()
                 break;
             case(5):
                 //Display accessories in a room
-
+                cout << "\nPlease enter a room you want to see all the accessories for: ";
+                cin.get(room, "50",'\n');
+                cin.ignore(100, '\n');
                 break;
             case(6):
                 //Display All accessories for all Room
-
+                my_list.traverse_room_list();
                 break;
             case(7):
                 //Quit
