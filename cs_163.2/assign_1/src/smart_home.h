@@ -22,8 +22,8 @@ class SmartHome
         int create_room(char * new_room);
     
         //Copy into 
-        int copy_entry(SmartHome new_room);
-
+        int copy_entry(const SmartHome & new_room);
+    
         //Get character input for accessory creation
         int create_access(char * name, char * category, char * status);
         
@@ -32,6 +32,8 @@ class SmartHome
 
         //Retrieve accessory for: (1) Delete a accessory from a room 
         int retrieve_accessory(char * room, char * access);
+        
+        int compare_room(char * found);
 
         char * room;
 };

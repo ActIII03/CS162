@@ -26,7 +26,7 @@ int SmartHome::create_room(char * new_room)
     return 0;
 }
 
-int SmartHome::copy_entry(SmartHome new_room)
+int SmartHome::copy_entry(const SmartHome & new_room)
 {
     if(new_room.room)
     {
@@ -41,6 +41,13 @@ int SmartHome::retrieve_accessory(char * room, char * access)
 {
 
     return 0;
+}
+
+int SmartHome::compare_room(char * found)
+{
+    if(strcmp(room, found) == 0)
+        return 0;
+    return 1;
 }
 
 void greetings()

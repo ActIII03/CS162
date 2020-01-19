@@ -29,7 +29,7 @@ class list
         ~list();
 
         //Add room node to LLL
-        int insert_room(SmartHome new_room);
+        int insert_room(const SmartHome & new_room);
 
         //Add accesory node to LLL
         int insert_accessory(char * room, char * accessory_name, char * cat, char * status);
@@ -40,35 +40,40 @@ class list
         //Remove one accessory node
         int remove_accessory(char * room, char * accessory_name );
 
-        //Remove all accessories
-        int remove_all_accessories(char * room);
-
-        //Find room to
-        int retrieve_room(char * room);
-
         //Display all accessories
-        int display_all_accessories();
+        int display_all_accessories(char * room);
         
         //Traverse room LL
         int traverse_room_list();
+        
+        //Retrieve room node
+        room_node * retrieve_room(char * room); 
 
     private:
        
         //recusrively insert room node
-        int insert_room(room_node * & head, room_node * & tail, SmartHome new_room);
+        int insert_room(room_node * & head, room_node * & tail, const SmartHome & new_room);
+
+        //recursively insert accessory node
+        int insert_accessory(accessory_node * & head, char * new_acc, char * new_cat, char * new_stat);
 
         //Recursively remove all accessories
         int remove_all_accessories(accessory_node * & head);
 
         //Recursively search for room
-        int retrieve_room(room_node * head); 
+        room_node * retrieve_room(room_node * head, char * room); 
 
         //Recursively display all accessories
         //int display_all_accessories();
 
-
         //Recursively traverse room
         int traverse_room_list(room_node * head);
+
+        //Recursively remove room
+        int remove_room(room_node * & head, char * room);
+
+        //recursively insert accessory
+        
 
         room_node * head;
         room_node * tail;
