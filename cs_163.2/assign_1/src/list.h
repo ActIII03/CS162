@@ -7,7 +7,7 @@
 
 struct accessory_node
 {
-    accessory_node();
+    ~accessory_node();
     char * name;
     char * category;
     char * status;
@@ -63,17 +63,14 @@ class list
         //Recursively search for room
         room_node * retrieve_room(room_node * head, char * room); 
 
-        //Recursively display all accessories
-        //int display_all_accessories();
-
         //Recursively traverse room
         int traverse_room_list(room_node * head);
 
         //Recursively remove room
         int remove_room(room_node * & head, char * room);
-
-        //recursively insert accessory
         
+        //Traverse Accessory list
+        void traverse_accessory_list(room_node * head);
 
         room_node * head;
         room_node * tail;

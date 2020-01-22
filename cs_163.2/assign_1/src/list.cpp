@@ -5,11 +5,14 @@
 
 #include "list.h"
 
-accessory_node::accessory_node()
+accessory_node::~accessory_node()
 {
-    name = NULL;
-    category = NULL;
-    status = NULL;
+    if(name)
+        delete name;
+    if(category)
+        delete category;
+    if(status)
+        delete status;
 }
 
 list::list()
@@ -20,7 +23,29 @@ list::list()
 
 list::~list()
 {
-    
+    if(!head)
+        head = NULL;
+    else
+    {
+        room_node * current = head;
+        while(current)
+        {
+            head = head -> next;
+            if(current -> access_head)
+            {
+                accessory_node * a_current = current -> access_head;
+                while(a_current)
+                {
+                    current -> access_head =  current -> access_head -> next;
+                    delete a_current;
+                    a_current = current -> access_head;
+                }
+            }
+            delete current;
+            current = head;
+        }
+        head = NULL;
+    }
 
 }
 
@@ -53,7 +78,48 @@ int list::remove_room(char * room)
 
 int list::remove_accessory(char * room, char * accessory_name )
 {
+    room_node * current = retrieve_room(head, room);
+    if(!current)
+        return 1;
+    //Check if access LLL exist
+    if(!head -> access_head)
+        return 1;
+    
+    accessory_node * a_node = current -> access_head;
 
+    //Head is a match
+    if(strcmp(a_node -> name, accessory_name) == 0)
+    {
+        a_node = a_node -> next;
+        current -> access_head -> next = a_node;
+        delete current;
+    }
+
+    else
+    {
+        accessory_node * previous;
+
+        do
+        {
+            previous = a_node;
+            a_node = a_node -> next;
+            if(strcmp(a_node -> name, accessory_name) == 0)
+            {
+                previous -> next = a_node -> next;
+                delete a_node;
+                a_node = previous -> next;
+            }
+
+        }while(a_node -> next);
+
+        //Last noide is a match
+        if(strcmp(a_node -> name, accessory_name) == 0)
+        {
+            previous -> next = NULL;
+            delete a_node;
+           
+        }
+    }
 
     return 0;
 }
@@ -68,13 +134,19 @@ room_node * list::retrieve_room(char * room)
 int list::display_all_accessories(char * room)
 {
 
+    room_node * current = retrieve_room(room);
+
+    //Check if room node exist
+    if(!current)
+        return 1;
+    //Check if access LLL exist
     if(!head -> access_head)
         return 1;
-    room_node * current = retrieve_room(room);
+
     accessory_node * a_node = current -> access_head;
     while(a_node)
     {
-        cout << "Accessory: " << a_node -> name
+        cout << "\nAccessory: " << a_node -> name
              << "\nCategory: " << a_node -> category
              << "\nStatus: " << a_node -> status << endl;
         a_node = a_node -> next;
@@ -92,11 +164,29 @@ int list::traverse_room_list()
 int list::traverse_room_list(room_node * head)
 {
     if(!head)
-        return 0;
+        return 1;
     cout << "\nRoom: " << head -> new_room.room << endl;
-    //traverse acccessory_list(*variables*);
-    return traverse_room_list(head -> next);
-    
+    traverse_accessory_list(head);
+    traverse_room_list(head -> next);
+    return 0;
+}
+
+void list::traverse_accessory_list(room_node * head)
+{
+    if(!head -> access_head)
+        return;
+
+    accessory_node * a_node = head -> access_head;
+    while(a_node)
+    {
+        cout << "\nAccessory: " << a_node -> name
+             << "\nCategory: " << a_node -> category
+             << "\nStatus: " << a_node -> status << endl;
+        a_node = a_node -> next;
+    }
+    return;
+
+
 }
 
 int list::insert_room(room_node * & head, room_node * & tail, const SmartHome & new_room)
@@ -185,21 +275,24 @@ int list::remove_room(room_node * & head, char * room)
     if(strcmp(head -> new_room.room, room) == 0)
     {
         room_node * temp = head -> next;
+        remove_all_accessories(head -> access_head);
         delete head;
         head = temp;
         return 0;
     }
 
-    return remove_room(head -> next, room);
-}
-
-/*
- Recursive Function here
-int list::display_all_accessories()
-{
-
-
+    remove_room(head -> next, room);
     return 0;
 }
 
-*/
+int list::remove_all_accessories(accessory_node * & head)
+{
+    if(!head)
+        return 1;
+    accessory_node * temp = head -> next;
+    delete head;
+    head = temp;
+    remove_all_accessories(head);
+    return 0;
+
+}
