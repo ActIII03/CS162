@@ -1,0 +1,13 @@
+Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Description: Program #1 Efficiency Write-up
+
+Program one was to store information about a Smarthome where the ADT's data structure was two LLL. First LLL is list of the rooms inside the Smarthome sorted by name alphaetically and the second list is a list of accessories, sorted by category. The fixed memory issue that usually associated with static arrays was not an issue with the data structure. Each creation of a room and accessory item was dynamically allocated and ADT did not need a size before runtime. But, with that said, insertion, search and removal requires traversal, disregarding our lists being alphabetically sorted. For each list, we still need to traverse out list. For static arrays, direct access result in efficiency O(1) where efficiency for the LLL results in O(N). Depending on the number of data items, this list could contain millions of items. That would take a while to do any of the above operations. For this, I would have went with a hash-table paired with chaining, where the chain/LLL would be the accessories and each indices would be a room in a Smartroom. Although, searching for accessories in a hashtable in which the chaining/LLL at each indices would result in the same performance in our original data structure for this program. 
+    Would a different data structure  work better? Depends on the operation of the ADT we chose to examine. The insertion function for our ADT requires we traverse and compare at each node with string-compare. Tyis
+
+What was efficient about your design and use of the data structure?
+
+What was not efficient?
+
+What would you do differently if you had more time to solve the problem?

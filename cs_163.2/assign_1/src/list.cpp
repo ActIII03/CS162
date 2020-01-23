@@ -44,6 +44,7 @@ list::~list()
             delete current;
             current = head;
         }
+        delete head;
         head = NULL;
     }
 
@@ -51,7 +52,7 @@ list::~list()
 
 int list::insert_room(const SmartHome & new_room)
 {
-    
+
     //Recursive Call
     int result = insert_room(head, tail, new_room);
 
@@ -61,7 +62,7 @@ int list::insert_room(const SmartHome & new_room)
 
 int list::insert_accessory(char  * room, char * accessory_name, char * cat, char * status)
 {
-    
+
     if(!head)
         return 1;
     room_node * current = retrieve_room(room);
@@ -71,7 +72,7 @@ int list::insert_accessory(char  * room, char * accessory_name, char * cat, char
 
 int list::remove_room(char * room)
 {
-    
+
     int result = remove_room(head, room);
     return result;
 }
@@ -84,7 +85,7 @@ int list::remove_accessory(char * room, char * accessory_name )
     //Check if access LLL exist
     if(!head -> access_head)
         return 1;
-    
+
     accessory_node * a_node = current -> access_head;
 
     //Head is a match
@@ -117,7 +118,7 @@ int list::remove_accessory(char * room, char * accessory_name )
         {
             previous -> next = NULL;
             delete a_node;
-           
+
         }
     }
 
@@ -147,8 +148,8 @@ int list::display_all_accessories(char * room)
     while(a_node)
     {
         cout << "\nAccessory: " << a_node -> name
-             << "\nCategory: " << a_node -> category
-             << "\nStatus: " << a_node -> status << endl;
+            << "\nCategory: " << a_node -> category
+            << "\nStatus: " << a_node -> status << endl;
         a_node = a_node -> next;
     }
     return 0;
@@ -156,7 +157,7 @@ int list::display_all_accessories(char * room)
 
 int list::traverse_room_list()
 {
-    
+
     int result = traverse_room_list(head);
     return result;
 }
@@ -180,8 +181,8 @@ void list::traverse_accessory_list(room_node * head)
     while(a_node)
     {
         cout << "\nAccessory: " << a_node -> name
-             << "\nCategory: " << a_node -> category
-             << "\nStatus: " << a_node -> status << endl;
+            << "\nCategory: " << a_node -> category
+            << "\nStatus: " << a_node -> status << endl;
         a_node = a_node -> next;
     }
     return;
@@ -201,7 +202,7 @@ int list::insert_room(room_node * & head, room_node * & tail, const SmartHome & 
         tail = head;
         return 0;
     }
-    
+
     if(strcmp(head -> new_room.room, new_room.room) < 0)
         insert_room(head -> next, tail, new_room);
 
@@ -235,10 +236,10 @@ int list::insert_accessory(accessory_node * & head, char * new_acc, char * new_c
         head -> next = NULL;
         return 0;
     }
-    
-    if(strcmp(head -> name, new_acc) < 0)
+
+    if(strcmp(head -> category, new_cat) < 0)
         insert_accessory(head -> next, new_acc, new_cat, new_stat);
-    else if(strcmp(head -> name, new_acc) > 0)
+    else if(strcmp(head -> category, new_cat) > 0)
     {
         accessory_node * new_node = new accessory_node;
         new_node -> next = head;
