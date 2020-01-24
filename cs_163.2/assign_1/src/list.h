@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: ADT LLL interfacefor both: (i) Rooms (Sorted Alphabetically by name) (ii) Accessories (Sorted by Categories)
 
 #include "smart_home.h"
 

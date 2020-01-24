@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: Test Program
 
 #include "list.h"
 
@@ -30,7 +30,9 @@ int main()
                 cin.get(room, 50, '\n');
                 cin.ignore(100, '\n');
                 room_entry.create_room(room); 
-                result = my_list.insert_room(room_entry);
+                result = my_list.insert_room(room_entry); 
+                //Delete here
+                delete room_entry.room;
                 if(result)
                     cout << "\nSomething went wrong, try again!" << endl;
                 break;

@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description:
+//Description: ADT LLL implementation
 
 #include "list.h"
 
@@ -56,6 +56,7 @@ int list::insert_room(const SmartHome & new_room)
     //Recursive Call
     int result = insert_room(head, tail, new_room);
 
+    //Delete here?
     return result;
 }
 
