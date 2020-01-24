@@ -53,7 +53,7 @@ int SmartHome::compare_room(char * found)
 void greetings()
 {
 
-    cout << "Welcome to the Smart-home repo which where you can store information in regards to indiividual rooms in your with and all the IoT accessories that are associated with each room." << endl;
+    cout << "Welcome to the Smart-home repo which is where you can store information in regards to each individual room in your Smart-home with and all the IoT accessories that are associated those rooms." << endl;
 }
 
 int menu()

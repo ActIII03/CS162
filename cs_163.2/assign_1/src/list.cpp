@@ -67,6 +67,8 @@ int list::insert_accessory(char  * room, char * accessory_name, char * cat, char
     if(!head)
         return 1;
     room_node * current = retrieve_room(room);
+    if(!current)
+        return 1;
     int result = insert_accessory(current -> access_head, accessory_name, cat, status);  
     return result;
 }

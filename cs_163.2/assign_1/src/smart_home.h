@@ -1,7 +1,7 @@
 //Name: Armant Touche
 //Class: CS 163
 //Instructor: Karla Fant
-//Description: CLient Interface
+//Description: Client Interface
 
 #include <iostream>
 #include <cctype>
