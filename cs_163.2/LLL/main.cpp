@@ -5,7 +5,12 @@ int main()
     node * head = NULL;
     build(head);
     display(head);
-    copy_into_array(head); 
+    
+    int count = 1;
+    node * previous = head;
+    remove_every_two(head, previous, count); \\Work on
+
+    display(head);
     destroy(head); 
     return 0;
 }
@@ -55,4 +60,35 @@ int count_nodes(node * head)
     int count = count_nodes(head -> next);
     ++count;
     return count;
+}
+
+int is_greater_than_four(node * head)
+{
+    if(!head)
+        return 0;
+    int count = is_greater_than_four(head -> next);
+    if(head -> data > 4)
+        ++count;
+    return count;
+}
+
+int remove_last_two(node * & head)
+{
+    if(!head -> next -> next -> next)
+    {
+        delete head -> next -> next;
+        delete head -> next;
+        head -> next = NULL;
+        return 0;
+    }
+    int count = remove_last_two(head -> next);
+    ++count;
+    return count;
+}
+
+int remove_every_two(node * & head, node * & previous, int & count)
+{
+    if(!head)
+        return 0;
+    return 1;
 }

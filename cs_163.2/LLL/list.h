@@ -20,3 +20,6 @@ int sum_data(node * head, int & sum);
 int copy_into_array(node * head);
 int copy_into_array(node * head, int int_arr[], int & index);
 int count_nodes(node * head);
+int is_greater_than_four(node * head);
+int remove_last_two(node * & head);
+int remove_every_two(node * & head, node * & previous, int & count);
