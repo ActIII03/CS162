@@ -1,0 +1,12 @@
+Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Description: Program #2 Design
+
+ For my stack abstract data type, the push function, pop, and peek will be present in the public section. Other abstract data type operations inlcude isEmpty and isFull which will check the most recent stack's capcity and in doing so, no pointers will need to passed through argument parameters. For my queue abstract data type, enqueue, dequeue, isEmpty, and peek will be present in the public section of the abstract data type class interface because like the stack abstract data type, no pointers will be passed through the argument parameters.
+ I am going to describe the stack abstract data type's operations and the cases associated with each functions. For the push, a couple of cases to consider are enter no items, and trying to peek stack. I will check head for this cases becuase if a head is equal to null then I should return a non-zero integer to the calling routine which in our case, the client application will be the calling routine to catch the success or failure. Another function to consider is the pop function for a stack abstract data type. The pop will check, like push, to see if head is null because that signifies that the stack is empty and that there isn't anything to pop from. Another case to consider for pop is poping from a stack where the stack only has one item pushed onto it. This will require passing object up to the calling routine while decrementing the top index to zero which will cause the stack to be deleted and advance head to previous stack, if it exists.     
+
+(3) How will each function shield the client program from the details of the data structure?
+
+(4) What data structure will be used and what the special cases for each operation associated with ADT's operations?
+
