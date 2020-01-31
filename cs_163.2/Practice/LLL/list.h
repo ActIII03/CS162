@@ -17,3 +17,4 @@ void destroy(node * &head); //supplied
 
 /* *****************YOUR TURN! ******************************** */
 int remove_every_even(node * & head);
+int remove_last_node(node * & head);
