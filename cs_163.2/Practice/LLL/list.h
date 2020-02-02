@@ -18,3 +18,5 @@ void destroy(node * &head); //supplied
 /* *****************YOUR TURN! ******************************** */
 int remove_every_even(node * & head);
 int remove_last_node(node * & head);
+int remove_after_two(node * & head);
+int copy_even_to_LLL(node * & head, node * & dest);
