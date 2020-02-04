@@ -8,8 +8,7 @@ int main()
     build(head);
     display(head);
 
-    int count = copy_even_to_LLL(head, dest);
-    cout << "Number of items copied: " << count << endl;
+    int result 
 
     display(dest);
     return 0;
@@ -95,5 +94,30 @@ int copy_even_to_LLL(node * & head, node * & dest)
     else
         count += copy_even_to_LLL(head -> next, dest);
 
+    return count;
+}
+
+int copy_unique_into_array(node * & head)
+{
+    if(!head)
+       return 0;
+    int count = count_LLL(head);
+
+    return count;
+}
+
+int copy_unique_into_array(node * & head, int num_arr[])
+{
+    if(!head)
+        return 0;
+
+
+int count_LLL(node * head)
+{
+    if(!head)
+        return 0;
+    
+    int count = count_LLL(head -> next);
+    ++count;
     return count;
 }

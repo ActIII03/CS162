@@ -16,7 +16,10 @@ void display(node * head);  //supplied
 void destroy(node * &head); //supplied
 
 /* *****************YOUR TURN! ******************************** */
+int count_LLL(node * head);
 int remove_every_even(node * & head);
 int remove_last_node(node * & head);
 int remove_after_two(node * & head);
 int copy_even_to_LLL(node * & head, node * & dest);
+int copy_unique_into_array(node * & head);
+int copy_unique_into_array(node * & head, int num_arr[]);
