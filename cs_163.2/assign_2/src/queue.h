@@ -3,16 +3,18 @@
 //Instructor: Karla Fant
 //Description:
 
+#include "routes.h"
 
 struct prim_route_qnode
 {
-
-
+    routes * prim_routes;
+    prim_route_qnode * next;
 };
 
 struct alt_route_qnode
 {
-
+    routes * alt_route;
+    alt_route_qnode * next;
 
 };
 
@@ -21,14 +23,21 @@ class queue
 {
     public:
 
-        int enqueue(); //<-- Add argument
-        int dequeue(); //<-- Add argument
+        //Constructor and destructor
+        queue();
+        ~queue();
+
+        //Add route to front of CLL
+        int enqueue(routes & add_route); //<-- Add argument
+
+        //Remove route from 
+        int dequeue(routes & remove_route); //<-- Add argument
         int peek(); //<-- Add argument
-        int isEmpty();
+        int is_empty();
 
     private:
 
-            prim_route_qnode * rear;
-            alt_route_qnode * rear;
+            prim_route_qnode * p_rear;
+            alt_route_qnode * a_rear;
 };
 
