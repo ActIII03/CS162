@@ -30,6 +30,11 @@ int routes::create_route(const dummy_struct & add_route)
     street = new char[strlen(add_route.street) + 1];
     strcpy(street, add_route.street);
 
+    int route_choice = 0;
+
+    cout << "\nNow is this a primary route or back-up to a primary route?( Primary = 1 & Alternative = 2) : ";
+    cin >> route_choice;
+
     return 0;
 }
 

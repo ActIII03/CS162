@@ -5,19 +5,11 @@
 
 #include "routes.h"
 
-struct prim_route_qnode
+struct route_qnode
 {
-    routes * prim_routes;
-    prim_route_qnode * next;
+    routes * route_entries;
+    route_qnode * next;
 };
-
-struct alt_route_qnode
-{
-    routes * alt_route;
-    alt_route_qnode * next;
-
-};
-
 
 class queue
 {
@@ -28,7 +20,7 @@ class queue
         ~queue();
 
         //Add route to front of CLL
-        int enqueue(routes & add_route); //<-- Add argument
+        int enqueue(routes & add_route, int route_choice); //<-- Add argument
 
         //Remove route from 
         int dequeue(routes & remove_route); //<-- Add argument
@@ -37,7 +29,7 @@ class queue
 
     private:
 
-            prim_route_qnode * p_rear;
-            alt_route_qnode * a_rear;
+        int enqueue_rec(route_qnode * & rear, routes & add_route);
+        route_qnode * p_rear;
+        route_qnode * a_rear;
 };
-

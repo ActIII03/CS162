@@ -17,10 +17,17 @@ queue::~queue()
 }
 
 
-int queue::enqueue(routes & add_route)
+int queue::enqueue(routes & add_route, int route_choice)
 {
+    bool primary = true;
+
     return 0;
 }
+
+int queue::enqueue_rec(route_qnode * & rear, routes & add_route)
+{
+    if(!rear)
+
 
 int queue::dequeue(routes & remove_route)
 {

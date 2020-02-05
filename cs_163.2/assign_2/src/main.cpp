@@ -15,7 +15,8 @@ int main()
     stack return_trip_list;
     dummy_struct buffer;
 
-    bool quit = false;
+    bool quit_app = false; 
+    int route_choice = 0, result = 0, quit_adding = 0;
 
     cout << "Welcome to Plan-Your-Route application which is where you store info in regards to your trip" << endl;
 
@@ -25,10 +26,20 @@ int main()
         {
             case 1:
                  //Add route
-                cout << "Please enter a name of the street: " << endl;
-                cin.get(buffer.street, 50, '\n');
-                cin.ignore(100, '\n');
-                new_routes.create_route(buffer);
+                do
+                {
+                    cout << "Please enter a name of the street: " << endl;
+                    cin.get(buffer.street, 50, '\n');
+                    cin.ignore(100, '\n');
+                    route_choice = new_routes.create_route(buffer);
+                    result = route_list.enqueue(new_routes, route_choice);
+                    if(!result)
+                        cout << "\nRoute was added!" << endl;
+                    else
+                        cout << "\nSomething went wrong" << endl;
+                    cout << "Want to keep adding routes?( 0 = No & 1 = Yes):";
+                    cin >> quit_adding;
+                }while(!quit_adding);
                 break;
 
             case 2:
@@ -43,10 +54,10 @@ int main()
 
             case 4:
                 //Quit Application
-                quit = true;
+                quit_app = true;
             };
 
-    }while(!quit);
+    }while(!quit_app);
 
     return 0;
 
