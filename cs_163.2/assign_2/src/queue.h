@@ -7,7 +7,7 @@
 
 struct route_qnode
 {
-    routes * route_entries;
+    routes route_entries;
     route_qnode * next;
 };
 
@@ -29,7 +29,7 @@ class queue
 
     private:
 
-        int enqueue_rec(route_qnode * & rear, routes & add_route);
+        int enqueue_rec(route_qnode * & rear, route_qnode * & temp, routes & add_route);
         route_qnode * p_rear;
         route_qnode * a_rear;
 };

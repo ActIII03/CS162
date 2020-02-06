@@ -20,14 +20,23 @@ queue::~queue()
 int queue::enqueue(routes & add_route, int route_choice)
 {
     bool primary = true;
+    int result = 0;
+
+    if(primary)
+        result = enqueue_rec(p_rear, p_rear -> next, add_route);
+    else
+        result = enqueue_rec(a_rear, a_rear -> next, add_route);
 
     return 0;
 }
 
-int queue::enqueue_rec(route_qnode * & rear, routes & add_route)
+int queue::enqueue_rec(route_qnode * & rear, route_qnode * & current, routes & add_route)
 {
-    if(!rear)
+    if(!current)
 
+    if(current != rear)
+
+}
 
 int queue::dequeue(routes & remove_route)
 {
