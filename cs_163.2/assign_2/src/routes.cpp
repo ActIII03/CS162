@@ -25,22 +25,49 @@ routes::~routes()
         delete source;
 }
 
-int routes::create_route(const dummy_struct & add_route)
+int routes::create_route(const a_route & add_route)
 {
     street = new char[strlen(add_route.street) + 1];
     strcpy(street, add_route.street);
+    length = add_route.length;
+    traffic_stat = new char[strlen(add_route.traffic_stat) + 1];
+    strcpy(traffic_stat, add_route.traffic_stat);
+    notes = new char[strlen(add_route.notes) + 1];
+    strcpy(notes, add_route.notes);
+    source = new char[strlen(add_route.source) + 1];
+    strcpy(source, add_route.source);
 
     int route_choice = 0;
 
     cout << "\nNow is this a primary route or back-up to a primary route?( Primary = 1 & Alternative = 2) : ";
     cin >> route_choice;
+    cin.ignore(100, '\n');
+
+    return route_choice;
+}
+
+int routes::copy_route(routes & add_route)
+{
+    street = new char[strlen(add_route.street) + 1];
+    strcpy(street, add_route.street);
+    length = add_route.length;
+    traffic_stat = new char[strlen(add_route.traffic_stat) + 1];
+    strcpy(traffic_stat, add_route.traffic_stat);
+    notes = new char[strlen(add_route.notes) + 1];
+    strcpy(notes, add_route.notes);
+    source = new char[strlen(add_route.source) + 1];
+    strcpy(source, add_route.source);
 
     return 0;
 }
 
-int routes::copy_route(routes & add_routes)
+void routes::display()
 {
-    return 0;
+      cout << "Street: " << street
+           << "\nDistance (miles:) " << length
+           << "\nTraffic Status: " << traffic_stat
+           << "\nNotes: " << notes
+           << "\nSource of information: " << source << endl;
 }
 
 int menu()
@@ -49,6 +76,8 @@ int menu()
     cout << "\nPlease Select -\n(1) Add route (Primary Route or Alternative) \n(2)Start trip (Choosing from the previewed)"
          << "\n(3) Start Return from destination \n(4) Quit \nPick (1-4): " << endl;
     cin >> choice;
+    cin.ignore(100, '\n');
+
 
     return choice;
 }

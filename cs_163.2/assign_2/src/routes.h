@@ -6,16 +6,17 @@
 #include <iostream>
 #include <cctype>
 #include <cstring>
+#include <cstdio>
 
 using namespace std;
 
 #ifndef ROUTES 
 #define ROUTES 
 
-struct dummy_struct
+struct a_route    
 {
     char street[50];
-    int length;
+    float length;
     char traffic_stat[50];
     char notes[50];
     char source[50];
@@ -30,10 +31,13 @@ class routes
         ~routes();
 
         //Get user's input
-        int create_route(const dummy_struct & add_route);  //<-- Add route arguments
+        int create_route(const a_route & add_route);  //<-- Add route arguments
 
         //Copy route
         int copy_route(routes & add_route);
+
+        //Display route
+        void display();
 
         //Add Data mbr here
         char * street;

@@ -1,0 +1,41 @@
+1
+Prime one
+1.2
+Moderate
+Going towards MLK
+NA
+0
+Alt one
+5  
+Moderate
+Take left towards Burnside
+NA
+1
+0
+Prime two
+100
+Moderate
+Keep Going
+NA
+0
+Alt two
+100
+Open
+Keep Paddling
+NA
+1
+0
+Prime three
+100
+Moderate
+Keep Going
+NA
+0
+Alt three
+100
+Open
+Keep Paddling
+NA
+1
+1
+2

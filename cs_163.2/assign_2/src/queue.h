@@ -7,6 +7,7 @@
 
 struct route_qnode
 {
+    route_qnode();
     routes route_entries;
     route_qnode * next;
 };
@@ -20,16 +21,18 @@ class queue
         ~queue();
 
         //Add route to front of CLL
-        int enqueue(routes & add_route, int route_choice); //<-- Add argument
+        int enqueue(routes & add_route, const int route_choice); //<-- Add argument
 
-        //Remove route from 
-        int dequeue(routes & remove_route); //<-- Add argument
-        int peek(); //<-- Add argument
-        int is_empty();
+        //Remove route from CLL
+        int dequeue(routes & remove_route, int route_choice); //<-- Add argument
+
+        //Peek both routes
+        int peek(routes & p_route, routes & a_route); //<-- Add argument
 
     private:
 
-        int enqueue_rec(route_qnode * & rear, route_qnode * & temp, routes & add_route);
+        int enqueue(route_qnode * & rear, routes & add_route);
+        int dequeue(route_qnode * & rear, route_qnode * & current, routes & out_route, int route_choice);
         route_qnode * p_rear;
         route_qnode * a_rear;
 };
