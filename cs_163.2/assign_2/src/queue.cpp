@@ -31,7 +31,7 @@ int queue::enqueue(routes & add_route, const int route_choice)
     else
         result = enqueue(a_rear, add_route);
 
-    return 0;
+    return result;
 }
 
 int queue::enqueue(route_qnode * & rear, routes & add_route)
@@ -74,56 +74,126 @@ int queue::enqueue(route_qnode * & rear, routes & add_route)
 
 int queue::dequeue(routes & remove_route, int route_choice)
 {
-    if( !(p_rear) || !(a_rear) )
+    //Empty list
+    if( !(p_rear) && !(a_rear) )
         return -99;
    
-    int result = 0;
+    int count = 0;
 
-    //Compare route choice
+    //Compare route choice and dequeue accordingly
     if(route_choice != 2)
-        result = dequeue(p_rear, p_rear -> next, remove_route, route_choice);
+    {
+        count = dequeue(p_rear, p_rear -> next, remove_route, route_choice);
+        dequeue(a_rear, a_rear -> next, route_choice);
+    }
     else
-        result = dequeue(a_rear, a_rear -> next, remove_route, route_choice);
+    {
+        count = dequeue(a_rear, a_rear -> next, remove_route, route_choice);
+        dequeue(p_rear, p_rear -> next, route_choice);
+    }
 
-    return result;
+    return count;
 }
 
 int queue::dequeue(route_qnode * & rear, route_qnode * & current, routes & out_route, int route_choice)
 {
 
+    //Empty list
+    if(!rear)
+        return 0;
 
-    /*
+    //One item
+    if(rear -> next == rear)
+    {
+        //Work on destructors
+        out_route.copy_route(rear -> route_entries);
+        delete rear;
+        rear = NULL;
+        return 0;
+    }
+
+    //Track number of routes remaining
+    int count = 0;
+
+    //Traversed to the item behind rear
+    if(current -> next == rear)
+    {
+        out_route.copy_route(rear -> route_entries);
+        current -> next = rear -> next;
+        delete rear;
+        rear = current;
+        return 1;
+    }
+
+    ++count;
+    count += dequeue(rear, current -> next, out_route, route_choice);
+
+    return count;
+}
+
+void queue::dequeue(route_qnode * & rear, route_qnode * & current, int route_choice)
+{
+
+    //Empty list
+    if(!rear)
+        return;
+
     //One item
     if(rear -> next == rear)
     {
         //Work on destructors
         delete rear;
         rear = NULL;
-        return 0;
+        return;
     }
 
-    int count = 1;
+    //Traversed to the item behind rear
+    if(current -> next == rear)
+    {
+        current -> next = rear -> next;
+        delete rear;
+        rear = current;
+        return;
+    }
 
-    //Two items remove se
+    dequeue(rear, current -> next, route_choice);
 
-
-    //Three items remove thirs
-    
-    //More than three then traverse
-    ++count;
-    count += dequeue(rear, current -> next, out_route, route_choice);
-    */
-    int count = 0;
-
-
-    return count;
+    return;
 }
 
 int queue::peek(routes & p_route, routes & a_route)
 {
    
-    p_route.copy_route(p_rear -> route_entries);
-    a_route.copy_route(a_rear -> route_entries);
+    if(p_rear)
+        p_route.copy_route(p_rear -> route_entries);
+    if(a_rear)
+        a_route.copy_route(a_rear -> route_entries);
 
+    return 0;
+}
+
+int queue::display(int route_choice)
+{
+    if( !(p_rear) && !(a_rear) )
+        return -99;
+    
+    if(route_choice == 1)
+        display(p_rear, p_rear);
+    else
+        display(a_rear, a_rear);
+
+    return 0;
+}
+
+int queue::display(route_qnode * rear, route_qnode * & current)
+{
+    if(current -> next == rear)
+    {
+        current -> route_entries.display();
+        return 1;
+    }
+
+    current -> route_entries.display();
+    display(rear, current -> next);
     return 0;
 }

@@ -39,7 +39,7 @@ int routes::create_route(const a_route & add_route)
 
     int route_choice = 0;
 
-    cout << "\nNow is this a primary route or back-up to a primary route?( Primary = 1 & Alternative = 2) : ";
+    cout << "\nNow is this a primary route or back-up to a primary route?( Primary = 0 & Alternative = 1) : ";
     cin >> route_choice;
     cin.ignore(100, '\n');
 
@@ -63,18 +63,24 @@ int routes::copy_route(routes & add_route)
 
 void routes::display()
 {
+    if(street)
+    {
       cout << "Street: " << street
-           << "\nDistance (miles:) " << length
+           << "\nDistance (miles): " << length
            << "\nTraffic Status: " << traffic_stat
            << "\nNotes: " << notes
-           << "\nSource of information: " << source << endl;
+           << "\nSource of information: " << source
+           << "\n";
+    }
+    else
+        cout << "\nEntry not found" << endl;
 }
 
 int menu()
 {
     int choice = 0;
-    cout << "\nPlease Select -\n(1) Add route (Primary Route or Alternative) \n(2)Start trip (Choosing from the previewed)"
-         << "\n(3) Start Return from destination \n(4) Quit \nPick (1-4): " << endl;
+    cout << "\nPlease Select:\n(1) Add route (Primary Route or Alternative) \n(2) Start trip (Choosing from the previewed)"
+         << "\n(3) Start Return from destination \n(4) Display Routes \n(5) Display Return Trip \n(6) Quit \nPick (1-6): ";
     cin >> choice;
     cin.ignore(100, '\n');
 

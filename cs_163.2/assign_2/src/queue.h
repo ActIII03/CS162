@@ -29,10 +29,23 @@ class queue
         //Peek both routes
         int peek(routes & p_route, routes & a_route); //<-- Add argument
 
+        //Display CLL
+        int display(int route_choice);
+
     private:
 
+        //Add route
         int enqueue(route_qnode * & rear, routes & add_route);
-        int dequeue(route_qnode * & rear, route_qnode * & current, routes & out_route, int route_choice);
+
+        //Remove route and push it to return stack
+        int dequeue(route_qnode * & rear, route_qnode * & current, routes & out_route, int route_choice); 
+
+        //Remove route 
+        void dequeue(route_qnode * & rear, route_qnode * & current, int route_choice); 
+
+        //Display CLL recursively
+        int display(route_qnode * rear, route_qnode * & current);
+
         route_qnode * p_rear;
         route_qnode * a_rear;
 };

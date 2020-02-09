@@ -20,16 +20,20 @@ class stack
         ~stack();
 
         //Add to stack
-        int push(const routes & new_route);
+        int push(routes & new_route);
 
         //Remove from stack
-        int pop(void);
+        int pop(routes & return_route);
 
-        //View recent addition to stack
-        int peek(routes & found_route) const;
+        //Peek
+        int peek(routes & display);
+
+        //Display
+        int display();
 
     private:
 
         node * head;
         int top_index;
+        int MAX;
 };
