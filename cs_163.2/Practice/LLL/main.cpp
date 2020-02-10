@@ -1,5 +1,4 @@
 #include "list.h"
-using namespace std;
 
 int main()
 {
@@ -8,8 +7,9 @@ int main()
     build(head);
     display(head);
 
-    int count = copy_unique_into_array(head);
-
+    int count = remove_first(head);
+    cout << "Number of nodes to travers: " << count << endl;
+        
     display(head);
     return 0;
 }
@@ -151,4 +151,33 @@ int count_LLL(node * head)
     if(!compare(head))
         ++count;
     return count;
+}
+
+int place_last(node * & head, int first_int)
+{
+    if(!head -> next)
+    {
+       head -> next = new node;
+       node * temp = head -> next;
+       temp -> data = first_int;
+       temp -> next = NULL;
+       return 1;
+    }
+
+    int count = place_last(head -> next, first_int);
+    return count;
+}
+
+int remove_first(node * & head)
+{
+    if(!head)
+        return 0;
+    
+    int count = 0, first_int = head -> data;
+    node * temp = head;
+    head = head -> next;
+    delete temp;
+    count = place_last(head, first_int);
+    return count;
+
 }

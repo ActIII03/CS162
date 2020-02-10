@@ -194,7 +194,9 @@ int main()
                 cout << "Which routes do you want displayed? (1 = primary 2 = alternative): ";
                 cin >> route_choice;
                 cin.ignore(100, '\n');
-                route_list.display(route_choice);
+                result = route_list.display(route_choice);
+                if(result)
+                    cout << "\nSomething went wrong, try again!\n";
                 break;
 
             case 5:

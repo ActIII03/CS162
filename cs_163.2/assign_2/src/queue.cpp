@@ -198,20 +198,25 @@ int queue::display(int route_choice)
     if( !(p_rear) && !(a_rear) )
         return -99;
     
-    if(route_choice == 1)
-        display(p_rear, p_rear);
-    else
-        display(a_rear, a_rear);
+    int result = 0;
 
-    return 0;
+    if(route_choice == 1)
+        result = display(p_rear, p_rear);
+    else
+        result = display(a_rear, a_rear);
+
+    return result;
 }
 
 int queue::display(route_qnode * rear, route_qnode * & current)
 {
+    if(!rear)
+        return 1;
+
     if(current -> next == rear)
     {
         current -> route_entries.display();
-        return 1;
+        return 0;
     }
 
     current -> route_entries.display();

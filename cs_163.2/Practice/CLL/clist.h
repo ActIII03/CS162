@@ -17,5 +17,7 @@ void destroy(node * & rear); //supplied
 
 /* *****************YOUR TURN! ******************************** */
 //Write your function prototype here:
+int count_nodes(node * rear, node * & current);
+int remove_even(node * & rear, node * & current);
 
 
