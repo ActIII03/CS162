@@ -8,7 +8,6 @@ int main()
     build(head);
     display(head);
 
-    int result 
 
     display(dest);
     return 0;
@@ -102,6 +101,10 @@ int copy_unique_into_array(node * & head)
     if(!head)
        return 0;
     int count = count_LLL(head);
+    int num_arr[count];
+    copy_unique_into_array(head, num_arr[]);
+    for(int index = 0; num_index[index] != "" && index < count; ++index)
+        cout << "Number: " << num_arr[index] << endl;
 
     return count;
 }
@@ -110,6 +113,9 @@ int copy_unique_into_array(node * & head, int num_arr[])
 {
     if(!head)
         return 0;
+    if(compare(head, head))
+    {
+        num_
 
 
 int count_LLL(node * head)

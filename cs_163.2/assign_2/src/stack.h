@@ -33,6 +33,9 @@ class stack
 
     private:
 
+        //Destructor help
+        void destory(node * & head);
+
         node * head;
         int top_index;
         int MAX;

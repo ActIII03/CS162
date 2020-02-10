@@ -15,6 +15,23 @@ stack::stack()
 stack::~stack()
 {
 
+    if(head)
+        destory(head);
+}
+
+void stack::destory(node * & head)
+{
+    if(!head -> next)
+    {
+        delete head;
+        head = NULL;
+        return;
+    }
+    node * temp = head -> next;
+    delete head;
+    head = temp;
+    destory(head);
+    return;
 }
 
 int stack::push(routes & new_route)

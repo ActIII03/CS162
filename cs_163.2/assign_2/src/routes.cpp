@@ -65,7 +65,7 @@ void routes::display()
 {
     if(street)
     {
-      cout << "Street: " << street
+      cout << "\nStreet: " << street
            << "\nDistance (miles): " << length
            << "\nTraffic Status: " << traffic_stat
            << "\nNotes: " << notes

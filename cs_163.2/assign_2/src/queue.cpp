@@ -14,6 +14,27 @@ queue::queue()
 queue::~queue()
 {
 
+    if(p_rear)
+        destory(p_rear, p_rear -> next);
+    if(a_rear)
+        destory(a_rear, a_rear -> next);
+}
+
+void queue::destory(route_qnode * & rear, route_qnode * & current)
+{
+    if(current -> next == rear)
+    {
+        delete current;
+        delete rear;
+        rear = NULL;
+        return;
+    }
+    rear -> next = current -> next;
+    delete current;
+    current = rear -> next;
+    destory(rear, current);
+
+    return;
 }
 
 route_qnode::route_qnode()

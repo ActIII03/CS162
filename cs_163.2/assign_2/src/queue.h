@@ -46,6 +46,9 @@ class queue
         //Display CLL recursively
         int display(route_qnode * rear, route_qnode * & current);
 
+        //Destructor helper
+        void destory(route_qnode * & rear, route_qnode * & current);
+
         route_qnode * p_rear;
         route_qnode * a_rear;
 };
