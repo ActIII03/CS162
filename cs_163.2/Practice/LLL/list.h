@@ -23,4 +23,4 @@ int remove_after_two(node * & head);
 int copy_even_to_LLL(node * & head, node * & dest);
 int copy_unique_into_array(node * & head);
 int copy_unique_into_array(node * & head, int num_arr[], int & index);
-bool compare(node * head, node * current);
+bool compare(node * head);

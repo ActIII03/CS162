@@ -8,8 +8,9 @@ int main()
     build(head);
     display(head);
 
+    int count = copy_unique_into_array(head);
 
-    display(dest);
+    display(head);
     return 0;
 }
 
@@ -100,23 +101,46 @@ int copy_unique_into_array(node * & head)
 {
     if(!head)
        return 0;
-    int count = count_LLL(head);
+    int count = count_LLL(head), index = 0;
     int num_arr[count];
-    copy_unique_into_array(head, num_arr[]);
-    for(int index = 0; num_index[index] != "" && index < count; ++index)
+    copy_unique_into_array(head, num_arr, index);
+    for(int index = 0; index < count; ++index)
         cout << "Number: " << num_arr[index] << endl;
 
+    count += (index + 1);
     return count;
 }
 
-int copy_unique_into_array(node * & head, int num_arr[])
+int copy_unique_into_array(node * & head, int num_arr[], int & index)
 {
     if(!head)
         return 0;
-    if(compare(head, head))
+    if(!compare(head))
     {
-        num_
+        num_arr[index] = head -> data;
+        ++index;
+    }
+    copy_unique_into_array(head -> next, num_arr, index);
+    return 0;
+}
 
+bool compare(node * head)
+{
+    if(!head)
+        return true;
+    
+    node * current = head -> next;
+    bool flag = false;
+
+    while(current)
+    {
+        if(head -> data == current -> data)
+            flag = true;
+        current = current -> next;
+    }
+
+    return flag;
+}
 
 int count_LLL(node * head)
 {
@@ -124,6 +148,7 @@ int count_LLL(node * head)
         return 0;
     
     int count = count_LLL(head -> next);
-    ++count;
+    if(!compare(head))
+        ++count;
     return count;
 }
