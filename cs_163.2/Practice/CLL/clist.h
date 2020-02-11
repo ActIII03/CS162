@@ -19,5 +19,5 @@ void destroy(node * & rear); //supplied
 //Write your function prototype here:
 int count_nodes(node * rear, node * & current);
 int remove_even(node * & rear, node * & current);
-
+int remove_all(node * & rear, node * & current);
 

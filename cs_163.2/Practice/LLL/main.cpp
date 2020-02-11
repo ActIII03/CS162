@@ -7,8 +7,8 @@ int main()
     build(head);
     display(head);
 
-    int count = remove_first(head);
-    cout << "Number of nodes to travers: " << count << endl;
+    int count = last_mpdemo(head);
+    cout << "Number of two's removed: " << count << endl;
         
     display(head);
     return 0;
@@ -181,3 +181,112 @@ int remove_first(node * & head)
     return count;
 
 }
+
+int count_last(node * head)
+{
+    if(!head)
+        return 0;
+    int last_node = 0;
+    int count = count_last(head, last_node);
+    return count;
+}
+
+int count_last(node * head, int & last_node)
+{
+    if(!head)
+        return 0;
+
+    if(!head -> next)
+    {
+        last_node = head -> data;
+        return 0;
+    }
+
+    int count = count_last(head -> next, last_node);
+
+    if(head -> data  == last_node)
+        ++count;
+
+    return count;
+}
+
+int copy_LLL(node * head, node * & dest)
+{
+    if(!head)
+        return 0;
+
+    if(!head -> next)
+    {
+        dest = new node;
+        dest -> data = head -> data;
+        dest -> next = NULL;
+        return 1;
+    }
+
+    dest = new node;
+    dest -> data = head -> data;
+    int count = copy_LLL(head -> next, dest -> next);
+    ++count;
+    return count;
+}
+
+int last_mpdemo(node * & head)
+{
+    if(!head)
+        return 0;
+
+    int count = 0;
+    remove_first_two(head, count);
+
+    return count;
+}
+
+int remove_rest(node * & head)
+{
+    if(!head -> next)
+    {
+        if(head -> data == 2)
+        {
+            delete head;
+            head = NULL;
+            return 1;
+        }
+        return 0;
+    }
+
+    int count = 0;
+
+    if(head -> data == 2)
+    {
+        ++count;
+        node * temp = head;
+        head = head -> next;
+        delete temp;
+    }
+
+    count += remove_rest(head -> next);
+
+    return count;
+}
+
+int remove_first_two(node * & head, int & count)
+{
+    if(head -> data == 2 && count == 1)
+    {
+        count += remove_rest(head -> next);
+        return count;
+    }
+
+    if(head -> data == 2)
+    {
+        ++count;
+        node * temp = head -> next;
+        delete head;
+        head = temp;
+    }
+
+    count += remove_first_two(head -> next, count);
+    
+    return count;
+}
+

@@ -1,0 +1,16 @@
+1
+primary one
+5
+mod
+none
+none
+0
+primary two
+15
+mild
+none
+none
+0
+0
+4
+1

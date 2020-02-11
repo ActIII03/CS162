@@ -9,8 +9,8 @@ int main()
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
 
-    int count = remove_even(rear, rear -> next);
-    cout << "Number of even nodes removed from CLL: " << count << endl;
+    int count = remove_all(rear, rear -> next);
+    cout << "Number of nodes removed from CLL: " << count << endl;
 
 
 
@@ -67,5 +67,22 @@ int remove_even(node * & rear, node * & current)
         delete temp;
         ++count;
     }
+    return count;
+}
+
+int remove_all(node * & rear, node * & current)
+{
+    if(current == rear)
+    {
+        delete rear;
+        rear = NULL;
+        return 1;
+    }
+
+    int count = remove_all(rear, current -> next);
+
+    delete current;
+    ++count;
+
     return count;
 }
