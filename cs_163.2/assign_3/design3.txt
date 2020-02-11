@@ -1,0 +1,12 @@
+Name: Armant Touche
+Class: CS 163
+Instructor: Karla Fant
+Description: Porgram #3 Design
+
+(1) What functions of your ADT is private and public?
+
+(2) How will success and failure be reported to the calling routine?
+
+(3) How will each function shield the client program from the data structure?
+
+(4) What data structures are going to be used?
