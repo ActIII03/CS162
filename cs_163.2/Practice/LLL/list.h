@@ -17,19 +17,7 @@ void display(node * head);  //supplied
 void destroy(node * &head); //supplied
 
 /* *****************YOUR TURN! ******************************** */
-int count_LLL(node * head);
-int remove_every_even(node * & head);
-int remove_last_node(node * & head);
-int remove_after_two(node * & head);
-int copy_even_to_LLL(node * & head, node * & dest);
-int copy_unique_into_array(node * & head);
-int copy_unique_into_array(node * & head, int num_arr[], int & index);
-bool compare(node * head);
-int remove_first(node * & head);
-int place_last(node * & head, int first_int);
-int count_last(node * head);
-int count_last(node * head, int & last_node);
-int copy_LLL(node * head, node * & dest);
-int last_mpdemo(node * & head);
-int remove_first_two(node * & head, int & count);
-int remove_rest(node * & head);
+int remove_every_other(node * & head);
+int copy_arr_to_LLL(node * & head);
+int copy_arr_to_LLL(node * & head, int arr[], int & index);
+int traverse(node * & head, int arr[], int & index);
