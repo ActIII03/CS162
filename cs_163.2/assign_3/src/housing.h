@@ -1,4 +1,0 @@
-//Name:
-//Class:
-//Instructor:
-//Description: 
