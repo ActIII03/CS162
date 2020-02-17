@@ -35,7 +35,7 @@ class Venue
         int get_venue(a_venue & new_venue);
 
         // Copy information
-        int copy_venue(const a_venue & add_venue);
+        bool copy_venue(const a_venue & add_venue);
 
         // Display Venue
         void display();

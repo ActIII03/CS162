@@ -44,7 +44,6 @@ int main(void)
 
 
         new_venue.get_venue(in_venue);
-
         my_table.insert(new_venue);
 
         if(new_venue.meal)
@@ -75,7 +74,6 @@ int main(void)
 
 
             new_venue.get_venue(in_venue);
-
             my_table.insert(new_venue);
 
             if(new_venue.meal)

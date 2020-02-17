@@ -43,9 +43,23 @@ int Venue::get_venue(a_venue & new_venue)
     return 0;
 }
 
-int Venue::copy_venue(const a_venue & add_venue)
+bool Venue::copy_venue(const a_venue & add_venue)
 {
-    return 0;
+    if(!add_venue.meal)
+        return false;
+
+    meal = new char[strlen(add_venue.meal) + 1];
+    strcpy(meal, add_venue.meal);
+    name = new char[strlen(add_venue.name) + 1];
+    strcpy(name, add_venue.name);
+    price = add_venue.price;
+    rating = add_venue.rating;
+    review = new char[strlen(add_venue.review) + 1];
+    strcpy(review, add_venue.review);
+    category = new char[strlen(add_venue.category) + 1];
+    strcpy(category, add_venue.category);
+
+    return true;
 }
 
 void Venue::display()
