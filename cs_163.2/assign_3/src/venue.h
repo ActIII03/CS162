@@ -4,6 +4,7 @@
 //Description: 
 
 #include <iostream>
+#include <fstream>
 #include <cctype>
 #include <cstring>
 
@@ -15,7 +16,8 @@ using namespace std;
 struct a_venue
 {
         char meal[30];
-        int price;
+        char name[30];
+        float price;
         int rating;
         char review[100];
         char category[30];
@@ -39,6 +41,7 @@ class Venue
         void display();
 
         char * meal;
+        char * name;
         int price;
         int rating;
         char * review;

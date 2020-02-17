@@ -21,7 +21,7 @@ table::~table()
 
 }
 
-int table::insert(char * key_value, const Venue & to_add)
+int table::insert(const Venue & to_add)
 {
     return 0;
 }

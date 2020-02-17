@@ -20,7 +20,7 @@ class table
         ~table();
 
         // Insert into hash table
-        int insert(char * key_value, const Venue & to_add); 
+        int insert(const Venue & to_add); 
 
         // Retrieve index where entry is at in table
         int retrieve(char * search_key, Venue & found);
