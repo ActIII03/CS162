@@ -20,7 +20,7 @@ class table
         ~table();
 
         // Insert into hash table
-        int insert(const Venue & to_add); 
+        int insert(Venue & to_add); 
 
         // Retrieve index where entry is at in table
         int retrieve(char * search_key, Venue & found);
@@ -36,6 +36,8 @@ class table
 
     private:
 
+        int display_meal_list(node * head);
+    
         node ** hash_table;
         int size;
 };

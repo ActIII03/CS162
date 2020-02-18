@@ -22,7 +22,7 @@ table::~table()
 }
 
 // Work on tomorrow
-int table::insert(const Venue & to_add)
+int table::insert(Venue & to_add)
 {
     int index = hash_function(to_add.meal);
 
@@ -31,7 +31,7 @@ int table::insert(const Venue & to_add)
 
     node * new_node = new node;
 
-    if(!new_node -> venue_entry.copy_entry(to_add))
+    if(!new_node -> venue_entry.copy_venue(to_add))
     {
         delete new_node;
         return -99;
@@ -40,14 +40,16 @@ int table::insert(const Venue & to_add)
     //Check to see if address is open and if occupied, apply chaining
     if(hash_table[index])
     {
+        new_node -> next = hash_table[index];
+        hash_table[index] = new_node;
 
     }
+    // If no object at an index, attach to index
     else
     {
-        hash_table[index] = new_node;
+        hash_table[index] = new_node;  // Imagine hash_table[index] as head
         new_node -> next = NULL;
     }
-
 
     return 0;
 }

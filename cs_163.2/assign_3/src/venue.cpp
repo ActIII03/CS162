@@ -39,15 +39,13 @@ int Venue::get_venue(a_venue & new_venue)
     strcpy(review, new_venue.review);
     category = new char[strlen(new_venue.category) + 1];
     strcpy(category, new_venue.category);
-
     return 0;
 }
 
-bool Venue::copy_venue(const a_venue & add_venue)
+bool Venue::copy_venue(Venue & add_venue)
 {
     if(!add_venue.meal)
         return false;
-
     meal = new char[strlen(add_venue.meal) + 1];
     strcpy(meal, add_venue.meal);
     name = new char[strlen(add_venue.name) + 1];
@@ -58,7 +56,6 @@ bool Venue::copy_venue(const a_venue & add_venue)
     strcpy(review, add_venue.review);
     category = new char[strlen(add_venue.category) + 1];
     strcpy(category, add_venue.category);
-
     return true;
 }
 
@@ -69,5 +66,11 @@ void Venue::display()
 
 int menu()
 {
-    return 0;
+    cout << "\nPlease choose from the following menu options:\n"
+         << "(1) Add meal\n(2) Remove an entry by meal\n(3) Remove all entries based on venue(food cart) name\n"
+         << "(4) Retireve by meal\n(5) Display all matching the meal\n(6) Quit\n Choice: " << endl;
+    int choice = 0;
+    cin >> choice;
+    cin.ignore(100, '\n');
+    return choice;
 }

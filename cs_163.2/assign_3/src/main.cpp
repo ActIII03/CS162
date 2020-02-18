@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    int choice = 0;
+    int choice = 0, result = 0;
 
     cout << "What will be the size of the table?: " << endl;
     cin >> choice;
@@ -102,7 +102,37 @@ int main(void)
 
             case 1:
                 // Add new resturant
-
+                cout << "\nEnter the following:\n(1) Meal name: " << endl;
+                cin.get(in_venue.meal, 30, '\n');
+                cin.ignore(100, '\n');
+                cout << "Venue or Food Cart Name: " << endl;
+                cin.get(in_venue.name, 30, '\n');
+                cin.ignore(100, '\n');
+                cout << "\nPrice: " << endl;
+                cin >> in_venue.price;
+                cin.ignore(100, '\n');
+                cout << "\nRating: " << end;
+                cin >> in_venue.rating;
+                cin.ignore(100, '\n');
+                cout << "Review: " << endl;
+                cin.get(in_venue.review, 100, '\n');
+                cin.ignore(100, '\n');
+                cout << "Category(Venue or Food Cart): " << endl;
+                cin.get(in_venue.category, 100, '\n');
+                cin.ignore(100, '\n');
+                new_venue.get_venue(in_venue);
+                result = my_table.insert(new_venue);
+                if(!result)
+                    cout << "\nSuccessful entry!\n";
+                else
+                    cout << "\nSomething went wrong, try again!\n";
+                if(new_venue.meal)
+                {
+                    delete new_venue.meal;
+                    delete new_venue.name;
+                    delete new_venue.review;
+                    delete new_venue.category;
+                }
                 break;
 
             case 2:
