@@ -68,7 +68,7 @@ int menu()
 {
     cout << "\nPlease choose from the following menu options:\n"
          << "(1) Add meal\n(2) Remove an entry by meal\n(3) Remove all entries based on venue(food cart) name\n"
-         << "(4) Retireve by meal\n(5) Display all matching the meal\n(6) Quit\n Choice: " << endl;
+         << "(4) Retireve by meal\n(5) Display all matching the meal\n(6) Quit\nChoice: ";
     int choice = 0;
     cin >> choice;
     cin.ignore(100, '\n');

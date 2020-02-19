@@ -59,9 +59,50 @@ int table::retrieve(char * search_key, Venue & found)
     return 0;
 }
 
-int table::remove(char * search_key)
+int table::remove(char * search_key, int choice)
 {
-    return 0;
+    if(!search_key)
+        return -99;
+
+    if(is_empty())
+        return -99;
+
+    int result = 0;
+
+    if(choice == 1)
+    {
+        // Pass meal as search key
+        int index = hash_function(search_key);
+        node * current = hash_table[index];
+        result = remove_meal(current, search_key);
+    }
+    else
+        // Pass venue(cart) name as search key
+        result = remove_venue(search_key);
+
+    return result;
+}
+
+int table::remove_meal(node * & head, char * search_key)
+{
+    if(!head)
+        return -99;
+    
+    // Compare for match and remove if true
+    if(strcmp(head -> venue_entry.meal, search_key) == 0)
+    {
+        node * temp = head -> next;
+        delete head;
+        head = temp;
+        return 0;
+    }
+    return remove_meal(head -> next, search_key);
+}
+
+int table::remove_venue(char * search_key)
+{
+    
+
 }
 
 int table::display(char * search_key)
@@ -81,4 +122,19 @@ int table::hash_function(char * key)
         value += key[index];
 
     return value % size;
+}
+
+int table::is_empty()
+{
+    int result = 0;
+    
+    for(int index = 0;index < size; ++index)
+    {
+        if(!*(hash_table + index))
+            result = 0;
+        else
+            result = 1;
+    }
+
+    return result;
 }

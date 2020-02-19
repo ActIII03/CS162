@@ -111,7 +111,7 @@ int main(void)
                 cout << "\nPrice: " << endl;
                 cin >> in_venue.price;
                 cin.ignore(100, '\n');
-                cout << "\nRating: " << end;
+                cout << "\nRating: " << endl;
                 cin >> in_venue.rating;
                 cin.ignore(100, '\n');
                 cout << "Review: " << endl;
@@ -137,11 +137,29 @@ int main(void)
 
             case 2:
                 // Remove by meal
+                cout << "Please select a meal to remove from list: ";
+                cin.get(in_venue.meal, 30, '\n');
+                cin.ignore(100, '\n');
+                choice = 1;
+                result = my_table.remove(in_venue.meal, choice);
+                if(!result)
+                    cout << "\nSuccessful removal!\n";
+                else
+                    cout << "\nSomething went wrong, try again!\n";
                 
                 break;
 
             case 3:
                 // Remove all based on venue name
+                choice = 2;
+                cout << "Please enter a venue you want to remove from the list: ";
+                cin.get(in_venue.name, 30, '\n');
+                cin.ignore(100, '\n');
+                result = my_table.remove(in_venue.name, choice);  // <---- Work on
+                if(!result)
+                    cout << "\nSuccessful removal!\n";
+                else
+                    cout << "\nSomething went wrong, try again!\n";
 
                 break;
 
@@ -151,7 +169,7 @@ int main(void)
                 break;
 
             case 5:
-                // Display all information for a particular 
+                // Display all information for a particular meal choice
                 
                 break;
 

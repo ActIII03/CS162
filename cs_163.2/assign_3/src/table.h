@@ -26,7 +26,7 @@ class table
         int retrieve(char * search_key, Venue & found);
         
         // Remove from table
-        int remove(char * search_key);
+        int remove(char * search_key, int option);
 
         //Display by meal
         int display(char * search_key);
@@ -34,9 +34,19 @@ class table
         // Hash function
         int hash_function(char * key);
 
+        // Check if table is empty
+        int is_empty();
+
     private:
 
+        // Display meal matches
         int display_meal_list(node * head);
+
+        // Remove meal
+        int remove_meal(node * & head, char * search_key);
+
+        // Remove a venue 
+        int remove_venue(char * search_key);
     
         node ** hash_table;
         int size;
