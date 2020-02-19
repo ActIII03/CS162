@@ -103,11 +103,45 @@ int table::remove_venue(char * search_key)
 {
     
 
+    return 0;
 }
 
 int table::display(char * search_key)
 {
-    return 0;
+
+
+    // Work on is_empty
+    //if(is_empty())
+    //    return -99;
+
+    int result = 0;
+
+    for(int index = 0; index < size; ++index)
+        display(hash_table[index], search_key);  //Add count
+
+    return result;
+}
+
+int table::display(node * head, char * search_key)
+{
+    int count = 0;
+
+    if(!head)
+        return 0;
+
+    if(strcmp(head -> venue_entry.meal, search_key) == 0)
+    {
+        ++count;
+        cout << "\nMeal name: " << head -> venue_entry.meal 
+             << "\nVenue Name: " << head -> venue_entry.name
+             << "\nPrice: " << head -> venue_entry.price
+             << "\nRating: " << head -> venue_entry.rating
+             << "\nVenue type: " << head -> venue_entry.category << endl;
+    }
+
+    count += display(head -> next, search_key);
+
+    return count;
 }
 
 int table::hash_function(char * key)
@@ -126,15 +160,13 @@ int table::hash_function(char * key)
 
 int table::is_empty()
 {
-    int result = 0;
+    bool flag = false; 
     
     for(int index = 0;index < size; ++index)
     {
-        if(!*(hash_table + index))
-            result = 0;
-        else
-            result = 1;
+        if( !flag && !(*(hash_table + index)) )
+            flag = true;
     }
 
-    return result;
+    return flag;
 }

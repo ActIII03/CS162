@@ -47,6 +47,9 @@ class table
 
         // Remove a venue 
         int remove_venue(char * search_key);
+
+        // Display
+        int display(node * head, char * search_key);
     
         node ** hash_table;
         int size;
