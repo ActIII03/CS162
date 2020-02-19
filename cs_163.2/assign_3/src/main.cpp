@@ -154,11 +154,10 @@ int main(void)
                 cin.get(in_venue.name, 30, '\n');
                 cin.ignore(100, '\n');
                 result = my_table.remove(in_venue.name, 2);  // <---- Work on & signifying what type of remove
-                if(!result)
-                    cout << "\nSuccessful removal!\n";
+                if(result)
+                    cout << "\nRemoved this number of item:" << result << endl;
                 else
                     cout << "\nSomething went wrong, try again!\n";
-
                 break;
 
             case 4:

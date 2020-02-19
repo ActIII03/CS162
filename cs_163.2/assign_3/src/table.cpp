@@ -64,7 +64,7 @@ int table::remove(char * search_key, int choice)
     if(!search_key)
         return -99;
 
-    if(is_empty())
+    if(!is_empty())
         return -99;
 
     int result = 0;
@@ -101,18 +101,40 @@ int table::remove_meal(node * & head, char * search_key)
 
 int table::remove_venue(char * search_key)
 {
-    
 
-    return 0;
+    int result = 0;
+
+    for(int index = 0; index < size; ++index)
+        result += remove_venue(hash_table[index], search_key);
+
+    return result;
+}
+
+int table::remove_venue(node * & head, char * search_key)
+{
+    int count = 0;
+
+    if(!head)
+        return 0;
+
+    if(strcmp(head -> venue_entry.name, search_key) == 0)
+    {
+        ++count;
+        node * temp = head -> next;
+        delete head;
+        head = temp;
+    }
+
+    count += remove_venue(head -> next, search_key);
+
+    return count;
 }
 
 int table::display(char * search_key)
 {
 
-
-    // Work on is_empty
-    //if(is_empty())
-    //    return -99;
+    if(!is_empty())
+        return -99;
 
     int result = 0;
 
@@ -150,9 +172,9 @@ int table::hash_function(char * key)
     if(!key)
         return -99;
 
-    int value = 0;
+    int value = 0, length = strlen(key);
 
-    for(int index = 0; index < size; ++index)
+    for(int index = 0; index < length; ++index)
         value += key[index];
 
     return value % size;
@@ -164,7 +186,7 @@ int table::is_empty()
     
     for(int index = 0;index < size; ++index)
     {
-        if( !flag && !(*(hash_table + index)) )
+        if( *(hash_table + index) )
             flag = true;
     }
 

@@ -28,6 +28,9 @@ class table
         // Remove from table
         int remove(char * search_key, int option);
 
+        // Remove a venue 
+        int remove_venue(char * search_key);
+
         //Display by meal
         int display(char * search_key);
 
@@ -46,7 +49,7 @@ class table
         int remove_meal(node * & head, char * search_key);
 
         // Remove a venue 
-        int remove_venue(char * search_key);
+        int remove_venue(node * & head, char * search_key);
 
         // Display
         int display(node * head, char * search_key);
