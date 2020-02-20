@@ -115,7 +115,9 @@ int table::remove_venue(node * & head, char * search_key)
     int count = 0;
 
     if(!head)
+
         return 0;
+
 
     if(strcmp(head -> venue_entry.name, search_key) == 0)
     {
@@ -123,9 +125,10 @@ int table::remove_venue(node * & head, char * search_key)
         node * temp = head -> next;
         delete head;
         head = temp;
+        count += remove_venue(head, search_key);
     }
-
-    count += remove_venue(head -> next, search_key);
+    else
+        count += remove_venue(head -> next, search_key);
 
     return count;
 }
