@@ -73,8 +73,7 @@ int table::remove(char * search_key, int choice)
     {
         // Pass meal as search key
         int index = hash_function(search_key);
-        node * current = hash_table[index];
-        result = remove_meal(current, search_key);
+        result = remove_meal(hash_table[index], search_key);
     }
     else
         // Pass venue(cart) name as search key
@@ -85,15 +84,24 @@ int table::remove(char * search_key, int choice)
 
 int table::remove_meal(node * & head, char * search_key)
 {
+    // No items
     if(!head)
         return -99;
     
+    // One item
+    if(!head -> next)
+    {
+        delete head;
+        head = NULL;
+        return 0;
+    }
+
     // Compare for match and remove if true
     if(strcmp(head -> venue_entry.meal, search_key) == 0)
     {
-        node * temp = head -> next;
-        delete head;
-        head = temp;
+        node * temp = head;
+        head = head -> next;
+        delete temp;
         return 0;
     }
     return remove_meal(head -> next, search_key);
@@ -149,14 +157,14 @@ int table::display(char * search_key)
 
 int table::display(node * head, char * search_key)
 {
-    int count = 0;
+
+    int result = 0;
 
     if(!head)
-        return 0;
+        return result + 1;
 
     if(strcmp(head -> venue_entry.meal, search_key) == 0)
     {
-        ++count;
         cout << "\nMeal name: " << head -> venue_entry.meal 
              << "\nVenue Name: " << head -> venue_entry.name
              << "\nPrice: " << head -> venue_entry.price
@@ -164,9 +172,9 @@ int table::display(node * head, char * search_key)
              << "\nVenue type: " << head -> venue_entry.category << endl;
     }
 
-    count += display(head -> next, search_key);
+    result += display(head -> next, search_key);
 
-    return count;
+    return result;
 }
 
 int table::hash_function(char * key)

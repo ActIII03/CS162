@@ -136,7 +136,7 @@ int main(void)
                 break;
 
             case 2:
-                // Remove by meal
+                // Remove by meal 
                 cout << "Please select a meal to remove from list: ";
                 cin.get(in_venue.meal, 30, '\n');
                 cin.ignore(100, '\n');
@@ -155,24 +155,29 @@ int main(void)
                 cin.ignore(100, '\n');
                 result = my_table.remove(in_venue.name, 2);  // <---- Work on & signifying what type of remove
                 if(result)
-                    cout << "\nRemoved this number of item:" << result << endl;
+                    cout << "\nRemoved this number of items: " << result << endl;
                 else
                     cout << "\nSomething went wrong, try again!\n";
                 break;
 
             case 4:
-                // Retrieve by venue name (keyword)
+                // Retrieve by meal (keyword) <-- Work on
+                cout << "Pick a meal: ";
+                cin.get(in_venue.meal, 30, '\n');
+                cin.ignore(100, '\n');
+                my_table.retrieve(in_venue.meal, new_venue);
                 
                 break;
 
             case 5:
-                // Display all information for a particular meal choice
+                // Display all information for a particular meal choice <-- Work on result
                 cout << "\nPlease select a meal to display from list: ";
                 cin.get(in_venue.meal, 30, '\n');
                 cin.ignore(100, '\n');
                 result = my_table.display(in_venue.meal);
                 if(result)
                     cout << "\nEither nothing is listed or something went wrong. try again.\n";
+
                 break;
 
             case 6:
