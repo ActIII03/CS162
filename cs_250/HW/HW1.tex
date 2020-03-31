@@ -7,6 +7,7 @@
 \usepackage{hyperref, url}
 \usepackage[margin=2cm, top=2cm]{geometry}
 \newcommand{\tuple}[1]{$\langle #1 \rangle$} 
+\newcommand\setItemNumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 
 \title{\bf Homework 1\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
@@ -15,7 +16,7 @@
 
 \begin{document} 
 
-\vspace{-2cm}\maketitle 
+\vspace{0cm}\maketitle 
 
 \paragraph{Problem 1} Figure out how to typeset the following mathematical statements.
 
@@ -38,8 +39,8 @@
 
 			\begin{array}{|c c|c|} 
 			p & q & p \land q\\ 
-			\hline % Put a horizontal line between the table header and the rest.
-			T & T & T\\
+			\hline 			
+            T & T & T\\
 			T & F & F\\
 			F & T & F\\
 			F & F & F\\
@@ -57,12 +58,16 @@ Exercises: 1, 3, 10, 12, 16, and 17.\
 
 \begin{enumerate}
 
+    % (1)
     \item For each sentence below, deicide it is an atomic statement, a molecular statment, or not a statement at all.
         \begin{enumerate}
             \item Customers must wear shoes
             \item The customers wore shoes
             \item The customers wore shoes and they wore socks
         \end{enumerate}
+    
+    % (3)
+    \setItemNumber{3}
     \item Supposse $P$ and $Q$ are the statements: $P$: Jack passed math. $Q$: Jill passed math.
         \begin{enumerate}
             \item Translate "Jack and Jill both passed math" into symbols
@@ -75,6 +80,8 @@ Exercises: 1, 3, 10, 12, 16, and 17.\
                     \item JIll did not pass math?
                 \end{enumerate}
         \end{enumerate}
+    % (10)
+    \setItemNumber{10}
     \item Write each of the following statements in the form, “if . . . , then . . . .” Careful, some of the statements might be false (which is alright for the purposes of this question).
         \begin{enumerate}
             \item To lose weight, you must exercise.
@@ -85,10 +92,34 @@ Exercises: 1, 3, 10, 12, 16, and 17.\
             \item A number is prime if it is not even.
             \item Either the Broncos will win the Super Bowl, or they won’t play in the Super Bowl.
         \end{enumerate}
+
+    % (12)
+    \setItemNumber{12}
     \item Let $P(x)$ be the predicate, "$3x + 1$ is even"
         \begin{enumerate}
             \item is $P(5)$ true or false?
-            \item What, if anything, can you conclude about $
-            \item
-\end{enumerate}
+            \item What, if anything, can you conclude about $\exists xP(x)$ from the truth value of $P(5)$?
+            \item What, if anything, can you conclude about $\forall xP(x)$ from the truth value of $P(5)$?
+        \end{enumerate}
+
+    % (16)
+    \setItemNumber{16}
+\item Translate into symbols. Use $E(x)$ for " $x$ is even" and $O(x)$ for "$x$ is odd."
+    \begin{enumerate}
+        \item No number is both even and odd.
+        \item One more than any even number is an odd number.
+        \item There is prime number that is even.
+        \item Between any two numbers there is a third number.
+        \item There is no number between a number and one more than that number.
+    \end{enumerate}
+
+    % (17)
+    \setItemNumber{17}
+    \item Translate into English:
+        \begin{enumerate}
+            \item $\forall x (E(x) \rightarrow E(x + 2)$
+            \item $\forall x \exists y(\sin(x) = y)$
+            \item $\forall y \exists x(\sin(x) = y)$
+            \item $\forall x \forall y(x^3 = y^3 \rightarrow x = y)$
+        \end{enumerate}
 \end{document}
