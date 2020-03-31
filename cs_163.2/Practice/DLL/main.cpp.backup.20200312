@@ -1,0 +1,44 @@
+#include "dlist.h"
+using namespace std;
+
+int main()
+{
+    node * head = NULL;
+    build(head);
+    display(head);
+
+    //PLEASE PUT YOUR CODE HERE to call the function assigned
+
+    cout << "Number of nodes in DLL: " << count(head) << endl;
+
+    if(remove_end(head))
+        cout << "\nSuccessful remove!" << endl;
+    else
+        cout << "\nFailed remove!" << endl;
+
+    display(head);
+    destroy(head);    
+    return 0;
+}
+
+int count(node * head)
+{
+    if(!head)
+        return 0;
+    return 1 + count(head -> next);
+}
+
+int remove_end(node * & head)
+{
+    if(!head)
+        return 0;
+
+    if(!head -> next)
+    {
+        delete head;
+        head = NULL;
+        return 1;
+    }
+
+    return remove_end(head -> next);
+}

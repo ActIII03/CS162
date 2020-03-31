@@ -1,0 +1,96 @@
+% '%' is similar to '//' in C++ to mean a single line comment. The LaTeX compiler will ignore these lines.
+
+\documentclass[11pt]{article} % a back slash '\' denotes a command in LaTeX. The documentclass defines the standard layout of the document. Square brackets '[]' are parameters that can be passed to the argument.
+\usepackage{amssymb,amsthm,listings,color,array,easytable,multicol} % packages like these bring in additional features via commands. They're like #include in C++
+\usepackage[fleqn]{amsmath} % fleqn: flush left equations
+\usepackage{venndiagram} % Here are a bunch more packages that I use frequently. Google them to find out what they are used for.
+\usepackage{graphicx}
+\usepackage{hyperref, url}
+\usepackage[margin=2cm, top=2cm]{geometry}
+\usepackage[shortlabels]{enumitem}
+\newcommand{\tuple}[1]{$\langle #1 \rangle$} % The \newcommand command is like a macro in C++
+
+%The title, date, and author are part of the preamble. The preamble is not part of the main body of the document. 
+\title{\bf Homework 1\\[1ex]
+\rm\normalsize CS250 Discrete Structures I, Winter 2020 }
+\date{\normalsize Due: April 5, 2020}
+\author{\normalsize David Lu}
+
+\begin{document} % This \begin{document} and corresponding \end{document} identifies the begeinning and end of your document body.
+
+	\vspace{-4cm}\maketitle % \maketitle tells LaTeX to put the title, date, and author information here.
+	
+	\begin{center}
+		\fbox{\fbox{\parbox{5.5in}{\centering
+					Your solutions must be typed (preferably typeset in \LaTeX{}) and submitted as a PDF on D2L.
+					\\
+					
+					Solutions generally require clear explanations in complete sentences and must be in your own writing.
+		}}}
+	\end{center}
+	
+	\paragraph{Your first assignment}
+	
+	\begin{itemize}
+		\item Familiarize yourself with the course layout in D2L.
+		\item Look over the syllabus and schedule.
+		\item Read the preface and `how to use this book' as well as chapter 0.1 and 0.2 (page 1-23) of the textbook: \href{http://discrete.openmathbooks.org/dmoi3.html}{http://discrete.openmathbooks.org/dmoi3.html}.
+		\item If you plan to use \LaTeX{} and you have no prior experience, create a free account at \href{https://www.overleaf.com/}{https://www.overleaf.com/}. 
+		\item Complete the following exercises.
+	\end{itemize}
+
+	\paragraph{Typesetting mathematical and logical languages} 
+	
+	``In order to \textit{do} mathematics, we must be able to \textit{talk} and \textit{write} about mathematics." For those of us studying CS, we should also be able to typeset mathematics for display on computers.\\
+	
+	I strongly recommend using \LaTeX{} to typeset your work for this class, work for other classes, academic research, and your resume. If you have no experience with \LaTeX{}, now is a good time to learn the basics. For this class, you won't need much more than the basics and some Google searching to typeset your homework solutions. Producing polished mathematical documents with \LaTeX{} is significantly easier than with MS Word or Google Docs.\\
+	
+	\LaTeX{} (pronounced LAH-tek) is a tool used to prepare documents. It's widely used for scientific papers, engineering documents, academic journals, books, resumes, and much more. Our textbook is typeset in \LaTeX{}. Rather than WYSIWYG (what you see is what you get) document editors such as Microsoft Word or Google Docs, where edit the format directly, \LaTeX{} is a language, much like C++, where you describe how you want your document to be formatted. Like C++, \LaTeX{} is a compiled language. So, you write your content (source code) into an editor and a \LaTeX{} compiler outputs a PDF file. \\
+	
+	There are a number of good \LaTeX{} IDEs (an integrated development environment, which combines an editor with a compiler and other tools). I like TeXstudio (\url{https://www.texstudio.org/}) for both Windows and MacOS. However, for beginners, I recommend Overleaf (\url{https://www.overleaf.com/}). Overleaf is an online browser based \LaTeX{} IDE. It has tutorials, examples, and extensive documentation to help you get started. 
+	
+	\newpage
+	
+	\paragraph{Exercises} The two problems for the first week's homework assignment involve getting comfortable with typing up mathematical symbols and getting familiar with the textbook and it's layout
+	
+
+	\paragraph{Problem 1} Figure out how to typeset the following mathematical statements. (Hint, you can take a look at the HW1.tex file to find out how I did it.)
+	
+	\begin{enumerate} % \begin{enumerate} and \end{enumerate} surround a numbered list. You can put items here via the \item command. 
+		\item $f(x) = \mathcal{O}(n \log n)$ (Big `O' notation)	% \mathcal is a mathematical font command. Some fonts require packages to use. This one requires \usepackage{assymb}
+		\item $\neg(A \land B) \leftrightarrow (\neg A \lor \neg B)$ (De Morgan's law in propositional logic notation) % Notice that most of my mathematical equations are surrounded by dollar signs, '$'. The '$' signifies that LaTeX should process the text in math mode.
+		\item $\overline{A \cup B} = \overline{A} \cap \overline{B}$ (De Morgan's law in set theory notation)
+		\item $f(x) = \log_{2} x^{2}$ (Subscripts and superscripts) % You can use underscores and carrots to get subscripts and superscripts.
+		\item $A = \frac{\pi d^2}{4}$ (Fraction and special symbols)
+		\item $S = \{a, b, c, d\}$ (A set definition)
+		\item (Truth tables) 
+		\begin{align*}  % This table doesn't need to be inside '$', even though it's in math mode, because the \begin{align*} and \end{align*} command is from the amsmath package, which includes features to typeset mathematical equations.
+			\begin{array}{|c c|c|} % An array here, describes a table with columns and rows.
+			% |c c|c| means that there are three columns in the table and
+			% a vertical bar ’|’ will be printed on the left and right borders,
+			% and between the second and the third columns.
+			% The letter ’c’ means the value will be centered within the column,
+			% letter ’l’, left-aligned, and ’r’, right-aligned.
+			p & q & p \land q\\ % Use & to separate the columns
+			\hline % Put a horizontal line between the table header and the rest.
+			T & T & T\\
+			T & F & F\\
+			F & T & F\\
+			F & F & F\\
+			\end{array}
+		\end{align*}
+		\item (A summation statement)
+		\begin{align*}
+			\sum_{k=1}^{n}n 
+		\end{align*}
+		
+	\end{enumerate}
+
+	\paragraph{Problem 2} Read chapter 0.1 and 0.2 of the textbook and write up solutions to the following exercises (page 17--23 in the pdf version)\\
+	
+	Exercises: 1, 3, 10, 12, 16, and 17.\\
+	
+	(Hint: All of these have solutions or a check your answers field in the online version of the textbook: \url{http://discrete.openmathbooks.org/dmoi3/sec_intro-statements.html})
+		
+	
+\end{document}
