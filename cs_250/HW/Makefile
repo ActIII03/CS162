@@ -3,7 +3,7 @@ PROJECT = HW1
 default: obj/$(PROJECT).pdf
 
 display: default
-	(${PDFVIEWER} obj/$(PROJECT).pdf &)
+	(${PDFVIEWER} $(PROJECT).pdf )
 
 TEXINPUTS = .:obj/
 TEXMFOUTPUT = obj/
@@ -13,12 +13,10 @@ BIB_FILES = $(shell find . -name '*.bib')
 BST_FILES = $(shell find . -name '*.bst')
 IMG_FILES = $(shell find . -path '*.jpg' -or -path '*.png' -or \( \! -path './obj/*.pdf' -path '*.pdf' \) )
 
-UNAME := $(shell uname)
-
 PDFVIEWER = evince
 
-clean::
-	rm -rf obj/
+clean:
+	rm -rf obj/ *.aux *.log *.out
 
 obj/:
 	mkdir -p obj/
