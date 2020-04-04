@@ -16,7 +16,7 @@ IMG_FILES = $(shell find . -path '*.jpg' -or -path '*.png' -or \( \! -path './ob
 PDFVIEWER = evince
 
 clean:
-	rm -rf obj/ *.aux *.log *.out
+	rm -rf obj/ *.aux *.ttt *.log *.out
 
 obj/:
 	mkdir -p obj/
