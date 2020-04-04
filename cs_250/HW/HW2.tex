@@ -1,0 +1,134 @@
+% catalogue of LaTex pkg: https://www.biu.ac.il/os_site/documentation/teTeX/help/Catalogue/index.html
+
+\documentclass[11pt, a4paper]{article} 
+\usepackage{amssymb}
+\usepackage[fleqn]{amsmath} % fleqn: flush left equations <-- Left-flush equations
+\usepackage{graphics}
+\usepackage{hyperref, url}
+\usepackage[margin=2cm, top=2cm]{geometry}
+\newcommand{\tuple}[1]{$\langle #1 \rangle$} 
+\newcommand\setItemNumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\newcommand*{\mybox}[1]{\framebox{#1}}
+
+\title{\bf Homework 1\\[1ex]
+\rm\normalsize CS250 Discrete Structures I, Winter 2020 }
+\date{\normalsize Due: April 12, 2020}
+\author{\normalsize Armant Touche}
+
+\begin{document} 
+
+\vspace{0cm}\maketitle 
+
+\paragraph{Problem 1} Write up solutions to the following exercises from chapter 0.3 (page 35–38 in the pdf version)
+
+Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
+
+\begin{enumerate}
+
+    %(1)
+    \item Let $A = \{1,4,9\}$ and $B = \{1,3,6,10\}$. Find each of the following sets.
+        \begin{enumerate}
+            \item $A\cup B$ 
+            \item $A\cap B$
+            \item $A\setminus B$
+            \item $B\setminus A$
+        \end{enumerate}
+
+    %(2)
+    \item Find the least element of each of the following sets, if there is one.
+        \begin{enumerate}
+            \item $\{n \in\mathbb{N}| n^2 - 3 \geq 2\}$
+            \item $\{n \in\mathbb{N}| n^2 - 5 \in \mathbb{N}\}$
+            \item $\{n^2 + 1| n \in\mathbb{N}\}$
+            \item $\{n \in\mathbb{N}| n = k^2 +1$ for some $k\in\mathbb{N}\}$
+        \end{enumerate}
+
+    %(5)
+    \setItemNumber{5}
+    \item Find a set of smallest possible size that has both $\{1,2,3,4,5\}$ and $\{2,4,6,8,10\}$ as subsets.
+
+    %(8)
+    \setItemNumber{8}
+    \item Let $A = \{1,2,3,4,5,\}$, $B = \{3,4,5,6,7\}$, and $C = \{2,3,5\}$.
+        \begin{enumerate}
+            \item Find $A\cap B$
+            \item Find $A\cup B$
+            \item Find $A\setminus B$
+            \item Find $A\cap\overline{(B\cup C)}$
+        \end{enumerate}
+
+    %(10)
+    \setItemNumber{10}
+    \item Let $A = \{x\in\mathbb{N}| 3\leq x\leq13\}$, and $B = \{x\in\mathbb{N}\x$ is even\}, and $C = \{x\in\mathbb{N}\x$ is odd\}.
+        \begin{enumerate}
+            \item Find $A\capB$
+            \item Find $A\setminus B$
+            \item Find $B\cap C$
+            \item Find $B\cup C$
+        \end{enumerate}
+
+    %(19)
+    \setItemNumber{19}
+    \item Let $A = \{1,2,3,4,5,6\}$. Find all sets $B\in\mathcal{P}(A)$ which have the property $\{2,3,5\}\subseteq B$
+
+    %(22)
+    \setItemNumber{22}
+    \item Are there $A$ and $B$ such that $|A| = |B|,|A\cup B| = 10$, and $|A\cap B| = 5$?Explain.
+
+
+    %(25)
+    \setItemNumber{25}
+    \item Let $A, B$ and $C$ be sets.
+        \begin{enumerate}
+            \item Suppose that $A \subseteq B$ and $B\sebseteq C$. Does this mean that $A \subseteq C$? Prove your answer. Hint: to prove that $A\subseteq C$ you must prove the implication, “for all $x$, if $x\in A$ then $x\in C$.”
+            \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.
+        \end{enumerate}
+
+    %(26)
+    \setItemNumber{26}
+    \item In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.
+
+    %(30)
+    \setItemNumber{30}
+    \item Find all sets $A,B,$ and$C$ which satisfy the following.\
+       
+        \centering $A=\{1,|B|,|C|\}$\
+
+        \centering $B=\{2,|A|,|C|\}$\
+
+        \centering $C=\{1,2,|A|,|B|\}$
+
+\end{enumerate}
+
+\paragraph{Problem 2} Understanding the ‘if... then...’ conditional, also called {\it material implication}.
+
+	%(Hint: All of these have solutions or a check your answers field in the online version of the textbook: \url{http://discrete.openmathbooks.org/dmoi3/sec_intro-statements.html})
+
+\begin{enumerate}
+    % (1)
+    \item Card Puzzle I have a set of cards. Each card has a number on one side and a letter on the other.\\ 
+        
+    Here is a rule:\\
+
+	\mybox{If a card has a ’D’ on one side, then it has a ’3’ on the other side.}\\
+   
+    Which cards you have to turn over given the following cards to determine whether the rule holds or not?\\
+
+    \mybox{{\Huge D}} \mybox{{\Huge F}} \mybox{{\Huge 3}} \mybox{{\Huge 7}}\\
+
+    \item Bar Puzzle You are a bouncer in a bar and you must enforce the following rule:\\
+
+    
+	\mybox{If a bar patron is drinking beer she or he must be 21 or over.}\\
+        
+    Of the four people at the bar drinking beverages, whose IDs or drinks do you need to check?
+
+    \begin{itemize}
+        \item A person drinking
+        \item A person drinking coke
+        \item A person who you know is over 21
+        \item A person who is you know is uner 21
+    \end{itemize}
+\end{enumerate} 
+        
+\end{document}

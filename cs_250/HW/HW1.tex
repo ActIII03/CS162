@@ -36,7 +36,7 @@
 
     \item (Truth Table)
         \begin{align*} 
-			\begin{array}{|c c|c|} 
+			\begin{array}{|c|c|c|} 
 			p & q & p \land q\\ 
 			\hline 			
             T & T & T\\
@@ -54,15 +54,24 @@
 
 \paragraph{Problem 2} Read chapter 0.1 and 0.2 of the textbook and write up solutions to the following exercises (page 17--23 in the pdf version).
 
-%(Hint: All of these have solutions or a check your answers field in the online version of the textbook: \url{http://discrete.openmathbooks.org/dmoi3/sec_intro-statements.html})
+	%(Hint: All of these have solutions or a check your answers field in the online version of the textbook: \url{http://discrete.openmathbooks.org/dmoi3/sec_intro-statements.html})
 
 \begin{enumerate}
     % (1)
     \item For each sentence below, deicide it is an atomic statement, a molecular statment, or not a statement at all.
         \begin{enumerate}
             \item Customers must wear shoes
-            \item The customers wore shoes
-            \item The customers wore shoes and they wore socks
+
+                Not a statement 
+
+            \item The customers wore shoes 
+
+                Atomic statement
+
+            \item The customers wore shoes and they wore socks 
+
+                Molecular statement
+
         \end{enumerate}
     
     % (3)
@@ -70,13 +79,31 @@
     \item Supposse $P$ and $Q$ are the statements: $P$: Jack passed math. $Q$: Jill passed math.
         \begin{enumerate}
             \item Translate "Jack and Jill both passed math" into symbols
+
+                $P \land Q$
+
             \item Translate "If Jack passed math, then Jill did not" into symbols
+
+                $P \land \neg Q$
+
             \item Translate "$P \lor Q$" into English
+
+                Jack or Jill passed math (or both).
+
             \item Translate "$ \neg(P \land Q) \rightarrow Q$" into English
+
+                If Jack and Jill both did not pass math, then Jill passed math.
+
             \item Suppose you know that if Jack passed math, then so did Jill. What can you conclude if you know that:
                 \begin{enumerate}
                     \item Jill passed math?
-                    \item JIll did not pass math?
+
+                        Cannot conclude anything.
+
+                    \item Jill did not pass math?
+
+                        Jack did not pass math.
+
                 \end{enumerate}
         \end{enumerate}
 
@@ -85,21 +112,50 @@
     \item Write each of the following statements in the form, “if . . . , then . . . .” Careful, some of the statements might be false (which is alright for the purposes of this question).
         \begin{enumerate}
             \item To lose weight, you must exercise.
+
+                If you want to lose weight, then you must exercise.
+
             \item To lose weight, all you need to do is exercise.
+
+                If you exercise, then you will lose weight
+
             \item Every American is patriotic.
+            
+                If you are American, then you are patriotic.
+
             \item You are patriotic only if you are American.
+
+                If you are patriotic, then you are American.
+
             \item The set of rational numbers is a subset of the real numbers
+
+                If there is a set of rational numbers, then that set of numbers is a subset of real numbers.
+
             \item A number is prime if it is not even.
+
+                If the number is not even, then the number is prime.
+
             \item Either the Broncos will win the Super Bowl, or they won’t play in the Super Bowl.
+
+If the Broncos play, then they win the Super Bowl but otherwise, they do not play the Super Bowl.
         \end{enumerate}
 
     % (12)
     \setItemNumber{12}
     \item Let $P(x)$ be the predicate, "$3x + 1$ is even"
         \begin{enumerate}
-            \item is $P(5)$ true or false?
+            \item Is $P(5)$ true or false?
+
+                True
+
             \item What, if anything, can you conclude about $\exists xP(x)$ from the truth value of $P(5)$?
+
+                Since P(5) is true, $\exists xP(x)$ is true because 5 is such an $x$.
+
             \item What, if anything, can you conclude about $\forall xP(x)$ from the truth value of $P(5)$?
+
+                Since there is not a known domain, we cannot verify if $\forall xP(x)$ to be true since we do not all the truth values. $P(4)$ is false for example.
+
         \end{enumerate}
 
     % (16)
@@ -107,10 +163,25 @@
     \item Translate into symbols. Use $E(x)$ for " $x$ is even" and $O(x)$ for "$x$ is odd."
         \begin{enumerate}
             \item No number is both even and odd.
+
+                $\neg \exists x(E(x) \land O(x))$
+
             \item One more than any even number is an odd number.
+
+                $\forall x(E(x) \rightarrow O(x + 1))$
+
             \item There is prime number that is even.
+
+                $\exists x(E(x) \land P(x))$ (where $P(x)$ means "$x$ is prime)
+
             \item Between any two numbers there is a third number.
+
+                $\forall x \forall y\exists z(x < z < y \lor y < z < x)$
+
             \item There is no number between a number and one more than that number.
+
+                $\forall x \neg \exists y( x < y < x + 1)$
+
         \end{enumerate}
 
     % (17)
@@ -118,9 +189,21 @@
     \item Translate into English:
         \begin{enumerate}
             \item $\forall x (E(x) \rightarrow E(x + 2)$
+
+                Any even number plus 2 is an even number
+
             \item $\forall x \exists y(\sin(x) = y)$
+
+                For any $x$ there exists $y$ such that $sin(x) = y$
+
             \item $\forall y \exists x(\sin(x) = y)$
+
+                For any $y$ there exists $x$ such that $sin(x) = y$
+
             \item $\forall x \forall y(x^3 = y^3 \rightarrow x = y)$
+
+                For any $x$ or $y$, if cubes of those two numbers are equal, then $x = y$
+
         \end{enumerate}
 \end{enumerate}
 \end{document}
