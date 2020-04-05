@@ -1,4 +1,4 @@
-PROJECT = apa_template
+PROJECT = inquiry_log
 
 default: obj/$(PROJECT).pdf
 
@@ -16,7 +16,7 @@ IMG_FILES = $(shell find . -path '*.jpg' -or -path '*.png' -or \( \! -path './ob
 PDFVIEWER = evince
 
 clean:
-	rm -rf obj/ *.aux *.ttt *.log *.out
+	rm -rf obj/ *.bbl *.blg *.aux *.ttt *.log *.out
 
 obj/:
 	mkdir -p obj/
@@ -25,7 +25,7 @@ obj/$(PROJECT).aux: $(TEX_FILES) $(IMG_FILES) | obj/
 	pdflatex $(PDFLATEX_FLAGS) $(PROJECT)
 
 obj/$(PROJECT).bbl: $(BIB_FILES) | obj/$(PROJECT).aux
-	bibtex obj/$(PROJECT)
+	bibtex obj/$(BIB_FILES)
 	pdflatex $(PDFLATEX_FLAGS) $(PROJECT)
 	
 obj/$(PROJECT).pdf: obj/$(PROJECT).aux $(if $(BIB_FILES), obj/$(PROJECT).bbl)
