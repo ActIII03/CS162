@@ -8,5 +8,17 @@
 
 //Open text file
 int open_file(char* filename, FILE** read_file);
+
 //Read-in text to 2D
-int read_into_buffer(FILE** text_file, char* buffer);
+void read_into_buffer(FILE** text_file, int* x, int* y);
+
+//Dynamically Allocate 2D Array
+char** allocate_2d(int mazesize_x, int mazesize_y);
+
+//Create maze
+void create_maze(FILE** text_file, char** maze, int x, int y);
+
+//Display maze
+void display_maze(char** maze, int x, int y);
+
+//
