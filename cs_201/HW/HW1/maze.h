@@ -6,5 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Read-in file
-int read_file(char* filename, FILE** read_file);
+//Open text file
+int open_file(char* filename, FILE** read_file);
+//Read-in text to 2D
+int read_into_buffer(FILE** text_file, char* buffer);

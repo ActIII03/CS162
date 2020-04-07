@@ -5,7 +5,7 @@
 
 #include "maze.h"
 
-int read_file(char* filename, FILE** read_file)
+int open_file(char* filename, FILE** read_file)
 {
     if(!(*read_file = fopen(filename, "r")))
         return 0;
@@ -13,3 +13,26 @@ int read_file(char* filename, FILE** read_file)
 }
 
 
+int read_into_buffer(FILE** text_file, char* buffer)
+{
+    int result;
+
+    //Set up buffer
+    fseek(*text_file, 0, SEEK_END); //Orient read-in position which is at the beginning in our case
+    long length = ftell(*text_file); //Returns file postion indicator for file stream
+    buffer = malloc(length);
+
+    if(buffer)
+        result = fread(buffer, 1, length, *text_file);
+
+    if(result)
+        return 1;
+    else
+        fclose(*text_file);
+
+    for(int i = 0; i < 6; ++i)
+        printf("Stuff: %d \n", buffer[i]);
+
+    return 1;
+
+}

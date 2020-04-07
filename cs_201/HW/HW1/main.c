@@ -26,9 +26,37 @@ int main(int argc, char * argv[])
 
     if(argc != 2) return 1; //check for commandline arguments
     FILE* text_file;
-    if(!read_file(argv[1], &text_file))
-        printf("\n %s: ERROR opening file. \n", __FUNCTION__);
+    //char** maze;  //Soon-to-be 2d of the maze
+    char* buffer;
+    //int mazesize_x, mazesize_y, start_x, start_y, exit_x, exit_y;
 
+    //Check and set pointer to text file for read-in
+    if(!open_file(argv[1], &text_file))
+    {
+        printf("\nOPEN_FILE: ERROR opening file. \n");
+        return 1;
+    }
+    else
+        printf("\nSuccesful file open!\n");
+
+    //Read-in from text into: entrance, exit, maze
+    
+    int result = read_into_buffer(&text_file, &buffer); 
+
+    //Check for result of 
+    if(!result)
+        printf("\n Succesful read-in!\n");
+    else
+    {
+        printf("\n Failed to read-in!\n");
+        return 1;
+    }
+
+
+    //Dynamically Allocate 2d array and read-in layout from file
+
+
+    fclose(text_file);
 
     return 0;
 }
