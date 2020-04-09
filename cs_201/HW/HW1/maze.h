@@ -21,4 +21,5 @@ void create_maze(FILE** text_file, char** maze, int x, int y);
 //Display maze
 void display_maze(char** maze, int x, int y);
 
-//
+//Solve maze
+int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y);

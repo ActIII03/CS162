@@ -15,6 +15,12 @@ int open_file(char* filename, FILE** read_file)
 
 void read_into_buffer(FILE** text_file, int* x, int* y)
 {
+    /* Read-in text file into 2D character pointer array
+           Lines from txt file(X,Y):
+           1. <number_of_rows_in_maze>,<number_of_columns_in_maze>
+           2. <row_entry_point>, <column_entry_point>
+           3. <row_exit_point>, <column_exit_point>
+    */
    
     char buffer[50];
 
@@ -53,7 +59,7 @@ void create_maze(FILE** text_file, char** maze, int x, int y)
 void display_maze(char** maze, int x, int y)
 {
 
-    printf("X:%d  Y:%d\n", x, y); 
+    printf("Before solving:\n");
 
     for(int row = 0; row < x; ++row)
     {
@@ -65,9 +71,36 @@ void display_maze(char** maze, int x, int y)
 
 }
 
-/*  Wall Follower Algorithm
-    1. If there is no Wall at the Right of the person, then turn right and walk one block
-    2. Else, if there is no forward wall, then walk one block forward
-    3. Else, if there is no left wall, then turn left and walk one block
-    4. Else, turn 180 degree and walk one block forward
-*/
+int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y)
+{
+
+    /*  Wall Follower Algorithm
+        1. If there is no Wall at the Right of the person, then turn right and walk one block
+        2. Else, if there is no forward wall, then walk one block forward
+        3. Else, if there is no left wall, then turn left and walk one block
+        4. Else, turn 180 degree and walk one block forward
+    */
+
+    int walk_x = start_x;
+    int walk_y = start_y;
+
+    for(int row = 0; row < mazesize_x; ++row)
+    {
+        for(int column = 0; column < mazesize_y; ++column)
+        {
+            //No right wall
+
+        }
+
+
+
+
+
+
+    printf("\nAfter solving:\n");
+
+
+
+
+    return 0;
+}

@@ -5,24 +5,9 @@
 
 #include "maze.h"
 
-/* Wall Follower Algorithm
-    1. If there is no Wall at the Right of the person, then turn right and walk one block
-    2. Else, if there is no forward wall, then walk one block forward
-    3. Else, if there is no left wall, then turn left and walk one block
-    4. Else, turn 180 degree and walk one block forward
-*/
-
 //Logic driver
 int main(int argc, char * argv[])
 {
-
-    /* Read-in text file into 2D character pointer array
-           Lines from txt file(X,Y):
-           1. <number_of_rows_in_maze>,<number_of_columns_in_maze>
-           2. <row_entry_point>, <column_entry_point>
-           3. <row_exit_point>, <column_exit_point>
-    */
-
 
     if(argc != 2) return 1; //check for commandline arguments
     FILE* text_file;
@@ -36,7 +21,7 @@ int main(int argc, char * argv[])
         return 1;
     }
     else
-        printf("\nSuccesful file open!\n");
+        printf("Succesful file open!\n\n");
 
     //Read-in from text into: entrance, exit, maze
     read_into_buffer(&text_file, &mazesize_x, &mazesize_y); 
@@ -51,6 +36,9 @@ int main(int argc, char * argv[])
 
     //Display maze
     display_maze(maze, mazesize_x, mazesize_y);
+
+    //Solve maze
+    right_wall_follow(maze, start_x, start_y, mazesize_x, mazesize_y);
 
     fclose(text_file);
 
