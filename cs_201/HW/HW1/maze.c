@@ -16,12 +16,12 @@ int open_file(char* filename, FILE** read_file)
 void read_into_buffer(FILE** text_file, int* x, int* y)
 {
     /* Read-in text file into 2D character pointer array
-           Lines from txt file(X,Y):
-           1. <number_of_rows_in_maze>,<number_of_columns_in_maze>
-           2. <row_entry_point>, <column_entry_point>
-           3. <row_exit_point>, <column_exit_point>
-    */
-   
+       Lines from txt file(X,Y):
+       1. <number_of_rows_in_maze>,<number_of_columns_in_maze>
+       2. <row_entry_point>, <column_entry_point>
+       3. <row_exit_point>, <column_exit_point>
+       */
+
     char buffer[50];
 
     fscanf(*text_file, "%s\n", buffer);
@@ -71,7 +71,7 @@ void display_maze(char** maze, int x, int y)
 
 }
 
-int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y, int exit_x, int exit_y)
+int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y, int exit_row, int exit_column)
 {
 
     /*  Wall Follower Algorithm
@@ -79,52 +79,48 @@ int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int
         2. Else, if there is no forward wall, then walk one block forward
         3. Else, if there is no left wall, then turn left and walk one block
         4. Else, turn 180 degree and walk one block forward
-    */
+        */
 
-    int walk_x = start_x;
-    int walk_y = start_y;
+    int walk_row = start_x;
+    int walk_column = start_y;
 
+    maze[walk_row][walk_column] = 'W';
 
-    maze[walk_y][walk_x] = 0;
+    int moves = 1;
 
-    while(walk_y != exit_y && walk_x != exit_x)
+    while(walk_column != exit_column && walk_row != exit_row)
     {
         //Check for right wall
-        else if(maze[walk_y][walk_x - 1] != "X")
+        if(maze[walk_row][walk_column - 1] != 'X')
         {
             //Update maze[][] --> W
-            maze[walk_y][walk_x - 1] = "W";
+            maze[walk_row][walk_column - 1] = 'W';
             //Move right by updating walk(y, x - 1)
-            --walk_x;
-
+            --walk_column;
         }
         //Check for forward wall
-        else if(maze[walk_y + 1][walk_x] != "0" || maze[walk_y + 1][walk_x] == "W")
+        else if(maze[walk_row + 1][walk_column] == '0' || maze[walk_row + 1][walk_column] == 'W')
         {
             //Update maze[][] --> W
-            if(maze[walk_y + 1][walk_x] != "0"
-                maze[walk_y + 1
+            maze[walk_row + 1][walk_column] = 'W';
             //Move forward by updating walk(y + 1, x)
-
-
+            ++walk_row;
         }
         //Check left wall
-        else if(maze[walk_y][walk_x + 1] == "0")
+        else if(maze[walk_row][walk_column + 1] == '0')
         {
             //Update maze[][] --> W
+            maze[walk_row][walk_column + 1] = 'W';
             //Move forward by updating walk(y, x + 1)
-
+            ++walk_column;
         }
         else
-        {
             //Move backwards by updating walk(y - 1, x)
+            --walk_row;
 
-        }
-
+        printf("Move: %d", ++moves);
 
     }
-
-    printf("\nAfter solving:\n");
 
     return 0;
 }

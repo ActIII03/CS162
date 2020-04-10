@@ -21,7 +21,7 @@ int main(int argc, char * argv[])
         return 1;
     }
     else
-        printf("Succesful file open!\n\n");
+        printf("Successful file open!\n\n");
 
     //Read-in from text into: entrance, exit, maze
     read_into_buffer(&text_file, &mazesize_x, &mazesize_y); 
@@ -34,12 +34,17 @@ int main(int argc, char * argv[])
     //Read-in maze layout
     create_maze(&text_file, maze, mazesize_x, mazesize_y);
 
-    //Display maze
+    //Display maze before solving
     display_maze(maze, mazesize_x, mazesize_y);
 
     //Solve maze
     right_wall_follow(maze, start_x, start_y, mazesize_x, mazesize_y, exit_x, exit_y);
+    
+    //Display maze before solving
+    printf("\nAfter solving:\n");
+    display_maze(maze, mazesize_x, mazesize_y);
 
+    //Close file obj
     fclose(text_file);
 
     return 0;
