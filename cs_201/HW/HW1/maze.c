@@ -71,7 +71,7 @@ void display_maze(char** maze, int x, int y)
 
 }
 
-int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y)
+int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int mazesize_y, int exit_x, int exit_y)
 {
 
     /*  Wall Follower Algorithm
@@ -83,24 +83,48 @@ int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int
 
     int walk_x = start_x;
     int walk_y = start_y;
+    bool success = false;
 
-    for(int row = 0; row < mazesize_x; ++row)
+
+    maze[walk_y][walk_x] = 0;
+
+    while(!success)
     {
-        for(int column = 0; column < mazesize_y; ++column)
+        // ^----- *PUT in there conditional* Check if walk matches exit(x,y)
+
+        
+        //Check for right wall
+        if(maze[walk_y][walk_x - 1] != "X")
         {
-            //No right wall
+            //Update maze[][] --> W
+            //Move right by updating walk(y, x - 1)
+
+        }
+        //Check for forward wall
+        else if(maze[walk_y + 1][walk_x] != "0" || maze[walk_y + 1][walk_x] == "W")
+        {
+            //Update maze[][] --> W
+            //Move forward by updating walk(y + 1, x)
+
+
+        }
+        //Check left wall
+        else if(maze[walk_y][walk_x + 1] == "0")
+        {
+            //Update maze[][] --> W
+            //Move forward by updating walk(y, x + 1)
+
+        }
+        else
+        {
+            //Move backwards by updating walk(y - 1, x)
 
         }
 
 
-
-
-
+    }
 
     printf("\nAfter solving:\n");
-
-
-
 
     return 0;
 }

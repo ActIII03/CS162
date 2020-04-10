@@ -38,7 +38,7 @@ int main(int argc, char * argv[])
     display_maze(maze, mazesize_x, mazesize_y);
 
     //Solve maze
-    right_wall_follow(maze, start_x, start_y, mazesize_x, mazesize_y);
+    right_wall_follow(maze, start_x, start_y, mazesize_x, mazesize_y, exit_x, exit_y);
 
     fclose(text_file);
 
