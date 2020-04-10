@@ -83,27 +83,27 @@ int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int
 
     int walk_x = start_x;
     int walk_y = start_y;
-    bool success = false;
 
 
     maze[walk_y][walk_x] = 0;
 
-    while(!success)
+    while(walk_y != exit_y && walk_x != exit_x)
     {
-        // ^----- *PUT in there conditional* Check if walk matches exit(x,y)
-
-        
         //Check for right wall
-        if(maze[walk_y][walk_x - 1] != "X")
+        else if(maze[walk_y][walk_x - 1] != "X")
         {
             //Update maze[][] --> W
+            maze[walk_y][walk_x - 1] = "W";
             //Move right by updating walk(y, x - 1)
+            --walk_x;
 
         }
         //Check for forward wall
         else if(maze[walk_y + 1][walk_x] != "0" || maze[walk_y + 1][walk_x] == "W")
         {
             //Update maze[][] --> W
+            if(maze[walk_y + 1][walk_x] != "0"
+                maze[walk_y + 1
             //Move forward by updating walk(y + 1, x)
 
 
