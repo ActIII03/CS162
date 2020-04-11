@@ -55,6 +55,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
             \item $\{n \in\mathbb{N}| n^2 - 5 \in \mathbb{N}\}$
 
+
                 3
 
             \item $\{n^2 + 1| n \in\mathbb{N}\}$
@@ -87,7 +88,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
             \item Find $A\setminus B$
 
-                $\{6,7\}$
+                $\{1,2\}$
 
             \item Find $A\cap\overline{(B\cup C)}$
 
@@ -97,15 +98,15 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
     %(10)
     \setItemNumber{10}
-\item Let $A = \{x\in\mathbb{N}| 3\leq x\leq13\}$, and $B = \{x\in\mathbb{N}\; x\; \text{is even}\}$, and $C = \{x\in\mathbb{N}\;x\; \text{is odd}\}$.
+\item Let $A = \{x\in\mathbb{N}| 3\leq x\leq13\}$, and $B = \{x\in\mathbb{N}\;|\;x\; \text{is even}\}$, and $C = \{x\in\mathbb{N}\;|\;x\; \text{is odd}\}$.
         \begin{enumerate}
             \item Find $A\cap B$
 
-                $\{2,4,6,8,12\}$
+                $\{2,4,6,8,10,12\}$
 
-            \item Find $A\setminus B$
+            \item Find $A\cup B$
 
-                $\{1,3,5,7,9,11,13\}$
+            $\{\{A\}, n\in\mathbb{N}:2n \geq 14\}$
 
             \item Find $B\cap C$
 
@@ -121,7 +122,8 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
     \setItemNumber{19}
     \item Let $A = \{1,2,3,4,5,6\}$. Find all sets $B\in\mathcal{P}(A)$ which have the property $\{2,3,5\}\subseteq B$
 
-        $B \;\in\;\mathcal{P}(A) = \{\{2,3,5\},\{1,2,3,5\}$,\{1,2,3,4,5\},\{1,2,3,4,5,6\}\}$
+        %Find all LATER
+        $B \;\in\;\mathcal{P}(A) = \{\{2,3,5\},\{2,3,4,5\},\{1,2,3,5\}$,$\{1,2,3,4,5\},\{1,2,3,4,5,6\}\}$
 
     %(22)
     \setItemNumber{22}
@@ -135,16 +137,19 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
         \begin{enumerate}
             \item Suppose that $A \subseteq B$ and $B\subseteq C$. Does this mean that $A \subseteq C$? Prove your answer. Hint: to prove that $A\subseteq C$ you must prove the implication, “for all $x$, if $x\in A$ then $x\in C$.”\\
 
-                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. SO if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.
+                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. So if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.
 
                 %Called transitivity property
 
             \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.
         \end{enumerate}
 
+        %Come back later
+
     %(26)
     \setItemNumber{26}
     \item In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.
+
 
     %(30)
     \setItemNumber{30}
@@ -155,6 +160,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
         \centering $B=\{2,|A|,|C|\}$\
 
         \centering $C=\{1,2,|A|,|B|\}$
+
 
 \end{enumerate}
 
