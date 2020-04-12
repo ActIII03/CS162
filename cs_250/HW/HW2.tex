@@ -51,20 +51,19 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
         \begin{enumerate}
             \item $\{n \in\mathbb{N}| n^2 - 3 \geq 2\}$
                 
-                3
+                \{3\}
 
             \item $\{n \in\mathbb{N}| n^2 - 5 \in \mathbb{N}\}$
 
-
-                3
+                \{3\}
 
             \item $\{n^2 + 1| n \in\mathbb{N}\}$
 
-                1
+                \{1\}
 
             \item $\{n \in\mathbb{N}| n = k^2 +1$ for some $k\in\mathbb{N}\}$
 
-                1
+                \{1\}
 
         \end{enumerate}
 
@@ -106,7 +105,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
             \item Find $A\cup B$
 
-            $\{\{A\}, n\in\mathbb{N}:2n \geq 14\}$
+                $\{\{A\},\{n\in\mathbb{N}:2n \geq 14\}, 2\}$
 
             \item Find $B\cap C$
 
@@ -114,7 +113,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
             \item Find $B\cup C$
 
-                $\{\forall x|\; x\; \text{is even}\; \lor\; x\; \text{is odd}\}$ %Verify?
+                $\{\forall x\in\mathbb{N}|\; x\; \text{is even}\; \lor\; x\; \text{is odd}\}$ %Verify?
 
         \end{enumerate}
 
@@ -123,7 +122,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
     \item Let $A = \{1,2,3,4,5,6\}$. Find all sets $B\in\mathcal{P}(A)$ which have the property $\{2,3,5\}\subseteq B$
 
         %Find all LATER
-        $B \;\in\;\mathcal{P}(A) = \{\{2,3,5\},\{2,3,4,5\},\{1,2,3,5\}$,$\{1,2,3,4,5\},\{1,2,3,4,5,6\}\}$
+        $B \;\in\;\mathcal{P}(A) = \{\{2,3,5\},\{2,3,4,5\},\{1,2,3,5\}$,$\{2,3,5,6\}$,$\{1,2,3,4,5\}$,$\{2,3,4,5,6\}$,$\{1,2,3,4,5,6\}\}$
 
     %(22)
     \setItemNumber{22}
@@ -137,29 +136,30 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
         \begin{enumerate}
             \item Suppose that $A \subseteq B$ and $B\subseteq C$. Does this mean that $A \subseteq C$? Prove your answer. Hint: to prove that $A\subseteq C$ you must prove the implication, “for all $x$, if $x\in A$ then $x\in C$.”\\
 
-                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. So if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.
+                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. So if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.\\
 
-                %Called transitivity property
 
-            \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.
+            \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.\\
+
+        Let $A =\{1,2\},\;B = \{\{A\}, 3\},\;\text{and}\; C = \{\{B\},4\}$ and in this example, we are able to prove that A is not always an element of C. 
+
         \end{enumerate}
-
-        %Come back later
 
     %(26)
     \setItemNumber{26}
-    \item In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.
+    \item In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.\\
 
+        Let Deck $= \{ 26\;\text{red cards},12\;\text{face cards}\}$ and since some face cards are red and some red cards are not faces we also can let Face $= \{6$ Black$,\;6$ Red $\},$ Red $=\{6$ Face, $\;20\;\neg$ Face$\},$ Face $\cup$ Red $=\{6$ Red Face, $\;6\neg$ Red Face, $\;20$ Red $\},\;$and  $\;|$ Face $\cup$ Red $| = 32$ cards.
 
     %(30)
     \setItemNumber{30}
     \item Find all sets $A,B,$ and $C$ which satisfy the following.\
        
-        \centering $A=\{1,|B|,|C|\}$\
+        \centering $A=\{1,|B|,|C|\} = \{1,3,4\} = \{1,3\} = \{1,2\}$\
 
-        \centering $B=\{2,|A|,|C|\}$\
+        \centering $B=\{2,|A|,|C|\} = \{2,3,4\} = \{2,3\} = \{1,2\}$\
 
-        \centering $C=\{1,2,|A|,|B|\}$
+        \centering $C=\{1,2,|A|,|B|\} = \{1,2,3\} = \{1,2\}$
 
 
 \end{enumerate}
@@ -170,7 +170,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
 \begin{enumerate}
     % (1)
-    \item Card Puzzle I have a set of cards. Each card has a number on one side and a letter on the other.\\ 
+    \item Card Puzzle I have is a set of cards. Each card has a number on one side and a letter on the other.\\ 
         
     Here is a rule:\\
 
@@ -180,9 +180,17 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
     \mybox{{\Huge D}} \mybox{{\Huge F}} \mybox{{\Huge 3}} \mybox{{\Huge 7}}\\
 
+    \begin{itemize}
+        \item \mybox{{\Huge D}} - this card upholds the implication asserted by the above conditional statment
+        \item \mybox{{\Huge F}} - this card does not uphold the above implication because F violates the antecedent portion of the condtional statement.
+
+        \item \mybox{{\Huge 3}} - this cards, logically speaking, is not equivalent to the original implication because converses operate independently. 
+
+        \item \mybox{{\Huge 7}} - this card may or may not uphold the original implication due to the nature of contrapositives be either true or false.
+    \end{itemize}
+
     \item Bar Puzzle You are a bouncer in a bar and you must enforce the following rule:\\
 
-    
 	\mybox{If a bar patron is drinking beer she or he must be 21 or over.}\\
         
     Of the four people at the bar drinking beverages, whose IDs or drinks do you need to check?
@@ -191,7 +199,7 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
         \item A person drinking
         \item A person drinking coke
         \item A person who you know is over 21
-        \item A person who is you know is uner 21
+        \item A person who is you know is under 21
     \end{itemize}
 \end{enumerate} 
         

@@ -90,17 +90,83 @@ int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int
     int moves = 1;
     int direction = 2;
 
-    while(walk_column != exit_column || walk_row != exit_row)
+    while(walk_column != exit_column && walk_row != exit_row)
     {
         //Facing North
         if(direction == 0)
         {
-
+            //Go right
+            if(maze[walk_row][walk_column + 1] != 'X')
+            {
+                //Update maze[][] --> W
+                maze[walk_row][walk_column + 1] = 'W';
+                //Move right by updating walk(y, x - 1)
+                ++walk_column;
+                //Change direction
+                direction = (++direction) % 4;
+            }
+            //Go forward
+            else if(maze[walk_row - 1][walk_column] == '0' || maze[walk_row - 1][walk_column] == 'W')
+            {
+                //Update maze[][] --> W
+                maze[walk_row - 1][walk_column] = 'W';
+                //Move forward by updating walk(y + 1, x)
+                --walk_row;
+            }
+            //Go left
+            else if(maze[walk_row][walk_column - 1] == '0')
+            {
+                //Update maze[][] --> W
+                maze[walk_row][walk_column - 1] = 'W';
+                //Move forward by updating walk(y, x + 1)
+                --walk_column;
+            }
+            //Turn around
+            else
+            {
+                //Move backwards by updating walk(y - 1, x)
+                ++walk_row;
+                //Change direction
+                direction = (direction + 2) % 4;
+            }
         }
         //Facing East
         else if(direction == 1)
         {
-
+            //Go right
+            if(maze[walk_row + 1][walk_column] != 'X')
+            {
+                //Update maze[][] --> W
+                maze[walk_row + 1][walk_column + 1] = 'W';
+                //Move right by updating walk(y, x - 1)
+                ++walk_row;
+                //Change direction
+                direction = (++direction) % 4;
+            }
+            //Go forward
+            else if(maze[walk_row][walk_column + 1] == '0' || maze[walk_row][walk_column + 1] == 'W')
+            {
+                //Update maze[][] --> W
+                maze[walk_row][walk_column + 1] = 'W';
+                //Move forward by updating walk(y + 1, x)
+                --walk_column;
+            }
+            //Go left
+            else if(maze[walk_row - 1][walk_column] == '0')
+            {
+                //Update maze[][] --> W
+                maze[walk_row + 1][walk_column] = 'W';
+                //Move forward by updating walk(y, x + 1)
+                --walk_row;
+            }
+            //Turn around
+            else
+            {
+                //Move backwards by updating walk(y - 1, x)
+                --walk_column;
+                //Change direction
+                direction = (direction + 2) % 4;
+            }
         }
         //Facing South
         else if(direction == 2)
@@ -112,31 +178,76 @@ int right_wall_follow(char** maze, int start_x, int start_y, int mazesize_x, int
                 maze[walk_row][walk_column - 1] = 'W';
                 //Move right by updating walk(y, x - 1)
                 --walk_column;
+                //Change direction
+                direction = (++direction) % 4;
             }
-            //Check for forward wall
+            //Go forward
             else if(maze[walk_row + 1][walk_column] == '0' || maze[walk_row + 1][walk_column] == 'W')
             {
                 //Update maze[][] --> W
-                maze[walk_row + 1][walk_column] = 'W';
+                if(maze[walk_row + 1][walk_column] != 'W')
+                    maze[walk_row + 1][walk_column] = 'W';
                 //Move forward by updating walk(y + 1, x)
                 ++walk_row;
             }
-            //Check left wall
-            else if(maze[walk_row][walk_column + 1] == '0')
+            //Go left
+            else if(maze[walk_row][walk_column + 1] == '0' || maze[walk_row][walk_column + 1] == 'W')
             {
                 //Update maze[][] --> W
                 maze[walk_row][walk_column + 1] = 'W';
                 //Move forward by updating walk(y, x + 1)
                 ++walk_column;
+                //Change direction
+                direction = (--direction) % 4;
             }
-            //Facing West
+            //Turn around
             else
+            {
                 //Move backwards by updating walk(y - 1, x)
                 --walk_row;
+                //Change direction
+                direction = (direction + 2) % 4;
+            }
         }
+        //Facing West
         else
         {
 
+            //Go right
+            if(maze[walk_row - 1][walk_column] != 'X')
+            {
+                //Update maze[][] --> W
+                maze[walk_row - 1][walk_column] = 'W';
+                //Move right by updating walk(y, x - 1)
+                --walk_row;
+                //Change direction
+                direction = (++direction) % 4;
+            }
+            //Go forward
+            else if(maze[walk_row][walk_column - 1] == '0' || maze[walk_row][walk_column - 1] == 'W')
+            {
+                //Update maze[][] --> W
+                maze[walk_row][walk_column - 1] = 'W';
+                //Move forward by updating walk(y + 1, x)
+                --walk_column;
+            }
+            //Go left
+            else if(maze[walk_row + 1][walk_column] == '0')
+            {
+                //Update maze[][] --> W
+                maze[walk_row + 1][walk_column] = 'W';
+                //Move forward by updating walk(y, x + 1)
+                ++walk_row;
+                direction = (--direction) % 4;
+            }
+            //Turn around
+            else
+            {
+                //Move backwards by updating walk(y - 1, x)
+                --walk_column;
+                //Change direction
+                direction = (direction + 2) % 4;
+            }
         }
 
         printf("Move: %d", ++moves);
