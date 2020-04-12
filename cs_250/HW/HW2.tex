@@ -1,4 +1,4 @@
-% catalogue of LaTex pkg: https://www.biu.ac.il/os_site/documentation/teTeX/help/Catalogue/index.html
+%\newline\newline catalogue of LaTex pkg: https://www.biu.ac.il/os_site/documentation/teTeX/help/Catalogue/index.html
 
 \documentclass[11pt, a4paper]{article} 
 \usepackage{amssymb}
@@ -134,22 +134,20 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
     \setItemNumber{25}
     \item Let $A, B$ and $C$ be sets.
         \begin{enumerate}
-            \item Suppose that $A \subseteq B$ and $B\subseteq C$. Does this mean that $A \subseteq C$? Prove your answer. Hint: to prove that $A\subseteq C$ you must prove the implication, “for all $x$, if $x\in A$ then $x\in C$.”\\
+            \item Suppose that $A \subseteq B$ and $B\subseteq C$. Does this mean that $A \subseteq C$? Prove your answer. Hint: to prove that $A\subseteq C$ you must prove the implication, “for all $x$, if $x\in A$ then $x\in C$.”\newline
 
-                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. So if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.\\
+                Suppose A, B, and C are some arbitrary sets such that $A\subseteq B$ and $B\subseteq C$. If $A\subseteq B$, then for any $x\in A$, $x\in B$ and if $B\subseteq C$ then, for any $x\in B$, $x\in C$. So if A is contained in B and B is contained in C, then A is contained in C. So, any $x\in A$ must also be in C making $A\subseteq C$.
 
+            \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.\newline
 
-            \item Suppose that $A\in B$ and $B\in C$. Does this mean that $A\in C$? Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where $|A|=|B|=|C|=2$.\\
-
-        Let $A =\{1,2\},\;B = \{\{A\}, 3\},\;\text{and}\; C = \{\{B\},4\}$ and in this example, we are able to prove that A is not always an element of C. 
-
+        Let $A =\{1,2\},\;B = \{\{A\}, 3\},\;\text{and}\; C = \{\{B\},4\}$ and in this example, we are able to prove that A is not always an element of C when A is subset of B but B is an element in C. 
         \end{enumerate}
 
     %(26)
     \setItemNumber{26}
     \item In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.\\
 
-        Let Deck $= \{ 26\;\text{red cards},12\;\text{face cards}\}$ and since some face cards are red and some red cards are not faces we also can let Face $= \{6$ Black$,\;6$ Red $\},$ Red $=\{6$ Face, $\;20\;\neg$ Face$\},$ Face $\cup$ Red $=\{6$ Red Face, $\;6\neg$ Red Face, $\;20$ Red $\},\;$and  $\;|$ Face $\cup$ Red $| = 32$ cards.
+        Let Deck $= \{ 26\;\text{red cards},12\;\text{face cards}\}$ and since some face cards are red and some red cards are not faces we also can let Face $= \{6$ Black$,\;6$ Red $\},$ Red $=\{6$ Face, $\;20\;\neg$ Face$\},$ Face $\cup$ Red $=\{6$ Red Face, $\;6\neg$ Red Face, $\;20$ Red $\},\;$and  $\;|$ Face $\cup$ Red $| = 32$.
 
     %(30)
     \setItemNumber{30}
@@ -182,11 +180,11 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
 
     \begin{itemize}
         \item \mybox{{\Huge D}} - this card upholds the implication asserted by the above conditional statment
-        \item \mybox{{\Huge F}} - this card does not uphold the above implication because F violates the antecedent portion of the condtional statement.
+        \item \mybox{{\Huge F}} - this card does not uphold the above implication because F negates the antecedent portion of the condtional statement.
 
-        \item \mybox{{\Huge 3}} - this cards, logically speaking, is not equivalent to the original implication because converses operate independently. 
+        \item \mybox{{\Huge 3}} - this cards, logically speaking, is not equivalent to the original implication because converses operate independently of the original implication
 
-        \item \mybox{{\Huge 7}} - this card may or may not uphold the original implication due to the nature of contrapositives be either true or false.
+        \item \mybox{{\Huge 7}} - this card may or may not uphold the original implication due to the nature of contrapositives being either true or false.
     \end{itemize}
 
     \item Bar Puzzle You are a bouncer in a bar and you must enforce the following rule:\\
@@ -196,10 +194,10 @@ Exercies: 1, 2, 5, 8, 10, 19, 22, 25, 26, 30.
     Of the four people at the bar drinking beverages, whose IDs or drinks do you need to check?
 
     \begin{itemize}
-        \item A person drinking
-        \item A person drinking coke
-        \item A person who you know is over 21
-        \item A person who is you know is under 21
+        \item A person drinking - A person drinking does not neccesarily mean the person 21 or older. I would check this person's ID.
+        \item A person drinking coke - Drinking a coke isn't sufficient enough for that person have their ID checked.
+        \item A person who you know is over 21 - Consequently, we know their age which is sufficient enough for them to not be ID'd.
+        \item A person who is you know is under 21 - Knowing their age is sufficient enoguh for them to have their ID checked but since they're not drinking, we can or cannot check their ID. Only when they attempt to drink beer is when we can check their ID.
     \end{itemize}
 \end{enumerate} 
         
