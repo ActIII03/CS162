@@ -1,0 +1,109 @@
+% '%' is similar to '//' in C++ to mean a single line comment. The LaTeX compiler will ignore these lines.
+
+\documentclass[11pt]{article} % a back slash '\' denotes a command in LaTeX. The documentclass defines the standard layout of the document. Square brackets '[]' are parameters that can be passed to the argument.
+\usepackage{amssymb,amsthm,listings,color,array,easytable,multicol} % packages like these bring in additional features via commands. They're like #include in C++
+\usepackage[fleqn]{amsmath} % fleqn: flush left equations
+\usepackage{venndiagram} % Here are a bunch more packages that I use frequently. Google them to find out what they are used for.
+\usepackage{graphicx}
+\usepackage{hyperref, url}
+\usepackage[margin=2cm, top=2cm]{geometry}
+\usepackage[shortlabels]{enumitem}
+\newcommand{\tuple}[1]{$\langle#1\rangle$} % The \newcommand command is like a macro in C++
+\newcommand{\stuple}[1]{$\langle$#1$\rangle$} % ordered pair with strings inside
+
+%The title, date, and author are part of the preamble. The preamble is not part of the main body of the document. 
+\title{\bf Homework 3\\[1ex]
+\rm\normalsize CS250 Discrete Structures I, Winter 2020 }
+\date{\normalsize Due: April 19, 2020}
+\author{\normalsize David Lu}
+
+\begin{document} % This \begin{document} and corresponding \end{document} identifies the begeinning and end of your document body.
+
+	\vspace{-4cm}\maketitle % \maketitle tells LaTeX to put the title, date, and author information here.
+	
+	\begin{center}
+		\fbox{\fbox{\parbox{5.5in}{\centering
+					Your solutions must be typed (preferably typeset in \LaTeX{}) and submitted as a PDF on D2L.
+					\\
+					
+					Solutions generally require clear explanations in complete sentences and must be in your own writing.
+		}}}
+	\end{center}
+	
+	\paragraph{Assignment For Week 3}
+	
+	\begin{itemize}
+		\item Read chapter 0.4 in the textbook on functions. \href{http://discrete.openmathbooks.org/dmoi3.html}{http://discrete.openmathbooks.org/dmoi3.html}
+		\item Watch the TrevTutor videos on relations and functions. (Videos 48-56 from this playlist are relevant: \url{https://www.youtube.com/playlist?list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz})
+		\item Complete the following exercises.
+	\end{itemize}
+
+	\paragraph{Relations and Functions} Chapter 0.4 \\
+	
+	We're going to depart a bit from the TrevTutor playlist ordering and skip down to the parts on binary relations and functions. Understanding relations and functions is important for computer scientists because these concepts figure into our work centrally. \\
+	
+	The textbook doesn't cover binary relations. I suspect that it would be a topic already covered prior to a discrete math course in the math department and our textbook is written by a math department professor. However, binary relations are not hard to conceptualize. Recall that a \textbf{Cartesian product }$A \times B$ is defined by a set of pairs $\{(a_1, b_1), (a_1, b_2), ..., (a_1, b_m), ..., (a_k, b_m)\}$. A binary relation $R$ from $A$ to $B$, notated $Rab$ is a subset of a Cartesian product $A \times B$.\\
+	
+	Let's take an example of a binary relationship. I have two siblings, Jon and Rebecca. My family comprises the set $F = \{$David, Jon, Rebecca, Mom, Dad$\}$. The Cartesian product, $F \times F$ is defined by a set of pairs, e.g. $\{$\stuple{David, David}, \stuple{David, Jon}, \stuple{David, Rebecca}, \stuple{David, Mom}, \stuple{David, Dad}, \stuple{Jon, David}, \stuple{Jon, Jon}, ...$\}$. The siblings relationship over my family is a subset of $F \times F$. Let $Sxy$ (or sometimes $xRy$) mean $x$ is $y$'s sibling. In particular, call the set of siblings in my family $S$, $S = \{$\stuple{David, Jon}, \stuple{David, Rebecca}, \stuple{Jon, David}, \stuple{Jon, Rebecca}, \stuple{Rebecca, David}, \stuple{Rebecca, Jon}$\}$. Notice that pairs such as \stuple{David, Dad} and \stuple{David, David} are not in the set of siblings, because my dad is not my sibling and I am not my own sibling. \\
+	
+	Notice also that both \stuple{David, Rebecca} and \stuple{Rebecca, David} are in the set. These ordered pairs are different. The first one says Rebecca is David's sibling, and the second one says that David is Rebecca's sibling. Now it may be obvious that if $x$ is $y$ sibling that $y$ must also be $x$'s sibling. That's because the sibling relationship is \textit{symmetric}. Not all relationships are symmetric. For instance, the relationship \textit{brother of} is not symmetric. So if $Bxy$ is read $x$ is $y$'s brother. Then that relationship over the set comprising my family would include the ordered pairs \stuple{David, Rebecca}, but it would \textit{not} include \stuple{Rebecca, David} since Rebecca is not David's brother. \\
+	
+	There are a number of other properties of relationships that are important to have some understanding of. You can try Google searching for some of these terms or looking at the wikipedia page on binary relations:
+	\begin{itemize}
+		\item Symmetry
+		\item Transitivity
+		\item Reflexivity
+		\item Antisymmetry (note is not the same as asymmetry and is an important property of partial orders)
+		\item Identity 
+		\item Equivalence
+		\item Serial
+		\item Connex
+		\item Well Founded
+	\end{itemize}
+	
+	Why do we care about binary relations if the textbook skips the topic? My assumption is that the textbook is written for math majors and perhaps it's assumed math majors should already know what binary relations are. Whatever the case, I think that binary relations are important because for us to look at because \textit{every} function is a binary relation. (Although not all binary relations are functions). So put it this way: the set of all functions is a subset of the set of all binary relations. Thus, all the properties and operations that apply to binary relations apply to functions as well. Having a good understanding of binary relationships helps you to have a good understanding of functions.\\
+	
+	
+	OEIS -- the online encyclopedia of integer sequences wiki -- has a page with many of the \LaTeX{} commands you might find useful. \url{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}
+	
+	
+	\paragraph{Exercises} Binary Relations and Functions\\
+	
+	I'll try to keep most of the homework exercises from the textbook for consistency. I recommend working through problems beyond what's assigned for the homework to more thoroughly evaluate your own understanding of the material. If you have time, do all the exercises. Many of them have solutions and check yourself hints in the online version of the textbook.
+	
+	\newpage
+	\paragraph{Problem 1} Binary Relations\\
+	
+	These two exercises will require you to go outside the textbook to learn about binary relations. The TrevTutor video on relations is a good place to start: \url{https://www.youtube.com/watch?v=FI6j5QZNVx0}\\
+	
+	(Here I'm going to use the parentheses notation to mean angle brackets for ease of typing, feel free to also use this convenience, i.e., (a, b) is the ordered pair \stuple{a, b})
+	
+		\subparagraph{1.} Consider the following relations on the set $A = \{1, 2, 3\}$.
+		\begin{enumerate}[a)]
+			\item $R = \{(1, 1), (1, 2), (1, 3), (3, 3)\}$
+			\item $S = \{(1, 1), (1, 2), (2, 1), (2, 2), (3, 3)\}$
+			\item $T = \{(1, 1), (1, 2), (2, 2), (2, 3)\}$
+			\item $\emptyset$ = empty relation
+			\item $A \times A$ = universal relation on $A$
+		\end{enumerate}
+	
+		Determine whether or not each of the relations is (i) reflexive, (ii) symmetric, (iii) transitive, and (iv) antisymmetric.
+		
+		\subparagraph{2.} Consider the following relations:
+		
+		\begin{enumerate}[a)]
+			\item Relation $\leq$ (less than or equal) on the set $\mathbb{Z}$ of integers.
+			\item Set inclusion $\subseteq$ on a collection $C$ of sets.
+			\item Relation $\perp$ (perpendicular) on the set $L$ of lines in the plane.
+			\item Relation $\parallel$ (parallel) on the set $L$ of lines in the plane.
+			\item Relation $\mid$ of divisibility on the set $\mathbb{N}$ of positive integers. ($x \mid y$ if there exists $z$ such that $xz = y$.)
+		\end{enumerate}
+		
+		Determine whether or not each of these relations is (i) reflexive, (ii) symmetric, and (iii) transitive.	
+
+	\paragraph{Problem 2} Textbook Chapter 0.4 Functions Exercises (page 51-56)\\
+	
+	Complete exercises 3, 4, 6, 8, 19, 28
+	
+		
+\end{document}
