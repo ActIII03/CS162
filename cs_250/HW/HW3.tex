@@ -2,6 +2,7 @@
 
 \documentclass[11pt, a4paper]{article} 
 \usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
 \usepackage[fleqn]{amsmath} % fleqn: flush left equations <-- Left-flush equations
 \usepackage{graphics}
 \usepackage{hyperref, url}
@@ -22,29 +23,90 @@
 	These two exercises will require you to go outside the textbook to learn about binary relations. The TrevTutor video on relations is a good place to start: \url{https://www.youtube.com/watch?v=FI6j5QZNVx0}\\
 	(Here I'm going to use the parentheses notation to mean angle brackets for ease of typing, feel free to also use this convenience, i.e., (a, b) is the ordered pair \stuple{a, b})
 		\subparagraph{1.} Consider the following relations on the set $A = \{1, 2, 3\}$.
-		\begin{enumerate}[a)]
+        \begin{enumerate}[(a)]
 			\item $R = \{(1, 1), (1, 2), (1, 3), (3, 3)\}$
 			\item $S = \{(1, 1), (1, 2), (2, 1), (2, 2), (3, 3)\}$
 			\item $T = \{(1, 1), (1, 2), (2, 2), (2, 3)\}$
 			\item $\emptyset$ = empty relation
 			\item $A \times A$ = universal relation on $A$
-		\end{enumerate}
+        \end{enumerate}
 		Determine whether or not each of the relations is (i) reflexive, (ii) symmetric, (iii) transitive, and (iv) antisymmetric.
-		
 		\subparagraph{2.} Consider the following relations:
-		
-		\begin{enumerate}[a)]
+        \begin{enumerate}[(a)]
 			\item Relation $\leq$ (less than or equal) on the set $\mathbb{Z}$ of integers.
 			\item Set inclusion $\subseteq$ on a collection $C$ of sets.
 			\item Relation $\perp$ (perpendicular) on the set $L$ of lines in the plane.
 			\item Relation $\parallel$ (parallel) on the set $L$ of lines in the plane.
 			\item Relation $\mid$ of divisibility on the set $\mathbb{N}$ of positive integers. ($x \mid y$ if there exists $z$ such that $xz = y$.)
-		\end{enumerate}
+        \end{enumerate}
 		
 		Determine whether or not each of these relations is (i) reflexive, (ii) symmetric, and (iii) transitive.	
 
 	\paragraph{Problem 2} Textbook Chapter 0.4 Functions Exercises (page 51-56)\\
-	
 	Complete exercises 3, 4, 6, 8, 19, 28
 		
+
+    \begin{enumerate}
+
+        %3
+        \setItemNumber{3}
+        \item The following functions all have domain $\{1,2,3,4,5\}$ and codomain $\{1,2,3\}$. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.
+            \begin{enumerate}[(a)]
+                \item $ f = \left(\begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 1 & 2 & 1 \end{pmatrix}\right)$
+                \item $ f = \left (\begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 3 & 1 & 2 \end{pmatrix}\right)$
+                \item $ f(x) = \begin{cases} x & \text{if}\; x\leq 2\\ x - 3 & \text{if}\; x > 3\end{cases}$
+            \end{enumerate}
+
+
+        %4
+        \setItemNumber{4}
+        \item The following functions all have domain $\{1,2,3,4,5\}$ and codomain $\{1,2,3\}$. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.
+            \begin{enumerate}[(a)]
+                \item $ f = \left(\begin{pmatrix} 1 & 2 & 3 & 4  \\ 1 & 2 & 5 & 4 \end{pmatrix}\right)$
+                \item $ f = \left(\begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 2\end{pmatrix}\right)$
+                \item $f(x)$ gives the number of letters in the English word for the number $x$. For example, $f(1) = 3$ since "one" contains three letters.
+            \end{enumerate}
+
+
+        %6
+        \setItemNumber{6}
+    \item Write out all function $f : \{1,2\}\rightarrow \{a,b,c\}$ (in two-line notation)\\
+        How many function are there?\\
+        How many are injective?\\
+        How many are surjective?\\
+        How many are beijective?\\
+
+    %8 
+    \setItemNumber{8}
+    \item Consider the function $f : \{1,2,3,4\}\rightarrow \{1,2,3,4\}$ given by the graph below.
+    %ADD graph later    
+        \begin{enumerate}[(a)]
+            \item Is $f$ injective? Explain
+            \item Is $f$ surjective? Explain
+            \item Write the function using two-line notation
+        \end{enumerate}
+
+
+    %19
+    \setItemNumber{19}
+\item Suppose $f : \mathcal{X} \rightarrow \mathcal{Y}$ is function. Which of the following are possible? Explain.
+        \begin{enumerate}[(a)]
+            \item $f$ is injective but not surjective.
+            \item $f$ is surjective but not injective.
+            \item $|\mathcal{X} = |\mathcal{Y}|$ and $f$ is injective but not surjective.
+            \item $|\mathcal{X} = |\mathcal{Y}|$ and $f$ is surjective but not injective.
+            \item $|\mathcal{X} = |\mathcal{Y}|$, $\mathcal{X}$ and $\mathcal{Y}$ are finite, and $f$ is injective but not surjecttive.             
+            \item $|\mathcal{X} = |\mathcal{Y}|$, $\mathcal{X}$ and $\mathcal{Y}$ are finite, and $f$ is surjective but not injective.
+        \end{enumerate}
+
+    %28
+    \setItemNumber{28}
+    \item Let $f: \mathcal{X}\rightarrow\mathcal{Y}$ be a function and $A,B,\subseteq\mathcal{X}$ be subsets of the domain.
+        \begin{enumerate}[(a)]
+            \item If $f^-1(f(A)) = A$? Always, sometimes, or never? Explain.
+            \item If $f(f(B)) = B$? Always, sometimes, or never? Explain.
+            \item If one or both of the above do not always hold, is there something else you can say? Will equality always hold for particular types of functions? Is there some other relationship other than equality that would always hold? Explore.
+        \end{enumerate}
+
+    \end{enumerate}
 \end{document}
