@@ -5,6 +5,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[fleqn]{amsmath} % fleqn: flush left equations <-- Left-flush equations
 \usepackage{graphics}
+\usepackage{pgfplots}
 \usepackage{hyperref, url}
 \usepackage[margin=2cm, top=2cm]{geometry}
 \newcommand\setItemNumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
@@ -22,17 +23,31 @@
 	\paragraph{Problem 1} Binary Relations\\
 
 	These two exercises will require you to go outside the textbook to learn about binary relations. The TrevTutor video on relations is a good place to start: \url{https://www.youtube.com/watch?v=FI6j5QZNVx0}\\
-
 	(Here I'm going to use the parentheses notation to mean angle brackets for ease of typing, feel free to also use this convenience, i.e., (a, b) is the ordered pair \stuple{a, b})
 		\subparagraph{1.} Consider the following relations on the set $A = \{1, 2, 3\}$.
 
         \begin{enumerate}[(a)]
 			\item $R = \{(1, 1), (1, 2), (1, 3), (3, 3)\}$
-                
+
+                Relation is not relfexive because there isn't a $(2,2)$ pair and is not symmetrical because even though there is $(1,2)$, there isn't a $(2,1)$. Since there isn't symmetry, thus we can agree that $R$ is antisymmetric. For transitivity, let $x,y,z = 1$, since we need "for any elements x,y,z, if $(x,y)$ and $(y,z)$ in $R$, then $(x,z)$ in $R$," to be true and we have that $(1,1)$ which satisfies the aformentioned requirement.    
+
 			\item $S = \{(1, 1), (1, 2), (2, 1), (2, 2), (3, 3)\}$
+
+                Since $\forall x\in A\;|\;x\;R\;x$, in our $S$ set, we have $(1,1),\;(2,2),\;(3,3)$ proves the reflexive relation. For symmetry, again let $a = 1, b = 2$, $aRb$ in the 2nd ordered pair, and $bRa$ in the 3rd ordered pair. There is a transitive relation due $(1,1)$ ordered pair like (1.a). Since there is symmetry, this relation isn't antisymmetric. 
+
 			\item $T = \{(1, 1), (1, 2), (2, 2), (2, 3)\}$
+
+                There is no reflexivity present because there isn't $(3,3)$ ordered pair and there is a symmetircal relationship because, let $a = 1,\;b=2$, $aRb$ in the 2nd ordered pair and $bRa$ in the 3rd ordered pair. There is transitive relationship because if we let $c = 3$, $bRc$ in the 4th ordered and $aRb$ in the second order pair, highlighting that $aRc$ and $a\leq b \leq c$. There is symmetry proving no antisymmetrical relationship.
+
 			\item $\emptyset$ = empty relation
+
+            Let $Q = \emptyset$ and $R\subseteq A \times A$, since $A\times A =\emptyset$, there no elements, $\emptyset$ is the only element leaving it equal to itself, symetric, and transivity proving that empty relation is an equivalent relation to $A$.
+
 			\item $A \times A$ = universal relation on $A$
+
+                %Answer later
+            Is reflexive is because we have ordered pairs where $x=y$ and this universal relation isn't symmetrical because we have ordered pairs where $a\neq b$. This isn't a transivitive relationship isn't because there are pairs where $x>y$. 
+
         \end{enumerate}
 
 		Determine whether or not each of the relations is (i) reflexive, (ii) symmetric, (iii) transitive, and (iv) antisymmetric.
@@ -41,61 +56,64 @@
         \begin{enumerate}[(a)]
 			\item Relation $\leq$ (less than or equal) on the set $\mathbb{Z}$ of integers.
 
-                Reflexive and Transitive Relation
+                Reflexive and Transitive Relation exist because the $\leq$ implies $a=b$ in the set of integers  with the following implied equality $a\leq b \leq c$ which can true along any portion of the $\mathbb{Z}$ set. 
 
 			\item Set inclusion $\subseteq$ on a collection $C$ of sets.
 
-                Reflexive
+                Subset is reflexive because every set is a subset of itself, i.e. given a set C of sets, $\forall X\in C, X\subseteq X$.  Since subset or set inlcusion is a relation, it may or may not have symmetry or transitivity.
 
 			\item Relation $\perp$ (perpendicular) on the set $L$ of lines in the plane.
 
-                Symmetrical Relation
+                %Answer later
+                Symmetrical Relation because if the set of $L$ was represented in the 2D x-y plane, we have ordered  pairs that are symmetrica which is the nature of a 90 degree angle, when we start diverge from the terminal point. Reflexivity isn't present because line A may not equal B or it wouldn't be perpendicular.
 
 			\item Relation $\parallel$ (parallel) on the set $L$ of lines in the plane.
 
-
-               Reflexive 
+                An equivalent relation exist because if two overlap one another, then that is reflexive. If there are two horizontal lines then symmetry exist because a is parallel with then b is parallel with a (symmetry). for transivity, we can have $aRb$ in our $A$ and $B$ line and in our $B$ line, $bRc$ in the $A$ line making $aRC$ from our $A$ and $B$ line. 
 
 			\item Relation $\mid$ of divisibility on the set $\mathbb{N}$ of positive integers. ($x \mid y$ if there exists $z$ such that $xz = y$.)
         \end{enumerate}
 
-            Symmetrical and Transitive Relation\\
-		
+            Is relfexive because for any $x$, $x$ can equal 1 and 1 is divisble by itself. Not symmetrical because let $a = 4, b = 12$. $a$ is divisble by $b$ but not by $a$ making it antisymmetrical. Is transitive because suppose $a = 4, b = 24$ and $c = 12$, $a | c \land b | c$ is true and also leaving $a | c$ true too.
+
 		Determine whether or not each of these relations is (i) reflexive, (ii) symmetric, and (iii) transitive.	
 
 	\paragraph{Problem 2} Textbook Chapter 0.4 Functions Exercises (page 51-56)\\
 	Complete exercises 3, 4, 6, 8, 19, 28
 		
-
     \begin{enumerate}
 
         %3
         \setItemNumber{3}
         \item The following functions all have domain $\{1,2,3,4,5\}$ and codomain $\{1,2,3\}$. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.
             \begin{enumerate}[(a)]
-                \item $ f = \left\begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 1 & 2 & 1 \end{pmatrix}\right$
-                \item $ f = \left\begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 3 & 1 & 2 \end{pmatrix}\right$
-                \item $ f(x) = \begin{cases} x & \text{if}\; x\leq 2\\ x - 3 & \text{if}\; x > 3\end{cases}$
+                \item $ f = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 1 & 2 & 1 \end{pmatrix} $ $f$ is neither injective nor surjective
+
+                \item $ f = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 3 & 1 & 2 \end{pmatrix} $ $f$ is surjective
+
+                \item $ f(x) = \begin{cases} x & \text{if}\; x\leq 3\\ x - 3 & \text{if}\; x > 3\end{cases}$ $f$ is surjective
             \end{enumerate}
 
 
         %4
         \setItemNumber{4}
-        \item The following functions all have domain $\{1,2,3,4,5\}$ and codomain $\{1,2,3\}$. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.
+        \item The following functions all have domain $\{1,2,3,4\}$ and codomain $\{1,2,3,4,5\}$. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.
             \begin{enumerate}[(a)]
-                \item $ f = \left\begin{pmatrix} 1 & 2 & 3 & 4  \\ 1 & 2 & 5 & 4 \end{pmatrix}\right$
-                \item $ f = \left\begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 2\end{pmatrix}\right$
-                \item $f(x)$ gives the number of letters in the English word for the number $x$. For example, $f(1) = 3$ since "one" contains three letters.
+                \item $ f = \begin{pmatrix} 1 & 2 & 3 & 4  \\ 1 & 2 & 5 & 4 \end{pmatrix}$ $f$ is injective 
+                \item $ f = \begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 2\end{pmatrix}$ $f$ is neither injective nor surjective
+
+                \item $f(x)$ gives the number of letters in the English word for the number $x$. For example, $f(1) = 3$ since "one" contains three letters.\newline
+                    $f$ is neither injective nor surjective
             \end{enumerate}
 
 
         %6
         \setItemNumber{6}
     \item Write out all function $f : \{1,2\}\rightarrow \{a,b,c\}$ (in two-line notation)\\
-        How many function are there?\\
-        How many are injective?\\
-        How many are surjective?\\
-        How many are beijective?\\
+        How many function are there? 9\\
+        How many are injective? 6\\
+        How many are surjective? 0\\
+        How many are beijective? 0\\
 
     %8 
     \setItemNumber{8}
@@ -103,8 +121,16 @@
     %ADD graph later    
         \begin{enumerate}[(a)]
             \item Is $f$ injective? Explain
+
+                $f$ isn't injective because $f(1)$ \& $f(4)$ both result in 3.
+
             \item Is $f$ surjective? Explain
+
+                $f$ is surjective because at least one element of the codomain is mapped to at least one element of the domain
+
             \item Write the function using two-line notation
+
+                $f(x) =  \begin{pmatrix} 1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 3 \end{pmatrix}$
         \end{enumerate}
 
 
@@ -113,26 +139,65 @@
 \item Suppose $f : \mathcal{X} \rightarrow \mathcal{Y}$ is function. Which of the following are possible? Explain.
         \begin{enumerate}[(a)]
             \item $f$ is injective but not surjective.
+
+                If the $|X|$ is larger that $|Y|$ then the codomain may map to multiple elements of the codomain. For instance, $X = \{1,2,3,4,5\}$ and $Y = \{1,2,3\}$. If the following is the result:
+
+                $$ f = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 1 & 2 & 2 & 3 \end{pmatrix} $$
+
+                1 has multiple mappings to it, but it is possible for $f$ to be injective.
+
             \item $f$ is surjective but not injective.
-            \item $|\mathcal{X}| = |\mathcal{Y}|$ and $f$ is injective but not surjective.
-            \item $|\mathcal{X}| = |\mathcal{Y}|$ and $f$ is surjective but not injective.
-            \item $|\mathcal{X}| = |\mathcal{Y}|$, $\mathcal{X}$, and $\mathcal{Y}$ are finite, and $f$ is injective but not surjecttive.             
-            \item $|\mathcal{X}| = |\mathcal{Y}|$, $\mathcal{X}$, and $\mathcal{Y}$ are finite, and $f$ is surjective but not injective.
+
+            $f$ can also be surjective if $|X| = |Y|$ and each element of codomain has only mapping from the domain.
+
+            \item $|X| = |Y|$ and $f$ is injective but not surjective.
+
+        It is possible $f$ can be injective if there exists one-to-one relationship to domain and codomain.
+
+            \item $|X| = |Y|$ and $f$ is surjective but not injective.
+
+                Not possible because an element from the domain would have to map to multiple elements of the codomain leaving $f$ not a function.
+
+
+            \item $|X| = |Y|$, $X$, and $Y$ are finite, and $f$ is injective but not surjecttive.             
+
+            If $|X| = |Y|$ and $f$ is injective then no two inputs mapt to the same output. We know that $|X|$ number of elemtns in $Y$ are mapped to. Since $|X| = |Y|$, every element in $Y$ is mapped to. So $f$ has to be surjective if it is injective.
+
+            \item $|X| = |Y|$, $X$, and $Y$ are finite, and $f$ is surjective but not injective.
+
+                Not possible because an element of the codomain may not have a mapping for instance let $X = Y = \{1,2,3\}$ and:
+
+                $$f = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 3\end{pmatrix}$$
+
+                The above may be the result empahsizes $f$ cannot be surjective when $|X| = |Y|$.
+
         \end{enumerate}
 
     %28
     \setItemNumber{28}
-    \item Let $f: \mathcal{X}\rightarrow\mathcal{Y}$ be a function and $A,B\subseteq\mathcal{X}$ be subsets of the domain.
+    \item Let $f: X\rightarrow Y$ be a function and $A,B\subseteq\mathcal{X}$ be subsets of the domain.
         \begin{enumerate}[(a)]
             \item If $f^-1(f(A)) = A$? Always, sometimes, or never? Explain.
 
-                Sometimes only when $f$ is injective or bijective would result subsets of the domain
+                Sometimes only when $f$ is injective or bijective would result subsets of the domain. Opposite of my example from (b), $f^-1(f(A)) = A$ is sometimes true because the $X$ may not
 
-            \item If $f(f(B)) = B$? Always, sometimes, or never? Explain.
+            \item If $f(f^-1(B)) = B$? Always, sometimes, or never? Explain.
 
-                Sometimes when $f$ is injective or bijectivek
-            \item If one or both of the above do not always hold, is there something else you can say? Will equality always hold for particular types of functions? Is there some other relationship other than equality that would always hold? Explore.
-        \end{enumerate}
+                Sometimes when $f$ is injective or bijective. because let $X = Y = \{1,2,3\}$ and $B = \{2,3\}$ if:
 
-    \end{enumerate}
+                $$ f = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{pmatrix}$$ 
+                $$ f^-1(B) = \emptyset$$
+                $$ f(\emptyset) = \emptyset \neq B$$
+
+                Emphasizing that $f(f^-1(B)) = B$ is sometimes is false.
+
+            \item If one or both of the above do not always hold, is there something else you can say? Will equality always hold for particular types of functions? Is there some other relationship other than equality that would always hold? Explore.  
+
+                I answered sometimes for both but I will re-emphasize that $f$ would need to be one-to-one for (b) because when $|B| < |X| \lor |B| < |Y|$ then the $f(f^-1(B)) = B$ isn't always true.
+
+            \end{enumerate} 
+
+    \end{enumerate} 
+                
 \end{document}
+

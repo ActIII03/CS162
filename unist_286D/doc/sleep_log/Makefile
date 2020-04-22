@@ -1,4 +1,4 @@
-PROJECT = inquiry_log2
+PROJECT = sleep_analysis
 TEX=pdflatex
 BIBTEX=biber
 BUILDTEX= $(TEX) $(PROJECT).tex

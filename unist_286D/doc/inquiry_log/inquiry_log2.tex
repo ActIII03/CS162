@@ -1,0 +1,54 @@
+\documentclass[a4paper,man,biblatex]{apa6}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\usepackage[document]{ragged2e}
+\setlength{\RaggedRightParindent}{0.5in}
+\addbibresource{references.bib}
+\usepackage{url}
+\usepackage{xpatch}
+\xpatchbibdriver{online}
+  {\printfield{entrysubtype}}
+  {\printfield{entrysubtype}%
+   \newunit\newblock
+   \printfield{note}}
+  {}
+  {}
+
+\renewcommand{\abstract}[1]{}
+
+\title{Inquiry Log \#2}
+\shorttitle{Inquiry Log \#2}
+\author{Armant Touche}
+\affiliation{Portland State University}
+\date{\today}
+
+\begin{document}
+\thispagestyle{otherpage}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+%\maketitle
+
+\noindent Name: Armant Touche\newline
+\noindent Date: 4/22/2020
+
+\subsection{Quotes}
+%#1
+\begin{enumerate}
+    \item "Years of herbicides and continuous corn have left the field sterile. Even in rain-soaked April not a blade of green show its face. By August it will once again be a monoculture of corn plants in straight rows of indentured servitude, but for now it's my cross-country route to the woods"\autocite[175]{braiding}
+    \item "The philosophy of reciprocity is beautiful in the abstract, but the practical is harder" \autocite[238]{braiding}
+    \item "What's the use of a fine house if you haven't got a tolerable planet to put it on" \autocite{capecod}
+\end{enumerate}
+
+\subsection{Observe} For my observation period, I choose to sit in my backyard since the weather allowed me to sit comfortable in the sun with no rain this time. In the backyard, I am very secluded due to the fences but you cannot notice the fences because each plank has been overrun by ivy adding a nice, natural feel to the backyard. As I sat in my chair, I started notice that flock of birds were flying semi-north which could be a sign The Northern Migration taking place within the seasonal bird community. I wouldn't know anything about seasonal patterns of birds but I like to think these birds were flying up from South-Western United States or further. On another note, it has been around thirty days since I left my house other than going to get food from the grocery stores. I am also drinking coffee and I noticed my cat sauntering into the backyard as usual. The first thing my cat does is release a fierce meow to let me know he's here and of course he receives some well-deserved pets. I start to think about what my cat may potentially view me as. I have no reason to own a cat but saying I "own" the cat feels weird sometimes because I know that cats can be self-sufficient without humans. The reciprocal relationship I have with my cat probably isn't too different from the first Ancient Egyptians to domesticate cats around 7800 B.C.. I feed my cat food and provide a home for Abu and Abu brings "presents" back home because that is a natural inclination with cats. Last part is an unusual thought but that is nature of most relationship. There seems to be reciprocal relationship in any facet of life.
+
+\subsection{Reflect \& Theme} In \textit{Braiding Sweet Grass} the author constantly refers to the conflicting philosophy that is present between Traditional Sciences and Western Sciences. She provides an anecdotal story of an engineering student providing a solution to gather more rice and I like the response the hosts provide to him. I am not going to paraphrase what they said but basically, do not take more than needed was the overall idea. I think there is a constant consumptive nature present here in the U.S. that should be revamped through proper schooling. To implement a school course that is centered around reciprocity could be beneficial because talking, abstractly, about reciprocity is idealistic because individuals may not posses anecdotes or ideas that emphasize the need for less consumption. I feel more confident in my consumption. Heck, I am still wearing the same clothes from high school and I am about to be twenty-eight years old. I also go to Goodwill when I need pants that fit or want to get rid of clothes that either do not fit or are worn out. Environmental mindfulness is a hard idea to instill because of the nature of the U.S. consumer culture. Speaking about the present, the fact the U.S. has so much oil that the price fell into the negative is absurd. The reasoning behind not capping wells is because oil companies will lose access to the well is crazy and emphasize the over-consumption that is present within major companies. Another crazy event, dairy farms are dumping good milk because there isn't a demand because of COVID-19 \autocite{dairyfarm}. I understand that farmers need buyers but in a pandemic, dumping good resources does not make sense and these wasteful actions highlight Kimmerer's anecdote of the engineer student. I wish we there was oversight committee that was called the Absurdity Monitors and these monitors help bridge gaps like finding charity or consumer for the dairy, for instance, because how can farmers not see the wasted potential of dumping as absurd during a pandemic.
+
+\subsection{Question} What area of our culture would you want to revise? I would like to revise the consumer monoculture because I feel that negatives outweigh the benefits. The globalization of consumerism has reached a lot of countries and does not allow diversity in how resources should be consumed. Take the dairy farmers dumping milk. Consumerism mandates that there has to be a buyer to buy the dairy products from the dairy farmers. What if a pandemic happens? Buyers aren't buying like usual but we all know the process of farming takes place well in advance before the consumer approaches the suppliers. This constant output of resources to consumers is based on the fact that nothing novel could disrupt current output, whether that be hurricanes or in our case, COVID-19. I do not have solution to how purveyors procure dairy products but how milk be dumped because there are no one buying milk. There are plenty of charities that could benefit from the wasted milk. Plenty children are known to only have meals when going to school. Imagine the kids who aren't in school and won't be school until this pandemic passes over. My question doesn't have a discrete answer but I feel it highlights the theme of my inquiry log. 
+
+\subsection{Words} 844 words
+
+\printbibliography
+
+\end{document}
