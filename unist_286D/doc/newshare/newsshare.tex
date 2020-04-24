@@ -1,0 +1,43 @@
+\documentclass[a4paper,man,biblatex]{apa6}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\usepackage[document]{ragged2e}
+\setlength{\RaggedRightParindent}{0.5in}
+\addbibresource{references.bib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{xpatch}
+\xpatchbibdriver{online}
+  {\printfield{entrysubtype}}
+  {\printfield{entrysubtype}%
+   \newunit\newblock
+   \printfield{note}}
+  {}
+  {}
+
+\renewcommand{\abstract}[1]{}
+
+\title{The Rankability of Data}
+\shorttitle{The Rankability of Data}
+\author{Armant Touche}
+\affiliation{Portland State University}
+\date{\today}
+
+\begin{document}
+\thispagestyle{otherpage}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+%\maketitle
+
+\noindent Name: Armant Touche\newline
+\noindent Date: 4/29/2020
+
+\subsection{Description} I wanted to share an article from
+
+\subsection{Why} Why this article is important. Overall (400 - 600 words)
+
+\printbibliography
+
+\end{document}
