@@ -33,11 +33,11 @@
 
             \item How many 2-digit hexadecimals are there in which the first digit is E or F? Explain your answer in terms of the additive principle (using either events or sets).
             
-            There are sixteen 2-digit hexadecimal numbers that start with E and sixteen 2-digit hexadecimal. To answer the question, we use the additive principle because the event that a number start with either an E or F are independent of one another we simply add the two disjoint events together to get the total number of possible 2-digit hexadecimal numbers that either start with E or F. Resulting in thirty-two possible 2-digit hexadecimal numbers that start with either E or F.
+            There are sixteen 2-digit hexadecimal numbers that start with E and sixteen 2-digit hexadecimal that start with F. To answer the question, we use the additive principle because the event that a number start with either an E or F are independent of one another we simply add the two disjoint events together to get the total number of possible 2-digit hexadecimal numbers that either start with E or F. Resulting in thirty-two possible 2-digit hexadecimal numbers that start with either E or F.
 
             \item Explain why your answer to the previous part is correct in terms of the multiplicative principle (using either events or sets). Why do both the additive and multiplicative principles give you the same answer?
 
-                if we were to use the multiplicative rule in the previous answer, I would say, let A be the event that a hexedecimal number is 2-digit starting digit is E or F. There are only two ways for that to happen. Let B be the number possible digits to follow which is sixteen. $A\cap B = 2 \cdot 16 = 32$. This result is the same answer from using the additive rule.
+                If we were to use the multiplicative rule in the previous answer, I would say, let A be the event that a hexedecimal number is 2-digit starting digit is E or F. There are only two ways for that to happen. Let B be the number possible digits to follow which is sixteen. $A\cap B = 2 \cdot 16 = 32$. This result is the same answer from using the additive rule.
             
             \item How many 3-digit hexadecimals start with a letter (A-F) and end with a numeral (0-9)? Explain.
 
@@ -54,7 +54,7 @@
         \setItemNumber{10}
         \item How many positive integers less than 1000 are multiples of 3, 5, or 7? Explain your answer using the Principle of Inclusion/Exclusion.
 
-            Let $A$ be the number of multiples in 1000 that have a common factor of 3, $B$ be the number of multiples in 1000 that have a common factor of 5, and $C$ be the number of multiples in 100 that have a common factor of 7. $A = \lfloor 1000 \div 3 \rfloor = 333$, $B = \lfloor 1000 \div 5 \rfloor = 200$, and $C = \lfloor 1000 \div 7 \rfloor = 142$. The question is asking $A \cup B \cup C$ which is eqaul to $A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C)$. $(A\cap B \cap C)$ is the LCM that has a factor of 3, 5, and 7 which is 105. So $A\cap B\cap C = \lfloor 1000\div 105\rfloor = 9$. Before going on, the results are irrational which aren't discrete so I floor each result since we can partial numbers of multiples in 1000. Now we put it all together, $ A\cup B\cup C = A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C) = 333 + 200 + 142 - 66 - 47 - 28 + 9 = 542$ number of positives integers less than 100 that are multiples of 3, 5, 7, or all of them.
+            Let $A$ be the number of multiples less than 1000 that have a common factor of 3, $B$ be the number of multiples in 1000 that have a common factor of 5, and $C$ be the number of multiples in 100 that have a common factor of 7. $A = \lfloor 1000 \div 3 \rfloor = 333$, $B = \lfloor 1000 \div 5 \rfloor = 200$, and $C = \lfloor 1000 \div 7 \rfloor = 142$. The question is asking $A \cup B \cup C$ which is eqaul to $A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C)$. $(A\cap B \cap C)$ is the LCM that has a factor of 3, 5, and 7 which is 105. So $A\cap B\cap C = \lfloor 1000\div 105\rfloor = 9$. Before going on, the results are irrational which aren't discrete so I floor each result since we can partial numbers of multiples in 1000. Now we put it all together, $ A\cup B\cup C = A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C) = 333 + 200 + 142 - 66 - 47 - 28 + 9 = 542$ number of positives integers less than 100 that are multiples of 3, 5, 7, or all of them.
 
     \end{enumerate}
 	
@@ -71,7 +71,7 @@
 
                 \item How many subsets of $A$ are there? That is, find $|\mathcal{P}(A)|$. Explain.
 
-                    Using what I know about power-sets, we need to figure if each element is inlcuded in the power-set. For each 9 elements, we have a yes or no for each element existing in $A$. So $2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot = 2^9 = 2^{\mathcal{P}(A)} = 512$ subsets of $A$.
+                    Using what I know about power-sets, we need to figure if each element is inlcuded in the power-set. For each 9 elements, we have a yes or no for each element existing in $A$. So $2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot = 2^9 = 2^{|\mathcal{P}(A)|} = 512$ subsets of $A$.
 
                 \item How many subsets of $A$ contain exactly 5 elements? Explain.
 
@@ -93,19 +93,19 @@
 
                 \item Start with the sub-string 101? Explain.
 
-                    Since we only care about subsets of the 9-bit string set with $2^6$
+                    Since we only care about subsets of the 9-bit string set with where the first three bits are 101 which limits us to focusing on 6 of the elements of the 9-bit string.  $2^6 = 64$
 
                 \item Have weight 5 (i.e., contain exactly five 1’s) and start with the sub-string 101? Explain.
 
-                ${6\choose 3}$
+                    ${6\choose 3} = 20$ because let $A$ be the event that is 9-bit integer with a weight of five. Of that powerset, we are concerned with subsets that contain 101.
 
                 \item Either start with 101 or end with 11 (or both)? Explain.
 
-                    176
+                    Let $A$ be the event the 9-bit string starts with 101 which 64 and B is when the 9-bit integer which is 128. $A\cap B = 2^4$ which leads us to finally calculating $A\cup B = A + B - (A\cap B) = 64 + 128 - 2^4 = 176$
 
                 \item Have weight 5 and either start with 101 or end with 11 (or both)? Explain.
 
-                    51
+                    Let $A$ be the event 9-bit string has weight of 5 and starts with 101 which ${6\choose 3}$ and $B$ be the event that 9-bit has a weight of 5 and ends with 11 which is 128. Now $A\cap B = {4\choose 3}$ which finally leads us to finding $A\cup B = A + B - (A\cap B) = 20 + 35 - 4 = 51$.
 
             \end{enumerate}
 
@@ -116,18 +116,20 @@
 
                 \item How many different routes can you take to work, assuming you want to get there as quickly as possible? Explain.
 
-                ${18\choose  9}$
+                There are 18 moves in total and we can assign weight to R's. We need make 18 moves but 9 of those have to be R's. ${18\choose  9} = 48620$ possible routes from home and work.
 
                 \item Now suppose you want to stop and get a donut on the way to work, from your favorite donut shop on the corner of 10th ave and 8th st. How many routes to work, stopping at the donut shop, can you take (again, ensuring the shortest possible route)? Explain.
 
-                    ${12\choose 7}{6\choose 2}$
+                    There are 12 moves from home to the donut shops and 7 R's which is $A$ and $B$ is 6 moves and 2 U's. Using the multiplicative rule, $A\cap B = {12\choose 7}{6\choose 2} = 11880$
+
                 \item Disaster Strikes Gridtown: there is a pothole on 4th ave between 5th st and 6th st. How many routes to work can you take avoiding that unsightly (and dangerous) stretch of road? Explain.
 
-                    ${18\choose 9} - {3\choose 1}{14\choose 8}$
+                    We need to subtract the number of routes to from home to the pothole from the total routes from home to work. ${18\choose 9} - {3\choose 1}{14\choose 8} = 39611$
 
                 \item The pothole has been repaired (phew) and a new donut shop has opened on the corner of 4th ave and 5th st. How many routes to work drive by one or the other (or both) donut shops? Hint: the donut shops serve PIE.
 
-                    ${3\choose 1}{15\choose 8} + {12\choose 7}{6\choose 2}{9\choose 6}{6\choose 2}$
+                    Let $A$ be the route to the first donut shop then to work and $B$ be th route to the new donut shop then to work. $A\cup B = A + B - (A\cap B) = {3\choose 1}{15\choose 8} + {12\choose 7}{6\choose 2}{9\choose 6}{6\choose 2} = 27405$
+
             \end{enumerate}
 
     \end{enumerate}
@@ -142,15 +144,15 @@
             \begin{enumerate}[(a)]
                 \item How many 3-topping pizzas could they put on their menu? Assume double toppings are not allowed.
 
-                    ${10\choose 3} = 120$ pizzas. We must choose (in no particular order) 3 out of the 10 toppings. 
+                    ${10\choose 3} = 120$ pizzas. Order of topping doesn't matter so 3 out of the 10 toppings. 
 
                 \item How many total pizzas are possible, with between zero and ten toppings (but not double toppings) allowed?
 
-                    $2^10 = 1024$ pizzas. Sey yes or no to each toppping
+                    Let $A$ be the event of no toppings and $B$ be the event that you end up with one of the ten toppins. $A\cap B = A\cdot B = 2^0\cdot 2^{10} = 1024$ pizzas. 
 
                 \item The pizza parlor will list the 10 toppings in two equal-sized columns on their menu. How many ways can they arrange the toppings in the left column?
 
-                $P(10,5) = 30240$ wasy. Assign each of the 5 spots in the left column to a unique pizza topping
+                Out of ten toppings we have to arrange 5 toppings in a particular order. $P(10,5) = 30240$ ways to arrange the toppings in the left column. 
 
             \end{enumerate}
 
@@ -173,7 +175,7 @@
 
                 \item How many are rectangles?
 
-                ${7\choose 2}$ rectangles
+                ${7\choose 2} = 21$ rectangles
 
                 \item How many are parallelograms?
 
@@ -181,11 +183,12 @@
 
                 \item How many are trapezoids? (Here, as in calculus, a trapezoid is defined as a quadrilateral with at least one pair of parallel sides. In particular, parallelograms are trapezoids.)
 
-${7\choose 2}{7\choose 2} - \left[ {7 \choose 2} + ({7 \choose 2}-1) + ({7 \choose 2} - 3) + ({7 \choose 2} - 6) + ({7 \choose 2} - 10) + ({7 \choose 2} - 15) \right]\text{.}$
+                ${7\choose 2}{7\choose 2} = 441$ quadrilaterals
 
                 \item How many are trapezoids that are not parallelograms?
 
 
+${7\choose 2}{7\choose 2} - \left[ {7 \choose 2} + ({7 \choose 2}-1) + ({7 \choose 2} - 3) + ({7 \choose 2} - 6) + ({7 \choose 2} - 10) + ({7 \choose 2} - 15) = 350$ that are not parallelograms
 
             \end{enumerate}
 
@@ -204,7 +207,7 @@ ${7\choose 2}{7\choose 2} - \left[ {7 \choose 2} + ({7 \choose 2}-1) + ({7 \choo
             \begin{enumerate}[(a)]
                 \item How many functions $f: A\rightarrow B$ are there?
 
-                    $17^10$ functions. There are 17 choices for the image of each element in the domain.
+                    $17^{10}$ functions. There are 17 choices for the image of each element in the domain.
 
                 \item How many functions $f: A\rightarrow B$ are injective?
 

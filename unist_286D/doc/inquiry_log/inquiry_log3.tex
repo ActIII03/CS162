@@ -1,0 +1,54 @@
+\documentclass[a4paper,man,biblatex]{apa6}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\usepackage[document]{ragged2e}
+\setlength{\RaggedRightParindent}{0.5in}
+\addbibresource{references.bib}
+\usepackage{url}
+\usepackage{xpatch}
+\xpatchbibdriver{online}
+  {\printfield{entrysubtype}}
+  {\printfield{entrysubtype}%
+   \newunit\newblock
+   \printfield{note}}
+  {}
+  {}
+
+\renewcommand{\abstract}[1]{}
+
+\title{Inquiry Log \#2}
+\shorttitle{Inquiry Log \#2}
+\author{Armant Touche}
+\affiliation{Portland State University}
+\date{\today}
+
+\begin{document}
+\thispagestyle{otherpage}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+%\maketitle
+
+\noindent Name: Armant Touche\newline
+\noindent Date: 4/29/2020
+
+\subsection{Quotes}
+%#1
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+\subsection{Observe} 
+
+\subsection{Reflect \& Theme} 
+
+\subsection{Question}  
+
+\subsection{Words}  words
+
+\printbibliography
+
+\end{document}
