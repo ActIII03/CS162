@@ -15,7 +15,7 @@
 
 \title{\bf Homework 1\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
-\date{\normalsize Due: April 12, 2020}
+\date{\normalsize Due: April 26, 2020}
 \author{\normalsize Armant Touche}
 
 \begin{document} 
@@ -54,7 +54,7 @@
         \setItemNumber{10}
         \item How many positive integers less than 1000 are multiples of 3, 5, or 7? Explain your answer using the Principle of Inclusion/Exclusion.
 
-            Let $A$ be the number of multiples less than 1000 that have a common factor of 3, $B$ be the number of multiples in 1000 that have a common factor of 5, and $C$ be the number of multiples in 100 that have a common factor of 7. $A = \lfloor 1000 \div 3 \rfloor = 333$, $B = \lfloor 1000 \div 5 \rfloor = 200$, and $C = \lfloor 1000 \div 7 \rfloor = 142$. The question is asking $A \cup B \cup C$ which is eqaul to $A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C)$. $(A\cap B \cap C)$ is the LCM that has a factor of 3, 5, and 7 which is 105. So $A\cap B\cap C = \lfloor 1000\div 105\rfloor = 9$. Before going on, the results are irrational which aren't discrete so I floor each result since we can partial numbers of multiples in 1000. Now we put it all together, $ A\cup B\cup C = A + B + C - (A\cup B) - (A\cup C) - (B\cup C) + (A\cap B \cap C) = 333 + 200 + 142 - 66 - 47 - 28 + 9 = 542$ number of positives integers less than 100 that are multiples of 3, 5, 7, or all of them.
+            Let $A$ be the number of multiples less than 1000 that have a common factor of 3, $B$ be the number of multiples in 1000 that have a common factor of 5, and $C$ be the number of multiples in 100 that have a common factor of 7. $A = \lfloor 1000 \div 3 \rfloor = 333$, $B = \lfloor 1000 \div 5 \rfloor = 200$, and $C = \lfloor 1000 \div 7 \rfloor = 142$. The question is asking $A \cup B \cup C$ which is eqaul to $A + B + C - (A\cap B) - (A\cap C) - (B\cap C) + (A\cap B \cap C)$. $(A\cap B \cap C)$ is the LCM that has a factor of 3, 5, and 7 which is 105. So $A\cap B\cap C = \lfloor 1000\div 105\rfloor = 9$. Before going on, the results are irrational which aren't discrete so I floor each result since we can partial numbers of multiples in 1000. Now we put it all together, $ A\cup B\cup C = A + B + C - (A\cap B) - (A\cap C) - (B\cap C) + (A\cap B \cap C) = 333 + 200 + 142 - 66 - 47 - 28 + 9 = 542$ number of positives integers less than 100 that are multiples of 3, 5, 7, or all of them.
 
     \end{enumerate}
 	
@@ -199,7 +199,7 @@ ${7\choose 2}{7\choose 2} - {7 \choose 2} + ({7 \choose 2}-1) + ({7 \choose 2} -
             \includegraphics[width=.5\textwidth]{hw4_graphic2}
             \end{center}
 
-            If you pick any three points, you can get a triangle, unless those three points are all on the x-axis or on the y-axis. There are other ways to start this as well, and any correct method should give the same answer. 120
+            Since we can have three point on the same axis and are allowed non-right triangles, we can simply calculate the number of possible triangles by is ${5\choose 3}{6\choose 1}+{7\choose 2}{5\choose 1}-{5\choose 3}-{7\choose 3} = 120$ possible triangles.
 
         %12
         \setItemNumber{12}
@@ -217,16 +217,21 @@ ${7\choose 2}{7\choose 2} - {7 \choose 2} + ({7 \choose 2}-1) + ({7 \choose 2} -
 
     \end{enumerate}
 
-
-	
 	\paragraph{Problem 4} Counting Proofs\\
 
 	Given what you've learned from chapter 1.4 about the difference between calculation and proofs, write up a proof or explanation for the following statement:\\
 
 	\textbf{A full binary tree of depth $d$ has $2^{d-1}$ leaves.} \\
 
-	(Recall that a full binary tree is a binary tree where every path is the same length, i.e. all the leaf nodes are at the same depth.)
-	
-		
+    \textit{Proof}. By definition, $f(d) = 2^{d-1} =$ number of leaves but I want to proof this function is true by proving that for $n$-leaves, we get a depth $d$. Starting with $n = 1, 2, 4, 8, ..., 2^{(d - 1)}$ and $d = 1, 2, 3,..., d+1$.
+
+    $$f^{-1}(f(d)) = \log_2{(n)} + 1$$ 
+    $$f^{-1}(f(1)) = \log_2{(1)} + 1\ = 1\;\; \text{depth}$$
+    $$f^{-1}(f(2)) = \log_2{(2)} + 1\ = 2\;\; \text{depth}$$
+    $$f^{-1}(f(3)) = \log_2{(4)} + 1\ = 3\;\; \text{depth}$$
+    $$f^{-1}(f(4)) = \log_2{(8)} + 1\ = 4\;\; \text{depth}$$
+    $$f^{-1}(f(d+1)) = \log_2{(2^{d-1})} + 1\ = d+1\;\; \text{depth}$$
+
+    \center The pattern to notice, for each depth of a full binary tree, the amount of leaves doubles for each depth $d$ proving depth $d$ has $2^{d-1}$ leaves to be true.
+
 \end{document}
-	

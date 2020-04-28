@@ -1,4 +1,4 @@
-PROJECT = inquiry_log2
+PROJECT = inquiry_log3
 TEX=pdflatex
 BIBTEX=biber
 BUILDTEX= $(TEX) $(PROJECT).tex

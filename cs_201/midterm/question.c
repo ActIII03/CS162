@@ -21,26 +21,24 @@ int main(void)
     printf("c: %d\n", a);
     */
 
-    char c = 50;
-    char d = (c != 50);
-    printf("d: %d\n", d);
+    //char c = 50;
+    //char d = (c != 50);
+    //printf("d: %d\n", d);
 
     //Q4
-    /*
     char e = 48;
     char g = e | 20;
     printf("g: %d\n", g);
-    */
 
     //Q15
-    double*** array;
+    //double*** array;
     //int sizex = 5;
     //int sizey = 5;
     //int sizez = 5;
     
-    //Allocate3DArray(array, 5, 5, 5);
+    //Allocate3DArray(&array, 5, 5, 5);
 
-    //Destory3DArray(array, 5, 5);
+    //Destory3DArray(&array, 5, 5);
 
     /*
     array = (double ***)malloc(sizex*sizeof(double**));
@@ -78,9 +76,9 @@ void Allocate3DArray(double**** array, int sizex, int sizey, int sizez)
 
     for(int i = 0; i < sizex; ++i)
     {
-        *array[i] = (double **) malloc(sizey * sizeof(double*));
+        (*array)[i] = (double **) malloc(sizey * sizeof(double*));
         for(int j = 0; j < sizey; ++j)
-            *array[i][j] = (double *)malloc(sizez * sizeof(double));
+            (*array)[i][j] = (double *)malloc(sizez * sizeof(double));
     }
 }
 
