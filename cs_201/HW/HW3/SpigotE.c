@@ -7,7 +7,7 @@ void SpigotE(unsigned char* output, unsigned long* workbuffer, unsigned long n)
 	unsigned long temp;
 
 	output[0] = 2;
-	for (i = n + 1; i >= 0; i--)
+	for (i = n + 1; i >= 0; i--) 
 	{
 		workbuffer[i] = 1;
 	}
