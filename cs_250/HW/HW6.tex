@@ -1,13 +1,11 @@
-% '%' is similar to '//' in C++ to mean a single line comment. The LaTeX compiler will ignore these lines.
-
-\documentclass[11pt]{article} % a back slash '\' denotes a command in LaTeX. The documentclass defines the standard layout of the document. Square brackets '[]' are parameters that can be passed to the argument.
-\usepackage{amssymb,amsthm,listings,color,array,easytable,multicol} % packages like these bring in additional features via commands. They're like #include in C++
-\usepackage[fleqn]{amsmath} % fleqn: flush left equations
-\usepackage{venndiagram} % Here are a bunch more packages that I use frequently. Google them to find out what they are used for.
+\documentclass[11pt, a4paper]{article} 
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[fleqn]{amsmath} % fleqn: flush left equations <-- Left-flush equations
 \usepackage{graphicx}
+\usepackage{pgfplots}
 \usepackage{hyperref, url}
 \usepackage[margin=2cm, top=2cm]{geometry}
-\usepackage[shortlabels]{enumitem}
 \graphicspath{{./img/}}
 \newcommand\setItemNumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand*{\mybox}[1]{\framebox{#1}}
@@ -15,16 +13,13 @@
 \newcommand{\stuple}[1]{$\langle$#1$\rangle$} % ordered pair with strings inside
 \newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
 
-%The title, date, and author are part of the preamble. The preamble is not part of the main body of the document. 
-\title{\bf Homework 6\\[1ex]
+\title{\bf Homework 1\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
-\date{\normalsize Due: May 10, 2020}
+\date{\normalsize Due: April 26, 2020}
 \author{\normalsize Armant Touche}
 
-\begin{document} % This \begin{document} and corresponding \end{document} identifies the begeinning and end of your document body.
-
-	\vspace{-4cm}\maketitle % \maketitle tells LaTeX to put the title, date, and author information here.
-	
+\begin{document} 
+\vspace{0cm}\maketitle 
 	\paragraph{Homework Exercises} Chapter 2: Sequences
 	
 	\subparagraph{Problem 1} 2.1 Describing Sequences (pg. 135-147)\\
@@ -35,11 +30,14 @@
 
             %2
             \setItemNumber{2}
-            \item For each sequence given below, find a closed formula for $a_n$ , the $n$th term of the sequence (assume the first terms are $a_0$ ) by relating it to another sequence for which you already know the formula. In each case, briefly say how you got your answers.
+            \item For each sequence given below, find a closed formula for $a_n$, the $n$th term of the sequence (assume the first terms are $a_0$ ) by relating it to another sequence for which you already know the formula. In each case, briefly say how you got your answers.
                 \begin{enumerate}
-                    \item 4, 5, 7, 11, 19, 35, . . .
-                    \item 0, 3, 8, 15, 24, 35,. . .
-                    \item 6, 12, 20, 30, 42, . . .
+                    \item 4, 5, 7, 11, 19, 35, . . .\\
+                        I noticed that the difference between each number had a factor of power to two where the the first two number's difference was 1, plus 3 implied, then next pair was 2, 4, 8, and so on. So $a_n = 3 + 2^n;\;\;n\geq 0$ is my closed formula.
+                    \item 0, 3, 8, 15, 24, 35,. . .\\
+                        Like (a), I notice a trend in the differences between each number and this sequence reminded me of the partial sum sequence because the recurring difference between each pair of numbers was two. So I think $a_n = n(n + 2);\;\;n\geq 0$ is the answer.
+                    \item 6, 12, 20, 30, 42, . . .\\
+                        This a power of two sequence. So $a_n = $
                     \item 0, 2, 7, 15, 26, 40, 57, . . . (Cryptic Hint: these might be called “house numbers”)
                 \end{enumerate}
 
@@ -53,12 +51,12 @@
 
             %7
             \setItemNumber{7}
-        \item Write out the first few terms of the sequence given by $a_1 = 3$; $a_n = 2a_{n - 1} + 4$. Then find a recursive definition for the sequence 10, 24, 52, 108, . . .
+            \item Write out the first few terms of the sequence given by $a_1 = 3$; $a_n = 2a_{n - 1} + 4$. Then find a recursive definition for the sequence 10, 24, 52, 108, . . .
 
 
             %10
             \setItemNumber{10}
-        \item Show that $a_n = 2^n - 5^n$ is also a solution to the recurrence relation $a_n  7a_{n − 1} − 10a_{n − 2}$. What would the initial conditions need to be for this to be the closed formula for the sequence?
+        \item Show that $a_n = 2^n - 5^n$ is also a solution to the recurrence relation $a_n = {7a_{n - 1}} - {10a_{n - 2}}$. What would the initial conditions need to be for this to be the closed formula for the sequence?
 
 
             %13

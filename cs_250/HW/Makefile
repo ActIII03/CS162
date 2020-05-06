@@ -1,4 +1,4 @@
-PROJECT = HW5
+PROJECT = HW6
 
 default: obj/$(PROJECT).pdf
 
