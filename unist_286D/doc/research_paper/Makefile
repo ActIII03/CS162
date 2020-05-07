@@ -1,4 +1,4 @@
-PROJECT = research_outline
+PROJECT = research_draft
 TEX=pdflatex
 BIBTEX=biber
 BUILDTEX= $(TEX) $(PROJECT).tex
@@ -19,7 +19,7 @@ clean-all:
 	 rm -f *.bcf *.xml *.dvi *.log *.bak *.aux *.bbl *.blg *.idx *.ps *.eps *.pdf *.toc *.out 
 
 clean:
-	rm -rf obj/ *bcf *xml *.bbl *.blg *.aux *.ttt *.log *.out
+	rm -rf obj/ *bcf *xml *.bbl *.blg *.aux *.ttt *.log *.out *.fff
 
 #TEXINPUTS = .:obj/
 #TEXMFOUTPUT = obj/
