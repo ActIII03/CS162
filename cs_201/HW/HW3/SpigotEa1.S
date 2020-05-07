@@ -33,7 +33,7 @@ forLoop3:
     movq    (%rsi, %r10, 8), %r11   # 20 - temp = workbuffer[i];
     movq    $10,%r9                 # Save 10 into a temporary buffer
     imulq   %r11,%r9                # Save product of 10 * workbuffer[i] into temporary buffer  
-    movq    %r9,(%r11, %r10, 8)     # Move product stored in temporary buffer into temp var
+    movq    %r9,(%rsi, %r10, 8)     # Move product stored in temporary buffer into temp var
     addq    %r14,%r11               # 20 - temp = temp + q; 
     movq    %r11,%r14               # 21 - q = temp
     movq    %r10,%r9                # Move i into a temporary buffer
@@ -41,3 +41,4 @@ forLoop3:
     movq    %r11,%rax               # Get ready for division moving temp into the dividend reg RAX
     movq    %rdx,%r13               # Save n into temporary buffer before division
     movq    %r10,%rdx               # Move i into the quotient register
+    idiv     %rdx                   # Divide temp by (i + 2)
