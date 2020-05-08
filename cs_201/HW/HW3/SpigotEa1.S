@@ -25,14 +25,14 @@ done1:
     jmp     fl2test
 
 fl2test:
-    cmpq    %rdx,%r15               # 15 - j < n 
+    cmpq    %r11,%r15               # 15 - j < n 
     jl      forLoop2                # Start forLoop2 and continue until (j >= n) is true
+    movq    %r11,%rdx               # Move n back into original parameter register
     ret
 
-#Work on but CLOSE
 forLoop2:                           # for-loop at line:15 
     movq    $0,%r14                 # 17 - q = 0; 
-    movq    %rdx,%r10               # 18 - i = n
+    movq    %r11,%r10               # 18 - i = n
     addq    $1,%r10                 # 10 - i = i + 1;  
     jmp     fl3test
 
@@ -44,7 +44,7 @@ fl3test:
 done2:
     movq    %r14,(%rdi, %r15,8)     # 25 - output[j] = q;
     addq    $1,%r15                 # 25 - j++
-    jmp     forLoop2
+    jmp     fl2test
 
 forLoop3:                           #for-loop at line:18
     movq    $10,%r9                 # Save 10 into a temporary buffer  
@@ -54,4 +54,9 @@ forLoop3:                           #for-loop at line:18
     addq    $2,%rdx                 # Add to 2 to temporary buffer --> i
     divq    %rax                    # Divide temp by (i + 2)
     movq    %rax,%r14               # Move quotient into q (r14) 
-    movq    %rdx,(%rsi,%r10,8)      # 22 - temp % (i + 2);
+    movq    %rdx,(%rsi,%r10,8)      # 22 - workbuffer[i] = temp % (i + 2);
+    jmp     done3
+
+done3:
+    dec     %r10                    # 18 - i--
+    jmp     fl3test 
