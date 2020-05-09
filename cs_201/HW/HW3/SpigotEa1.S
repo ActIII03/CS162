@@ -52,11 +52,10 @@ forLoop3:                           #for-loop at line:18
     movq    $10,%rax                # Move 10 into a multiple register ---> %rax
     movq    (%rsi,%r10,8),%rdx      # Move workbuffer[i] into multiple register ---> %rdx
     mulq    %rdx                    # Product is in %rax
-    movq    %rax,%rdx               # Move product into dividend reigister ---> %rdx in our case
-    xorq    %rax,%rax               # Clear out %rax
-    movq    %r10,%rax               # Move i into  
-    addq    $2,%rax                 # Add to 2 to temporary buffer --> i
-    divq    %rdx                    # Divide temp by (i + 2)
+    xorq    %rdx,%rdx               # Clear out %rax
+    movq    %r10,%r14               # Move i into  
+    addq    $2,%r14                 # Add to 2 to temporary buffer --> i
+    divq    %r14                    # Divide temp by (i + 2)
     movq    %rax,%r14               # Move quotient into q (r14) 
     movq    %rdx,(%rsi,%r10,8)      # 22 - workbuffer[i] = temp % (i + 2);
     jmp     done3
