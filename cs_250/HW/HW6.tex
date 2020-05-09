@@ -1,9 +1,8 @@
-\documentclass[11pt, a4paper]{article} 
+\documentclass[11pt,a4paper]{article} 
 \usepackage{amssymb}
 \usepackage[shortlabels]{enumitem}
-\usepackage[fleqn]{amsmath} % fleqn: flush left equations <-- Left-flush equations
+\usepackage[fleqn]{amsmath} 
 \usepackage{graphicx}
-\usepackage{pgfplots}
 \usepackage{hyperref, url}
 \usepackage[margin=2cm, top=2cm]{geometry}
 \graphicspath{{./img/}}
@@ -33,30 +32,40 @@
             \item For each sequence given below, find a closed formula for $a_n$, the $n$th term of the sequence (assume the first terms are $a_0$ ) by relating it to another sequence for which you already know the formula. In each case, briefly say how you got your answers.
                 \begin{enumerate}
                     \item 4, 5, 7, 11, 19, 35, . . .\\
-                        I noticed that the difference between each number had a factor of power to two where the the first two number's difference was 1, plus 3 implied, then next pair was 2, 4, 8, and so on. So $a_n = 3 + 2^n;\;\;n\geq 0$ is my closed formula.
+                        I noticed that the difference between each number had a factor of power to two where the the first two number's difference was 1, plus 3 implied, then next pair was 2, 4, 8, and so on. So $a_n = 3 + 2^n;\;\;(a_n)_{n\geq 0}$ is my closed formula.
                     \item 0, 3, 8, 15, 24, 35,. . .\\
-                        Like (a), I notice a trend in the differences between each number and this sequence reminded me of the partial sum sequence because the recurring difference between each pair of numbers was two. So I think $a_n = n(n + 2);\;\;n\geq 0$ is the answer.
+                        Like (a), I notice a trend in the differences between each number and this sequence reminded me of the partial sum sequence because the recurring difference between each pair of numbers was two. So I think $a_n = n(n + 2);\;(a_n)_{n\geq 0}$ is the answer.
                     \item 6, 12, 20, 30, 42, . . .\\
-                        This a power of two sequence. So $a_n = $ %Come back later
+                        This sequence resemble the square sequence so $a_n = a_{n + 1} + {n + 1}$ where $n\in\mathbb{N}\land a_{n\geq 1}$
                     \item 0, 2, 7, 15, 26, 40, 57, . . . (Cryptic Hint: these might be called “house numbers”)
+                        
                 \end{enumerate}
 
             %3
             \item Write out the first 5 terms (starting with $a_0$ ) of each of the sequences described below. Then give either a closed formula or a recursive definition for the sequence (whichever is NOT given in the problem).
                 \begin{enumerate}
-                    \item $a_n = \frac{1}{2}(n^2 + n)$  
-                    \item $a_n = 2a_{n - 1} - a_{n - 2}$ with $a_0 = 0$ and $a_1 = 1$
-                    \item $a_n = na_{n - 1}$ with $a_0 = 1$
+                    \item $a_n = \frac{1}{2}(n^2 + n)$  \\
+                        $a_0 = 0$\\$a_1 = 1$\\$a_2 = 3\\$a_3 = 6$\\$a_4 = 10$\\
+                        $a_{n+1} = a_n +n$ with $a_0 = 0$
+                    \item $a_n = 2a_{n - 1} - a_{n - 2}$ with $a_0 = 0$ and $a_1 = 1$\\
+                        $a_2 = 2$\\$a_3 = 3$\\$a_4 = 4\\$a_5 = 5$\\ $a_n = n$
+                    \item $a_n = na_{n - 1}$ with $a_0 = 1$\\
+                        $a_0 = 1$\\$a_1 = 1$\\$a_2 = 2\\$a_3 = 6$\\$a_4 = 24$\\$a_5 = 120$\\
+                        The closed formula is $a_n = n!$
+
                 \end{enumerate}
 
             %7
             \setItemNumber{7}
-            \item Write out the first few terms of the sequence given by $a_1 = 3$; $a_n = 2a_{n - 1} + 4$. Then find a recursive definition for the sequence 10, 24, 52, 108, . . .
+            \item Write out the first few terms of the sequence given by $a_1 = 3$; $a_n = 2a_{n - 1} + 4$. Then find a recursive definition for the sequence 10, 24, 52, 108, . . .\\
+                $a_1 = 3\\ a_2 = 10\\ a_3 = 24\\ a_4 = 52\\ a_5 = 108$\\ The rec. def. for the sequence just listed is $a_n = 2a_{n - 1} + 4$ with $a_1 = 10$
 
 
             %10
             \setItemNumber{10}
-        \item Show that $a_n = 2^n - 5^n$ is also a solution to the recurrence relation $a_n = {7a_{n - 1}} - {10a_{n - 2}}$. What would the initial conditions need to be for this to be the closed formula for the sequence?
+        \item Show that $a_n = 2^n - 5^n$ is also a solution to the recurrence relation $a_n = {7a_{n - 1}} - {10a_{n - 2}}$. What would the initial conditions need to be for this to be the closed formula for the sequence?\\
+            $a_0 = 2^0 - 5^0 = 0\\a_1 = 2^1 - 5^1 = -3\\a_2 = 2^2 - 5^2 = -21\\a_3 = 2^3 - 5^3 = -117$\\
+            So to prove the recurrence, the initial condition needs to be a_3 = -117 for the closed formula and recurrence relation to exist.
 
 
             %13
@@ -64,7 +73,8 @@
         \item Use summation ($\Sigma$) or product ($\Pi$) notation to rewrite the following
             \begin{enumerate}
 
-                \item $2 + 4 + 6 + 8 + ... + 2n$
+                \item $2 + 4 + 6 + 8 + ... + 2n$\\
+                    $\sum_{k=1}^{n}\;2k$
                 \item $1 + 5 + 9 + 13 + ... + 425$
                 \item $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + ... + \frac{1}{50}$
                 \item $2\cdot 4\cdot 6\cdot ... \cdot2n$
