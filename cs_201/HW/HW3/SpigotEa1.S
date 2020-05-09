@@ -16,7 +16,7 @@ forLoop1:                           # for-loop at line: 10
     movq    $1,(%rsi, %r10,8)       # 12 - workbuffer[i] = 1;
     dec     %r10                    # 10 -  --i;
     cmpq    $0,%r10                 # 10 - i >= 0
-    jge     forLoop1                # restart forLoop1 if false 
+    jge     forLoop1                # restart forLoop1 if true 
     jmp     done1
 
 done1:
@@ -49,9 +49,9 @@ done2:
 forLoop3:                           #for-loop at line:18
     movq    $10,%r9                 # Save 10 into a temporary buffer  
     imulq   (%rsi,%r10,8), %r9      # 20 - 10 * workbuffer[i]
-    addq    %r9, %rax               # move sum into rax to prepare for division. 
-    movq    %r10,%rdx               # Move i into a temporary buffer
-    addq    $2,%rdx                 # Add to 2 to temporary buffer --> i
+    addq    %r9,%rdx                # move sum into rax to prepare for division. 
+    movq    %r10,%rax               # Move i into a temporary buffer
+    addq    $2,%rax                 # Add to 2 to temporary buffer --> i
     divq    %rax                    # Divide temp by (i + 2)
     movq    %rax,%r14               # Move quotient into q (r14) 
     movq    %rdx,(%rsi,%r10,8)      # 22 - workbuffer[i] = temp % (i + 2);

@@ -24,6 +24,8 @@ void SpigotE(unsigned char* output, unsigned long* workbuffer, unsigned long n)
 
 		output[j] = q;
 	}
+
+    
 	
 	return;
 }
