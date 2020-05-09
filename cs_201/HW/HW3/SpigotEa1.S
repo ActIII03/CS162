@@ -9,7 +9,7 @@ SpigotE:
     movb    $2,(%rdi)               # 9  - output[0] = 2;
     movq    %rdx, %r10              # 10 - initialize: i = n
     addq    $1,%r10                 # 10 - i = i + 1;  
-    cmp     $0, %r10                # 10 - i >= 0
+    cmpq    $0, %r10                # 10 - i >= 0
     jge     forLoop1                # Start forLoop1 
 
 forLoop1:                           # for-loop at line: 10 
@@ -28,7 +28,7 @@ fl2test:
     cmpq    %r11,%r15               # 15 - j < n 
     jl      forLoop2                # Start forLoop2 and continue until (j >= n) is true
     movq    %r11,%rdx               # Move n back into original parameter register
-    ret
+    ret                             # Exit function w/ no return value
 
 forLoop2:                           # for-loop at line:15 
     movq    $0,%r14                 # 17 - q = 0; 
@@ -47,12 +47,16 @@ done2:
     jmp     fl2test
 
 forLoop3:                           #for-loop at line:18
-    movq    $10,%r9                 # Save 10 into a temporary buffer  
-    imulq   (%rsi,%r10,8), %r9      # 20 - 10 * workbuffer[i]
-    addq    %r9,%rdx                # move sum into rax to prepare for division. 
-    movq    %r10,%rax               # Move i into a temporary buffer
+    xorq    %rdx,%rdx               # Clear out dividend register --->  %rdx in our case
+    xorq    %rax,%rax               # Clear out divisor register ---> %rax in our case
+    movq    $10,%rax                # Move 10 into a multiple register ---> %rax
+    movq    (%rsi,%r10,8),%rdx      # Move workbuffer[i] into multiple register ---> %rdx
+    mulq    %rdx                    # Product is in %rax
+    movq    %rax,%rdx               # Move product into dividend reigister ---> %rdx in our case
+    xorq    %rax,%rax               # Clear out %rax
+    movq    %r10,%rax               # Move i into  
     addq    $2,%rax                 # Add to 2 to temporary buffer --> i
-    divq    %rax                    # Divide temp by (i + 2)
+    divq    %rdx                    # Divide temp by (i + 2)
     movq    %rax,%r14               # Move quotient into q (r14) 
     movq    %rdx,(%rsi,%r10,8)      # 22 - workbuffer[i] = temp % (i + 2);
     jmp     done3
