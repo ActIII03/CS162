@@ -42,7 +42,7 @@ fl3test:
     jmp     done2
 
 done2:
-    movq    %r14,(%rdi, %r15,8)     # 25 - output[j] = q;
+    movq    %r14,(%rdi, %r15,1)     # 25 - output[j] = q;
     inc     %r15                    # 25 - j++
     jmp     fl2test
 
@@ -69,7 +69,7 @@ forLoop3:                           #for-loop at line:18
     xorq    %r9,%r9                 # Clear out reg. for next iteration
 
     #22
-    movb    %dl,(%rsi,%r10,1)       # 22 - workbuffer[i] = temp % (i + 2);
+    movb    %dl,(%rsi,%r10,8)       # 22 - workbuffer[i] = temp % (i + 2);
     jmp     done3
 
 done3:
