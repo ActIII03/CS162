@@ -42,13 +42,15 @@ fl3test:
     jmp     done2
 
 done2:
-    movq    %r14,(%rdi, %r15,8)     # 25 - output[j] = q;
-    inc     %r15                 # 25 - j++
+    movq    %r14,(%rdi, %r15,1)     # 25 - output[j] = q;
+    inc     %r15                    # 25 - j++
     jmp     fl2test
 
 forLoop3:                           #for-loop at line:18
     xorq    %rdx,%rdx               # Clear out dividend register --->  %rdx in our case
     xorq    %rax,%rax               # Clear out divisor register ---> %rax in our case
+
+    # 20
     movq    $10,%rax                # Move 10 into a multiple register ---> %rax
     movq    (%rsi,%r10,8),%rdx      # Move workbuffer[i] into multiple register ---> %rdx
     mulq    %rdx                    # Product is in %rax
@@ -56,12 +58,18 @@ forLoop3:                           #for-loop at line:18
     addq    %r14,%rcx               # 20 - workbuffer[i] * 10 + q ---> %rdx
 
     xorq    %rdx,%rdx               # Clear out %rdx
+
+    # 21
     movq    %r10,%r9                # Move i into temp reg 
     addq    $2,%r9                  # Add to 2 to temporary buffer --> i
+    movq    %rcx,%rax               # move temp into dividend register ---> %rax    
     divq    %r9                     # Divide temp by (i + 2)
+    movq    %rax,%r14               # Move quotient into q %r14 
+
     xorq    %r9,%r9                 # Clear out reg. for next iteration
-    movq    %rax,%r14               # Move quotient into q (r14) 
-    movq    %rdx,(%rsi,%r10,8)      # 22 - workbuffer[i] = temp % (i + 2);
+
+    #22
+    movb    %dl,(%rsi,%r10,8)       # 22 - workbuffer[i] = temp % (i + 2);
     jmp     done3
 
 done3:

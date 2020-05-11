@@ -1,0 +1,96 @@
+% '%' is similar to '//' in C++ to mean a single line comment. The LaTeX compiler will ignore these lines.
+
+\documentclass[11pt]{article} % a back slash '\' denotes a command in LaTeX. The documentclass defines the standard layout of the document. Square brackets '[]' are parameters that can be passed to the argument.
+\usepackage{amssymb,amsthm,listings,color,array,easytable,multicol} % packages like these bring in additional features via commands. They're like #include in C++
+\usepackage[fleqn]{amsmath} % fleqn: flush left equations
+\usepackage{venndiagram} % Here are a bunch more packages that I use frequently. Google them to find out what they are used for.
+\usepackage{graphicx}
+\usepackage{logicproof}
+\usepackage{hyperref, url}
+\usepackage[margin=2cm, top=2cm]{geometry}
+\usepackage[shortlabels]{enumitem}
+\newcommand{\tuple}[1]{$\langle#1\rangle$} % The \newcommand command is like a macro in C++
+\newcommand{\stuple}[1]{$\langle$#1$\rangle$} % ordered pair with strings inside
+
+%The title, date, and author are part of the preamble. The preamble is not part of the main body of the document. 
+\title{\bf Homework 7\\[1ex]
+\rm\normalsize CS250 Discrete Structures I, Winter 2020 }
+\date{\normalsize Due: May 17, 2020}
+\author{\normalsize David Lu}
+
+\begin{document} % This \begin{document} and corresponding \end{document} identifies the begeinning and end of your document body.
+
+	\vspace{-4cm}\maketitle % \maketitle tells LaTeX to put the title, date, and author information here.
+	
+	\begin{center}
+		\fbox{\fbox{\parbox{5.5in}{\centering
+					Your solutions must be typed (preferably typeset in \LaTeX{}) and submitted as a PDF on D2L.
+					\\
+					
+					Solutions generally require clear explanations in complete sentences and must be in your own writing.
+		}}}
+	\end{center}
+	
+	\paragraph{Assignment For Week 7}
+	
+	\begin{itemize}
+		\item Read all of chapter 3 in the textbook on logic. Fortunately, it's not that long, about 30 pages. \href{http://discrete.openmathbooks.org/dmoi3.html}{http://discrete.openmathbooks.org/dmoi3.html}
+		\item You can skip the portions on quantifiers and predicate logic if you like. It's useful to understand, but it should be material covered in CS251. 
+		\item Watch the TrevTutor videos on logic and proofs, videos 10-19 are relevant. Video 16 is on the sheffer stroke and I would say it's optional. There's nothing in the textbook about it, but it's the name given to the NAND ("not and") operation, and NAND is a really important logical operation in CS and EE. (This is from the TrevTutor discrete math 1 playlist: \url{https://www.youtube.com/playlist?list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz})
+		\item Complete the homework exercises.
+	\end{itemize}
+
+	\paragraph{Symbolic Logic and Proofs} Chapter 3\\
+	Logic is the business of evaluating arguments; sorting the good from the bad. Arguments in this context don't refer to arguments that you may have with your friends or siblings. Rather an argument is a claim (a conclusion) along with some reasons (premises) for believing it. 
+	
+	An argument, as we will understand it, is something more like this: \\
+	
+	\framebox{%
+		\begin{minipage}{0.6\linewidth}
+			Either the butler or the gardener did it.\\
+			The butler didn’t do it.\\
+			$\therefore$ The gardener did it. 
+	\end{minipage}}
+	\vspace{5mm}
+	
+	We here have a series of sentences. The three dots on the third line of the argument are read ‘therefore.’ They indicate that the final sentence expresses the conclusion of the argument. The two sentences before that are the premises of the argument. If you believe the premises, and you think the conclusion follows from the premises—that the argument, as we will say, is valid—then this (perhaps) provides you with a reason to believe the conclusion.
+	
+	A more precise definition of validity is that it's \textit{impossible} for the premises to be true while the conclusion false. Or, in other words, \textit{if} the premises are true, then the conclusion is \textit{guaranteed} to also be true. This is the type of \textit{good} reasoning that mathematicians, computer scientists, and logicians are interested in---valid arguments.
+	
+	Many arguments start with premises, and end with a conclusion, but not all of them. The argument with which this section began might equally have been presented with the conclusion at the beginning, like so:	\\
+	
+	\framebox{%
+		\begin{minipage}{0.6\linewidth}
+			The gardener did it. After all, it was either the butler
+			or the gardener. And the gardener didn’t do it.
+	\end{minipage}}
+	\vspace{5mm}
+	
+	\noindent
+	Equally, it might have been presented with the conclusion in the
+	middle:\\
+	
+	\framebox{%
+		\begin{minipage}{0.6\linewidth}
+			The butler didn’t do it. Accordingly, it was the gardener, given that it was either the gardener or the butler.
+	\end{minipage}}
+	\vspace{5mm}
+	
+	When approaching an argument, we want to know whether or not the conclusion follows from the premises. So the first thing to do is to separate out the conclusion from the premises. As a guide, these words are often used to indicate an argument’s conclusion: \textit{so, therefore, hence, thus, accordingly, consequently}. \\
+	
+	
+	
+	\paragraph{Chapter 3 Homework Exercises} For this week, you can complete many of the exercises in 3.1 using truth tables. Alternatively, if you know some rules of logic, you can make use of those. Section 3.2 is a bit more conceptual in nature, covering proof strategies at an abstract level.
+	
+	\subparagraph{Problem 1} 3.1 Propositional Logic (pg. 209-212) \\
+			
+		From section 3.1 in the textbook, complete exercises 1, 3, 6, 9, 10, 14
+	
+	\subparagraph{Problem 2} 3.2 Proofs (pg. 223-226) \\
+	
+		From section 3.2 in the textbook, complete exercises 1, 2, 6, 10.
+	
+	
+	
+		
+\end{document}
