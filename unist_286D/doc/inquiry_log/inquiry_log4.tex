@@ -1,0 +1,55 @@
+\documentclass[a4paper,man,biblatex]{apa6}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\usepackage[document]{ragged2e}
+\setlength{\RaggedRightParindent}{0.5in}
+\addbibresource{../references/references.bib}
+\usepackage{url}
+\usepackage{xpatch}
+\xpatchbibdriver{online}
+  {\printfield{entrysubtype}}
+  {\printfield{entrysubtype}%
+   \newunit\newblock
+   \printfield{note}}
+  {}
+  {}
+
+\renewcommand{\abstract}[1]{}
+
+\title{Inquiry Log \#3}
+\shorttitle{Inquiry Log \#4}
+\author{Armant Touche}
+\affiliation{Portland State University}
+\date{\today}
+
+\begin{document}
+\thispagestyle{otherpage}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+%\maketitle
+
+\noindent Name: Armant Touche\newline
+\noindent Date: 5/20/2020
+
+\subsection{Quotes}
+%#1
+\begin{enumerate}
+    \item "Biodiversity starts in the distant past and it points toward the future." (Frans Lanting)
+    \item "Emergency situations can lead to basic control systems being suspended or bypassed" \autocite{account_pan}
+    \item "A stable planet is a prerequisite to have good, human well-being" \autocite{stable} 
+
+\end{enumerate}
+
+\subsection{Observe} For this observation period I choose my backyard, again. Mostly this week, it has been raining which is nice for our plants in the backyard. Even with the disruption, plant life still thrive with or without us (humans). Some of my quotes reflect my feeling towards this concept which is numbing and full of feeling at the same time. Thankfully for my situation, I am able to dwell more so on the positive feeling more than the numbness that occasionally accompanies reality. I used to grow Portobello mushrooms, and I was always fascinated by mycelium and how fungi reproduce. As I am taking a breath, there is no doubt in my mind that I am breathing in some traceable amount of spores. The chaos and complexity behind mycelium growth is complex in each individual stage of growth, yet is simple when observing from a grower's perspective. The three main factors that contribute to fungi growth are humidity, warmth, and varying amounts of light, depending on what is the current stage of mycelium growth. For the grower, I just have to make those conditions come true. The first stage is inoculation which requires very sterile conditions because as I mentioned earlier, there a plethora of spores in the air and I wouldn't want to grow mushrooms or other fungi because in some cases, the spores can spawn very hazardous fungi or even mushrooms. The other stages require different input variables but I will go into that here. 
+
+\subsection{Reflect \& Theme} For the theme for this inquiry log, the theme is biodiversity. I had a quote in from an earlier inquiry log that disparaged the monoculture of most parts of the agriculture industry. \textcite{dirtrich} also mentioned that the average amounts of crops that will be harvested in the future averages around twenty-six harverst left because of the lack of diversity in our agricultural industry. If that is true, not only current generations will experience issues with crops but our children will too. I do not have a solution to this problem because of my own circumstances that are preventing me from helping. Not being able to help seems to be the case for a lot of people and especially college students. Not only did my generation experience the '08 Recession but now we are experiencing this current pandemic. Money is the ultimate tool in influencing progressive initatives and my generation is at a greater disadvantage than most generations here in America. 
+
+\subsection{Question} Something 
+
+\subsection{Words} Something 
+
+\printbibliography
+
+\end{document}

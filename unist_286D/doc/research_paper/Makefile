@@ -1,4 +1,4 @@
-PROJECT = research_draft
+PROJECT = research_paper
 TEX=pdflatex
 BIBTEX=biber
 BUILDTEX= $(TEX) $(PROJECT).tex

@@ -16,8 +16,8 @@
 
 \title{\bf Homework 1\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
-\date{\normalsize Due: April 26, 2020}
-\author{\normalsize Armant Touche}
+\date{\normalsize Due: May, 17, 2020}
+\author{\normalsize Name Here}
 
 \begin{document} 
 \vspace{0cm}\maketitle 
@@ -33,18 +33,132 @@
         %1
         \item Consider the statement about a party, “If it’s your birthday or there will be cake, then there will be cake.”
             \begin{enumerate}
-                \item Translate the above statement into symbols. Clearly state which statement is $P$ and which is $Q$.
+                \item Translate the above statement into symbols. Clearly state which statement is $P$ and which is $Q$.\\
+                    $P$ = Birthday \\$Q$ = Cake\\$(P\lor Q) \rightarrow Q$
                 \item Make a truth table for the statement.
-                \item Assuming the statement is true, what (if anything) can you conclude if there will be cake?
-                \item Assuming the statement is true, what (if anything) can you conclude if there will not be cake?
-                \item Suppose you found out that the statement was a lie. What can you conclude?
+                        \begin{align*} 
+                            \begin{array}{|c|c|c|} 
+                            P & Q & P \lor  Q\\ 
+                            \hline          
+                            T & T & T\\
+                            T & F & F\\
+                            F & T & T\\
+                            F & F & T\\
+                            \end{array}
+                        \end{align*}
+
+                \item Assuming the statement is true, what (if anything) can you conclude if there will be cake?\\
+                   There will only be cake. 
+                \item Assuming the statement is true, what (if anything) can you conclude if there will not be cake?\\
+                    It's not your birhtday
+                \item Suppose you found out that the statement was a lie. What can you conclude?\\
+                    It's not your birthday, and the cake is lie (Portal Joke)
             \end{enumerate}
 
         %3
+        \setItemNumber{3}
+        \item Make a truth table for the statement $\neg P\land(Q\land P)$. What can you conclude about P and Q if you know the statement is true?
+        \begin{align*}
+            \begin{array}{|c|c|c|}
+                P & Q & \neg P\land (P\rightarrow Q)\\
+            \hline
+            T & F & F\\
+            T & T & F\\
+            F & T & F\\
+            F & F & T\\
+            \end{array}
+        \end{align*}
+        That when $P$ and $Q$ are false, the statement is true.
 
         %6
+        \setItemNumber{6}
+    \item Determine whether the following two statements are logically equivalent: $\neg(P\rightarrow Q)$ and $P\land\neg Q$. Explain how you know you are correct.
 
+        \begin{align*}
+            \begin{array}{|c|c|c|}
+                P & Q & \neg (P\rightarrow Q)\\
+            \hline
+            T & T & F\\
+            T & F & T\\
+            F & T & F\\
+            F & F & F\\
+            \end{array}
+        \end{align*}
+        \begin{align*}
+            \begin{array}{|c|c|c|}
+                P & Q & P\land\neg Q\\
+            \hline
+            T & T & F\\
+            T & F & T\\
+            F & T & F\\
+            F & F & F\\
+            \end{array}
+        \end{align*}
 
+        These two statments are equivalent based off their truth tables.
+
+        %9
+        \setItemNumber{9}
+        \item Use De Morgan’s Laws, and any other logical equivalence facts you know to simplify the following statements. Show all your steps. Your final statements should have negations only appear directly next to the sentence variables or predicates ($P, Q, E(x)$, etc.), and non double It would be a good idea to use only conjunctions, disjunctions, and negations.
+            \begin{enumerate}
+                \item $\neg((\neg P\land Q)\lor \neg(R\lor\neg S))$.\\
+                    $ = \neg(\neg P\land Q) \lor (R\lor\neg S)$\\
+                    $ = (P\land Q)\lor(R\lor \neg S)$
+                \item $\neg((\neg P\rightarrow\neg Q) \land(\neg Q\rightarrow R))$ (careful with the implications).
+                \item For both parts above, verify your answers are correct using truth tables. That is, use a truth table to check that the given statement and your proposed simplification are actually logically equivalent.
+            \end{enumerate}
+
+        %10
+        \item Consider the statement, “If a number is triangular or square, then it is not prime”
+            \begin{enumerate}
+                \item Make a truth table for the statement $(T\lor S)\rightarrow\neg(P)$.
+
+                \begin{align*}
+                    \begin{array}{|c|c|c|c|}
+                        T & S & P & (T\lor S)\rightarrow \neg P\\
+                    \hline
+                    T & F & F & T\\
+                    T & T & F & T\\
+                    T & T & T & F\\
+                    F & T & T & F\\
+                    F & F & T & T\\
+                    F & F & F & T\\
+                    F & T & F & T\\
+                    T & F & T & F\\
+                    \end{array}
+                \end{align*}
+
+                \item If you believed the statement was false, what properties would a counterexample need to possess? Explain by referencing your truth table.\\
+                    There are three instances where the statement is false. All three (T, S, \&P) are true, therefore statement is false.  If one value, either T or S, are false and P is true then the statment is false. 
+                \item If the statement were true, what could you conclude about the number 5657, which is definitely prime? Again, explain using the truth table.\\
+                    If the statment is true, then there are couple possible outcomes of the number 5657 being that is is netiher triangular or square, thus not prime ($P =$ true). The number is either triangular or square and isn't prime. The last possiblility, 5657 is neither triangular or square and is prime ($P =$ false).
+            \end{enumerate}
+
+        %14
+        \setItemNumber{14}
+        \item Determine if the following is a valid deduction rule:
+        \begin{center}
+        \begin{tabular}{c@{\,}l@{}} 
+                                & $(P\land Q)\rightarrow R$\\
+                                & \;\;$\neg P\lor\neg Q$ \\\cline{1-2}
+            $\therefore$        & $\;\;\;\;\neg R$ \\
+          \end{tabular}
+        \end{center}
+
+                \begin{align*}
+                    \begin{array}{|c|c|c|c|c|c|c|c|}
+                        P & Q & R & (P\land Q)\rightarrow R & \neg P & \neg Q & \neg P \lor \neg Q & \neg R\\
+                    \hline
+                        F & F & F & T & T & T & T & T\\
+                        F & F & T & T & T & T & T & F\\
+                        F & T & T & T & T & F & T & F\\
+                        T & T & T & T & F & F & F & F\\
+                        T & T & F & F & F & F & F & T\\
+                        T & F & F & F & F & T & T & T\\
+                        F & T & F & F & T & F & T & T\\
+                        T & F & T & T & F & T & T & F\\
+                    \end{array}
+                \end{align*}
 
     \end{enumerate}
 	
@@ -52,6 +166,54 @@
 	
 		From section 3.2 in the textbook, complete exercises 1, 2, 6, 10.
 
+        \begin{enumerate}
+
+        %1
+        \item Consider the statement “for all integers $a$ and $b$, if $a + b$ is even, then $a$ and $b$ are even”
+            \begin{enumerate}
+                \item Write the contrapositive of the statement.\\
+                For all integers $a$ and $b$, if $a$ or $b$ are not even, then $a + b$ are not even.
+                \item Write the converse of the statement.\\
+                    For all integers $a$ and $b$, if $a$ and $b$ are even, then $a + b$ are even.
+                \item Write the negation of the statement.\\
+                    There exist numbers $a$ and $b$ such that $a + b$ are even but $a$ nor $b$ are both even.
+
+                \item Is the original statement true or false? Prove your answer.\\
+                    False. An example, $a = 5$ and $b = 7$. $a + b = 23$ but neither $a$ or $b$ are positive.
+                \item Is the contrapositive of the original statement true or false? Prove your answer.\\
+                    Contrapositive is false because like (d)'s example, we can have two odd numbers and the sum of those two numbers can be even.  
+                \item Is the converse of the original statement true or false? Prove your answer\\
+                    True. Let $a$ and $b$ be even integers. Then $a = 2j$ and $b = 2k$ such $j$ and $k$ are some arbitrary integers. $a + b = 2(j + k)$ which results in an even number.   
+                \item Is the negation of the original statement true or false? Prove your answer.\\
+                    Since the statement's truth value is false, negating it makes the statement true.
+
+            \end{enumerate}
+
+        %2
+
+        \item For each of the statements below, say what method of proof you should use to prove them. Then say how the proof starts and how it ends. Bonus points for filling in the middle.
+            \begin{enumerate}
+                \item There are no integers $x$ and $y$ such that $x$ is a prime greater than 5 and $x = 6y + 3$.
+                \item For all integers $n$, if $n$ is a multiple of 3, then $n$ can be written as the sum of consecutive integers.
+                \item For all integers $a$ and $b$, if $a^2 + b^2$ is odd, then $a$ or $b$ is odd.
+            \end{enumerate}
+
+        %6
+        \setItemNumber{6}
+        \item Prove that $\sqrt{3}$ is irrational
+
+        %10
+        \setItemNumber{10}
+        \item Suppose that you would like to prove the following implication:\\
+            For all number $n$, if $n$ is prime then $n$ is solitary.\\
+            Write out the beginning and end of the argument if you were to prove the statement,\\
+            \begin{enumerate}
+                \item Directly
+                \item By contrapositive
+                \item By contradiction
+            \end{enumerate}
+
+        \end{enumerate}
 
 
 \end{document}
