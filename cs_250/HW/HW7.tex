@@ -16,8 +16,8 @@
 
 \title{\bf Homework 1\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
-\date{\normalsize Due: May, 17, 2020}
-\author{\normalsize Name Here}
+\date{\normalsize Due: May, 20, 2020}
+\author{\normalsize Armant Touche}
 
 \begin{document} 
 \vspace{0cm}\maketitle 
@@ -91,7 +91,7 @@
             T & T & F\\
             T & F & T\\
             F & T & F\\
-            F & F & F\\
+            F & F & F
             \end{array}
         \end{align*}
 
@@ -110,11 +110,10 @@
                 \item For both parts above, verify your answers are correct using truth tables. That is, use a truth table to check that the given statement and your proposed simplification are actually logically equivalent.\\
 
                 \begin{enumerate}
-                    
                     \item (a)
                     \begin{align*}
                         \begin{array}{|c|c|c|c|c|c|}
-                            P & Q & R & S & $\neg((\neg P\land Q)\lor\neg(R\lor\neg S))$ & $(P \lor\neg Q)\land(R\lor\neg S)$\\
+                            P & Q & R & S & \neg((\neg P\land Q)\lor\neg(R\lor\neg S)) & (P \lor\neg Q)\land(R\lor\neg S)\\
                         \hline
                             F & F & F & F & T & T\\
                             F & F & F & T & F & F\\
@@ -131,24 +130,23 @@
                             T & T & F & F & T & T\\
                             T & T & F & T & F & F\\
                             T & T & T & F & T & T\\
-                            T & T & T & T & T & T
-                    \end{array}
+                            T & T & T & T & T & T\\
+                        \end{array}
                     \end{align*}
-
                 \item (b)
 
                         \begin{align*}
                             \begin{array}{|c|c|c|c|c|}
-                                P & Q & R & $\neg((\neg P\rightarrow\neg Q) \land (\neg Q\rightarrow R))$ & $(\neg P\land Q) \lor (\neg Q\land\neg R)$ $\\
+                                P & Q & R & \neg((\neg P\rightarrow\neg Q) \land (\neg Q\rightarrow R)) & (\neg P\land Q)\lor(\neg Q\land\neg R)\\
                             \hline
-                            T & F & F & T\\
-                            T & T & F & T\\
-                            T & T & T & F\\
-                            F & T & T & F\\
-                            F & F & T & T\\
-                            F & F & F & T\\
-                            F & T & F & T\\
-                            T & F & T & F\\
+                                F & F & F & T & T\\
+                                F & F & T & F & F\\
+                                F & T & F & T & T\\
+                                F & T & F & T & T\\
+                                T & F & F & T & T\\
+                                T & F & T & F & F\\
+                                T & T & F & F & F\\
+                                T & T & T & F & F
                             \end{array}
                         \end{align*}
 
