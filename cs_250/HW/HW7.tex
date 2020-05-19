@@ -102,11 +102,59 @@
         \item Use De Morgan’s Laws, and any other logical equivalence facts you know to simplify the following statements. Show all your steps. Your final statements should have negations only appear directly next to the sentence variables or predicates ($P, Q, E(x)$, etc.), and non double It would be a good idea to use only conjunctions, disjunctions, and negations.
             \begin{enumerate}
                 \item $\neg((\neg P\land Q)\lor \neg(R\lor\neg S))$.\\
-                    $ = \neg(\neg P\land Q) \lor (R\lor\neg S)$\\
-                    $ = (P\land Q)\lor(R\lor \neg S)$
-                \item $\neg((\neg P\rightarrow\neg Q) \land(\neg Q\rightarrow R))$ (careful with the implications).
-                \item For both parts above, verify your answers are correct using truth tables. That is, use a truth table to check that the given statement and your proposed simplification are actually logically equivalent.
+                    $ = \neg(\neg P\land Q) \land (R\lor\neg S)$\\
+                    $ = (P\lor\neg Q)\land(R\lor \neg S)$
+                \item $\neg((\neg P\rightarrow\neg Q) \land(\neg Q\rightarrow R))$\\
+                    $\neg((P\lor\neg Q)\land(Q\lor R))\\ = (\neg P\land Q)\lor(\neg Q\land\neg R)$
+
+                \item For both parts above, verify your answers are correct using truth tables. That is, use a truth table to check that the given statement and your proposed simplification are actually logically equivalent.\\
+
+                \begin{enumerate}
+                    
+                    \item (a)
+                    \begin{align*}
+                        \begin{array}{|c|c|c|c|c|c|}
+                            P & Q & R & S & $\neg((\neg P\land Q)\lor\neg(R\lor\neg S))$ & $(P \lor\neg Q)\land(R\lor\neg S)$\\
+                        \hline
+                            F & F & F & F & T & T\\
+                            F & F & F & T & F & F\\
+                            F & F & T & F & T & T\\
+                            F & F & T & T & T & T\\
+                            F & T & F & F & F & F\\
+                            F & T & F & T & F & F\\
+                            F & T & T & F & F & F\\
+                            F & T & T & T & F & F\\
+                            T & F & F & F & T & T\\
+                            T & F & F & T & F & F\\
+                            T & F & T & F & T & T\\
+                            T & F & T & T & T & T\\
+                            T & T & F & F & T & T\\
+                            T & T & F & T & F & F\\
+                            T & T & T & F & T & T\\
+                            T & T & T & T & T & T
+                    \end{array}
+                    \end{align*}
+
+                \item (b)
+
+                        \begin{align*}
+                            \begin{array}{|c|c|c|c|c|}
+                                P & Q & R & $\neg((\neg P\rightarrow\neg Q) \land (\neg Q\rightarrow R))$ & $(\neg P\land Q) \lor (\neg Q\land\neg R)$ $\\
+                            \hline
+                            T & F & F & T\\
+                            T & T & F & T\\
+                            T & T & T & F\\
+                            F & T & T & F\\
+                            F & F & T & T\\
+                            F & F & F & T\\
+                            F & T & F & T\\
+                            T & F & T & F\\
+                            \end{array}
+                        \end{align*}
+
             \end{enumerate}
+
+        \end{enumerate}
 
         %10
         \item Consider the statement, “If a number is triangular or square, then it is not prime”
@@ -159,6 +207,7 @@
                         T & F & T & T & F & T & T & F\\
                     \end{array}
                 \end{align*}
+                Row 2's conclusion doesn't match the premise, thus this statement isn't a valid deduction rule.
 
     \end{enumerate}
 	
@@ -193,14 +242,20 @@
 
         \item For each of the statements below, say what method of proof you should use to prove them. Then say how the proof starts and how it ends. Bonus points for filling in the middle.
             \begin{enumerate}
-                \item There are no integers $x$ and $y$ such that $x$ is a prime greater than 5 and $x = 6y + 3$.
-                \item For all integers $n$, if $n$ is a multiple of 3, then $n$ can be written as the sum of consecutive integers.
-                \item For all integers $a$ and $b$, if $a^2 + b^2$ is odd, then $a$ or $b$ is odd.
+                \item There are no integers $x$ and $y$ such that $x$ is a prime greater than 5 and $x = 6y + 3$.\\
+                    Proof by Contradiction. Suppose there are integers $x$ and $y$ such that $x$ is a prime number greater than 5 and $x = 6y + 3$. Let $y = \frac{x - 3}{6}$ since we care about $x$ being prime and the result from $6y + 3$. Since $y$ results in a fraction, we can assume that $y$ will never be an integer based on the original. Thus there cannot be any such integers to satisfy this statement.
+                \item For all integers $n$, if $n$ is a multiple of 3, then $n$ can be written as the sum of consecutive integers.\\
+                    Direct Proof. Let $n$ be an integer. Assume $n$ is a multiple of 3. This statement can be written as $ n = 3\cdot\sum_{i = 1}^{3}i$. This statement holds true when starting from the first element in $\mathbb{N}$. Thus this statement is true.
+                \item For all integers $a$ and $b$, if $a^2 + b^2$ is odd, then $a$ or $b$ is odd.\\\\
+                    Proof by contrapositive. Let $a$ and $b$ be integers. Assume that $a$ and $b$ are even. Let $a = 2k$ where $k$ is some arbitrary integer. The same goes for $b$ except it's $b = 2j$. These arbitrary integer would result in the following statement:\\\\
+                    $a^2 + b^2 = (2k)^2+(2j)^2\\ = 4k^2 + 4j^2\\ = 4(k^2 + j^2)$\\\\
+                    The last part has a multiple of 4 which is an even number thus $a^2 + b^2$ is even and not odd.
             \end{enumerate}
 
         %6
         \setItemNumber{6}
-        \item Prove that $\sqrt{3}$ is irrational
+        \item Prove that $\sqrt{3}$ is irrational\\\\
+            \textit{Proof}. Suppose not. $\sqrt{3} = \frac{a}{b}$ where $p$ and $q$ are integers and are co-primes.\\\\$p = \sqrt{3}q\\ p^2 = 3q^2 \\ \frac{p^2}{3} = q^2$\\\\ Therefore  3 is a factor of p. $p = 3c$ where c is a constant. Substituting p:\\\\ $\frac{(3c)^2}{3} = 3q^2$\\$c^2 = \frac{q^2}{3}$\\\\ Therefore 3 is also a factor of $q$. This is contradiction since $p$ and $q$ are co-prime thus $\sqrt{3}$ is an irrational number.
 
         %10
         \setItemNumber{10}
