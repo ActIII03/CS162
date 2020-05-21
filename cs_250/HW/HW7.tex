@@ -14,7 +14,7 @@
 \newcommand{\stuple}[1]{$\langle$#1$\rangle$} % ordered pair with strings inside
 \newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
 
-\title{\bf Homework 1\\[1ex]
+\title{\bf Homework 7\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
 \date{\normalsize Due: May, 20, 2020}
 \author{\normalsize Armant Touche}
@@ -258,12 +258,15 @@
         %10
         \setItemNumber{10}
         \item Suppose that you would like to prove the following implication:\\
-            For all number $n$, if $n$ is prime then $n$ is solitary.\\
+            For all numbers $n$, if $n$ is prime then $n$ is solitary.\\
             Write out the beginning and end of the argument if you were to prove the statement,\\
             \begin{enumerate}
-                \item Directly
-                \item By contrapositive
-                \item By contradiction
+                \item Directly\\
+                    (Beginning) Prove $n$ is prime by describing how $n$ only greatest common divisor (gcd) is one. If one is the gcd, then $n$ is prime. (End) Therefore $n$ is also a solitary number.
+                \item By contrapositive\\
+                    (Beginning) Suppose for all numbers $n$, if $n$ isn't a solitary number, (End) then $n$ isn't prime.
+                \item By contradiction\\
+                    (Beginning) Try to set out to prove that $n$ has more factors than just one but if the gcd is only one, then that is contradiction. (End) therfore $n$ is prime.
             \end{enumerate}
 
         \end{enumerate}
