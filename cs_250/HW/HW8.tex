@@ -13,7 +13,7 @@
 \newcommand{\tuple}[1]{$\langle #1 \rangle$} 
 \newcommand{\stuple}[1]{$\langle$#1$\rangle$} % ordered pair with strings inside
 \newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
-
+\DeclareUnicodeCharacter{2212}{-}
 \title{\bf Homework 8\\[1ex]
 \rm\normalsize CS250 Discrete Structures I, Winter 2020 }
 \date{\normalsize Due: May, 27, 2020}
@@ -30,11 +30,13 @@
         \begin{enumerate}
 
         %1
-        \item  If 10 people each shake hands with each other, how many handshakes took place? What does this question have to do with graph theory?
+        \item  If 10 people each shake hands with each other, how many handshakes took place? What does this question have to do with graph theory?\\
+            Using the Handshake Lemma and dividing the sum by two since the sum of degrees counts each edge twice, I am able to compute the number of handshake between 10 people by using
+            $$ (\sum_{v\in V} d(10)) = 90\div 2 = 45\;\;\text{(handshakes)}$$
 
         %3
         \setItemNumber{3}
-    \item Is it possible for two \texti{different} (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.
+    \item Is it possible for two \textit{different} (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.
 
         %7
         \setItemNumber{7}
