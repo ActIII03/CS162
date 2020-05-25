@@ -47,7 +47,8 @@
             \end{center}
 
         %8
-        \item For which $n\geq 3$ is the graph $C_n$ bipartite?
+        \item For which $n\geq 3$ is the graph $C_n$ bipartite?\\
+            $C_n$ is bipartite such that when $n$ is an even integer.
 
         %12
         \setItemNumber{12}
@@ -56,8 +57,11 @@
         We define $N[v] = N(v)\cup \{v\}$. The goal of this problem is to figure out what all this means.
         \begin{enumerate}
 
-        \item Let $G$ be the graph with $V = \{a,b,c,d,e,f\}$ and\\ $E = \{\{a,b\},\{a,e\},\{b,c\},\{b,e\},\{c,d\},\{c,f\},\{d,f\},\{e,f\}\}$. \\Find $N(a)$, $N[a]$, $N(c)$, and $N[c]$.
-        \item What is the largest and smallest possible values for $|N(v)|$ and $|N[v]|$ for the graph in part (a)? Explain.
+        \item Let $G$ be the graph with $V = \{a,b,c,d,e,f\}$ and\\ $E = \{\{a,b\},\{a,e\},\{b,c\},\{b,e\},\{c,d\},\{c,f\},\{d,f\},\{e,f\}\}$. \\Find $N(a)$, $N[a]$, $N(c)$, and $N[c]$.\\
+            $N(a) = \{ \{a,b\}, \{a,e\}\}\\ N[a] = N(a)\cup \{a\}\\ = \{\emptyset,\{a\},\{a,b\},\{a,e\}\}$\\
+            $N(c) = \{\{c,d\},\{c,f\}\}\\N[c] = N(c)\cup\{c\}\\ = \{\emptyset,\{c\}, \{b,c\},\{c,d\},\{c,f\}\}$
+        \item What is the largest and smallest possible values for $|N(v)|$ and $|N[v]|$ for the graph in part (a)? Explain.\\
+Smallest
         \item Give an example of a graph $G=(V,E)$ (probably different than the one above) for which $N[v]=V$ for some vertex $v\in V$. Is there a graph for which $N[v]=V$ for all $v\in V$? Explain.
         \item Give an example of a graph $G=(V,E)$ for which $N(v)=\emptyset$ for some $v\in V$. Is there an example of such a graph for which $N[u]=V$ for some other $u\in V$ as well? Explain.
         \item Describe in words what $N(v)$ and $N[v]$ mean in general.
