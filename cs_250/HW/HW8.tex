@@ -61,10 +61,13 @@
             $N(a) = \{ \{a,b\}, \{a,e\}\}\\ N[a] = N(a)\cup \{a\}\\ = \{\emptyset,\{a\},\{a,b\},\{a,e\}\}$\\
             $N(c) = \{\{c,d\},\{c,f\}\}\\N[c] = N(c)\cup\{c\}\\ = \{\emptyset,\{c\}, \{b,c\},\{c,d\},\{c,f\}\}$
         \item What is the largest and smallest possible values for $|N(v)|$ and $|N[v]|$ for the graph in part (a)? Explain.\\
-Smallest
-        \item Give an example of a graph $G=(V,E)$ (probably different than the one above) for which $N[v]=V$ for some vertex $v\in V$. Is there a graph for which $N[v]=V$ for all $v\in V$? Explain.
-        \item Give an example of a graph $G=(V,E)$ for which $N(v)=\emptyset$ for some $v\in V$. Is there an example of such a graph for which $N[u]=V$ for some other $u\in V$ as well? Explain.
-        \item Describe in words what $N(v)$ and $N[v]$ mean in general.
+            $|N(b)| = |N(a)| = 2 \rightarrow$ largest value and $|N(d)| = 1 \rightarrow$ is the smallest. $|N[d]| = 4\rightarrow$ is the smallest value and $|N[b]| = |N[f]| = |N[c]|= 5$ are the largest value.
+        \item Give an example of a graph $G=(V,E)$ (probably different than the one above) for which $N[v]=V$ for some vertex $v\in V$. Is there a graph for which $N[v]=V$ for all $v\in V$? Explain.\\
+        Do later
+        \item Give an example of a graph $G=(V,E)$ for which $N(v)=\emptyset$ for some $v\in V$. Is there an example of such a graph for which $N[u]=V$ for some other $u\in V$ as well? Explain.\\
+            Do later
+        \item Describe in words what $N(v)$ and $N[v]$ mean in general.\\
+            Do later
 
         \end{enumerate}
 
@@ -72,9 +75,12 @@ Smallest
         \item A graph is a way of representing the relationships between elements in a set: an edge between the vertices $x$ and y tells us that $x$ is related to $y$ (which we can write as $x\sim y$). Not all sorts of relationships can be represented by a graph though. For each relationship described below, either draw the graph or explain why the relationship cannot be represented by a graph.
 
             \begin{enumerate}
-                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $x-y$ is a non-zero multiple of 3.
-                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $y$ is a multiple of $x$.
-                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $0<|x−y|<3$.
+                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $x-y$ is a non-zero multiple of 3.\\
+                    Do later
+                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $y$ is a multiple of $x$.\\
+                    Do later
+                \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $0<|x−y|<3$.\\
+                    Do later
 
             \end{enumerate}
         \end{enumerate}
@@ -87,21 +93,24 @@ Smallest
 
         %2
         \setItemNumber{2}
-        \item For each degree sequence below, decide whether it must always, must never, or could possibly be a degree sequence for a tree. Remember, a degree sequence lists out the degrees (number of edges incident to the vertex) of all the vertices in a graph in non-increasing order.
-
+        \item For each degree sequence below, decide whether it must always, must never, or could possibly be a degree sequence for a tree. Remember, a degree sequence lists out the degrees (number of edges incident to the vertex) of all the vertices in a graph in non-increasing order.\\
             \begin{enumerate}
-                \item (4,1,1,1,1)
-                \item (3,3,2,1,1)
-                \item (2,2,2,1,1)
-                \item (4,4,3,3,3,2,2,1,1,1,1,1,1,1)
-
+                \item (4,1,1,1,1)\\
+                    This sequence produce a star in which the \nth{4} degree vertex must be adjacent to the four vertices of degree 1.
+                \item (3,3,2,1,1)\\
+                    This sequence produces a cycle which isn't tree.
+                \item (2,2,2,1,1)\\
+                    This sequence can be either a tree or not. The length of the path with 4 produces a tree but if there exist a union to a 3-cycle and has a length of 1, where there isn't connection between the union.
+                \item (4,4,3,3,3,2,2,1,1,1,1,1,1,1)\\
+                    There are 14 edges AND 14 vertices. Sum of degrees is 28 which leaves this sequence with not having $v = e + 1$
             \end{enumerate}
 
         %3
         \item For each degree sequence below, decide whether it must always, must never, or could possibly be a degree sequence for a tree. Justify your answers.
 
             \begin{enumerate}
-                \item (3,3,2,2,2)
+                \item (3,3,2,2,2)\\
+                    There are 5 vertices and 7 edges where the $v = e + 1$
                 \item (3,2,2,1,1,1)
                 \item (3,3,3,1,1,1)
                 \item (4,4,1,1,1,1,1,1)
