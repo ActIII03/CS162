@@ -2559,9 +2559,9 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">streamflow_def</bcf:citekey>
-    <bcf:citekey order="2">falcone_2016</bcf:citekey>
-    <bcf:citekey order="3">rice_2016</bcf:citekey>
-    <bcf:citekey order="4">standford_2020</bcf:citekey>
+    <bcf:citekey order="2">rice_2016</bcf:citekey>
+    <bcf:citekey order="3">standford_2020</bcf:citekey>
+    <bcf:citekey order="4">falcone_2016</bcf:citekey>
     <bcf:citekey order="5">falcone_2016</bcf:citekey>
     <bcf:citekey order="6">rice_2016</bcf:citekey>
     <bcf:citekey order="7">mallakpour_2018</bcf:citekey>

@@ -36,8 +36,14 @@
 
         %3
         \setItemNumber{3}
-    \item Is it possible for two \textit{different} (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.
+    \item Is it possible for two \textit{different} (non-isomorphic) graphs to have the same number of vertices and the same number of edges? What if the degrees of the vertices in the two graphs are the same (so both graphs have vertices with degrees 1, 2, 2, 3, and 4, for example)? Draw two such graphs or explain why not.\\\\
+        Notice the picture below, $G_1 \ncong G_2$ but $V_1\cong V_2$  
 
+            \begin{center}
+            \includegraphics[width=.60\textwidth]{hw8_graphic3}
+            \end{center}
+
+        \newpage
         %7
         \setItemNumber{7}
         \item Which of the graphs below are bipartite? Justify your answers
@@ -45,6 +51,11 @@
             \begin{center}
             \includegraphics[width=.5\textwidth]{hw8_graphic1}
             \end{center}
+
+            \begin{center}
+            \includegraphics[width=.5\textwidth]{hw8_graphic4}
+            \end{center}
+
 
         %8
         \item For which $n\geq 3$ is the graph $C_n$ bipartite?\\
@@ -63,11 +74,11 @@
         \item What is the largest and smallest possible values for $|N(v)|$ and $|N[v]|$ for the graph in part (a)? Explain.\\
             $|N(b)| = |N(a)| = 2 \rightarrow$ largest value and $|N(d)| = 1 \rightarrow$ is the smallest. $|N[d]| = 4\rightarrow$ is the smallest value and $|N[b]| = |N[f]| = |N[c]|= 5$ are the largest value.
         \item Give an example of a graph $G=(V,E)$ (probably different than the one above) for which $N[v]=V$ for some vertex $v\in V$. Is there a graph for which $N[v]=V$ for all $v\in V$? Explain.\\
-        Do later
+            Yes, if were to imagine a graph that resembles the spokes on a bicycle, then $\forall v\in V\;|\;N[v]=V$.
         \item Give an example of a graph $G=(V,E)$ for which $N(v)=\emptyset$ for some $v\in V$. Is there an example of such a graph for which $N[u]=V$ for some other $u\in V$ as well? Explain.\\
-            Do later
+            It's possible for $N(v) = \emptyset$, for example, $V = \{a,b,c,d,\}\;|\;(v,u)\in E$. If $\{d\}$ doesn't have an edge, then $N(d) = \emptyset$ thus it's possible for $N(v) = \emptyset$
         \item Describe in words what $N(v)$ and $N[v]$ mean in general.\\
-            Do later
+            $N(v)$ is the neighborhood without the guard which $N(v)\in V$. $N[v]$ has a guard at the gate that keeps outsiders away, $N[v]\in V = \{v\}\cup N(v)$.
 
         \end{enumerate}
 
@@ -76,11 +87,11 @@
 
             \begin{enumerate}
                 \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $x-y$ is a non-zero multiple of 3.\\
-                    Do later
+                    This set is a collection of vertices with no edges making this set not a graph.
                 \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $y$ is a multiple of $x$.\\
-                    Do later
+                This set refers to a relationship where the graph direction-less and the edge relation are symmetric so any combination of edges will constitute sub graphs along the same edge.
                 \item The set $V={1,2,…,9}$ and the relationship $x\sim y$ when $0<|x−y|<3$.\\
-                    Do later
+                This set describes $x\sim y$ and edges are not adjacent.
 
             \end{enumerate}
         \end{enumerate}
@@ -96,7 +107,7 @@
         \item For each degree sequence below, decide whether it must always, must never, or could possibly be a degree sequence for a tree. Remember, a degree sequence lists out the degrees (number of edges incident to the vertex) of all the vertices in a graph in non-increasing order.\\
             \begin{enumerate}
                 \item (4,1,1,1,1)\\
-                    This sequence produce a star in which the \nth{4} degree vertex must be adjacent to the four vertices of degree 1.
+                    This sequence produce a star in which the \nth{4} degree vertex must be adjacent to the four vertices of degree 1. This sequence isn't a tree.
                 \item (3,3,2,1,1)\\
                     This sequence produces a cycle which isn't tree.
                 \item (2,2,2,1,1)\\
@@ -110,33 +121,44 @@
 
             \begin{enumerate}
                 \item (3,3,2,2,2)\\
-                    There are 5 vertices and 7 edges where the $v = e + 1$
-                \item (3,2,2,1,1,1)
-                \item (3,3,3,1,1,1)
-                \item (4,4,1,1,1,1,1,1)
+                    There are 5 vertices and 7 edges where the $V = E + 1 = 7$ but the number of vertices is more than what is needed to make a tree. This isn't a tree. 
+                \item (3,2,2,1,1,1)\\
+                    There are 5 edges where $E = v - 1 = 6 - 1$ is true, therefore this sequence is a tree.                    
+                \item (3,3,3,1,1,1)\\
+                    Since $E = 8$, this violates $V = E + 1$ where $6\neq 8 - 1$
+                \item (4,4,1,1,1,1,1,1)\\
+                    Since $E = 14\div 2 = 7$ and $V = 8$. $V = E + 1 = 7 + 1 = 8$. This sequence is a tree.
             \end{enumerate}
 
         %4
-        \item Suppose you have a graph with $v$ vertices and $e$ edges that satisfies $v=e+1$. Must the graph be a tree? Prove your answer.
+        \item Suppose you have a graph with $v$ vertices and $e$ edges that satisfies $v=e+1$. Must the graph be a tree? Prove your answer.\\
+            We can do a direct proof by solving rewriting the equation $v - 1 = e$ and solving for $v$. Applying algebra, we can derive $v = e + 1$ by adding one to the number of edges.
 
         %7
         \setItemNumber{7}
         \item We define a \textbf{\emph{forest}} to be a graph with no cycles.
             \begin{enumerate}
-                \item Explain why this is a good name. That is, explain why a forest is a union of trees.
-                \item Suppose $F$ is a forest consisting of $m$ trees and $v$ vertices. How many edges does $F$ have? Explain.
-                \item Prove that any graph $G$ with $v$ vertices and $e$ edges that satisfies $v<e+1$ must contain a cycle (i.e., not be a forest).
+                \item Explain why this is a good name. That is, explain why a forest is a union of trees.\\
+                    The term \textit{acyclic} stands for a graph with no cycle(s) but when roots are union'd, the result is a forest where the sub-graphs contain no cycles.
+                \item Suppose $F$ is a forest consisting of $m$ trees and $v$ vertices. How many edges does $F$ have? Explain.\\
+                    Let $F$ be a \textbf{\emph{forest}}, $V$ be vertices, and $M$ be trees. $F = V - M$ can be applied to get the number of edges in a \textbf{\emph{forest}}.
+                \item Prove that any graph $G$ with $v$ vertices and $e$ edges that satisfies $v<e+1$ must contain a cycle (i.e., not be a forest).\\
+                    This definition ($v < e + 1$) would never result in a \textbf{\emph{forest}} because the number of edges will be more than the number of vertices, thus there is bound to a cycle in this graph definition.\\
             \end{enumerate}
 
         %11
         \setItemNumber{11}
-        \item Let $T$ be a rooted tree that contains vertices $u$, $v$, and $w$ (among possibly others). Prove that if $w$ is a descendant of both $u$ and $v$, then $u$ is a descendant of $v$ or $v$ is a descendant of $u$.
+        \item Let $T$ be a rooted tree that contains vertices $u$, $v$, and $w$ (among possibly others). Prove that if $w$ is a descendant of both $u$ and $v$, then $u$ is a descendant of $v$ or $v$ is a descendant of $u$.\\
+                    If $w$ is a descendant of either $u$ or $v$ and knowing how sub-graphs are isomorphic to their parent graph's vertices (adjacent vertices to be specific). The hierarchical nature of sub-graphs, we can assume that $u$ or $v$ can be descendants of one another up and to the root (T).
 
-        \setItemNumber{13} Find all spanning trees of the graph below. How many different spanning trees are there? How many different spanning trees are there up to isomorphism (that is, if you grouped all the spanning trees by which are isomorphic, how many groups would you have)?
+        \setItemNumber{13} 
+        \item Find all spanning trees of the graph below. How many different spanning trees are there? How many different spanning trees are there up to isomorphism (that is, if you grouped all the spanning trees by which are isomorphic, how many groups would you have)?\\
 
             \begin{center}
             \includegraphics[width=.45\textwidth]{hw8_graphic2}
             \end{center}
+
+            We need to find the number of valid combination of trees in this graph. Isolating each triangle into three sections. In the square portion, we have 8 valid tree, $(3)(8) = 24$ possible trees, resulting in 6 possible spanning trees.
 
         \end{enumerate}
 	

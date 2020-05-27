@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.7)  23 MAY 2020 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.7)  27 MAY 2020 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1348,6 +1348,12 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+Overfull \hbox (2.37378pt too wide) in paragraph at lines 35--35
+\T1/lmr/m/n/12 some neg-a-tive out-comes such as an in-crease in floods in some
+ re-gions ([]Rice et al., []2016[]). 
+ []
+
+
 Underfull \vbox (badness 1852) has occurred while \output is active []
 
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -1369,7 +1375,16 @@ Overfull \hbox (77.5684pt too wide) in paragraph at lines 41--42
 [][]  
  []
 
-[2 <./img/stream_flow_cali.png>]
+
+Overfull \hbox (5.10353pt too wide) in paragraph at lines 46--46
+\T1/lmr/m/n/12 model (GCM) and RCP 8.5 also uses data de-rived from GCM to sim-
+u-late fu-ture stream- 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <./img/stream_flow_cali.png>]
 <./img/cdf_streamflow.png, id=57, 1050.92625pt x 520.94624pt>
 File: ./img/cdf_streamflow.png Graphic file (type png)
 <use ./img/cdf_streamflow.png>
@@ -1444,7 +1459,7 @@ Here is how much of TeX's memory you used:
  45173 multiletter control sequences out of 15000+600000
  601523 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,68p,2023b,4915s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,68p,2080b,4915s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -1453,7 +1468,7 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on research_paper.pdf (11 pages, 1150530 bytes).
+Output written on research_paper.pdf (11 pages, 1150687 bytes).
 PDF statistics:
  282 PDF objects out of 1000 (max. 8388607)
  252 compressed objects within 3 object streams
