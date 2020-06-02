@@ -2,7 +2,6 @@
 .text
 
 fibonacci:
-    pushq   %rax            #Save value in RAX
     cmp     $0,%rdi         #n == 0
     jz      ret1            
     cmp     $1,%rdi         #n == 1
@@ -19,4 +18,10 @@ ret2:
     ret                     #return 1 
 
 ret3:
-                            #Call something here
+    subq                    #n - 1
+                            # push difference to stack (n - 1)
+                            #call fibonacci
+                            #pop from 23 to rax
+                            #n - 2
+                            #push difference from 
+                            #Call 
