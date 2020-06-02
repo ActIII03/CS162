@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.7)  27 MAY 2020 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.7)  28 MAY 2020 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1348,35 +1348,32 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (2.37378pt too wide) in paragraph at lines 35--35
+Overfull \hbox (2.37378pt too wide) in paragraph at lines 37--38
 \T1/lmr/m/n/12 some neg-a-tive out-comes such as an in-crease in floods in some
  re-gions ([]Rice et al., []2016[]). 
  []
 
-
-Underfull \vbox (badness 1852) has occurred while \output is active []
-
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-<./img/stream_flow_cali.png, id=44, 959.585pt x 930.47626pt>
+<./img/stream_flow_cali.png, id=47, 959.585pt x 930.47626pt>
 File: ./img/stream_flow_cali.png Graphic file (type png)
 <use ./img/stream_flow_cali.png>
-Package pdftex.def Info: ./img/stream_flow_cali.png  used on input line 41.
-(pdftex.def)             Requested size: 335.85977pt x 325.67157pt.
+Package pdftex.def Info: ./img/stream_flow_cali.png  used on input line 44.
+(pdftex.def)             Requested size: 383.8272pt x 372.18391pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 42.
+(caption)                particular \caption on input line 45.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (77.5684pt too wide) in paragraph at lines 41--42
+Overfull \hbox (193.47824pt too wide) in paragraph at lines 44--45
 [][]  
  []
 
 
-Overfull \hbox (5.10353pt too wide) in paragraph at lines 46--46
+Overfull \hbox (5.10353pt too wide) in paragraph at lines 49--49
 \T1/lmr/m/n/12 model (GCM) and RCP 8.5 also uses data de-rived from GCM to sim-
 u-late fu-ture stream- 
  []
@@ -1385,19 +1382,19 @@ u-late fu-ture stream-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./img/stream_flow_cali.png>]
-<./img/cdf_streamflow.png, id=57, 1050.92625pt x 520.94624pt>
+<./img/cdf_streamflow.png, id=58, 1050.92625pt x 520.94624pt>
 File: ./img/cdf_streamflow.png Graphic file (type png)
 <use ./img/cdf_streamflow.png>
-Package pdftex.def Info: ./img/cdf_streamflow.png  used on input line 50.
+Package pdftex.def Info: ./img/cdf_streamflow.png  used on input line 53.
 (pdftex.def)             Requested size: 420.36307pt x 208.3748pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 51.
+(caption)                particular \caption on input line 54.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (125.9367pt too wide) in paragraph at lines 50--51
+Overfull \hbox (193.87912pt too wide) in paragraph at lines 53--54
  [][] 
  []
 
@@ -1405,19 +1402,19 @@ Overfull \hbox (125.9367pt too wide) in paragraph at lines 50--51
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3 <./img/cdf_streamflow.png>]
-<./img/conus_trend.png, id=69, 984.67876pt x 623.32875pt>
+<./img/conus_trend.png, id=71, 984.67876pt x 623.32875pt>
 File: ./img/conus_trend.png Graphic file (type png)
 <use ./img/conus_trend.png>
-Package pdftex.def Info: ./img/conus_trend.png  used on input line 58.
+Package pdftex.def Info: ./img/conus_trend.png  used on input line 60.
 (pdftex.def)             Requested size: 393.86452pt x 249.32707pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 59.
+(caption)                particular \caption on input line 61.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (99.43816pt too wide) in paragraph at lines 58--59
+Overfull \hbox (167.38057pt too wide) in paragraph at lines 60--61
  [][] 
  []
 
@@ -1429,23 +1426,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [8
 
 ]
-Overfull \hbox (9.093pt too wide) in paragraph at lines 126--127
+Overfull \hbox (9.093pt too wide) in paragraph at lines 129--130
 \T1/lmr/m/n/12 stream^^]ow-[]and-[]water-[]cycle ? qt-[]science _ center _ obje
 cts = 0 # qt-[]science _ center _ 
  []
 
 [9] [10]
-Overfull \hbox (10.96819pt too wide) in paragraph at lines 179--180
+Overfull \hbox (10.96819pt too wide) in paragraph at lines 182--183
 []\T1/lmr/m/n/12 Link: []$https : / / news . stanford . edu / 2020 / 01 / 27 / 
 rain-[]less-[]snow-[]increases-[]^^]ooding/$[]  
  []
 
 AED endfloat: Processing end Figures and Tables [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
  (./research_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 187.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
 Package rerunfilecheck Info: File `research_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 2AB21A5E384C4321D55195B7C0DE7A57;224.
 Package logreq Info: Writing requests to 'research_paper.run.xml'.
@@ -1453,13 +1450,13 @@ Package logreq Info: Writing requests to 'research_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30557 strings out of 481239
- 604530 string characters out of 5920378
- 1305833 words of memory out of 5000000
- 45173 multiletter control sequences out of 15000+600000
- 601523 words of font info for 66 fonts, out of 8000000 for 9000
+ 30561 strings out of 481239
+ 604578 string characters out of 5920378
+ 1305803 words of memory out of 5000000
+ 45177 multiletter control sequences out of 15000+600000
+ 604522 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,68p,2080b,4915s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,79p,1833b,4915s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -1468,10 +1465,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on research_paper.pdf (11 pages, 1150687 bytes).
+Output written on research_paper.pdf (11 pages, 1149469 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 252 compressed objects within 3 object streams
+ 285 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
  96 named destinations out of 1000 (max. 500000)
  68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

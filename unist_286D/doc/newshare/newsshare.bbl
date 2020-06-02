@@ -1,0 +1,54 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{oilpeak}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e2f6b4fab9340b17c3b6bcf280207f91}{%
+           family={Bardi},
+           familyi={B\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \strng{fullhash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \strng{bibnamehash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \strng{authorbibnamehash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \strng{authornamehash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \strng{authorfullhash}{e2f6b4fab9340b17c3b6bcf280207f91}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{48}
+      \field{journaltitle}{Energy Research and Social Science}
+      \field{title}{Peak oil, 20 years later: Failed prediction or useful insight?}
+      \field{year}{2019}
+      \field{pages}{257\bibrangedash 261}
+      \range{pages}{5}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
