@@ -10,7 +10,7 @@ int main(void)
     int n = 0;
 
     printf("Please input an integer (n) to get the nth sequence of the fibonacci:\n");
-    scanf("%d", n);
+    scanf("%d", &n);
 
     printf("Sequence:\n%ld\n", fibonacci(n));
 

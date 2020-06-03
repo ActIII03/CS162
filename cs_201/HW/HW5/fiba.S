@@ -7,8 +7,6 @@ fibonacci:
     cmp     $1,%rdi         #n == 1
     je      ret2
     jmp     ret3
-                            #Pop something here
-    ret
 
 ret1:
     ret                     #return 0
@@ -18,10 +16,13 @@ ret2:
     ret                     #return 1 
 
 ret3:
-    subq                    #n - 1
-                            # push difference to stack (n - 1)
-                            #call fibonacci
-                            #pop from 23 to rax
-                            #n - 2
-                            #push difference from 
-                            #Call 
+    dec     %rdi            #n - 1
+    push    %rdi            # push difference to stack (n - 1)
+    call    fibonacci       #Call fibonacci
+    pop     %rdi            #pop from 23 to rax
+    subq    $2,%rdi         #n - 2
+    movq    %rdi,%rax
+    call    fibonacci       #Call fibonacci
+    pop     %rax            
+    addq    %rdi,%rax       #add return values
+    ret
