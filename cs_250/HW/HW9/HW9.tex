@@ -29,21 +29,21 @@
 
         \item \textit{Proof}:
 
-        In my program, the set of bit strings of length $n$ (variable: power\_set\_size) is used to expressed $\{0, 1\}^n$. This list is used as postional reference for each element of the original set $A$ in which we generating the power set for. The positional reference is a yes (1) or no (0) reference to the set of subset ($\mathcal{P}(A)$). To create a relationship between the bit string and $A$ we need to create a bijective relationship.
+        In my program, the set of bit strings of length $n$ (variable: power\_set\_size) is used to expressed $\{0, 1\}^n$. This list is used as positional reference for each element of the original set $A$ in which we generating the power set for. The positional reference is a yes (1) or no (0) reference to the set of subset ($\mathcal{P}(A)$). To create a relationship between the bit string and $A$ we need to create a bijective relationship.
 
         We first define $f: \{0, 1\}^n\rightarrow \mathcal{P}(A)$ as $f((a_1, a_2,...,a_n)) = \{i|a_i = 1\}$. What this function means is that bit strings map to the set of all positions 1's in the string. For example, n = 4, bit string is (1, 0, 1, 1), this would map to to $\{1, 3, 4\}$. To highlight bijectivity, we need to prove injection and surjection
 
         \item Injective:
 
-        Suppose that $x$ and $y$ both map to one subset $S\in \mathcal{P}(A)$. $S$ defines the yes (1) or no (0) postional reference to this single subset. If $f(x) = f(y) = S$, $x$ and $y$ must have 1' in exactly the same position for the subset to exist. $n$, $x$, and $y$ are identical because bit string must only contain 0's and 1's. Therfore $f$ is injective because at the most 1 bit string can map to a single subset
+            Suppose that $x$ and $y$ both map to one subset $S\in \mathcal{P}(A)$. $S$ defines the yes (1) or no (0) positional reference to this single subset. If $f(x) = f(y) = S$, $x$ and $y$ must have 1' in exactly the same position for the subset to exist (This is my special conditional statement in powerset.c: Line 63). $n$, $x$, and $y$ are identical because bit string must only contain 0's and 1's. Therefore $f$ is injective because at the most 1 bit string can map to a single subset
 
         \item Surjective
 
-        Examine a subset $S\in \mathcal{P}(A)$. Again, $S$ only contains integers between 1 and $n$, inclusively speaking. The list $x = (x_1, x_2,...,x_n)$ can be made such that all for all $i\in S$, $x_i = $, and all others are 0. $f$ state that list $x$ will map exactly to $S$. Thus, since all subsets $S$ are mapped to by some list $x$ representing a bbbit string of length $n$, $f$ is surjective.
+        Examine a subset $S\in \mathcal{P}(A)$. Again, $S$ only contains integers between 1 and $n$, inclusively speaking. The list $x = (x_1, x_2,...,x_n)$ can be made such that all for all $i\in S$, $x_i = $, and all others are 0. $f$ state that list $x$ will map exactly to $S$. Thus, since all subsets $S$ are mapped to by some list $x$ representing a bit string of length $n$, $f$ is surjective.
 
-        With these two existing relationship of mappings, a bijective relationship exist between the set of bit strings of length $n$ and the $\mathcal{P}(A)$ so thes 2 sets have equal cardinality.
+        With these two existing relationship of mappings, a bijective relationship exist between the set of bit strings of length $n$ and the $\mathcal{P}(A)$ so these 2 sets have equal cardinality.
 
-        \end{enuemrate}
+        \end{enumerate}
 
 
 
