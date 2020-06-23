@@ -1,7 +1,16 @@
 #include <stdio.h>
 
-int foo(void);
+long convertBinary(char* a, long start, long end)
+{
+    if(start > end)
+        return 0;
+    if(a[end] == 48)
+        return (convertBinary(a, start, end - 1) << 1);
+    else
+        return (convertBinary(a, start, end - 1) << 1) | 1;
+}
 
 void main(void){
-    printf("%d\n", foo());
+
+    char integer[:wq
 }
