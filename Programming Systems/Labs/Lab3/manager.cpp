@@ -7,7 +7,7 @@ using namespace std;
 //FINISH THIS FUNCTION.
 //HINT - it needs an initialization list to set up the
 //managers information
-manager::manager( const salaried_employee & managers_information) 
+manager::manager( const salaried_employee & managers_information): salaried_employee(managers_information)
  {
     cout <<"\nPlease enter the group name: ";
     group_name.read();
@@ -16,7 +16,7 @@ manager::manager( const salaried_employee & managers_information)
 
     //COMPLETE THIS FUNCTION - allocating the dynamic array of
     //employees in this group:
-
+    group = new employee[num_employees];
 
 }
 
@@ -25,6 +25,12 @@ manager::manager( const salaried_employee & managers_information)
 //Deallocate the array of employee pointers
 manager::~manager()
 {
+    for(int index = 0; index < num_employees; ++index)
+    {
+        if(group[index])
+            delete group[index];
+    }
+    delete [] group;
 }
 
 // *********** STOP ************* 

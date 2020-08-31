@@ -25,8 +25,15 @@ class list
 
      /* *****************YOUR TURN! ******************************** */
      /* place your prototype here */
+    int remove_larger_than_first();
+    int display_reverse();
+    int duplicate(list & source);
      
      private:
          node * head;   //notice there is both a head
          node * tail;   //and a tail, common for DLL
+
+    int remove_larger_than_first(node * & head, int first_data);
+    int display_reverse(node * current); 
+    int duplicate(node * source_curr, node *& dest, node *& dest_prev);
 };

@@ -6,18 +6,14 @@ using namespace collection;
 //where they are appropriate
 
 //Step 6a - implement the default constructor
-binary_tree::binary_tree()
+binary_tree::binary_tree(): root(NULL)
 {
-
-
 }
 
 //Step 6b - impelment the BST default constructor
 //BST constructor
-BST::BST()
+BST::BST(): binary_tree(NULL), balance_factor(0)
 {
-
-
 }
 
 //Step 6c - impelment the store default constructor

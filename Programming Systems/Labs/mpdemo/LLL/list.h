@@ -25,7 +25,6 @@ class list
     void hello();
     int display_unique();
     int average_unique();
-    int remove_duplicate();
 
    private:		//notice there is both a head and a tail!
       node * head;
@@ -35,6 +34,5 @@ class list
     int display_unique(node * head, node * first_item);
     bool is_unique(node * head, node * first_item, node * searched_item);
     int average_unique(node * head, node * first_item, int & sum);
-    int remove_duplicate(node * & head, node * first_item);
 
 };

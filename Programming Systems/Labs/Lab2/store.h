@@ -43,7 +43,7 @@ class binary_tree
       public:
              binary_tree();     			
 			 //Step 5b - Put the Copy Constructor prototype here
-
+            binary_tree(const binary_tree &);
              ~binary_tree();    
              void display_all();  
       protected:

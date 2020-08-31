@@ -7,10 +7,37 @@ using namespace std;
 //calling routine. If you throw an exception without a
 //try block, then add an exception specification list
 
+// step (1): Reasons for exception handling:
+// (i) integer length longer than expected
+// (ii) when number contains non-numeric values
+// (iii) character character/array contains numeric values
+// (iv) Empty field
+// (v) Exceed buffer size
+//
+// step (2): Use for structures for exception handling. 
+// Description: Structures provide a mnemonic names corresponding with errors thrown. Provides a use way to rember.
+//
+// step (3): List functions from previous labs that may encounter errors where exception handling may come useful.
 
 //Step 5a - throw an exception if there is an invalid response
 bool again()
 {
+    //char response;
+    //cout << " Please enter a response (Y/N): ";
+    //cin >> response;
+    //cin.ignore(100, '\n'(;
+
+    try{
+
+        char response;
+        bool error = false;
+        cout << " Please enter a response (Y/N): ";
+        cin >> response;
+        cin.ignore(100, '\n');
+        if( toupper(response) != 'Y' && toupper(response) != 'N')
+            throw(error);
+        
+    }
 }
 
 //Step 5b - implement the address constructor and throw an

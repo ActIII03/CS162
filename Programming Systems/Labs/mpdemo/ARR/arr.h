@@ -21,8 +21,24 @@ class table
 
     /* *****************YOUR TURN! ******************************** */
     //Write your function prototype here:
+    int display_arr();
+    int average_even(table & new_arr);
+    int remove_last_LLL();
+    //mpdemo question - return the most repeated element count if not unique
+    int all_unique();
 
     private:
        node ** head; 	//dynamically allocated array
        int size; 	//the array size
+
+    int display_arr(node ** head, int & index);
+    int display(node * head);
+    int average_even(node ** source, node ** dest, int & index, float & sum);
+    int average_even(node * source, node *& dest, float & sum); 
+    int remove_last_LLL(node *& current);
+    //mpdemo question
+    int all_unique(node * head[]);
+    int traverse_ARR(node ** head, int & index);
+    int traverse_LLL(node * head);
+    int traverse_unique(node * head, int search);
 };

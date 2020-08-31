@@ -7,9 +7,9 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    int result = object.remove_duplicate();
+    int result = object.average_unique();
 
-    cout << "Number of non-distinct items removed: " << result << endl;
+    cout << "Average of unique: " << result << endl;
 
     object.display();  //displays the LLL again!
     
